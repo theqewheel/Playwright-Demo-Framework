@@ -1,0 +1,23 @@
+<suite name="Playwright Demo Tests">
+    
+    <test name="Sample Tests for Learning">
+    	
+    	<!--grouped tests defined here-->
+    	<groups>		
+    		<run>
+    			<include name="smoke"/>
+    			<exclude name="regression"/>
+    			<include name="regression1"/>
+    			<exclude name="samples"/>
+    		</run>
+    	</groups>
+    
+    	<!--test classes defined here-->
+        <classes>
+        	<class name="test.TestngSampleTest1"/>
+			<class name="test.TestngSampleTest2"/>
+        </classes>
+        
+    </test>
+    
+</suite>

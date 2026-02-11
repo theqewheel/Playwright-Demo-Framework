@@ -4,6 +4,7 @@ target/
 # Playwright
 playwright-report/
 test-results/
+test-output/
 
 # Allure
 allure-results/

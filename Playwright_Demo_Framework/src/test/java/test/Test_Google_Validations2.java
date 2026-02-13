@@ -6,9 +6,9 @@ import com.microsoft.playwright.Locator;
 import com.microsoft.playwright.Page;
 import com.microsoft.playwright.options.AriaRole;
 
-import base.Basetest;
+import base.BaseTest;
 
-public class Test_Google_Validations2 extends Basetest {
+public class Test_Google_Validations2 extends BaseTest {
 	
 	@Test
 	public void verifyPageTitle2() {

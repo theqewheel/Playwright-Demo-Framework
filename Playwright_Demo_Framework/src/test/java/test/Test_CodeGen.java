@@ -5,9 +5,9 @@ import org.testng.annotations.Test;
 import com.microsoft.playwright.Page;
 import com.microsoft.playwright.options.AriaRole;
 
-import base.Basetest;
+import base.BaseTest;
 
-public class Test_CodeGen extends Basetest {
+public class Test_CodeGen extends BaseTest {
 
 	@Test
 	void test() {

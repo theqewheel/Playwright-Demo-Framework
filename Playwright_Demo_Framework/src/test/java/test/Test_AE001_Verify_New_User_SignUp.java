@@ -10,9 +10,9 @@ import com.microsoft.playwright.Page;
 import com.microsoft.playwright.assertions.PlaywrightAssertions;
 import com.microsoft.playwright.options.AriaRole;
 
-import base.Basetest;
+import base.BaseTest;
 
-public class Test_AE001_Verify_New_User_SignUp extends Basetest{
+public class Test_AE001_Verify_New_User_SignUp extends BaseTest{
 	
 	//constants
 	static String app_Base_URL = "https://automationexercise.com/";

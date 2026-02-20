@@ -6,13 +6,13 @@ import java.util.Properties;
 import org.slf4j.Logger;
 import org.testng.ISuite;
 
-import framework.utils.LoggerUtil;
+import framework.logging.LogManager;
 
 
 public class ConfigManager {
 	
 	private static Properties properties = new Properties();
-	protected static final Logger logger = LoggerUtil.getLogger(ConfigManager.class);
+	protected static final Logger logger = LogManager.getLogger(ConfigManager.class);
 	private static String environment;
 	
 	static {
@@ -35,12 +35,11 @@ public class ConfigManager {
 	
 	}
 	
-	
 	public static String getProperty(String key) {
 		return properties.getProperty(key);
 	}
 	
-	public static String getBaseURL(String envFromXML) {	
+	public static String getBaseURL() {	
 		return getProperty(getEnvironment() + ".base.url");
 	}
 	
@@ -57,7 +56,7 @@ public class ConfigManager {
 		//System property - first priority (CLI or CI)
 		String browser = System.getProperty("browser"); 
 		
-		if(browser != null && !browser.isEmpty()) {
+		if(browser == null || browser.isEmpty()) {
 			browser = properties.getProperty("browser", "chromium"); //Default to chromium if not specified
 		}
 		

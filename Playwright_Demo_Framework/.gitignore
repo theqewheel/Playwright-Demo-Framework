@@ -1,23 +1,32 @@
 # Maven
 target/
 
-# Playwright
-playwright-report/
-test-results/
+# Eclipse
+*.classpath
+*.project
+*.settings/
 test-output/
+
+# Compiled
+*.class
+*.jar
+
+# Logs
+*.log
+!automation.log
 
 # Allure
 allure-results/
 allure-report/
+.allure
 
-# Logs
-*.log
+# Playwright
+playwright-report/
+test-results/
 
-# Eclipse
-.classpath
-.project
-.settings/
-
-# OS files
+# OS
 .DS_Store
 Thumbs.db
+
+# Junit Reports (if any)
+surefire-reports/

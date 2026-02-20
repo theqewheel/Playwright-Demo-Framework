@@ -12,74 +12,37 @@ import com.microsoft.playwright.Page;
 import com.microsoft.playwright.Playwright;
 
 import framework.config.ConfigManager;
-import framework.utils.LoggerUtil;
+import framework.drivers.DriverManager;
+import framework.logging.LogManager;
 
 public class BaseTest {
-	protected Playwright playwright;
-	protected Browser browser;
+	
 	protected Page page;
 	protected Logger logger;
-	protected String baseURL = "https://automationexercise.com/";
 	
-
 	@BeforeMethod
-	@Parameters({"environment"})
-	
-	public void setup(@Optional String envFromXML) {
+	public void setup() {
 		
-		logger = LoggerUtil.getLogger(this.getClass());
+		logger = LogManager.getLogger(this.getClass());
 		
-		playwright = Playwright.create();
+		DriverManager.initDriver();
 		
-		//Set the Test-ID attribute
-		playwright.selectors().setTestIdAttribute(ConfigManager.getProperty("test-id"));
+		page = DriverManager.getPage();
 		
-		switch (ConfigManager.getProperty("browser").toLowerCase()) {
-			case "chrome":
-				browser = playwright.chromium()
-						.launch(new BrowserType
-								.LaunchOptions()
-								//.setChannel("chrome")
-								.setHeadless(Boolean.parseBoolean(ConfigManager.getProperty("headless")))
-								.setSlowMo(1000));
-				break;
-			case "firefox":	
-				browser = playwright.firefox()
-						.launch(new BrowserType
-								.LaunchOptions()
-								.setHeadless(Boolean.parseBoolean(ConfigManager.getProperty("headless")))
-								.setSlowMo(1000));
-				break;
-			case "webkit":
-				browser = playwright.webkit()
-						.launch(new BrowserType
-								.LaunchOptions()
-								.setChannel("webkit")
-								.setHeadless(Boolean.parseBoolean(ConfigManager.getProperty("headless")))
-								.setSlowMo(1000));
-				break;
-				
-			default:
-				logger.error("Unsupported browser specified in config.properties: " + ConfigManager.getProperty("browser"));
-				logger.info("Supported browsers are: chrome, firefox, webkit");
-				logger.error("Runtime Excepton:",new RuntimeException("Unsupported browser specified in config.properties: " + ConfigManager.getProperty("browser")));
-		}
-		
-		
-		page = browser.newPage();
-		logger.info("Browser launched successfully");
-		page.navigate(ConfigManager.getBaseURL(envFromXML));
-		logger.info("Navigated to base URL: " + baseURL);
+		logger.info("Initial SETUP is completed.");
 
 	}
 
 	@AfterMethod
 	public void teardown() {
-		if (browser != null)
-			browser.close();
-		if (playwright != null)
-			playwright.close();
-		logger.info("This is the teardown method");
+		
+		DriverManager.quitDriver();
+		
+		logger.info("Driver SHUTDOWN is successfull !");
+	}
+	
+	protected byte[] captureScreenshot() {
+		return page.screenshot(new Page.ScreenshotOptions().setFullPage(true));
 	}
 
 }

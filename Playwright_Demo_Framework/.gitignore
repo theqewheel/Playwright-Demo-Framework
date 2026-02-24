@@ -2,7 +2,7 @@
 target/
 
 # Eclipse
-*.classpath
+*.classpath*
 *.project
 *.settings/
 test-output/
@@ -14,6 +14,8 @@ test-output/
 # Logs
 *.log
 !automation.log
+/trace
+*.zip
 
 # Allure
 allure-results/

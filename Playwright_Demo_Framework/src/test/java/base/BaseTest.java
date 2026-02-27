@@ -1,42 +1,48 @@
 package base;
 
-import java.util.Arrays;
-
+import org.slf4j.Logger;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Optional;
+import org.testng.annotations.Parameters;
 
 import com.microsoft.playwright.Browser;
 import com.microsoft.playwright.BrowserType;
 import com.microsoft.playwright.Page;
 import com.microsoft.playwright.Playwright;
 
-public class BaseTest {
-	protected Playwright playwright;
-	protected Browser browser;
-	protected Page page;
-	protected String baseURL = "https://automationexercise.com/";
-	
+import framework.config.ConfigManager;
+import framework.drivers.DriverManager;
+import framework.logging.LogManager;
 
+public class BaseTest {
+	
+	protected Page page;
+	protected Logger logger;
+	
 	@BeforeMethod
 	public void setup() {
-		playwright = Playwright.create();
-		browser = playwright.chromium().launch(new BrowserType.LaunchOptions().setHeadless(false)
-				// .setChannel("chrome")
-				.setSlowMo(1000).setArgs(Arrays.asList("--start-maximized")));
-		page = browser.newPage();
-		System.out.println("Browser launched successfully");
-		page.navigate(baseURL);
-		System.out.println("Navigated to base URL: " + baseURL);
+		
+		logger = LogManager.getLogger(this.getClass());
+		
+		DriverManager.initDriver();
+		
+		page = DriverManager.getPage();
+		
+		logger.info("Initial SETUP is completed.");
 
 	}
 
 	@AfterMethod
 	public void teardown() {
-		if (browser != null)
-			browser.close();
-		if (playwright != null)
-			playwright.close();
-		System.out.println("This is the teardown method");
+		
+		DriverManager.quitDriver();
+		
+		logger.info("Driver SHUTDOWN is successfull !");
+	}
+	
+	protected byte[] captureScreenshot() {
+		return page.screenshot(new Page.ScreenshotOptions().setFullPage(true));
 	}
 
 }

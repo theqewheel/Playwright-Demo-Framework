@@ -1,8 +1,8 @@
-package test;
+package samples;
 
 import org.testng.annotations.Test;
 
-public class TestngSampleTest2 extends TestngSampleBaseTest {
+public class Test_Sample_TestngSampleTest2 extends Test_Sample_TestngSampleBaseTest {
 
 	@Test (groups = {"regression1"})
 	public void testcase_05() {

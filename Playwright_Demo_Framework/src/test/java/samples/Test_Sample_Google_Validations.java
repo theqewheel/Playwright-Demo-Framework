@@ -1,4 +1,4 @@
-package test;
+package samples;
 
 import org.testng.annotations.Test;
 
@@ -8,7 +8,7 @@ import com.microsoft.playwright.options.AriaRole;
 
 import base.BaseTest;
 
-public class Test_Google_Validations extends BaseTest {
+public class Test_Sample_Google_Validations extends BaseTest {
 	
 	@Test
 	public void verifyPageTitle() {

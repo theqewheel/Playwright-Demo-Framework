@@ -1,11 +1,11 @@
-package test;
+package samples;
 
 import com.microsoft.playwright.Browser;
 import com.microsoft.playwright.BrowserType;
 import com.microsoft.playwright.Page;
 import com.microsoft.playwright.Playwright;
 
-public class Test1 {
+public class Test_Sample_Test1 {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub

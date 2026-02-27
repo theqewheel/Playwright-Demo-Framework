@@ -1,4 +1,4 @@
-package test;
+package samples;
 
 import org.testng.annotations.Test;
 
@@ -7,7 +7,7 @@ import com.microsoft.playwright.options.AriaRole;
 
 import base.BaseTest;
 
-public class Test_CodeGen extends BaseTest {
+public class Test_Sample_CodeGen extends BaseTest {
 
 	@Test
 	void test() {

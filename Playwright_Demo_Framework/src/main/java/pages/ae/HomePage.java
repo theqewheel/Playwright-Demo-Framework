@@ -1,4 +1,4 @@
-package framework.pages.ae;
+package pages.ae;
 
 import java.util.regex.Pattern;
 

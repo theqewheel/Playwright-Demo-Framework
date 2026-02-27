@@ -1,4 +1,4 @@
-package test;
+package samples;
 
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterMethod;
@@ -10,7 +10,7 @@ import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
-public class TestngSampleBaseTest {
+public class Test_Sample_TestngSampleBaseTest {
 
 	@BeforeSuite (alwaysRun = true)
 	public void beforeSuite() {

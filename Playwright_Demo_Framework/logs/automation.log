@@ -1,0 +1,1129 @@
+2026-02-20 12:38:14 [main] DEBUG [] [] framework.config.ConfigManager - headless = false
+2026-02-20 12:38:14 [main] DEBUG [] [] framework.config.ConfigManager - screenshot.on.pass = true
+2026-02-20 12:38:14 [main] DEBUG [] [] framework.config.ConfigManager - test-id = "data-qa"
+2026-02-20 12:38:14 [main] DEBUG [] [] framework.config.ConfigManager - dev.base.url = https://automationexercise-dev.com
+2026-02-20 12:38:14 [main] DEBUG [] [] framework.config.ConfigManager - qa.base.url = https://automationexercise.com
+2026-02-20 12:38:14 [main] DEBUG [] [] framework.config.ConfigManager - screenshot.on.fail = true
+2026-02-20 12:38:14 [main] DEBUG [] [] framework.config.ConfigManager - browser = chrome
+2026-02-20 12:38:14 [main] DEBUG [] [] framework.config.ConfigManager - env = QA
+2026-02-20 12:38:14 [main] DEBUG [] [] framework.config.ConfigManager - prod.base.url = https://automationexercise-prod.com
+2026-02-20 12:38:14 [main] WARN  [] [] framework.config.ConfigManager - Environment not initialized. Defaulting to 'qa'
+2026-02-20 12:38:14 [main] INFO  [] [] framework.drivers.DriverManager - Initiating Driver . . . . . 
+2026-02-20 12:38:28 [main] ERROR [] [] framework.drivers.DriverManager - Exception during the driver initiation
+java.lang.NullPointerException: Cannot invoke "String.toLowerCase()" because "browser" is null
+	at framework.config.ConfigManager.getBrowser(ConfigManager.java:63)
+	at framework.drivers.DriverManager.initBrowser(DriverManager.java:71)
+	at framework.drivers.DriverManager.initDriver(DriverManager.java:38)
+	at base.BaseTest.setup(BaseTest.java:28)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethodConsideringTimeout(MethodInvocationHelper.java:71)
+	at org.testng.internal.invokers.ConfigInvoker.invokeConfigurationMethod(ConfigInvoker.java:400)
+	at org.testng.internal.invokers.ConfigInvoker.invokeConfigurations(ConfigInvoker.java:333)
+	at org.testng.internal.invokers.TestInvoker.runConfigMethods(TestInvoker.java:846)
+	at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:611)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
+	at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
+	at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:1005)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
+	at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
+	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+	at org.testng.TestRunner.privateRun(TestRunner.java:744)
+	at org.testng.TestRunner.run(TestRunner.java:616)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:421)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:413)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:373)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:312)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1274)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1208)
+	at org.testng.TestNG.runSuites(TestNG.java:1112)
+	at org.testng.TestNG.run(TestNG.java:1079)
+	at org.apache.maven.surefire.testng.TestNGExecutor.run(TestNGExecutor.java:155)
+	at org.apache.maven.surefire.testng.TestNGDirectoryTestSuite.executeMulti(TestNGDirectoryTestSuite.java:169)
+	at org.apache.maven.surefire.testng.TestNGDirectoryTestSuite.execute(TestNGDirectoryTestSuite.java:88)
+	at org.apache.maven.surefire.testng.TestNGProvider.invoke(TestNGProvider.java:137)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:385)
+	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:162)
+	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:507)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495)
+2026-02-20 12:38:28 [main] INFO  [] [] framework.drivers.DriverManager - Initiating Driver . . . . . 
+2026-02-20 12:38:29 [main] ERROR [] [] framework.drivers.DriverManager - Exception during the driver initiation
+java.lang.NullPointerException: Cannot invoke "String.toLowerCase()" because "browser" is null
+	at framework.config.ConfigManager.getBrowser(ConfigManager.java:63)
+	at framework.drivers.DriverManager.initBrowser(DriverManager.java:71)
+	at framework.drivers.DriverManager.initDriver(DriverManager.java:38)
+	at base.BaseTest.setup(BaseTest.java:28)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethodConsideringTimeout(MethodInvocationHelper.java:71)
+	at org.testng.internal.invokers.ConfigInvoker.invokeConfigurationMethod(ConfigInvoker.java:400)
+	at org.testng.internal.invokers.ConfigInvoker.invokeConfigurations(ConfigInvoker.java:333)
+	at org.testng.internal.invokers.TestInvoker.runConfigMethods(TestInvoker.java:846)
+	at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:611)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
+	at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
+	at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:1005)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
+	at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
+	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+	at org.testng.TestRunner.privateRun(TestRunner.java:744)
+	at org.testng.TestRunner.run(TestRunner.java:616)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:421)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:413)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:373)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:312)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1274)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1208)
+	at org.testng.TestNG.runSuites(TestNG.java:1112)
+	at org.testng.TestNG.run(TestNG.java:1079)
+	at org.apache.maven.surefire.testng.TestNGExecutor.run(TestNGExecutor.java:155)
+	at org.apache.maven.surefire.testng.TestNGDirectoryTestSuite.executeMulti(TestNGDirectoryTestSuite.java:169)
+	at org.apache.maven.surefire.testng.TestNGDirectoryTestSuite.execute(TestNGDirectoryTestSuite.java:88)
+	at org.apache.maven.surefire.testng.TestNGProvider.invoke(TestNGProvider.java:137)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:385)
+	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:162)
+	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:507)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495)
+2026-02-20 12:38:29 [main] INFO  [] [] framework.drivers.DriverManager - Initiating Driver . . . . . 
+2026-02-20 12:38:30 [main] ERROR [] [] framework.drivers.DriverManager - Exception during the driver initiation
+java.lang.NullPointerException: Cannot invoke "String.toLowerCase()" because "browser" is null
+	at framework.config.ConfigManager.getBrowser(ConfigManager.java:63)
+	at framework.drivers.DriverManager.initBrowser(DriverManager.java:71)
+	at framework.drivers.DriverManager.initDriver(DriverManager.java:38)
+	at base.BaseTest.setup(BaseTest.java:28)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethodConsideringTimeout(MethodInvocationHelper.java:71)
+	at org.testng.internal.invokers.ConfigInvoker.invokeConfigurationMethod(ConfigInvoker.java:400)
+	at org.testng.internal.invokers.ConfigInvoker.invokeConfigurations(ConfigInvoker.java:333)
+	at org.testng.internal.invokers.TestInvoker.runConfigMethods(TestInvoker.java:846)
+	at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:611)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
+	at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
+	at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:1005)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
+	at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
+	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+	at org.testng.TestRunner.privateRun(TestRunner.java:744)
+	at org.testng.TestRunner.run(TestRunner.java:616)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:421)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:413)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:373)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:312)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1274)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1208)
+	at org.testng.TestNG.runSuites(TestNG.java:1112)
+	at org.testng.TestNG.run(TestNG.java:1079)
+	at org.apache.maven.surefire.testng.TestNGExecutor.run(TestNGExecutor.java:155)
+	at org.apache.maven.surefire.testng.TestNGDirectoryTestSuite.executeMulti(TestNGDirectoryTestSuite.java:169)
+	at org.apache.maven.surefire.testng.TestNGDirectoryTestSuite.execute(TestNGDirectoryTestSuite.java:88)
+	at org.apache.maven.surefire.testng.TestNGProvider.invoke(TestNGProvider.java:137)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:385)
+	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:162)
+	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:507)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495)
+2026-02-20 12:38:30 [main] INFO  [] [] framework.drivers.DriverManager - Initiating Driver . . . . . 
+2026-02-20 12:38:30 [main] ERROR [] [] framework.drivers.DriverManager - Exception during the driver initiation
+java.lang.NullPointerException: Cannot invoke "String.toLowerCase()" because "browser" is null
+	at framework.config.ConfigManager.getBrowser(ConfigManager.java:63)
+	at framework.drivers.DriverManager.initBrowser(DriverManager.java:71)
+	at framework.drivers.DriverManager.initDriver(DriverManager.java:38)
+	at base.BaseTest.setup(BaseTest.java:28)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethodConsideringTimeout(MethodInvocationHelper.java:71)
+	at org.testng.internal.invokers.ConfigInvoker.invokeConfigurationMethod(ConfigInvoker.java:400)
+	at org.testng.internal.invokers.ConfigInvoker.invokeConfigurations(ConfigInvoker.java:333)
+	at org.testng.internal.invokers.TestInvoker.runConfigMethods(TestInvoker.java:846)
+	at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:611)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
+	at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
+	at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:1005)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
+	at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
+	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+	at org.testng.TestRunner.privateRun(TestRunner.java:744)
+	at org.testng.TestRunner.run(TestRunner.java:616)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:421)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:413)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:373)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:312)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1274)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1208)
+	at org.testng.TestNG.runSuites(TestNG.java:1112)
+	at org.testng.TestNG.run(TestNG.java:1079)
+	at org.apache.maven.surefire.testng.TestNGExecutor.run(TestNGExecutor.java:155)
+	at org.apache.maven.surefire.testng.TestNGDirectoryTestSuite.executeMulti(TestNGDirectoryTestSuite.java:169)
+	at org.apache.maven.surefire.testng.TestNGDirectoryTestSuite.execute(TestNGDirectoryTestSuite.java:88)
+	at org.apache.maven.surefire.testng.TestNGProvider.invoke(TestNGProvider.java:137)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:385)
+	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:162)
+	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:507)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495)
+2026-02-20 12:38:31 [main] INFO  [] [] framework.drivers.DriverManager - Initiating Driver . . . . . 
+2026-02-20 12:38:31 [main] ERROR [] [] framework.drivers.DriverManager - Exception during the driver initiation
+java.lang.NullPointerException: Cannot invoke "String.toLowerCase()" because "browser" is null
+	at framework.config.ConfigManager.getBrowser(ConfigManager.java:63)
+	at framework.drivers.DriverManager.initBrowser(DriverManager.java:71)
+	at framework.drivers.DriverManager.initDriver(DriverManager.java:38)
+	at base.BaseTest.setup(BaseTest.java:28)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethodConsideringTimeout(MethodInvocationHelper.java:71)
+	at org.testng.internal.invokers.ConfigInvoker.invokeConfigurationMethod(ConfigInvoker.java:400)
+	at org.testng.internal.invokers.ConfigInvoker.invokeConfigurations(ConfigInvoker.java:333)
+	at org.testng.internal.invokers.TestInvoker.runConfigMethods(TestInvoker.java:846)
+	at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:611)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
+	at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
+	at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:1005)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
+	at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
+	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+	at org.testng.TestRunner.privateRun(TestRunner.java:744)
+	at org.testng.TestRunner.run(TestRunner.java:616)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:421)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:413)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:373)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:312)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1274)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1208)
+	at org.testng.TestNG.runSuites(TestNG.java:1112)
+	at org.testng.TestNG.run(TestNG.java:1079)
+	at org.apache.maven.surefire.testng.TestNGExecutor.run(TestNGExecutor.java:155)
+	at org.apache.maven.surefire.testng.TestNGDirectoryTestSuite.executeMulti(TestNGDirectoryTestSuite.java:169)
+	at org.apache.maven.surefire.testng.TestNGDirectoryTestSuite.execute(TestNGDirectoryTestSuite.java:88)
+	at org.apache.maven.surefire.testng.TestNGProvider.invoke(TestNGProvider.java:137)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:385)
+	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:162)
+	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:507)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495)
+2026-02-20 12:41:38 [main] DEBUG [] [] org.testng.TestNG - suiteXmlPath: "C:\Users\jjns2\AppData\Local\Temp\testng-eclipse--814932239\testng-customsuite.xml"
+2026-02-20 12:41:38 [main] INFO  [] [] org.testng.internal.Utils - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2026-02-20 12:41:38 [main] INFO  [] [] org.testng.internal.Utils - [Utils] MethodGroupsHelper.sortMethods() took 1 ms.
+2026-02-20 12:41:38 [main] INFO  [] [] org.testng.internal.Utils - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2026-02-20 12:41:38 [main] INFO  [] [] org.testng.internal.Utils - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2026-02-20 12:41:38 [main] INFO  [] [] org.testng.internal.Utils - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2026-02-20 12:41:38 [main] INFO  [] [] org.testng.internal.Utils - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2026-02-20 12:41:38 [main] INFO  [] [] org.testng.internal.Utils - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2026-02-20 12:41:38 [main] INFO  [] [] org.testng.internal.Utils - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2026-02-20 12:41:38 [main] INFO  [] [] org.testng.internal.Utils - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2026-02-20 12:41:38 [main] INFO  [] [] org.testng.internal.Utils - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2026-02-20 12:41:38 [main] INFO  [] [] org.testng.internal.Utils - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2026-02-20 12:41:38 [main] INFO  [] [] org.testng.internal.Utils - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2026-02-20 12:41:38 [main] INFO  [] [] org.testng.internal.Utils - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2026-02-20 12:41:38 [main] INFO  [] [] org.testng.internal.Utils - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2026-02-20 12:41:38 [main] INFO  [] [] org.testng.internal.Utils - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2026-02-20 12:41:38 [main] INFO  [] [] org.testng.internal.Utils - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2026-02-20 12:41:38 [main] INFO  [] [] org.testng.internal.Utils - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 7 ms.
+2026-02-20 12:41:38 [main] INFO  [] [] org.testng.internal.Utils - [Utils] MethodGroupsHelper.sortMethods() took 12 ms.
+2026-02-20 12:41:38 [main] INFO  [] [] org.testng.internal.Utils - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2026-02-20 12:41:38 [main] INFO  [] [] org.testng.internal.Utils - [Utils] MethodGroupsHelper.sortMethods() took 1 ms.
+2026-02-20 12:41:38 [main] INFO  [] [] org.testng.internal.Utils - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2026-02-20 12:41:38 [main] INFO  [] [] org.testng.internal.Utils - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2026-02-20 12:41:38 [main] INFO  [] [] org.testng.internal.Utils - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2026-02-20 12:41:38 [main] INFO  [] [] org.testng.internal.Utils - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2026-02-20 12:41:38 [main] INFO  [] [] org.testng.internal.Utils - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2026-02-20 12:41:38 [main] INFO  [] [] org.testng.internal.Utils - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2026-02-20 12:41:38 [main] INFO  [] [] org.testng.internal.Utils - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2026-02-20 12:41:38 [main] INFO  [] [] org.testng.internal.Utils - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2026-02-20 12:41:38 [main] INFO  [] [] org.testng.internal.Utils - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2026-02-20 12:41:38 [main] INFO  [] [] org.testng.internal.Utils - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2026-02-20 12:41:38 [main] INFO  [] [] org.testng.internal.Utils - [TestNG] Running:
+  C:\Users\jjns2\AppData\Local\Temp\testng-eclipse--814932239\testng-customsuite.xml
+
+2026-02-20 12:41:38 [main] INFO  [] [] org.testng.internal.Utils - [Utils] DynamicGraphHelper.createDynamicGraph() took 6 ms.
+2026-02-20 12:41:38 [main] DEBUG [] [] framework.config.ConfigManager - headless = false
+2026-02-20 12:41:38 [main] DEBUG [] [] framework.config.ConfigManager - screenshot.on.pass = true
+2026-02-20 12:41:38 [main] DEBUG [] [] framework.config.ConfigManager - test-id = "data-qa"
+2026-02-20 12:41:38 [main] DEBUG [] [] framework.config.ConfigManager - dev.base.url = https://automationexercise-dev.com
+2026-02-20 12:41:38 [main] DEBUG [] [] framework.config.ConfigManager - qa.base.url = https://automationexercise.com
+2026-02-20 12:41:38 [main] DEBUG [] [] framework.config.ConfigManager - screenshot.on.fail = true
+2026-02-20 12:41:38 [main] DEBUG [] [] framework.config.ConfigManager - browser = chrome
+2026-02-20 12:41:38 [main] DEBUG [] [] framework.config.ConfigManager - env = QA
+2026-02-20 12:41:38 [main] DEBUG [] [] framework.config.ConfigManager - prod.base.url = https://automationexercise-prod.com
+2026-02-20 12:41:38 [main] WARN  [] [] framework.config.ConfigManager - Environment not initialized. Defaulting to 'qa'
+2026-02-20 12:41:38 [main] INFO  [] [] framework.drivers.DriverManager - Initiating Driver . . . . . 
+2026-02-20 12:45:52 [main] DEBUG [] [] framework.config.ConfigManager - headless = false
+2026-02-20 12:45:52 [main] DEBUG [] [] framework.config.ConfigManager - screenshot.on.pass = true
+2026-02-20 12:45:52 [main] DEBUG [] [] framework.config.ConfigManager - test-id = "data-qa"
+2026-02-20 12:45:52 [main] DEBUG [] [] framework.config.ConfigManager - dev.base.url = https://automationexercise-dev.com
+2026-02-20 12:45:52 [main] DEBUG [] [] framework.config.ConfigManager - qa.base.url = https://automationexercise.com
+2026-02-20 12:45:52 [main] DEBUG [] [] framework.config.ConfigManager - screenshot.on.fail = true
+2026-02-20 12:45:52 [main] DEBUG [] [] framework.config.ConfigManager - browser = chrome
+2026-02-20 12:45:52 [main] DEBUG [] [] framework.config.ConfigManager - env = QA
+2026-02-20 12:45:52 [main] DEBUG [] [] framework.config.ConfigManager - prod.base.url = https://automationexercise-prod.com
+2026-02-20 12:45:52 [main] WARN  [] [] framework.config.ConfigManager - Environment not initialized. Defaulting to 'qa'
+2026-02-20 12:45:52 [main] INFO  [] [] framework.drivers.DriverManager - Initiating Driver . . . . . 
+2026-02-20 12:46:01 [main] ERROR [] [] framework.drivers.DriverManager - Exception during the driver initiation
+java.lang.NullPointerException: Cannot invoke "String.isEmpty()" because "browser" is null
+	at framework.config.ConfigManager.getBrowser(ConfigManager.java:59)
+	at framework.drivers.DriverManager.initBrowser(DriverManager.java:71)
+	at framework.drivers.DriverManager.initDriver(DriverManager.java:38)
+	at base.BaseTest.setup(BaseTest.java:28)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethodConsideringTimeout(MethodInvocationHelper.java:71)
+	at org.testng.internal.invokers.ConfigInvoker.invokeConfigurationMethod(ConfigInvoker.java:400)
+	at org.testng.internal.invokers.ConfigInvoker.invokeConfigurations(ConfigInvoker.java:333)
+	at org.testng.internal.invokers.TestInvoker.runConfigMethods(TestInvoker.java:846)
+	at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:611)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
+	at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
+	at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:1005)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
+	at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
+	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+	at org.testng.TestRunner.privateRun(TestRunner.java:744)
+	at org.testng.TestRunner.run(TestRunner.java:616)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:421)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:413)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:373)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:312)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1274)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1208)
+	at org.testng.TestNG.runSuites(TestNG.java:1112)
+	at org.testng.TestNG.run(TestNG.java:1079)
+	at org.apache.maven.surefire.testng.TestNGExecutor.run(TestNGExecutor.java:155)
+	at org.apache.maven.surefire.testng.TestNGDirectoryTestSuite.executeMulti(TestNGDirectoryTestSuite.java:169)
+	at org.apache.maven.surefire.testng.TestNGDirectoryTestSuite.execute(TestNGDirectoryTestSuite.java:88)
+	at org.apache.maven.surefire.testng.TestNGProvider.invoke(TestNGProvider.java:137)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:385)
+	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:162)
+	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:507)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495)
+2026-02-20 12:46:01 [main] INFO  [] [] framework.drivers.DriverManager - Initiating Driver . . . . . 
+2026-02-20 12:46:02 [main] ERROR [] [] framework.drivers.DriverManager - Exception during the driver initiation
+java.lang.NullPointerException: Cannot invoke "String.isEmpty()" because "browser" is null
+	at framework.config.ConfigManager.getBrowser(ConfigManager.java:59)
+	at framework.drivers.DriverManager.initBrowser(DriverManager.java:71)
+	at framework.drivers.DriverManager.initDriver(DriverManager.java:38)
+	at base.BaseTest.setup(BaseTest.java:28)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethodConsideringTimeout(MethodInvocationHelper.java:71)
+	at org.testng.internal.invokers.ConfigInvoker.invokeConfigurationMethod(ConfigInvoker.java:400)
+	at org.testng.internal.invokers.ConfigInvoker.invokeConfigurations(ConfigInvoker.java:333)
+	at org.testng.internal.invokers.TestInvoker.runConfigMethods(TestInvoker.java:846)
+	at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:611)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
+	at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
+	at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:1005)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
+	at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
+	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+	at org.testng.TestRunner.privateRun(TestRunner.java:744)
+	at org.testng.TestRunner.run(TestRunner.java:616)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:421)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:413)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:373)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:312)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1274)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1208)
+	at org.testng.TestNG.runSuites(TestNG.java:1112)
+	at org.testng.TestNG.run(TestNG.java:1079)
+	at org.apache.maven.surefire.testng.TestNGExecutor.run(TestNGExecutor.java:155)
+	at org.apache.maven.surefire.testng.TestNGDirectoryTestSuite.executeMulti(TestNGDirectoryTestSuite.java:169)
+	at org.apache.maven.surefire.testng.TestNGDirectoryTestSuite.execute(TestNGDirectoryTestSuite.java:88)
+	at org.apache.maven.surefire.testng.TestNGProvider.invoke(TestNGProvider.java:137)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:385)
+	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:162)
+	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:507)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495)
+2026-02-20 12:46:02 [main] INFO  [] [] framework.drivers.DriverManager - Initiating Driver . . . . . 
+2026-02-20 12:46:02 [main] ERROR [] [] framework.drivers.DriverManager - Exception during the driver initiation
+java.lang.NullPointerException: Cannot invoke "String.isEmpty()" because "browser" is null
+	at framework.config.ConfigManager.getBrowser(ConfigManager.java:59)
+	at framework.drivers.DriverManager.initBrowser(DriverManager.java:71)
+	at framework.drivers.DriverManager.initDriver(DriverManager.java:38)
+	at base.BaseTest.setup(BaseTest.java:28)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethodConsideringTimeout(MethodInvocationHelper.java:71)
+	at org.testng.internal.invokers.ConfigInvoker.invokeConfigurationMethod(ConfigInvoker.java:400)
+	at org.testng.internal.invokers.ConfigInvoker.invokeConfigurations(ConfigInvoker.java:333)
+	at org.testng.internal.invokers.TestInvoker.runConfigMethods(TestInvoker.java:846)
+	at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:611)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
+	at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
+	at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:1005)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
+	at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
+	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+	at org.testng.TestRunner.privateRun(TestRunner.java:744)
+	at org.testng.TestRunner.run(TestRunner.java:616)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:421)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:413)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:373)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:312)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1274)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1208)
+	at org.testng.TestNG.runSuites(TestNG.java:1112)
+	at org.testng.TestNG.run(TestNG.java:1079)
+	at org.apache.maven.surefire.testng.TestNGExecutor.run(TestNGExecutor.java:155)
+	at org.apache.maven.surefire.testng.TestNGDirectoryTestSuite.executeMulti(TestNGDirectoryTestSuite.java:169)
+	at org.apache.maven.surefire.testng.TestNGDirectoryTestSuite.execute(TestNGDirectoryTestSuite.java:88)
+	at org.apache.maven.surefire.testng.TestNGProvider.invoke(TestNGProvider.java:137)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:385)
+	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:162)
+	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:507)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495)
+2026-02-20 12:46:02 [main] INFO  [] [] framework.drivers.DriverManager - Initiating Driver . . . . . 
+2026-02-20 12:46:03 [main] ERROR [] [] framework.drivers.DriverManager - Exception during the driver initiation
+java.lang.NullPointerException: Cannot invoke "String.isEmpty()" because "browser" is null
+	at framework.config.ConfigManager.getBrowser(ConfigManager.java:59)
+	at framework.drivers.DriverManager.initBrowser(DriverManager.java:71)
+	at framework.drivers.DriverManager.initDriver(DriverManager.java:38)
+	at base.BaseTest.setup(BaseTest.java:28)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethodConsideringTimeout(MethodInvocationHelper.java:71)
+	at org.testng.internal.invokers.ConfigInvoker.invokeConfigurationMethod(ConfigInvoker.java:400)
+	at org.testng.internal.invokers.ConfigInvoker.invokeConfigurations(ConfigInvoker.java:333)
+	at org.testng.internal.invokers.TestInvoker.runConfigMethods(TestInvoker.java:846)
+	at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:611)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
+	at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
+	at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:1005)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
+	at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
+	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+	at org.testng.TestRunner.privateRun(TestRunner.java:744)
+	at org.testng.TestRunner.run(TestRunner.java:616)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:421)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:413)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:373)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:312)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1274)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1208)
+	at org.testng.TestNG.runSuites(TestNG.java:1112)
+	at org.testng.TestNG.run(TestNG.java:1079)
+	at org.apache.maven.surefire.testng.TestNGExecutor.run(TestNGExecutor.java:155)
+	at org.apache.maven.surefire.testng.TestNGDirectoryTestSuite.executeMulti(TestNGDirectoryTestSuite.java:169)
+	at org.apache.maven.surefire.testng.TestNGDirectoryTestSuite.execute(TestNGDirectoryTestSuite.java:88)
+	at org.apache.maven.surefire.testng.TestNGProvider.invoke(TestNGProvider.java:137)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:385)
+	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:162)
+	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:507)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495)
+2026-02-20 12:46:03 [main] INFO  [] [] framework.drivers.DriverManager - Initiating Driver . . . . . 
+2026-02-20 12:46:04 [main] ERROR [] [] framework.drivers.DriverManager - Exception during the driver initiation
+java.lang.NullPointerException: Cannot invoke "String.isEmpty()" because "browser" is null
+	at framework.config.ConfigManager.getBrowser(ConfigManager.java:59)
+	at framework.drivers.DriverManager.initBrowser(DriverManager.java:71)
+	at framework.drivers.DriverManager.initDriver(DriverManager.java:38)
+	at base.BaseTest.setup(BaseTest.java:28)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethodConsideringTimeout(MethodInvocationHelper.java:71)
+	at org.testng.internal.invokers.ConfigInvoker.invokeConfigurationMethod(ConfigInvoker.java:400)
+	at org.testng.internal.invokers.ConfigInvoker.invokeConfigurations(ConfigInvoker.java:333)
+	at org.testng.internal.invokers.TestInvoker.runConfigMethods(TestInvoker.java:846)
+	at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:611)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
+	at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
+	at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:1005)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
+	at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
+	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+	at org.testng.TestRunner.privateRun(TestRunner.java:744)
+	at org.testng.TestRunner.run(TestRunner.java:616)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:421)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:413)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:373)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:312)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1274)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1208)
+	at org.testng.TestNG.runSuites(TestNG.java:1112)
+	at org.testng.TestNG.run(TestNG.java:1079)
+	at org.apache.maven.surefire.testng.TestNGExecutor.run(TestNGExecutor.java:155)
+	at org.apache.maven.surefire.testng.TestNGDirectoryTestSuite.executeMulti(TestNGDirectoryTestSuite.java:169)
+	at org.apache.maven.surefire.testng.TestNGDirectoryTestSuite.execute(TestNGDirectoryTestSuite.java:88)
+	at org.apache.maven.surefire.testng.TestNGProvider.invoke(TestNGProvider.java:137)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:385)
+	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:162)
+	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:507)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495)
+2026-02-20 12:51:06 [main] DEBUG [] [] org.testng.TestNG - suiteXmlPath: "C:\Users\jjns2\AppData\Local\Temp\testng-eclipse-314469415\testng-customsuite.xml"
+2026-02-20 12:51:06 [main] INFO  [] [] org.testng.internal.Utils - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 1 ms.
+2026-02-20 12:51:06 [main] INFO  [] [] org.testng.internal.Utils - [Utils] MethodGroupsHelper.sortMethods() took 1 ms.
+2026-02-20 12:51:06 [main] INFO  [] [] org.testng.internal.Utils - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2026-02-20 12:51:06 [main] INFO  [] [] org.testng.internal.Utils - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2026-02-20 12:51:06 [main] INFO  [] [] org.testng.internal.Utils - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2026-02-20 12:51:06 [main] INFO  [] [] org.testng.internal.Utils - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2026-02-20 12:51:06 [main] INFO  [] [] org.testng.internal.Utils - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2026-02-20 12:51:06 [main] INFO  [] [] org.testng.internal.Utils - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2026-02-20 12:51:06 [main] INFO  [] [] org.testng.internal.Utils - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2026-02-20 12:51:06 [main] INFO  [] [] org.testng.internal.Utils - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2026-02-20 12:51:06 [main] INFO  [] [] org.testng.internal.Utils - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2026-02-20 12:51:06 [main] INFO  [] [] org.testng.internal.Utils - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2026-02-20 12:51:06 [main] INFO  [] [] org.testng.internal.Utils - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2026-02-20 12:51:06 [main] INFO  [] [] org.testng.internal.Utils - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2026-02-20 12:51:06 [main] INFO  [] [] org.testng.internal.Utils - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2026-02-20 12:51:06 [main] INFO  [] [] org.testng.internal.Utils - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2026-02-20 12:51:06 [main] INFO  [] [] org.testng.internal.Utils - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 4 ms.
+2026-02-20 12:51:06 [main] INFO  [] [] org.testng.internal.Utils - [Utils] MethodGroupsHelper.sortMethods() took 7 ms.
+2026-02-20 12:51:06 [main] INFO  [] [] org.testng.internal.Utils - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2026-02-20 12:51:06 [main] INFO  [] [] org.testng.internal.Utils - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2026-02-20 12:51:06 [main] INFO  [] [] org.testng.internal.Utils - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2026-02-20 12:51:06 [main] INFO  [] [] org.testng.internal.Utils - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2026-02-20 12:51:06 [main] INFO  [] [] org.testng.internal.Utils - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2026-02-20 12:51:06 [main] INFO  [] [] org.testng.internal.Utils - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2026-02-20 12:51:06 [main] INFO  [] [] org.testng.internal.Utils - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 1 ms.
+2026-02-20 12:51:06 [main] INFO  [] [] org.testng.internal.Utils - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2026-02-20 12:51:06 [main] INFO  [] [] org.testng.internal.Utils - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2026-02-20 12:51:06 [main] INFO  [] [] org.testng.internal.Utils - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2026-02-20 12:51:06 [main] INFO  [] [] org.testng.internal.Utils - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2026-02-20 12:51:06 [main] INFO  [] [] org.testng.internal.Utils - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2026-02-20 12:51:06 [main] INFO  [] [] org.testng.internal.Utils - [TestNG] Running:
+  C:\Users\jjns2\AppData\Local\Temp\testng-eclipse-314469415\testng-customsuite.xml
+
+2026-02-20 12:51:06 [main] INFO  [] [] org.testng.internal.Utils - [Utils] DynamicGraphHelper.createDynamicGraph() took 4 ms.
+2026-02-20 12:51:06 [main] DEBUG [] [] framework.config.ConfigManager - headless = false
+2026-02-20 12:51:06 [main] DEBUG [] [] framework.config.ConfigManager - screenshot.on.pass = true
+2026-02-20 12:51:06 [main] DEBUG [] [] framework.config.ConfigManager - test-id = "data-qa"
+2026-02-20 12:51:06 [main] DEBUG [] [] framework.config.ConfigManager - dev.base.url = https://automationexercise-dev.com
+2026-02-20 12:51:06 [main] DEBUG [] [] framework.config.ConfigManager - qa.base.url = https://automationexercise.com
+2026-02-20 12:51:06 [main] DEBUG [] [] framework.config.ConfigManager - screenshot.on.fail = true
+2026-02-20 12:51:06 [main] DEBUG [] [] framework.config.ConfigManager - browser = chrome
+2026-02-20 12:51:06 [main] DEBUG [] [] framework.config.ConfigManager - env = QA
+2026-02-20 12:51:06 [main] DEBUG [] [] framework.config.ConfigManager - prod.base.url = https://automationexercise-prod.com
+2026-02-20 12:51:06 [main] WARN  [] [] framework.config.ConfigManager - Environment not initialized. Defaulting to 'qa'
+2026-02-20 12:53:14 [main] DEBUG [] [] org.testng.TestNG - suiteXmlPath: "D:\The_QE_Wheel\Playwright Projects\Playwright-Java-Framework\Playwright_Demo_Framework\testng.xml"
+2026-02-20 12:53:14 [main] DEBUG [] [] framework.config.ConfigManager - headless = false
+2026-02-20 12:53:14 [main] DEBUG [] [] framework.config.ConfigManager - screenshot.on.pass = true
+2026-02-20 12:53:14 [main] DEBUG [] [] framework.config.ConfigManager - test-id = "data-qa"
+2026-02-20 12:53:14 [main] DEBUG [] [] framework.config.ConfigManager - dev.base.url = https://automationexercise-dev.com
+2026-02-20 12:53:14 [main] DEBUG [] [] framework.config.ConfigManager - qa.base.url = https://automationexercise.com
+2026-02-20 12:53:14 [main] DEBUG [] [] framework.config.ConfigManager - screenshot.on.fail = true
+2026-02-20 12:53:14 [main] DEBUG [] [] framework.config.ConfigManager - browser = chrome
+2026-02-20 12:53:14 [main] DEBUG [] [] framework.config.ConfigManager - env = QA
+2026-02-20 12:53:14 [main] DEBUG [] [] framework.config.ConfigManager - prod.base.url = https://automationexercise-prod.com
+2026-02-20 12:53:14 [main] INFO  [] [] framework.listeners.TestListener - ================XXXXXXXXXXXXXX================
+2026-02-20 12:53:14 [main] INFO  [] [] framework.listeners.TestListener - Starting Suite: Playwright Demo Framework Tests - TA1 
+2026-02-20 12:53:14 [main] INFO  [] [] framework.listeners.TestListener - Execution Environment: qa
+2026-02-20 12:53:14 [main] INFO  [] [] framework.listeners.TestListener - ==============================================
+2026-02-20 12:53:14 [main] INFO  [] [] framework.drivers.DriverManager - Initiating Driver . . . . . 
+2026-02-20 12:53:21 [main] ERROR [] [] framework.drivers.DriverManager - Exception during the driver initiation
+java.lang.NullPointerException: Cannot invoke "String.isEmpty()" because "browser" is null
+	at framework.config.ConfigManager.getBrowser(ConfigManager.java:59)
+	at framework.drivers.DriverManager.initBrowser(DriverManager.java:71)
+	at framework.drivers.DriverManager.initDriver(DriverManager.java:38)
+	at base.BaseTest.setup(BaseTest.java:28)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethodConsideringTimeout(MethodInvocationHelper.java:71)
+	at org.testng.internal.invokers.ConfigInvoker.invokeConfigurationMethod(ConfigInvoker.java:400)
+	at org.testng.internal.invokers.ConfigInvoker.invokeConfigurations(ConfigInvoker.java:333)
+	at org.testng.internal.invokers.TestInvoker.runConfigMethods(TestInvoker.java:846)
+	at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:611)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
+	at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
+	at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:1005)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
+	at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
+	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+	at org.testng.TestRunner.privateRun(TestRunner.java:744)
+	at org.testng.TestRunner.run(TestRunner.java:616)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:421)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:413)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:373)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:312)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1274)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1208)
+	at org.testng.TestNG.runSuites(TestNG.java:1112)
+	at org.testng.TestNG.run(TestNG.java:1079)
+	at org.apache.maven.surefire.testng.TestNGExecutor.run(TestNGExecutor.java:308)
+	at org.apache.maven.surefire.testng.TestNGXmlTestSuite.execute(TestNGXmlTestSuite.java:71)
+	at org.apache.maven.surefire.testng.TestNGProvider.invoke(TestNGProvider.java:113)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:385)
+	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:162)
+	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:507)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495)
+2026-02-20 12:53:21 [main] INFO  [qa] [Test_AE001_TC01_Verify_New_User_SignUp] framework.listeners.TestListener - -----------------  STARTING TEST : Test_AE001_TC01_Verify_New_User_SignUp  -----------------
+2026-02-20 12:53:21 [main] INFO  [qa] [Test_AE001_TC01_Verify_New_User_SignUp] framework.listeners.TestListener - {TEST SKIPPED: Test_AE001_TC01_Verify_New_User_SignUp
+2026-02-20 12:53:21 [main] ERROR [qa] [Test_AE001_TC01_Verify_New_User_SignUp] framework.listeners.TestListener - Skip Reason: java.lang.RuntimeException: Driver initialization failed
+2026-02-20 12:53:21 [main] INFO  [] [] o.testng.reporters.TestHTMLReporter - [TestHTMLReporter] Invalid file path
+2026-02-20 12:53:21 [main] INFO  [] [] framework.listeners.TestListener - ==============================================
+2026-02-20 12:53:21 [main] INFO  [] [] framework.listeners.TestListener - Finished Suite: Playwright Demo Framework Tests - TA1 
+2026-02-20 12:53:21 [main] INFO  [] [] framework.listeners.TestListener - ================XXXXXXXXXXXXXX================
+2026-02-20 12:54:07 [main] DEBUG [] [] org.testng.TestNG - suiteXmlPath: "C:\Users\jjns2\AppData\Local\Temp\testng-eclipse-1811236226\testng-customsuite.xml"
+2026-02-20 12:54:08 [main] INFO  [] [] org.testng.internal.Utils - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 1 ms.
+2026-02-20 12:54:08 [main] INFO  [] [] org.testng.internal.Utils - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2026-02-20 12:54:08 [main] INFO  [] [] org.testng.internal.Utils - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2026-02-20 12:54:08 [main] INFO  [] [] org.testng.internal.Utils - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2026-02-20 12:54:08 [main] INFO  [] [] org.testng.internal.Utils - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2026-02-20 12:54:08 [main] INFO  [] [] org.testng.internal.Utils - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2026-02-20 12:54:08 [main] INFO  [] [] org.testng.internal.Utils - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2026-02-20 12:54:08 [main] INFO  [] [] org.testng.internal.Utils - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2026-02-20 12:54:08 [main] INFO  [] [] org.testng.internal.Utils - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2026-02-20 12:54:08 [main] INFO  [] [] org.testng.internal.Utils - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2026-02-20 12:54:08 [main] INFO  [] [] org.testng.internal.Utils - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2026-02-20 12:54:08 [main] INFO  [] [] org.testng.internal.Utils - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2026-02-20 12:54:08 [main] INFO  [] [] org.testng.internal.Utils - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2026-02-20 12:54:08 [main] INFO  [] [] org.testng.internal.Utils - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2026-02-20 12:54:08 [main] INFO  [] [] org.testng.internal.Utils - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2026-02-20 12:54:08 [main] INFO  [] [] org.testng.internal.Utils - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2026-02-20 12:54:08 [main] INFO  [] [] org.testng.internal.Utils - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 4 ms.
+2026-02-20 12:54:08 [main] INFO  [] [] org.testng.internal.Utils - [Utils] MethodGroupsHelper.sortMethods() took 8 ms.
+2026-02-20 12:54:08 [main] INFO  [] [] org.testng.internal.Utils - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2026-02-20 12:54:08 [main] INFO  [] [] org.testng.internal.Utils - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2026-02-20 12:54:08 [main] INFO  [] [] org.testng.internal.Utils - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2026-02-20 12:54:08 [main] INFO  [] [] org.testng.internal.Utils - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2026-02-20 12:54:08 [main] INFO  [] [] org.testng.internal.Utils - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2026-02-20 12:54:08 [main] INFO  [] [] org.testng.internal.Utils - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2026-02-20 12:54:08 [main] INFO  [] [] org.testng.internal.Utils - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 1 ms.
+2026-02-20 12:54:08 [main] INFO  [] [] org.testng.internal.Utils - [Utils] MethodGroupsHelper.sortMethods() took 1 ms.
+2026-02-20 12:54:08 [main] INFO  [] [] org.testng.internal.Utils - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2026-02-20 12:54:08 [main] INFO  [] [] org.testng.internal.Utils - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2026-02-20 12:54:08 [main] INFO  [] [] org.testng.internal.Utils - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2026-02-20 12:54:08 [main] INFO  [] [] org.testng.internal.Utils - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2026-02-20 12:54:08 [main] INFO  [] [] org.testng.internal.Utils - [TestNG] Running:
+  C:\Users\jjns2\AppData\Local\Temp\testng-eclipse-1811236226\testng-customsuite.xml
+
+2026-02-20 12:54:08 [main] INFO  [] [] org.testng.internal.Utils - [Utils] DynamicGraphHelper.createDynamicGraph() took 3 ms.
+2026-02-20 12:54:08 [main] DEBUG [] [] framework.config.ConfigManager - headless = false
+2026-02-20 12:54:08 [main] DEBUG [] [] framework.config.ConfigManager - screenshot.on.pass = true
+2026-02-20 12:54:08 [main] DEBUG [] [] framework.config.ConfigManager - test-id = "data-qa"
+2026-02-20 12:54:08 [main] DEBUG [] [] framework.config.ConfigManager - dev.base.url = https://automationexercise-dev.com
+2026-02-20 12:54:08 [main] DEBUG [] [] framework.config.ConfigManager - qa.base.url = https://automationexercise.com
+2026-02-20 12:54:08 [main] DEBUG [] [] framework.config.ConfigManager - screenshot.on.fail = true
+2026-02-20 12:54:08 [main] DEBUG [] [] framework.config.ConfigManager - browser = chrome
+2026-02-20 12:54:08 [main] DEBUG [] [] framework.config.ConfigManager - env = QA
+2026-02-20 12:54:08 [main] DEBUG [] [] framework.config.ConfigManager - prod.base.url = https://automationexercise-prod.com
+2026-02-20 12:54:08 [main] WARN  [] [] framework.config.ConfigManager - Environment not initialized. Defaulting to 'qa'
+2026-02-20 12:55:13 [main] INFO  [] [] framework.drivers.DriverManager - Initiating Driver . . . . . 
+2026-02-20 12:56:29 [main] DEBUG [] [] org.testng.TestNG - suiteXmlPath: "C:\Users\jjns2\AppData\Local\Temp\testng-eclipse--30177467\testng-customsuite.xml"
+2026-02-20 12:56:29 [main] INFO  [] [] org.testng.internal.Utils - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 1 ms.
+2026-02-20 12:56:29 [main] INFO  [] [] org.testng.internal.Utils - [Utils] MethodGroupsHelper.sortMethods() took 1 ms.
+2026-02-20 12:56:29 [main] INFO  [] [] org.testng.internal.Utils - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2026-02-20 12:56:29 [main] INFO  [] [] org.testng.internal.Utils - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2026-02-20 12:56:29 [main] INFO  [] [] org.testng.internal.Utils - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2026-02-20 12:56:29 [main] INFO  [] [] org.testng.internal.Utils - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2026-02-20 12:56:29 [main] INFO  [] [] org.testng.internal.Utils - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2026-02-20 12:56:29 [main] INFO  [] [] org.testng.internal.Utils - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2026-02-20 12:56:29 [main] INFO  [] [] org.testng.internal.Utils - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2026-02-20 12:56:29 [main] INFO  [] [] org.testng.internal.Utils - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2026-02-20 12:56:29 [main] INFO  [] [] org.testng.internal.Utils - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2026-02-20 12:56:29 [main] INFO  [] [] org.testng.internal.Utils - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2026-02-20 12:56:29 [main] INFO  [] [] org.testng.internal.Utils - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2026-02-20 12:56:29 [main] INFO  [] [] org.testng.internal.Utils - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2026-02-20 12:56:29 [main] INFO  [] [] org.testng.internal.Utils - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2026-02-20 12:56:29 [main] INFO  [] [] org.testng.internal.Utils - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2026-02-20 12:56:29 [main] INFO  [] [] org.testng.internal.Utils - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 4 ms.
+2026-02-20 12:56:29 [main] INFO  [] [] org.testng.internal.Utils - [Utils] MethodGroupsHelper.sortMethods() took 6 ms.
+2026-02-20 12:56:29 [main] INFO  [] [] org.testng.internal.Utils - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2026-02-20 12:56:29 [main] INFO  [] [] org.testng.internal.Utils - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2026-02-20 12:56:29 [main] INFO  [] [] org.testng.internal.Utils - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2026-02-20 12:56:29 [main] INFO  [] [] org.testng.internal.Utils - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2026-02-20 12:56:29 [main] INFO  [] [] org.testng.internal.Utils - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2026-02-20 12:56:29 [main] INFO  [] [] org.testng.internal.Utils - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2026-02-20 12:56:29 [main] INFO  [] [] org.testng.internal.Utils - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 1 ms.
+2026-02-20 12:56:29 [main] INFO  [] [] org.testng.internal.Utils - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2026-02-20 12:56:29 [main] INFO  [] [] org.testng.internal.Utils - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2026-02-20 12:56:29 [main] INFO  [] [] org.testng.internal.Utils - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2026-02-20 12:56:29 [main] INFO  [] [] org.testng.internal.Utils - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2026-02-20 12:56:29 [main] INFO  [] [] org.testng.internal.Utils - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2026-02-20 12:56:29 [main] INFO  [] [] org.testng.internal.Utils - [TestNG] Running:
+  C:\Users\jjns2\AppData\Local\Temp\testng-eclipse--30177467\testng-customsuite.xml
+
+2026-02-20 12:56:29 [main] INFO  [] [] org.testng.internal.Utils - [Utils] DynamicGraphHelper.createDynamicGraph() took 4 ms.
+2026-02-20 12:56:29 [main] DEBUG [] [] framework.config.ConfigManager - headless = false
+2026-02-20 12:56:29 [main] DEBUG [] [] framework.config.ConfigManager - screenshot.on.pass = true
+2026-02-20 12:56:29 [main] DEBUG [] [] framework.config.ConfigManager - test-id = "data-qa"
+2026-02-20 12:56:29 [main] DEBUG [] [] framework.config.ConfigManager - dev.base.url = https://automationexercise-dev.com
+2026-02-20 12:56:29 [main] DEBUG [] [] framework.config.ConfigManager - qa.base.url = https://automationexercise.com
+2026-02-20 12:56:29 [main] DEBUG [] [] framework.config.ConfigManager - screenshot.on.fail = true
+2026-02-20 12:56:29 [main] DEBUG [] [] framework.config.ConfigManager - browser = chrome
+2026-02-20 12:56:29 [main] DEBUG [] [] framework.config.ConfigManager - env = QA
+2026-02-20 12:56:29 [main] DEBUG [] [] framework.config.ConfigManager - prod.base.url = https://automationexercise-prod.com
+2026-02-20 12:56:29 [main] WARN  [] [] framework.config.ConfigManager - Environment not initialized. Defaulting to 'qa'
+2026-02-20 12:56:35 [main] INFO  [] [] framework.drivers.DriverManager - Initiating Driver . . . . . 
+2026-02-20 12:56:42 [main] ERROR [] [] framework.drivers.DriverManager - Exception during the driver initiation
+java.lang.NullPointerException: Cannot invoke "String.isEmpty()" because "browser" is null
+	at framework.config.ConfigManager.getBrowser(ConfigManager.java:59)
+	at framework.drivers.DriverManager.initBrowser(DriverManager.java:71)
+	at framework.drivers.DriverManager.initDriver(DriverManager.java:38)
+	at base.BaseTest.setup(BaseTest.java:28)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethodConsideringTimeout(MethodInvocationHelper.java:71)
+	at org.testng.internal.invokers.ConfigInvoker.invokeConfigurationMethod(ConfigInvoker.java:400)
+	at org.testng.internal.invokers.ConfigInvoker.invokeConfigurations(ConfigInvoker.java:333)
+	at org.testng.internal.invokers.TestInvoker.runConfigMethods(TestInvoker.java:836)
+	at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:601)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
+	at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
+	at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:995)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
+	at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
+	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+	at org.testng.TestRunner.privateRun(TestRunner.java:741)
+	at org.testng.TestRunner.run(TestRunner.java:616)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:421)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:413)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:373)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:312)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1274)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1208)
+	at org.testng.TestNG.runSuites(TestNG.java:1112)
+	at org.testng.TestNG.run(TestNG.java:1079)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
+2026-02-20 12:56:42 [main] INFO  [] [] org.testng.internal.Utils - [TestNG] Time taken by org.testng.reporters.jq.Main@28a6301f: 34 ms
+2026-02-20 12:56:42 [main] INFO  [] [] org.testng.internal.Utils - [TestNG] Time taken by org.testng.reporters.FailedReporter@746b18fd: 8 ms
+2026-02-20 12:56:42 [main] INFO  [] [] org.testng.internal.Utils - [TestNG] Time taken by org.testng.reporters.XMLReporter@5e8604bf: 6 ms
+2026-02-20 12:56:42 [main] INFO  [] [] org.testng.internal.Utils - [TestNG] Time taken by org.testng.reporters.EmailableReporter2@676ff3b0: 8 ms
+2026-02-20 12:56:42 [main] INFO  [] [] org.testng.internal.Utils - [TestNG] Time taken by org.testng.reporters.JUnitReportReporter@3db64bd4: 7 ms
+2026-02-20 12:56:42 [main] INFO  [] [] org.testng.internal.Utils - [TestNG] Time taken by org.testng.internal.ExitCodeListener@6e106680: 0 ms
+2026-02-20 12:57:05 [main] DEBUG [] [] org.testng.TestNG - suiteXmlPath: "C:\Users\jjns2\AppData\Local\Temp\testng-eclipse-2075983985\testng-customsuite.xml"
+2026-02-20 12:57:06 [main] INFO  [] [] org.testng.internal.Utils - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2026-02-20 12:57:06 [main] INFO  [] [] org.testng.internal.Utils - [Utils] MethodGroupsHelper.sortMethods() took 1 ms.
+2026-02-20 12:57:06 [main] INFO  [] [] org.testng.internal.Utils - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2026-02-20 12:57:06 [main] INFO  [] [] org.testng.internal.Utils - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2026-02-20 12:57:06 [main] INFO  [] [] org.testng.internal.Utils - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2026-02-20 12:57:06 [main] INFO  [] [] org.testng.internal.Utils - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2026-02-20 12:57:06 [main] INFO  [] [] org.testng.internal.Utils - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2026-02-20 12:57:06 [main] INFO  [] [] org.testng.internal.Utils - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2026-02-20 12:57:06 [main] INFO  [] [] org.testng.internal.Utils - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2026-02-20 12:57:06 [main] INFO  [] [] org.testng.internal.Utils - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2026-02-20 12:57:06 [main] INFO  [] [] org.testng.internal.Utils - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2026-02-20 12:57:06 [main] INFO  [] [] org.testng.internal.Utils - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2026-02-20 12:57:06 [main] INFO  [] [] org.testng.internal.Utils - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2026-02-20 12:57:06 [main] INFO  [] [] org.testng.internal.Utils - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2026-02-20 12:57:06 [main] INFO  [] [] org.testng.internal.Utils - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2026-02-20 12:57:06 [main] INFO  [] [] org.testng.internal.Utils - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2026-02-20 12:57:06 [main] INFO  [] [] org.testng.internal.Utils - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 5 ms.
+2026-02-20 12:57:06 [main] INFO  [] [] org.testng.internal.Utils - [Utils] MethodGroupsHelper.sortMethods() took 9 ms.
+2026-02-20 12:57:06 [main] INFO  [] [] org.testng.internal.Utils - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2026-02-20 12:57:06 [main] INFO  [] [] org.testng.internal.Utils - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2026-02-20 12:57:06 [main] INFO  [] [] org.testng.internal.Utils - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2026-02-20 12:57:06 [main] INFO  [] [] org.testng.internal.Utils - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2026-02-20 12:57:06 [main] INFO  [] [] org.testng.internal.Utils - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2026-02-20 12:57:06 [main] INFO  [] [] org.testng.internal.Utils - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2026-02-20 12:57:06 [main] INFO  [] [] org.testng.internal.Utils - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2026-02-20 12:57:06 [main] INFO  [] [] org.testng.internal.Utils - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2026-02-20 12:57:06 [main] INFO  [] [] org.testng.internal.Utils - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2026-02-20 12:57:06 [main] INFO  [] [] org.testng.internal.Utils - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2026-02-20 12:57:06 [main] INFO  [] [] org.testng.internal.Utils - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2026-02-20 12:57:06 [main] INFO  [] [] org.testng.internal.Utils - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2026-02-20 12:57:06 [main] INFO  [] [] org.testng.internal.Utils - [TestNG] Running:
+  C:\Users\jjns2\AppData\Local\Temp\testng-eclipse-2075983985\testng-customsuite.xml
+
+2026-02-20 12:57:06 [main] INFO  [] [] org.testng.internal.Utils - [Utils] DynamicGraphHelper.createDynamicGraph() took 4 ms.
+2026-02-20 12:57:06 [main] DEBUG [] [] framework.config.ConfigManager - headless = false
+2026-02-20 12:57:06 [main] DEBUG [] [] framework.config.ConfigManager - screenshot.on.pass = true
+2026-02-20 12:57:06 [main] DEBUG [] [] framework.config.ConfigManager - test-id = "data-qa"
+2026-02-20 12:57:06 [main] DEBUG [] [] framework.config.ConfigManager - dev.base.url = https://automationexercise-dev.com
+2026-02-20 12:57:06 [main] DEBUG [] [] framework.config.ConfigManager - qa.base.url = https://automationexercise.com
+2026-02-20 12:57:06 [main] DEBUG [] [] framework.config.ConfigManager - screenshot.on.fail = true
+2026-02-20 12:57:06 [main] DEBUG [] [] framework.config.ConfigManager - browser = chrome
+2026-02-20 12:57:06 [main] DEBUG [] [] framework.config.ConfigManager - env = QA
+2026-02-20 12:57:06 [main] DEBUG [] [] framework.config.ConfigManager - prod.base.url = https://automationexercise-prod.com
+2026-02-20 12:57:06 [main] WARN  [] [] framework.config.ConfigManager - Environment not initialized. Defaulting to 'qa'
+2026-02-20 12:57:37 [main] INFO  [] [] framework.drivers.DriverManager - Initiating Driver . . . . . 
+2026-02-20 12:58:46 [main] DEBUG [] [] org.testng.TestNG - suiteXmlPath: "C:\Users\jjns2\AppData\Local\Temp\testng-eclipse-1111958127\testng-customsuite.xml"
+2026-02-20 12:58:46 [main] INFO  [] [] org.testng.internal.Utils - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 1 ms.
+2026-02-20 12:58:46 [main] INFO  [] [] org.testng.internal.Utils - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2026-02-20 12:58:46 [main] INFO  [] [] org.testng.internal.Utils - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2026-02-20 12:58:46 [main] INFO  [] [] org.testng.internal.Utils - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2026-02-20 12:58:46 [main] INFO  [] [] org.testng.internal.Utils - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2026-02-20 12:58:46 [main] INFO  [] [] org.testng.internal.Utils - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2026-02-20 12:58:46 [main] INFO  [] [] org.testng.internal.Utils - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2026-02-20 12:58:46 [main] INFO  [] [] org.testng.internal.Utils - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2026-02-20 12:58:46 [main] INFO  [] [] org.testng.internal.Utils - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2026-02-20 12:58:46 [main] INFO  [] [] org.testng.internal.Utils - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2026-02-20 12:58:46 [main] INFO  [] [] org.testng.internal.Utils - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2026-02-20 12:58:46 [main] INFO  [] [] org.testng.internal.Utils - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2026-02-20 12:58:46 [main] INFO  [] [] org.testng.internal.Utils - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2026-02-20 12:58:46 [main] INFO  [] [] org.testng.internal.Utils - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2026-02-20 12:58:46 [main] INFO  [] [] org.testng.internal.Utils - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2026-02-20 12:58:46 [main] INFO  [] [] org.testng.internal.Utils - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2026-02-20 12:58:46 [main] INFO  [] [] org.testng.internal.Utils - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 5 ms.
+2026-02-20 12:58:46 [main] INFO  [] [] org.testng.internal.Utils - [Utils] MethodGroupsHelper.sortMethods() took 6 ms.
+2026-02-20 12:58:46 [main] INFO  [] [] org.testng.internal.Utils - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2026-02-20 12:58:46 [main] INFO  [] [] org.testng.internal.Utils - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2026-02-20 12:58:46 [main] INFO  [] [] org.testng.internal.Utils - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2026-02-20 12:58:46 [main] INFO  [] [] org.testng.internal.Utils - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2026-02-20 12:58:46 [main] INFO  [] [] org.testng.internal.Utils - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2026-02-20 12:58:46 [main] INFO  [] [] org.testng.internal.Utils - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2026-02-20 12:58:46 [main] INFO  [] [] org.testng.internal.Utils - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 1 ms.
+2026-02-20 12:58:46 [main] INFO  [] [] org.testng.internal.Utils - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2026-02-20 12:58:46 [main] INFO  [] [] org.testng.internal.Utils - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2026-02-20 12:58:46 [main] INFO  [] [] org.testng.internal.Utils - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2026-02-20 12:58:46 [main] INFO  [] [] org.testng.internal.Utils - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2026-02-20 12:58:46 [main] INFO  [] [] org.testng.internal.Utils - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2026-02-20 12:58:46 [main] INFO  [] [] org.testng.internal.Utils - [TestNG] Running:
+  C:\Users\jjns2\AppData\Local\Temp\testng-eclipse-1111958127\testng-customsuite.xml
+
+2026-02-20 12:58:46 [main] INFO  [] [] org.testng.internal.Utils - [Utils] DynamicGraphHelper.createDynamicGraph() took 3 ms.
+2026-02-20 12:58:46 [main] DEBUG [] [] framework.config.ConfigManager - headless = false
+2026-02-20 12:58:46 [main] DEBUG [] [] framework.config.ConfigManager - screenshot.on.pass = true
+2026-02-20 12:58:46 [main] DEBUG [] [] framework.config.ConfigManager - test-id = "data-qa"
+2026-02-20 12:58:46 [main] DEBUG [] [] framework.config.ConfigManager - dev.base.url = https://automationexercise-dev.com
+2026-02-20 12:58:46 [main] DEBUG [] [] framework.config.ConfigManager - qa.base.url = https://automationexercise.com
+2026-02-20 12:58:46 [main] DEBUG [] [] framework.config.ConfigManager - screenshot.on.fail = true
+2026-02-20 12:58:46 [main] DEBUG [] [] framework.config.ConfigManager - browser = chrome
+2026-02-20 12:58:46 [main] DEBUG [] [] framework.config.ConfigManager - env = QA
+2026-02-20 12:58:46 [main] DEBUG [] [] framework.config.ConfigManager - prod.base.url = https://automationexercise-prod.com
+2026-02-20 12:58:46 [main] WARN  [] [] framework.config.ConfigManager - Environment not initialized. Defaulting to 'qa'
+2026-02-20 12:58:55 [main] INFO  [] [] framework.drivers.DriverManager - Initiating Driver . . . . . 
+2026-02-20 12:59:02 [main] ERROR [] [] framework.drivers.DriverManager - Exception during the driver initiation
+java.lang.NullPointerException: Cannot invoke "String.isEmpty()" because "browser" is null
+	at framework.config.ConfigManager.getBrowser(ConfigManager.java:59)
+	at framework.drivers.DriverManager.initBrowser(DriverManager.java:71)
+	at framework.drivers.DriverManager.initDriver(DriverManager.java:38)
+	at base.BaseTest.setup(BaseTest.java:28)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethodConsideringTimeout(MethodInvocationHelper.java:71)
+	at org.testng.internal.invokers.ConfigInvoker.invokeConfigurationMethod(ConfigInvoker.java:400)
+	at org.testng.internal.invokers.ConfigInvoker.invokeConfigurations(ConfigInvoker.java:333)
+	at org.testng.internal.invokers.TestInvoker.runConfigMethods(TestInvoker.java:836)
+	at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:601)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
+	at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
+	at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:995)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
+	at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
+	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+	at org.testng.TestRunner.privateRun(TestRunner.java:741)
+	at org.testng.TestRunner.run(TestRunner.java:616)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:421)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:413)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:373)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:312)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1274)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1208)
+	at org.testng.TestNG.runSuites(TestNG.java:1112)
+	at org.testng.TestNG.run(TestNG.java:1079)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
+2026-02-20 12:59:02 [main] INFO  [] [] org.testng.internal.Utils - [TestNG] Time taken by org.testng.reporters.jq.Main@28a6301f: 34 ms
+2026-02-20 12:59:02 [main] INFO  [] [] org.testng.internal.Utils - [TestNG] Time taken by org.testng.reporters.FailedReporter@746b18fd: 8 ms
+2026-02-20 12:59:02 [main] INFO  [] [] org.testng.internal.Utils - [TestNG] Time taken by org.testng.reporters.XMLReporter@5e8604bf: 7 ms
+2026-02-20 12:59:02 [main] INFO  [] [] org.testng.internal.Utils - [TestNG] Time taken by org.testng.reporters.EmailableReporter2@676ff3b0: 4 ms
+2026-02-20 12:59:02 [main] INFO  [] [] org.testng.internal.Utils - [TestNG] Time taken by org.testng.reporters.JUnitReportReporter@3db64bd4: 6 ms
+2026-02-20 12:59:02 [main] INFO  [] [] org.testng.internal.Utils - [TestNG] Time taken by org.testng.internal.ExitCodeListener@6e106680: 0 ms
+2026-02-20 12:59:41 [main] DEBUG [] [] org.testng.TestNG - suiteXmlPath: "C:\Users\jjns2\AppData\Local\Temp\testng-eclipse--1182840844\testng-customsuite.xml"
+2026-02-20 12:59:42 [main] INFO  [] [] org.testng.internal.Utils - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2026-02-20 12:59:42 [main] INFO  [] [] org.testng.internal.Utils - [Utils] MethodGroupsHelper.sortMethods() took 1 ms.
+2026-02-20 12:59:42 [main] INFO  [] [] org.testng.internal.Utils - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2026-02-20 12:59:42 [main] INFO  [] [] org.testng.internal.Utils - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2026-02-20 12:59:42 [main] INFO  [] [] org.testng.internal.Utils - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2026-02-20 12:59:42 [main] INFO  [] [] org.testng.internal.Utils - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2026-02-20 12:59:42 [main] INFO  [] [] org.testng.internal.Utils - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2026-02-20 12:59:42 [main] INFO  [] [] org.testng.internal.Utils - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2026-02-20 12:59:42 [main] INFO  [] [] org.testng.internal.Utils - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2026-02-20 12:59:42 [main] INFO  [] [] org.testng.internal.Utils - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2026-02-20 12:59:42 [main] INFO  [] [] org.testng.internal.Utils - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2026-02-20 12:59:42 [main] INFO  [] [] org.testng.internal.Utils - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2026-02-20 12:59:42 [main] INFO  [] [] org.testng.internal.Utils - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2026-02-20 12:59:42 [main] INFO  [] [] org.testng.internal.Utils - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2026-02-20 12:59:42 [main] INFO  [] [] org.testng.internal.Utils - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2026-02-20 12:59:42 [main] INFO  [] [] org.testng.internal.Utils - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2026-02-20 12:59:42 [main] INFO  [] [] org.testng.internal.Utils - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 4 ms.
+2026-02-20 12:59:42 [main] INFO  [] [] org.testng.internal.Utils - [Utils] MethodGroupsHelper.sortMethods() took 8 ms.
+2026-02-20 12:59:42 [main] INFO  [] [] org.testng.internal.Utils - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2026-02-20 12:59:42 [main] INFO  [] [] org.testng.internal.Utils - [Utils] MethodGroupsHelper.sortMethods() took 1 ms.
+2026-02-20 12:59:42 [main] INFO  [] [] org.testng.internal.Utils - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2026-02-20 12:59:42 [main] INFO  [] [] org.testng.internal.Utils - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2026-02-20 12:59:42 [main] INFO  [] [] org.testng.internal.Utils - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2026-02-20 12:59:42 [main] INFO  [] [] org.testng.internal.Utils - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2026-02-20 12:59:42 [main] INFO  [] [] org.testng.internal.Utils - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2026-02-20 12:59:42 [main] INFO  [] [] org.testng.internal.Utils - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2026-02-20 12:59:42 [main] INFO  [] [] org.testng.internal.Utils - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2026-02-20 12:59:42 [main] INFO  [] [] org.testng.internal.Utils - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2026-02-20 12:59:42 [main] INFO  [] [] org.testng.internal.Utils - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2026-02-20 12:59:42 [main] INFO  [] [] org.testng.internal.Utils - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2026-02-20 12:59:42 [main] INFO  [] [] org.testng.internal.Utils - [TestNG] Running:
+  C:\Users\jjns2\AppData\Local\Temp\testng-eclipse--1182840844\testng-customsuite.xml
+
+2026-02-20 12:59:42 [main] INFO  [] [] org.testng.internal.Utils - [Utils] DynamicGraphHelper.createDynamicGraph() took 3 ms.
+2026-02-20 12:59:42 [main] DEBUG [] [] framework.config.ConfigManager - headless = false
+2026-02-20 12:59:42 [main] DEBUG [] [] framework.config.ConfigManager - screenshot.on.pass = true
+2026-02-20 12:59:42 [main] DEBUG [] [] framework.config.ConfigManager - test-id = "data-qa"
+2026-02-20 12:59:42 [main] DEBUG [] [] framework.config.ConfigManager - dev.base.url = https://automationexercise-dev.com
+2026-02-20 12:59:42 [main] DEBUG [] [] framework.config.ConfigManager - qa.base.url = https://automationexercise.com
+2026-02-20 12:59:42 [main] DEBUG [] [] framework.config.ConfigManager - screenshot.on.fail = true
+2026-02-20 12:59:42 [main] DEBUG [] [] framework.config.ConfigManager - browser = chrome
+2026-02-20 12:59:42 [main] DEBUG [] [] framework.config.ConfigManager - env = QA
+2026-02-20 12:59:42 [main] DEBUG [] [] framework.config.ConfigManager - prod.base.url = https://automationexercise-prod.com
+2026-02-20 12:59:42 [main] WARN  [] [] framework.config.ConfigManager - Environment not initialized. Defaulting to 'qa'
+2026-02-20 12:59:51 [main] INFO  [] [] framework.drivers.DriverManager - Initiating Driver . . . . . 
+2026-02-20 13:00:08 [main] ERROR [] [] framework.drivers.DriverManager - Exception during the driver initiation
+java.lang.NullPointerException: Cannot invoke "String.isEmpty()" because "browser" is null
+	at framework.config.ConfigManager.getBrowser(ConfigManager.java:59)
+	at framework.drivers.DriverManager.initBrowser(DriverManager.java:71)
+	at framework.drivers.DriverManager.initDriver(DriverManager.java:38)
+	at base.BaseTest.setup(BaseTest.java:28)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethodConsideringTimeout(MethodInvocationHelper.java:71)
+	at org.testng.internal.invokers.ConfigInvoker.invokeConfigurationMethod(ConfigInvoker.java:400)
+	at org.testng.internal.invokers.ConfigInvoker.invokeConfigurations(ConfigInvoker.java:333)
+	at org.testng.internal.invokers.TestInvoker.runConfigMethods(TestInvoker.java:836)
+	at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:601)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
+	at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
+	at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:995)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
+	at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
+	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+	at org.testng.TestRunner.privateRun(TestRunner.java:741)
+	at org.testng.TestRunner.run(TestRunner.java:616)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:421)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:413)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:373)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:312)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1274)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1208)
+	at org.testng.TestNG.runSuites(TestNG.java:1112)
+	at org.testng.TestNG.run(TestNG.java:1079)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
+2026-02-20 13:00:16 [main] INFO  [] [] org.testng.internal.Utils - [TestNG] Time taken by org.testng.reporters.jq.Main@723ed581: 35 ms
+2026-02-20 13:00:16 [main] INFO  [] [] org.testng.internal.Utils - [TestNG] Time taken by org.testng.reporters.FailedReporter@f202d6d: 11 ms
+2026-02-20 13:00:16 [main] INFO  [] [] org.testng.internal.Utils - [TestNG] Time taken by org.testng.reporters.XMLReporter@6892cc6f: 8 ms
+2026-02-20 13:00:16 [main] INFO  [] [] org.testng.internal.Utils - [TestNG] Time taken by org.testng.reporters.EmailableReporter2@4ed38226: 7 ms
+2026-02-20 13:00:16 [main] INFO  [] [] org.testng.internal.Utils - [TestNG] Time taken by org.testng.reporters.JUnitReportReporter@16c8b7bd: 8 ms
+2026-02-20 13:00:16 [main] INFO  [] [] org.testng.internal.Utils - [TestNG] Time taken by org.testng.internal.ExitCodeListener@7159139f: 0 ms
+2026-02-20 13:01:25 [main] DEBUG [] [] org.testng.TestNG - suiteXmlPath: "C:\Users\jjns2\AppData\Local\Temp\testng-eclipse-2071350029\testng-customsuite.xml"
+2026-02-20 13:01:25 [main] INFO  [] [] org.testng.internal.Utils - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2026-02-20 13:01:25 [main] INFO  [] [] org.testng.internal.Utils - [Utils] MethodGroupsHelper.sortMethods() took 1 ms.
+2026-02-20 13:01:25 [main] INFO  [] [] org.testng.internal.Utils - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2026-02-20 13:01:25 [main] INFO  [] [] org.testng.internal.Utils - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2026-02-20 13:01:25 [main] INFO  [] [] org.testng.internal.Utils - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2026-02-20 13:01:25 [main] INFO  [] [] org.testng.internal.Utils - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2026-02-20 13:01:25 [main] INFO  [] [] org.testng.internal.Utils - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2026-02-20 13:01:25 [main] INFO  [] [] org.testng.internal.Utils - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2026-02-20 13:01:25 [main] INFO  [] [] org.testng.internal.Utils - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2026-02-20 13:01:25 [main] INFO  [] [] org.testng.internal.Utils - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2026-02-20 13:01:25 [main] INFO  [] [] org.testng.internal.Utils - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2026-02-20 13:01:25 [main] INFO  [] [] org.testng.internal.Utils - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2026-02-20 13:01:25 [main] INFO  [] [] org.testng.internal.Utils - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 1 ms.
+2026-02-20 13:01:25 [main] INFO  [] [] org.testng.internal.Utils - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2026-02-20 13:01:25 [main] INFO  [] [] org.testng.internal.Utils - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2026-02-20 13:01:25 [main] INFO  [] [] org.testng.internal.Utils - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2026-02-20 13:01:25 [main] INFO  [] [] org.testng.internal.Utils - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 7 ms.
+2026-02-20 13:01:25 [main] INFO  [] [] org.testng.internal.Utils - [Utils] MethodGroupsHelper.sortMethods() took 11 ms.
+2026-02-20 13:01:25 [main] INFO  [] [] org.testng.internal.Utils - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2026-02-20 13:01:25 [main] INFO  [] [] org.testng.internal.Utils - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2026-02-20 13:01:25 [main] INFO  [] [] org.testng.internal.Utils - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2026-02-20 13:01:25 [main] INFO  [] [] org.testng.internal.Utils - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2026-02-20 13:01:25 [main] INFO  [] [] org.testng.internal.Utils - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2026-02-20 13:01:25 [main] INFO  [] [] org.testng.internal.Utils - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2026-02-20 13:01:25 [main] INFO  [] [] org.testng.internal.Utils - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2026-02-20 13:01:25 [main] INFO  [] [] org.testng.internal.Utils - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2026-02-20 13:01:25 [main] INFO  [] [] org.testng.internal.Utils - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2026-02-20 13:01:25 [main] INFO  [] [] org.testng.internal.Utils - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2026-02-20 13:01:25 [main] INFO  [] [] org.testng.internal.Utils - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
+2026-02-20 13:01:25 [main] INFO  [] [] org.testng.internal.Utils - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
+2026-02-20 13:01:25 [main] INFO  [] [] org.testng.internal.Utils - [TestNG] Running:
+  C:\Users\jjns2\AppData\Local\Temp\testng-eclipse-2071350029\testng-customsuite.xml
+
+2026-02-20 13:01:25 [main] INFO  [] [] org.testng.internal.Utils - [Utils] DynamicGraphHelper.createDynamicGraph() took 3 ms.
+2026-02-20 13:01:25 [main] DEBUG [] [] framework.config.ConfigManager - headless = false
+2026-02-20 13:01:25 [main] DEBUG [] [] framework.config.ConfigManager - screenshot.on.pass = true
+2026-02-20 13:01:25 [main] DEBUG [] [] framework.config.ConfigManager - test-id = "data-qa"
+2026-02-20 13:01:25 [main] DEBUG [] [] framework.config.ConfigManager - dev.base.url = https://automationexercise-dev.com
+2026-02-20 13:01:25 [main] DEBUG [] [] framework.config.ConfigManager - qa.base.url = https://automationexercise.com
+2026-02-20 13:01:25 [main] DEBUG [] [] framework.config.ConfigManager - screenshot.on.fail = true
+2026-02-20 13:01:25 [main] DEBUG [] [] framework.config.ConfigManager - browser = chrome
+2026-02-20 13:01:25 [main] DEBUG [] [] framework.config.ConfigManager - env = QA
+2026-02-20 13:01:25 [main] DEBUG [] [] framework.config.ConfigManager - prod.base.url = https://automationexercise-prod.com
+2026-02-20 13:01:25 [main] WARN  [] [] framework.config.ConfigManager - Environment not initialized. Defaulting to 'qa'
+2026-02-20 13:01:25 [main] INFO  [] [] framework.drivers.DriverManager - Initiating Driver . . . . . 
+2026-02-20 13:01:42 [main] INFO  [] [] framework.drivers.DriverManager - Launching Browser. HeadlessMode: false
+2026-02-20 13:01:42 [main] INFO  [] [] framework.drivers.DriverManager - Browser Context Launched
+2026-02-20 13:01:42 [main] INFO  [] [] framework.drivers.DriverManager - Browser Page opened.
+2026-02-20 13:01:54 [main] INFO  [] [] framework.drivers.DriverManager - Navigated to Base URL: https://automationexercise.com
+2026-02-20 13:01:54 [main] INFO  [] [] test.SignupTests - Initial SETUP is completed.
+2026-02-20 13:01:54 [main] INFO  [] [] test.SignupTests - Running:Step-1
+2026-02-20 13:01:54 [main] INFO  [] [] test.SignupTests - Running:Step-2
+2026-02-20 13:01:56 [main] INFO  [] [] test.SignupTests - Running:Step-3
+2026-02-20 13:02:00 [main] INFO  [] [] test.SignupTests - Running:Step-4
+2026-02-20 13:02:06 [main] INFO  [] [] pages.ae.SignupDetailPage - Checkbox: 'Newsletter' is set to: true
+2026-02-20 13:02:06 [main] INFO  [] [] pages.ae.SignupDetailPage - Checkbox: 'Special Offers' is set to: false
+2026-02-20 13:02:06 [main] INFO  [] [] test.SignupTests - Running:Step-5
+2026-02-20 13:02:16 [main] INFO  [] [] test.SignupTests - Running:Step-6
+2026-02-20 13:02:28 [main] INFO  [] [] framework.drivers.DriverManager - Closed Browser !!
+2026-02-20 13:02:28 [main] INFO  [] [] test.SignupTests - Driver SHUTDOWN is successfull !
+2026-02-20 13:02:28 [main] INFO  [] [] org.testng.internal.Utils - [TestNG] Time taken by org.testng.reporters.jq.Main@60737b23: 31 ms
+2026-02-20 13:02:28 [main] INFO  [] [] org.testng.internal.Utils - [TestNG] Time taken by org.testng.reporters.FailedReporter@33f98231: 1 ms
+2026-02-20 13:02:28 [main] INFO  [] [] org.testng.internal.Utils - [TestNG] Time taken by org.testng.reporters.XMLReporter@151db587: 7 ms
+2026-02-20 13:02:28 [main] INFO  [] [] org.testng.internal.Utils - [TestNG] Time taken by org.testng.reporters.EmailableReporter2@dc7b462: 4 ms
+2026-02-20 13:02:28 [main] INFO  [] [] org.testng.internal.Utils - [TestNG] Time taken by org.testng.reporters.JUnitReportReporter@7186333e: 2 ms
+2026-02-20 13:02:28 [main] INFO  [] [] org.testng.internal.Utils - [TestNG] Time taken by org.testng.internal.ExitCodeListener@692fd26: 1 ms
+2026-02-20 13:02:55 [main] DEBUG [] [] org.testng.TestNG - suiteXmlPath: "D:\The_QE_Wheel\Playwright Projects\Playwright-Java-Framework\Playwright_Demo_Framework\testng.xml"
+2026-02-20 13:02:55 [main] DEBUG [] [] framework.config.ConfigManager - headless = false
+2026-02-20 13:02:55 [main] DEBUG [] [] framework.config.ConfigManager - screenshot.on.pass = true
+2026-02-20 13:02:55 [main] DEBUG [] [] framework.config.ConfigManager - test-id = "data-qa"
+2026-02-20 13:02:55 [main] DEBUG [] [] framework.config.ConfigManager - dev.base.url = https://automationexercise-dev.com
+2026-02-20 13:02:55 [main] DEBUG [] [] framework.config.ConfigManager - qa.base.url = https://automationexercise.com
+2026-02-20 13:02:55 [main] DEBUG [] [] framework.config.ConfigManager - screenshot.on.fail = true
+2026-02-20 13:02:55 [main] DEBUG [] [] framework.config.ConfigManager - browser = chrome
+2026-02-20 13:02:55 [main] DEBUG [] [] framework.config.ConfigManager - env = QA
+2026-02-20 13:02:55 [main] DEBUG [] [] framework.config.ConfigManager - prod.base.url = https://automationexercise-prod.com
+2026-02-20 13:02:55 [main] INFO  [] [] framework.listeners.TestListener - ================XXXXXXXXXXXXXX================
+2026-02-20 13:02:55 [main] INFO  [] [] framework.listeners.TestListener - Starting Suite: Playwright Demo Framework Tests - TA1 
+2026-02-20 13:02:55 [main] INFO  [] [] framework.listeners.TestListener - Execution Environment: qa
+2026-02-20 13:02:55 [main] INFO  [] [] framework.listeners.TestListener - ==============================================
+2026-02-20 13:02:55 [main] INFO  [] [] framework.drivers.DriverManager - Initiating Driver . . . . . 
+2026-02-20 13:03:02 [main] INFO  [] [] framework.drivers.DriverManager - Launching Browser. HeadlessMode: false
+2026-02-20 13:03:02 [main] INFO  [] [] framework.drivers.DriverManager - Browser Context Launched
+2026-02-20 13:03:02 [main] INFO  [] [] framework.drivers.DriverManager - Browser Page opened.
+2026-02-20 13:03:07 [main] INFO  [] [] framework.drivers.DriverManager - Navigated to Base URL: https://automationexercise.com
+2026-02-20 13:03:07 [main] INFO  [] [] test.SignupTests - Initial SETUP is completed.
+2026-02-20 13:03:07 [main] INFO  [qa] [Test_AE001_TC01_Verify_New_User_SignUp] framework.listeners.TestListener - -----------------  STARTING TEST : Test_AE001_TC01_Verify_New_User_SignUp  -----------------
+2026-02-20 13:03:07 [main] INFO  [qa] [Test_AE001_TC01_Verify_New_User_SignUp] test.SignupTests - Running:Step-1
+2026-02-20 13:03:07 [main] INFO  [qa] [Test_AE001_TC01_Verify_New_User_SignUp] test.SignupTests - Running:Step-2
+2026-02-20 13:03:08 [main] INFO  [qa] [Test_AE001_TC01_Verify_New_User_SignUp] test.SignupTests - Running:Step-3
+2026-02-20 13:03:12 [main] INFO  [qa] [Test_AE001_TC01_Verify_New_User_SignUp] test.SignupTests - Running:Step-4
+2026-02-20 13:03:18 [main] INFO  [qa] [Test_AE001_TC01_Verify_New_User_SignUp] pages.ae.SignupDetailPage - Checkbox: 'Newsletter' is set to: true
+2026-02-20 13:03:18 [main] INFO  [qa] [Test_AE001_TC01_Verify_New_User_SignUp] pages.ae.SignupDetailPage - Checkbox: 'Special Offers' is set to: false
+2026-02-20 13:03:18 [main] INFO  [qa] [Test_AE001_TC01_Verify_New_User_SignUp] test.SignupTests - Running:Step-5
+2026-02-20 13:03:28 [main] INFO  [qa] [Test_AE001_TC01_Verify_New_User_SignUp] test.SignupTests - Running:Step-6
+2026-02-20 13:03:35 [main] INFO  [qa] [Test_AE001_TC01_Verify_New_User_SignUp] framework.listeners.TestListener - {TEST PASSED: Test_AE001_TC01_Verify_New_User_SignUp
+2026-02-20 13:03:37 [main] INFO  [] [] framework.drivers.DriverManager - Closed Browser !!
+2026-02-20 13:03:37 [main] INFO  [] [] test.SignupTests - Driver SHUTDOWN is successfull !
+2026-02-20 13:03:37 [main] INFO  [] [] o.testng.reporters.TestHTMLReporter - [TestHTMLReporter] Invalid file path
+2026-02-20 13:03:37 [main] INFO  [] [] framework.listeners.TestListener - ==============================================
+2026-02-20 13:03:37 [main] INFO  [] [] framework.listeners.TestListener - Finished Suite: Playwright Demo Framework Tests - TA1 
+2026-02-20 13:03:37 [main] INFO  [] [] framework.listeners.TestListener - ================XXXXXXXXXXXXXX================
+2026-02-20 13:23:56 [main] DEBUG [] [] org.testng.TestNG - suiteXmlPath: "D:\The_QE_Wheel\Playwright Projects\Playwright-Java-Framework\Playwright_Demo_Framework\testng.xml"
+2026-02-20 13:23:57 [main] DEBUG [] [] framework.config.ConfigManager - headless = false
+2026-02-20 13:23:57 [main] DEBUG [] [] framework.config.ConfigManager - screenshot.on.pass = true
+2026-02-20 13:23:57 [main] DEBUG [] [] framework.config.ConfigManager - test-id = "data-qa"
+2026-02-20 13:23:57 [main] DEBUG [] [] framework.config.ConfigManager - dev.base.url = https://automationexercise-dev.com
+2026-02-20 13:23:57 [main] DEBUG [] [] framework.config.ConfigManager - qa.base.url = https://automationexercise.com
+2026-02-20 13:23:57 [main] DEBUG [] [] framework.config.ConfigManager - screenshot.on.fail = true
+2026-02-20 13:23:57 [main] DEBUG [] [] framework.config.ConfigManager - browser = chrome
+2026-02-20 13:23:57 [main] DEBUG [] [] framework.config.ConfigManager - env = QA
+2026-02-20 13:23:57 [main] DEBUG [] [] framework.config.ConfigManager - prod.base.url = https://automationexercise-prod.com
+2026-02-20 13:23:57 [main] INFO  [] [] framework.listeners.TestListener - ================XXXXXXXXXXXXXX================
+2026-02-20 13:23:57 [main] INFO  [] [] framework.listeners.TestListener - Starting Suite: Playwright Demo Framework Tests - TA1 
+2026-02-20 13:23:57 [main] INFO  [] [] framework.listeners.TestListener - Execution Environment: qa
+2026-02-20 13:23:57 [main] INFO  [] [] framework.listeners.TestListener - ==============================================
+2026-02-20 13:23:57 [main] INFO  [] [] framework.drivers.DriverManager - Initiating Driver . . . . . 
+2026-02-20 13:24:09 [main] INFO  [] [] framework.drivers.DriverManager - Launching Browser. HeadlessMode: false
+2026-02-20 13:24:10 [main] INFO  [] [] framework.drivers.DriverManager - Browser Context Launched
+2026-02-20 13:24:10 [main] INFO  [] [] framework.drivers.DriverManager - Browser Page opened.
+2026-02-20 13:24:15 [main] INFO  [] [] framework.drivers.DriverManager - Navigated to Base URL: https://automationexercise.com
+2026-02-20 13:24:15 [main] INFO  [] [] test.SignupTests - Initial SETUP is completed.
+2026-02-20 13:24:15 [main] INFO  [qa] [Test_AE001_TC01_Verify_New_User_SignUp] framework.listeners.TestListener - -----------------  STARTING TEST : Test_AE001_TC01_Verify_New_User_SignUp  -----------------
+2026-02-20 13:24:15 [main] INFO  [qa] [Test_AE001_TC01_Verify_New_User_SignUp] test.SignupTests - Running:Step-1
+2026-02-20 13:24:15 [main] INFO  [qa] [Test_AE001_TC01_Verify_New_User_SignUp] test.SignupTests - Running:Step-2
+2026-02-20 13:24:16 [main] INFO  [qa] [Test_AE001_TC01_Verify_New_User_SignUp] test.SignupTests - Running:Step-3
+2026-02-20 13:24:20 [main] INFO  [qa] [Test_AE001_TC01_Verify_New_User_SignUp] test.SignupTests - Running:Step-4
+2026-02-20 13:24:26 [main] INFO  [qa] [Test_AE001_TC01_Verify_New_User_SignUp] pages.ae.SignupDetailPage - Checkbox: 'Newsletter' is set to: true
+2026-02-20 13:24:26 [main] INFO  [qa] [Test_AE001_TC01_Verify_New_User_SignUp] pages.ae.SignupDetailPage - Checkbox: 'Special Offers' is set to: false
+2026-02-20 13:24:26 [main] INFO  [qa] [Test_AE001_TC01_Verify_New_User_SignUp] test.SignupTests - Running:Step-5
+2026-02-20 13:24:37 [main] INFO  [qa] [Test_AE001_TC01_Verify_New_User_SignUp] test.SignupTests - Running:Step-6
+2026-02-20 13:24:44 [main] INFO  [qa] [Test_AE001_TC01_Verify_New_User_SignUp] framework.listeners.TestListener - {TEST PASSED: Test_AE001_TC01_Verify_New_User_SignUp
+2026-02-20 13:24:47 [main] INFO  [] [] framework.drivers.DriverManager - Closed Browser !!
+2026-02-20 13:24:47 [main] INFO  [] [] test.SignupTests - Driver SHUTDOWN is successfull !
+2026-02-20 13:24:47 [main] INFO  [] [] o.testng.reporters.TestHTMLReporter - [TestHTMLReporter] Invalid file path
+2026-02-20 13:24:47 [main] INFO  [] [] framework.listeners.TestListener - ==============================================
+2026-02-20 13:24:47 [main] INFO  [] [] framework.listeners.TestListener - Finished Suite: Playwright Demo Framework Tests - TA1 
+2026-02-20 13:24:47 [main] INFO  [] [] framework.listeners.TestListener - ================XXXXXXXXXXXXXX================
+2026-02-20 13:28:42 [main] DEBUG [] [] org.testng.TestNG - suiteXmlPath: "D:\The_QE_Wheel\Playwright Projects\Playwright-Java-Framework\Playwright_Demo_Framework\testng.xml"
+2026-02-20 13:28:42 [main] DEBUG [] [] framework.config.ConfigManager - headless = false
+2026-02-20 13:28:42 [main] DEBUG [] [] framework.config.ConfigManager - screenshot.on.pass = true
+2026-02-20 13:28:42 [main] DEBUG [] [] framework.config.ConfigManager - test-id = "data-qa"
+2026-02-20 13:28:42 [main] DEBUG [] [] framework.config.ConfigManager - dev.base.url = https://automationexercise-dev.com
+2026-02-20 13:28:42 [main] DEBUG [] [] framework.config.ConfigManager - qa.base.url = https://automationexercise.com
+2026-02-20 13:28:42 [main] DEBUG [] [] framework.config.ConfigManager - screenshot.on.fail = true
+2026-02-20 13:28:42 [main] DEBUG [] [] framework.config.ConfigManager - browser = chrome
+2026-02-20 13:28:42 [main] DEBUG [] [] framework.config.ConfigManager - env = QA
+2026-02-20 13:28:42 [main] DEBUG [] [] framework.config.ConfigManager - prod.base.url = https://automationexercise-prod.com
+2026-02-20 13:28:42 [main] INFO  [] [] framework.listeners.TestListener - ================XXXXXXXXXXXXXX================
+2026-02-20 13:28:42 [main] INFO  [] [] framework.listeners.TestListener - Starting Suite: Playwright Demo Framework Tests - TA1 
+2026-02-20 13:28:42 [main] INFO  [] [] framework.listeners.TestListener - Execution Environment: qa
+2026-02-20 13:28:42 [main] INFO  [] [] framework.listeners.TestListener - ==============================================
+2026-02-20 13:28:42 [main] INFO  [] [] framework.drivers.DriverManager - Initiating Driver . . . . . 
+2026-02-20 13:28:51 [main] INFO  [] [] framework.drivers.DriverManager - Launching Browser. HeadlessMode: false
+2026-02-20 13:28:51 [main] INFO  [] [] framework.drivers.DriverManager - Browser Context Launched
+2026-02-20 13:28:51 [main] INFO  [] [] framework.drivers.DriverManager - Browser Page opened.
+2026-02-20 13:28:56 [main] INFO  [] [] framework.drivers.DriverManager - Navigated to Base URL: https://automationexercise.com
+2026-02-20 13:28:56 [main] INFO  [] [] test.SignupTests - Initial SETUP is completed.
+2026-02-20 13:28:56 [main] INFO  [qa] [Test_AE001_TC01_Verify_New_User_SignUp] framework.listeners.TestListener - -----------------  STARTING TEST : Test_AE001_TC01_Verify_New_User_SignUp  -----------------
+2026-02-20 13:28:56 [main] INFO  [qa] [Test_AE001_TC01_Verify_New_User_SignUp] test.SignupTests - Running:Step-1
+2026-02-20 13:28:56 [main] INFO  [qa] [Test_AE001_TC01_Verify_New_User_SignUp] test.SignupTests - Running:Step-2
+2026-02-20 13:28:58 [main] INFO  [qa] [Test_AE001_TC01_Verify_New_User_SignUp] test.SignupTests - Running:Step-3
+2026-02-20 13:29:01 [main] INFO  [qa] [Test_AE001_TC01_Verify_New_User_SignUp] test.SignupTests - Running:Step-4
+2026-02-20 13:29:08 [main] INFO  [qa] [Test_AE001_TC01_Verify_New_User_SignUp] pages.ae.SignupDetailPage - Checkbox: 'Newsletter' is set to: true
+2026-02-20 13:29:08 [main] INFO  [qa] [Test_AE001_TC01_Verify_New_User_SignUp] pages.ae.SignupDetailPage - Checkbox: 'Special Offers' is set to: false
+2026-02-20 13:29:08 [main] INFO  [qa] [Test_AE001_TC01_Verify_New_User_SignUp] test.SignupTests - Running:Step-5
+2026-02-20 13:29:18 [main] INFO  [qa] [Test_AE001_TC01_Verify_New_User_SignUp] test.SignupTests - Running:Step-6
+2026-02-20 13:29:32 [main] INFO  [qa] [Test_AE001_TC01_Verify_New_User_SignUp] framework.listeners.TestListener - {TEST FAILED: Test_AE001_TC01_Verify_New_User_SignUp
+2026-02-20 13:29:32 [main] ERROR [qa] [Test_AE001_TC01_Verify_New_User_SignUp] framework.listeners.TestListener - Failure Reason: org.opentest4j.AssertionFailedError: Locator expected to be visible
+Error: element(s) not found
+Call log:
+  - Assert "isVisible" with timeout 5000ms
+  - waiting for getByText(Pattern.compile("Account Deleted"))
+2026-02-20 13:29:33 [main] INFO  [] [] framework.drivers.DriverManager - Closed Browser !!
+2026-02-20 13:29:33 [main] INFO  [] [] test.SignupTests - Driver SHUTDOWN is successfull !
+2026-02-20 13:29:33 [main] INFO  [] [] o.testng.reporters.TestHTMLReporter - [TestHTMLReporter] Invalid file path
+2026-02-20 13:29:33 [main] INFO  [] [] framework.listeners.TestListener - ==============================================
+2026-02-20 13:29:33 [main] INFO  [] [] framework.listeners.TestListener - Finished Suite: Playwright Demo Framework Tests - TA1 
+2026-02-20 13:29:33 [main] INFO  [] [] framework.listeners.TestListener - ================XXXXXXXXXXXXXX================

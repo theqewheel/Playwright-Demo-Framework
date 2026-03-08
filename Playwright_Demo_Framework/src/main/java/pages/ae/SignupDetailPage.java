@@ -4,11 +4,14 @@ import static com.microsoft.playwright.assertions.PlaywrightAssertions.assertTha
 
 import java.util.regex.Pattern;
 
+import org.testng.asserts.SoftAssert;
+
 import com.microsoft.playwright.Locator;
 import com.microsoft.playwright.Page;
 import com.microsoft.playwright.options.AriaRole;
 
 import framework.base.BasePage;
+import io.qameta.allure.Step;
 
 public class SignupDetailPage extends BasePage {
 	
@@ -36,8 +39,8 @@ public class SignupDetailPage extends BasePage {
 	private final Locator MobileNumberTextbox;
 	private final Locator CreateAccountButton;
 	
-	public SignupDetailPage(Page page) {
-		super(page);
+	public SignupDetailPage(Page page,SoftAssert softAssert) {
+		super(page,softAssert);
 		this.PageHeaderAccountInfo = page.getByRole(AriaRole.HEADING, new Page.GetByRoleOptions().setName(Pattern.compile("Account",Pattern.CASE_INSENSITIVE)));
 		this.MaleRadioButton = page.getByRole(AriaRole.RADIO, new Page.GetByRoleOptions().setName(Pattern.compile("^\\s*Mr.\\s*$")));
 		this.FemaleRadioButton = page.getByRole(AriaRole.RADIO, new Page.GetByRoleOptions().setName(Pattern.compile("^\\s*Mrs.\\s*$")));
@@ -131,13 +134,23 @@ public class SignupDetailPage extends BasePage {
 		CreateAccountButton.click();
 	}
 	
+	@Step("Verify Page Header - Account & Address info is displayed")
 	public void verifyPageHeadersDisplayed() {
-		assertThat(PageHeaderAccountInfo).isVisible();
-		assertThat(PageHeaderAddressInfo).isVisible();
+		try {
+			assertThat(PageHeaderAccountInfo).isVisible();
+			assertThat(PageHeaderAddressInfo).isVisible();
+		}catch(Exception e) {
+			softAssert.fail("Page Headers not displayed - Account/Address");
+		}
 	}
 	
+	@Step("Verify auto-populated name and email on Sign-Up Details Page")
 	public void verifyAutoPopulatedNameAndEmail(String expectedName, String expectedEmail) {
-		assertThat(NameTextbox).hasAttribute("value", expectedName);
-		assertThat(EmailTextbox).hasAttribute("value", expectedEmail);
+		try {
+			assertThat(NameTextbox).hasAttribute("value", expectedName);
+			assertThat(EmailTextbox).hasAttribute("value", expectedEmail);
+		}catch(Exception e) {
+			softAssert.fail("Missing Auto-populated fields - Name/Email");
+		}
 	}
 }

@@ -23,6 +23,24 @@ public class ProductDetailPage extends BasePage {
 		softAssert.assertTrue(fetchProductAvailability() != null, "Product Availability is not available");
 		softAssert.assertTrue(fetchProductCondition() != null, "Product Condition is not available");
 		softAssert.assertTrue(fetchProductBrand() != null, "Product Brand is not available");
+		logger.info("""
+				
+				Product Details
+				---------------
+				Name     	 :{}
+				Category 	 :{}
+				Price    	 :{}
+				Availability :{} 
+				Condition    :{}
+				Brand        :{}
+				""",
+				fetchProductName(),
+				fetchProductCategory(),
+				fetchProductPrice(),
+				fetchProductAvailability(),
+				fetchProductCondition(),
+				fetchProductBrand()
+				);
 	}
 
 	public String fetchProductName() {

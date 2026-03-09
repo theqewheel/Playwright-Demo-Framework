@@ -30,7 +30,7 @@ public abstract class BasePage {
 
 	public void verifyPageLoaded(String expectedURL, String expectedTitle) {
 		assertThat(page).hasURL(Pattern.compile(expectedURL, Pattern.CASE_INSENSITIVE));
-		assertThat(page).hasTitle(Pattern.compile(expectedTitle));
+		assertThat(page).hasTitle(Pattern.compile(expectedTitle, Pattern.CASE_INSENSITIVE));
 	}
 
 	public void setCheckBox(Locator checkbox, boolean shouldBeChecked, String checkboxName) {

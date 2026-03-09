@@ -1,4 +1,4 @@
-package test;
+package test.ae;
 
 import org.testng.annotations.Test;
 
@@ -77,7 +77,7 @@ public class ProductsTests extends BaseTest {
 	@Story("Products can be searched with filter - category")
 	@Severity(SeverityLevel.NORMAL)
 	@Owner("QE@Cloudyfolk")
-	public void Test_AE4_TC18_Verify_Product_Category_Search() {
+	public void Test_AE4_TC18_Verify_Product_Category_Filtering() {
 
 		// Step-1 Navigate to the URL
 		logger.info("Running:Step-1");
@@ -89,14 +89,41 @@ public class ProductsTests extends BaseTest {
 		homePage.clickMenu("Products");
 		productsPage.verifyPageLoaded("/products", "All Products");
 
-		// Step-3 Search for a Category 
+		// Step-3 Filter for a Category
 		logger.info("Running:Step-3");
-		productsPage.clickSubCategory("WOMEN","DRESS");
-		productsPage.verifyCategoryPageDisplay("WOMEN","DRESS");
-		productsPage.clickSubCategory("MEN","JEANS");
-		productsPage.verifyCategoryPageDisplay("MEN","JEANS");
-		
-		
+		productsPage.clickSubCategory("WOMEN", "DRESS");
+		productsPage.verifyCategoryPageDisplay("WOMEN", "DRESS");
+		productsPage.verifyProductsListonLoad();
+		productsPage.clickSubCategory("MEN", "JEANS");
+		productsPage.verifyCategoryPageDisplay("MEN", "JEANS");
+		productsPage.verifyProductsListonLoad();
+	}
+
+	@Test(description = "AE4_TC19 - Verify brand filtering for products", groups = { "smoke", "regression" })
+	@Epic("Product Search")
+	@Feature("Product Search Page for Products")
+	@Story("Products can be searched with filter - brand")
+	@Severity(SeverityLevel.NORMAL)
+	@Owner("QE@Cloudyfolk")
+	public void Test_AE4_TC19_Verify_Product_Brand_Filtering() {
+
+		// Step-1 Navigate to the URL
+		logger.info("Running:Step-1");
+		ReportManager.logStep("Navigating to Automation Exercise");
+
+		// Step-2 Navigate to ALL Products Page
+		logger.info("Running:Step-2");
+		homePage.clickMenu("Products");
+
+		// Step-3 Filter for a Brand
+		logger.info("Running:Step-3");
+		productsPage.selectBrand("BABYHUG");
+		productsPage.verifyBrandPageDisplay("BABYHUG");
+		productsPage.verifyProductsListonLoad();
+		productsPage.selectBrand("Madame");
+		productsPage.verifyBrandPageDisplay("MaDame");
+		productsPage.verifyProductsListonLoad();
+
 	}
 
 }

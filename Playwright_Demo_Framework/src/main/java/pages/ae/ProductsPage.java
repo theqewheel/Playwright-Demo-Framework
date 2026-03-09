@@ -263,13 +263,13 @@ public class ProductsPage extends BasePage {
 
 		Map<String, String> productDetailMap = new HashMap<String, String>();
 
-		String productPrice = ProductCardsDiv.filter(new Locator.FilterOptions().setHas(page.getByText(productName)))
+		String productPrice = getProductCard(productName)
 				.filter(new Locator.FilterOptions().setHas(page.locator("div[class*='productinfo'")))
 				.filter(new Locator.FilterOptions().setHas(page.locator("h2"))).textContent().trim();
 
 		productPrice = productPrice.substring(productPrice.lastIndexOf("Rs. "));
 
-		String productFullName = ProductCardsDiv.filter(new Locator.FilterOptions().setHas(page.getByText(productName)))
+		String productFullName = getProductCard(productName)
 				.filter(new Locator.FilterOptions().setHas(page.locator("div[class*='productinfo'")))
 				.filter(new Locator.FilterOptions().setHas(page.locator("p"))).textContent();
 
@@ -299,7 +299,36 @@ public class ProductsPage extends BasePage {
 	}
 
 	public void selectBrand(String brandName) {
-		brandNameLinks.filter(new Locator.FilterOptions().setHas(page.getByText(brandName))).click();
+		brandNameLinks.locator("a[href*='" + StringUtil.capitalizeFirst(brandName) + "']").click();
+	}
+
+	public void verifyBrandPageDisplay(String brandName) {
+		verifyPageLoaded("brand_products", brandName);
+
+		// verify the navigation title for featured products
+		try {
+			assertThat(categoryDisplayText)
+					.containsText(Pattern.compile(brandName,Pattern.CASE_INSENSITIVE));
+		} catch (Exception e) {
+			softAssert.fail("The category navigation displayed is not >> " + brandName
+					+ ", Actual: " + getCategoryNavigationDisplayed());
+			logger.error("The category navigation displayed is not >> " + brandName 
+					+ ", Actual: " + getCategoryNavigationDisplayed());
+		}
+
+		// verify the featured title
+		try {
+			assertThat(featuredProductTitle).containsText(Pattern.compile("Brand - " + brandName + " Products",Pattern.CASE_INSENSITIVE));
+
+		} catch (Exception e) {
+			softAssert.fail("The featured title displayed is not >> "
+					+ "Brand - " + brandName + " Products"
+					+ ", Actual: " + featuredProductTitle.textContent().trim());
+			logger.error("The featured title displayed is not >> "
+					+ "Brand - " + brandName + " Products"
+					+ ", Actual: " + featuredProductTitle.textContent().trim());
+		}
+
 	}
 
 }

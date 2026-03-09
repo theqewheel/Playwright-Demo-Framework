@@ -4,16 +4,25 @@ import org.testng.asserts.SoftAssert;
 
 import com.microsoft.playwright.Locator;
 import com.microsoft.playwright.Page;
+import com.microsoft.playwright.options.AriaRole;
 
 import framework.base.BasePage;
 
 public class ProductDetailPage extends BasePage {
 
 	private final Locator productInfo;
+	private final Locator reviewCardName;
+	private final Locator reviewCardEmail;
+	private final Locator reviewCardReviewBody;
+	private final Locator reviewSubmitButton;
 
 	public ProductDetailPage(Page page, SoftAssert softAssert) {
 		super(page, softAssert);
 		this.productInfo = page.locator(".product-information");
+		this.reviewCardName = page.getByRole(AriaRole.TEXTBOX,new Page.GetByRoleOptions().setName("Your Name"));
+		this.reviewCardEmail = page.getByRole(AriaRole.TEXTBOX,new Page.GetByRoleOptions().setName("Email Address").setExact(true));;
+		this.reviewCardReviewBody = page.getByRole(AriaRole.TEXTBOX,new Page.GetByRoleOptions().setName("Add Review Here"));
+		this.reviewSubmitButton = page.getByRole(AriaRole.BUTTON,new Page.GetByRoleOptions().setName("Submit"));
 	}
 
 	public void verifyProductDetailsAreVisible() {
@@ -91,6 +100,21 @@ public class ProductDetailPage extends BasePage {
 		productBrand = productBrand.substring(productBrand.lastIndexOf("Brand:")).trim();
 
 		return productBrand;
+	}
+	
+	public void verifyWriteAReviewPage() {
+		verifyTextMessageDisplayed("Write Your Review", true);
+	}
+	
+	public void writeProductReviewAndSubmit(String name, String email, String content) {		
+		reviewCardName.fill(name);
+		reviewCardEmail.fill(email);
+		reviewCardReviewBody.fill(content);
+		reviewSubmitButton.click();	
+	}
+	
+	public void verifyReviewSubmissionSuccessMessage() {
+		verifyTextMessageDisplayed("Thank you for your review", true);
 	}
 
 }

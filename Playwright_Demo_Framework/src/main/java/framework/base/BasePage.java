@@ -11,7 +11,9 @@ import com.microsoft.playwright.Locator;
 import com.microsoft.playwright.Page;
 import com.microsoft.playwright.options.AriaRole;
 
-import framework.logging.LogManager;;
+import framework.logging.LogManager;
+import io.qameta.allure.Step;
+import reporting.ReportManager;;
 
 public abstract class BasePage {
 
@@ -19,6 +21,10 @@ public abstract class BasePage {
 	protected Logger logger;
 	private final Locator ContinueButton;
 	protected SoftAssert softAssert;
+	private final Locator subscriptionHeader;
+	private final Locator subscriptionEmailTextBox;
+	private final Locator subscribeButton;
+	private final Locator categoryDisplayText;
 
 	public BasePage(Page page, SoftAssert softAssert) {
 		this.page = page;
@@ -26,6 +32,10 @@ public abstract class BasePage {
 		this.softAssert = softAssert;
 		this.ContinueButton = page.getByRole(AriaRole.LINK,
 				new Page.GetByRoleOptions().setName(Pattern.compile("Continue", Pattern.CASE_INSENSITIVE)));
+		this.subscriptionHeader = page.getByRole(AriaRole.HEADING, new Page.GetByRoleOptions().setName("Subscription"));
+		this.subscriptionEmailTextBox = page.getByPlaceholder("email address");
+		this.subscribeButton = page.locator("#subscribe");
+		this.categoryDisplayText = page.locator(".breadcrumbs .active");
 	}
 
 	public void verifyPageLoaded(String expectedURL, String expectedTitle) {
@@ -73,4 +83,20 @@ public abstract class BasePage {
 		ContinueButton.click();
 	}
 
+	public void subscribe(String email) {
+		subscriptionEmailTextBox.fill(email);
+		subscribeButton.click();
+	}
+	
+	public Boolean verifySubscriptionHeaderVisibility() {
+	 return subscriptionHeader.isVisible();
+	}
+	
+	public Boolean verifySubscriptionSuccess() {
+		return page.getByText("You have been successfully subscribed!").isVisible();
+	}
+	
+	public String getCategoryNavigationDisplayed() {
+		return categoryDisplayText.textContent().trim();
+	}
 }

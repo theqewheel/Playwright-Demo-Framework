@@ -27,14 +27,10 @@ public class ProductsPage extends BasePage {
 	private final Locator searchProductsTextBox;
 	private final Locator searchProductsButton;
 	private final Locator categoryLinks;
-	private final Locator subscriptionHeader;
-	private final Locator subscriptionEmailTextBox;
-	private final Locator subscribeButton;
 	private final Locator subCategoryWomenLinks;
 	private final Locator subCategoryMenLinks;
 	private final Locator subCategoryKidsLinks;
 	private final Locator brandNameLinks;
-	private final Locator categoryDisplayText;
 	private final Locator featuredProductTitle;
 
 	public ProductsPage(Page page, SoftAssert softAssert) {
@@ -43,15 +39,10 @@ public class ProductsPage extends BasePage {
 		this.searchProductsTextBox = page.getByPlaceholder("Search Product");
 		this.searchProductsButton = page.locator("#submit_search");
 		this.categoryLinks = page.locator("div[class*='category'] .panel-title");
-		this.subscriptionHeader = page.getByRole(AriaRole.HEADING, new Page.GetByRoleOptions().setName("Subscription"));
-		this.subscriptionEmailTextBox = page.getByPlaceholder("email address");
-		this.subscribeButton = page.getByRole(AriaRole.BUTTON)
-				.filter(new Locator.FilterOptions().setHas(page.locator("#subscribe")));
 		this.subCategoryWomenLinks = page.locator("#Women");
 		this.subCategoryMenLinks = page.locator("#Men");
 		this.subCategoryKidsLinks = page.locator("#Kids");
 		this.brandNameLinks = page.locator(".brands-name");
-		this.categoryDisplayText = page.locator(".breadcrumbs .active");
 		this.featuredProductTitle = page.locator(".features_items .title");
 	}
 
@@ -80,9 +71,9 @@ public class ProductsPage extends BasePage {
 	}
 
 	public void clickSubCategory(String category, String subCategory) {
-		
+
 		clickCategory(category);
-		
+
 		switch (category.toLowerCase()) {
 		case "women":
 			subCategoryWomenLinks.locator("a:has-text('" + StringUtil.capitalizeFirst(subCategory) + "')").click();
@@ -98,34 +89,24 @@ public class ProductsPage extends BasePage {
 		}
 	}
 
-	public String getCategoryNavigationDisplayed() {
-		return categoryDisplayText.textContent().trim();
-	}
-
 	public void verifyCategoryPageDisplay(String Category, String subCategory) {
+
 		verifyPageLoaded("category_products", subCategory);
 
 		// verify the navigation title for featured products
-		try {
-			assertThat(categoryDisplayText)
-					.containsText(Pattern.compile(Category + " > " + subCategory,Pattern.CASE_INSENSITIVE));
-		} catch (Exception e) {
-			softAssert.fail("The category navigation displayed is not >> " + Category + " > " + subCategory
-					+ ", Actual: " + getCategoryNavigationDisplayed());
-			logger.error("The category navigation displayed is not >> " + Category + " > " + subCategory + ", Actual: "
-					+ getCategoryNavigationDisplayed());
-		}
+		softAssert.assertTrue(getCategoryNavigationDisplayed().equalsIgnoreCase(Category + " > " + subCategory));
+		logger.error("The category navigation displayed is not >> " + Category + " > " + subCategory + ", Actual: "
+				+ getCategoryNavigationDisplayed());
 
 		// verify the featured title
 		try {
-			assertThat(featuredProductTitle).containsText(Pattern.compile(Category + " - " + subCategory + " " + "Products",Pattern.CASE_INSENSITIVE));
+			assertThat(featuredProductTitle).containsText(
+					Pattern.compile(Category + " - " + subCategory + " " + "Products", Pattern.CASE_INSENSITIVE));
 
 		} catch (Exception e) {
-			softAssert.fail("The featured title displayed is not >> "
-					+ Category + " - " + subCategory + " " + "Products"
-					+ ", Actual: " + featuredProductTitle.textContent().trim());
-			logger.error("The featured title displayed is not >> "
-					+ Category + " - " + subCategory + " " + "Products"
+			softAssert.fail("The featured title displayed is not >> " + Category + " - " + subCategory + " "
+					+ "Products" + ", Actual: " + featuredProductTitle.textContent().trim());
+			logger.error("The featured title displayed is not >> " + Category + " - " + subCategory + " " + "Products"
 					+ ", Actual: " + featuredProductTitle.textContent().trim());
 		}
 
@@ -188,14 +169,9 @@ public class ProductsPage extends BasePage {
 		page.getByText("View Cart").click();
 	}
 
-	public void subscribe(String email) {
-		subscriptionEmailTextBox.fill(email);
-		subscribeButton.click();
-	}
-
 	@Step("Verify Subscription is success from Products Page")
-	public void verifySubscriptionSuccess() {
-		assertThat(page.getByText("You have been successfully subscribed!")).isVisible();
+	public void verifySubscriptionSuccessfromProductsPage() {
+		Assert.assertEquals(super.verifySubscriptionSuccess(), true);
 	}
 
 	@Step("Verify Searched Products")
@@ -303,30 +279,24 @@ public class ProductsPage extends BasePage {
 	}
 
 	public void verifyBrandPageDisplay(String brandName) {
+
 		verifyPageLoaded("brand_products", brandName);
 
 		// verify the navigation title for featured products
-		try {
-			assertThat(categoryDisplayText)
-					.containsText(Pattern.compile(brandName,Pattern.CASE_INSENSITIVE));
-		} catch (Exception e) {
-			softAssert.fail("The category navigation displayed is not >> " + brandName
-					+ ", Actual: " + getCategoryNavigationDisplayed());
-			logger.error("The category navigation displayed is not >> " + brandName 
-					+ ", Actual: " + getCategoryNavigationDisplayed());
-		}
+		softAssert.assertTrue(getCategoryNavigationDisplayed().equalsIgnoreCase(brandName));
+		logger.error("The category navigation displayed is not >> " + brandName + ", Actual: "
+				+ getCategoryNavigationDisplayed());
 
 		// verify the featured title
 		try {
-			assertThat(featuredProductTitle).containsText(Pattern.compile("Brand - " + brandName + " Products",Pattern.CASE_INSENSITIVE));
+			assertThat(featuredProductTitle)
+					.containsText(Pattern.compile("Brand - " + brandName + " Products", Pattern.CASE_INSENSITIVE));
 
 		} catch (Exception e) {
-			softAssert.fail("The featured title displayed is not >> "
-					+ "Brand - " + brandName + " Products"
+			softAssert.fail("The featured title displayed is not >> " + "Brand - " + brandName + " Products"
 					+ ", Actual: " + featuredProductTitle.textContent().trim());
-			logger.error("The featured title displayed is not >> "
-					+ "Brand - " + brandName + " Products"
-					+ ", Actual: " + featuredProductTitle.textContent().trim());
+			logger.error("The featured title displayed is not >> " + "Brand - " + brandName + " Products" + ", Actual: "
+					+ featuredProductTitle.textContent().trim());
 		}
 
 	}

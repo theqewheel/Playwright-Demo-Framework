@@ -15,14 +15,14 @@ import framework.logging.LogManager;
 
 public class DriverManager {
 
-	private static Playwright playwright;
-	private static Browser browser;
-	private static BrowserContext context;
-	private static Page page;
-	private static final Logger logger = LogManager.getLogger(DriverManager.class);
-	private static boolean headlessMode;
-
-	public static void initDriver() {
+	private static final ThreadLocal<Playwright> playwright = new ThreadLocal<>();
+	private static final ThreadLocal<Browser> browser = new ThreadLocal<>();
+	private static final ThreadLocal<BrowserContext> context = new ThreadLocal<>();
+	private static final ThreadLocal<Page> page = new ThreadLocal<>();
+	private Logger logger = LogManager.getLogger(DriverManager.class);
+	private boolean headlessMode;
+	
+	public void initDriver() {
 
 		headlessMode = Boolean.parseBoolean(ConfigManager.getProperty("headless"));
 
@@ -31,25 +31,25 @@ public class DriverManager {
 		try {
 			logger.info("Initiating Driver . . . . . ");
 
-			playwright = Playwright.create();
+			playwright.set(Playwright.create());
 
-			playwright.selectors().setTestIdAttribute(ConfigManager.getProperty("test-id"));
+			playwright.get().selectors().setTestIdAttribute(ConfigManager.getProperty("test-id"));
 
-			browser = initBrowser();
+			browser.set(initBrowser());
 
 			logger.info("Launching Browser. HeadlessMode: {}", String.valueOf(headlessMode));
 
-			context = browser.newContext(new Browser.NewContextOptions().setViewportSize(null));
+			context.set(browser.get().newContext(new Browser.NewContextOptions().setViewportSize(null)));
 
-			removeAdds(context);
+			removeAdds(context.get());
 
 			logger.info("Browser Context Launched");
 
-			page = context.newPage();
+			page.set(context.get().newPage());  
 
 			logger.info("Browser Page opened.");
 
-			page.navigate(baseURL);
+			page.get().navigate(baseURL);
 
 			logger.info("Navigated to Base URL: {}", baseURL);
 
@@ -62,7 +62,7 @@ public class DriverManager {
 
 	}
 
-	private static Browser initBrowser() {
+	private Browser initBrowser() {
 
 		BrowserType.LaunchOptions options = new BrowserType.LaunchOptions().setHeadless(headlessMode).setSlowMo(1000)
 				.setArgs(List.of("--start-maximized"));
@@ -70,41 +70,45 @@ public class DriverManager {
 		switch (ConfigManager.getBrowser()) {
 
 		case "firefox":
-			return playwright.firefox().launch(options);
+			return playwright.get().firefox().launch(options);
 
 		case "webkit":
-			return playwright.webkit().launch(options);
+			return playwright.get().webkit().launch(options);
 
 		case "edge":
-			return playwright.chromium().launch(options.setChannel("msedge"));
+			return playwright.get().chromium().launch(options.setChannel("msedge"));
 
 		case "chrome":
-			return playwright.chromium().launch(options.setChannel("chrome"));
+			return playwright.get().chromium().launch(options.setChannel("chrome"));
 
 		case "chromium":
 		default:
-			return playwright.chromium().launch(options);
+			return playwright.get().chromium().launch(options);
 
 		}
 	}
 
-	public static void quitDriver() {
+	public void quitDriver() {
 
-		if (context != null)
-			context.close();
-		if (browser != null)
-			browser.close();
-		if (playwright != null)
-			playwright.close();
+		if (page.get() != null) page.get().close();
+		if (context.get() != null) context.get().close();
+		if (browser.get() != null) browser.get().close();
+		if (playwright.get() != null) playwright.get().close();
 
 		logger.info("Closed Browser !!");
+		
+		//to avoid memory leaks - critical
+		page.remove();
+		context.remove();
+		browser.remove();
+		playwright.remove();
 	}
 
-	public static Page getPage() {
-		return page;
+	public Page getPage() {
+		return page.get();
 	}
 
-	public static void removeAdds(BrowserContext context) {
+	public void removeAdds(BrowserContext context) {
 		context.route("**/*doubleclick.net/**", route -> route.abort());
 		context.route("**/*googlesyndication.com/**", route -> route.abort());
 		context.route("**/*googleads.g.doubleclick.net/**", route -> route.abort());

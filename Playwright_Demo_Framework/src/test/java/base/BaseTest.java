@@ -24,45 +24,48 @@ public class BaseTest {
 	protected Page page;
 	protected Logger logger;
 	protected SoftAssert softAssert;
-	protected static HomePage homePage;
-	protected static SignupLoginPage signupLoginPage;
-	protected static ContactUsPage contactUsPage;
-	protected static ProductsPage productsPage;
-	protected static SignupDetailPage signupDetailPage;
-	protected static TestCasesPage testCasesPage;
-	protected static CartPage cartPage;
-	protected static CheckOutPage checkOutPage;
-	protected static ProductDetailPage productDetailPage;
+	protected DriverManager driver;
+	protected HomePage homePage;
+	protected SignupLoginPage signupLoginPage;
+	protected ContactUsPage contactUsPage;
+	protected ProductsPage productsPage;
+	protected SignupDetailPage signupDetailPage;
+	protected TestCasesPage testCasesPage;
+	protected CartPage cartPage;
+	protected CheckOutPage checkOutPage;
+	protected ProductDetailPage productDetailPage;
 	
 	@BeforeMethod
 	public void setup() {
 		
 		logger = LogManager.getLogger(this.getClass());
 		
-		DriverManager.initDriver();
+		driver = new DriverManager();
 		
-		page = DriverManager.getPage();
+		driver.initDriver();
+		
+		page = driver.getPage();
 		
 		logger.info("Initial SETUP is completed.");
 		
 		softAssert = new SoftAssert();
 		
 		//initialize page classes
-		if(homePage==null) homePage = new HomePage(page,softAssert);
-		if(signupLoginPage==null) signupLoginPage = new SignupLoginPage(page,softAssert);
-		if(contactUsPage==null) contactUsPage = new ContactUsPage(page,softAssert);
-		if(productsPage==null) productsPage = new ProductsPage(page,softAssert);
-		if(signupDetailPage==null) signupDetailPage = new SignupDetailPage(page, softAssert);
-		if(testCasesPage==null) testCasesPage = new TestCasesPage(page, softAssert);
-		if(cartPage==null) cartPage = new CartPage(page, softAssert);
-		if(checkOutPage==null) checkOutPage = new CheckOutPage(page, softAssert);
-		if(productDetailPage==null) productDetailPage = new ProductDetailPage(page, softAssert);
+		homePage = new HomePage(page,softAssert);
+		signupLoginPage = new SignupLoginPage(page,softAssert);
+		contactUsPage = new ContactUsPage(page,softAssert);
+		productsPage = new ProductsPage(page,softAssert);
+		signupDetailPage = new SignupDetailPage(page, softAssert);
+		testCasesPage = new TestCasesPage(page, softAssert);
+		cartPage = new CartPage(page, softAssert);
+		checkOutPage = new CheckOutPage(page, softAssert);
+		productDetailPage = new ProductDetailPage(page, softAssert);
 	}
 
 	@AfterMethod
 	public void teardown() {
 		
-		DriverManager.quitDriver();
+		driver.quitDriver();
 		
 		logger.info("Driver SHUTDOWN is successfull !");
 		
@@ -72,7 +75,6 @@ public class BaseTest {
 	protected byte[] captureScreenshot() {
 		return page.screenshot(new Page.ScreenshotOptions().setFullPage(true));
 	}
-	
 	
 
 }

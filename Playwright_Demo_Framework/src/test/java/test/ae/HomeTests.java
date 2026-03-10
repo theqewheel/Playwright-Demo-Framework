@@ -11,7 +11,7 @@ import io.qameta.allure.SeverityLevel;
 import io.qameta.allure.Story;
 import reporting.ReportManager;
 
-public class HomePageTests extends BaseTest {
+public class HomeTests extends BaseTest {
 
 	@Test(description = "AE6_TC25 - Verify scroll functionality with Arrow", groups = { "regression" })
 	@Epic("Home")

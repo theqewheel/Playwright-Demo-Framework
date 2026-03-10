@@ -1,16 +1,11 @@
 ----------------------Pending Scripting -----------------------------------------
 
-#Subscription Tests
-
-Test Case 10: Verify Subscription in home page
-Test Case 11: Verify Subscription in Cart page
-
 #Home Tests
 
 Test Case 25: Verify Scroll Up using 'Arrow' button and Scroll Down functionality
 Test Case 26: Verify Scroll Up without 'Arrow' button and Scroll Down functionality
 
-#Add to Cart Tests
+#Add to Cart Tests 
 
 Test Case 12: Add Products in Cart
 Test Case 13: Verify Product quantity in Cart
@@ -50,3 +45,8 @@ Test Case 19: View & Cart Brand Products
 
 #Product Review Tests
 Test Case 21: Add review on product
+
+#Subscription Tests
+
+Test Case 10: Verify Subscription in home page
+Test Case 11: Verify Subscription in Cart page

@@ -1,12 +1,15 @@
 package pages.ae;
 
+import static com.microsoft.playwright.assertions.PlaywrightAssertions.assertThat;
 import static org.testng.Assert.assertEquals;
 
 import java.util.List;
 import java.util.regex.Pattern;
 
+import org.testng.Assert;
 import org.testng.asserts.SoftAssert;
 
+import com.github.javafaker.Superhero;
 import com.microsoft.playwright.Locator;
 import com.microsoft.playwright.Page;
 import com.microsoft.playwright.Page.GetByRoleOptions;
@@ -14,6 +17,7 @@ import com.microsoft.playwright.options.AriaRole;
 
 import framework.base.BasePage;
 import io.qameta.allure.Step;
+import reporting.ReportManager;
 
 public class HomePage extends BasePage {
 	
@@ -58,4 +62,14 @@ public class HomePage extends BasePage {
 		logger.info("Navigating to " + menu);					   
 	}
 	
+	@Step("Verify Subscription Section Header in Home Page")
+	public void verifySubscriptionHeaderHomePage() {
+		Assert.assertEquals(super.verifySubscriptionHeaderVisibility(), true); 
+	}
+	
+	@Step("Verify Subscription is success from Home Page")
+	public void verifySubscriptionSuccessfromHomePage() {
+		Assert.assertEquals(super.verifySubscriptionSuccess(), true); 
+	}
+
 }

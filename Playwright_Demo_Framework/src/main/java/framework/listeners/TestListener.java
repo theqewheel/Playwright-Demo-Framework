@@ -141,7 +141,7 @@ public class TestListener implements ITestListener, ISuiteListener {
 	
 	private void attachScreenshot(String name, ITestResult result) {
 		
-		Page page = DriverManager.getPage();
+		Page page = new DriverManager().getPage();
 		
 		if(page != null) {
 			

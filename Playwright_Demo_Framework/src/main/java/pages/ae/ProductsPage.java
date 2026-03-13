@@ -31,6 +31,7 @@ public class ProductsPage extends BasePage {
 	private final Locator subCategoryKidsLinks;
 	private final Locator brandNameLinks;
 	private final Locator featuredProductTitle;
+	private final Locator recommendedSectionHeader;
 	private final Locator recommendedProducts;
 
 	public ProductsPage(Page page, SoftAssert softAssert) {
@@ -44,7 +45,8 @@ public class ProductsPage extends BasePage {
 		this.subCategoryKidsLinks = page.locator("#Kids");
 		this.brandNameLinks = page.locator(".brands-name");
 		this.featuredProductTitle = page.locator(".features_items .title");
-		this.recommendedProducts = page.locator(".recommended_items .product-image-wrapper");
+		this.recommendedSectionHeader = page.locator(".recommended_items .title");
+		this.recommendedProducts = page.locator(".recommended_items");
 	}
 
 	@Step("Verify products list on load - default")
@@ -465,33 +467,61 @@ public class ProductsPage extends BasePage {
 		return productList;
 	}
 
+	@Step("Verify the recommended product section")
+	public void verifyRecommendedSectionDisplayed() {
+
+		recommendedSectionHeader.scrollIntoViewIfNeeded();
+		Assert.assertTrue(recommendedSectionHeader.isVisible(), "The recommended items section is not visible");
+		Assert.assertEquals(recommendedSectionHeader.textContent().trim().toUpperCase(),
+				"Recommended Items".toUpperCase());
+
+		Locator recommendedProduct = recommendedProducts.locator(".item.active .product-image-wrapper");
+		if (recommendedProduct.count() > 0) {
+			logger.info("Recommended Items list shows " + recommendedProduct.count() + " items.");
+		} else {
+			Assert.fail("The Recommended Items list is Empty !!!");
+		}
+	}
+
+	private Locator getActiveRecommendedProducts(String productName) {
+		return recommendedProducts.locator(".item.active .product-image-wrapper")
+				.filter(new Locator.FilterOptions().setHasText(productName));
+	}
+
+	@Step("Add recommended product to cart using a given product name")
 	public void addRecommendedProductToCart(String productName) {
 
-		int maxAttempts = 5; //max time to rotate carousel
+		int maxAttempts = 5; // max time to rotate carousel
 		int attempts = 0;
-		
-		//check if the product exists in carousel
-		Locator activeProduct = recommendedProducts
-				.locator(".item.active .product-image-wrapper")
-				.filter(new Locator.FilterOptions().setHasText(productName));
-		
-		int count = activeProduct.count();
-		
-		//wait for it to become visible
-		while(count<1 && attempts<maxAttempts) {
-			logger.info("Product '{}' is not active yet, clicking next...", productName);
+
+		// check if the product exists in carousel
+		// wait for it to become visible
+		while (getActiveRecommendedProducts(productName).count() < 1 && attempts < maxAttempts) {
+			logger.info("Product '{}' is not active yet, clicking next attempt{}/{}...", productName, attempts + 1,
+					maxAttempts);
 			page.locator(".right.recommended-item-control").click();
 			page.waitForTimeout(500);
 			attempts++;
 		}
-		
-		if(attempts == maxAttempts) {
-			Assert.fail("The product '" + productName + "' never became active on the page recommended products section");
+
+		if (attempts == maxAttempts) {
+			Assert.fail(
+					"The product '" + productName + "' never became active on the page recommended products section");
 		}
-		
+
 		// when product is active on carousel
-		activeProduct.locator(".add-to-cart").click();
+		getActiveRecommendedProducts(productName).locator(".add-to-cart").click();
 		logger.info("Added recommended Product '{}' to cart.", productName);
+	}
+
+	public String addActiveRecommendedProductToCart() {
+
+		Locator recommendedProduct = recommendedProducts.locator(".item.active .product-image-wrapper").first();
+		String productName = recommendedProduct.locator("p").textContent().trim();
+		recommendedProduct.locator("a").click();
+		logger.info("Added recommended Product '{}' to cart.", productName);
+		clickViewCart();
+		return productName;
 	}
 
 }

@@ -150,8 +150,7 @@ public class AddToCartTests extends BaseTest {
 		logger.info("Running:Step-3");
 		List<String> productList = productsPage.addAllProductsVisibleToCart();
 		for (String p : productList) {
-			Assert.assertTrue(cartPage.verifyProductExistanceInCart(p),
-					"The Product - " + p + " is visible on Cart.");
+			Assert.assertTrue(cartPage.verifyProductExistanceInCart(p), "The Product - " + p + " is visible on Cart.");
 		}
 
 		// Step-4 Login to application and verify the cart
@@ -179,9 +178,19 @@ public class AddToCartTests extends BaseTest {
 		ReportManager.logStep("Navigating to Automation Exercise");
 		homePage.verifyPageLoaded("automationexercise", "Automation Exercise");
 
-		// Step-2 Add recommended product to cart
+		// Step-2 Add a recommended product to cart
+		/*
+		 * logger.info("Running:Step-2");
+		 * productsPage.verifyRecommendedSectionDisplayed(); String
+		 * recommendedProductAdded = productsPage.addActiveRecommendedProductToCart();
+		 * Assert.assertTrue(cartPage.verifyProductExistanceInCart(
+		 * recommendedProductAdded), "The Product - " + recommendedProductAdded +
+		 * " is visible on Cart.");
+		 */
+
+		// Step-2 Add a recommended product to cart searching by product name
 		logger.info("Running:Step-2");
-		String searchProduct = "Blue Top";
+		String searchProduct = "Blue";
 		productsPage.addRecommendedProductToCart(searchProduct);
 		productsPage.clickViewCart();
 		Assert.assertTrue(cartPage.verifyProductExistanceInCart(searchProduct),

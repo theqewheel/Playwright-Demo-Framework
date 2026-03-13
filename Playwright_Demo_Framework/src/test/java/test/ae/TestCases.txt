@@ -1,11 +1,6 @@
 ----------------------Pending Scripting -----------------------------------------
 
-#Home Tests
-
-Test Case 25: Verify Scroll Up using 'Arrow' button and Scroll Down functionality
-Test Case 26: Verify Scroll Up without 'Arrow' button and Scroll Down functionality
-
-#Add to Cart Tests 
+#AE-9 Add to Cart Tests 
 
 Test Case 12: Add Products in Cart
 Test Case 13: Verify Product quantity in Cart
@@ -13,7 +8,7 @@ Test Case 17: Remove Products From Cart
 Test Case 20: Search Products and Verify Cart After Login
 Test Case 22: Add to cart from Recommended items
 
-#Place Order Tests
+#AE-10 Place Order Tests
 
 Test Case 14: Place Order: Register while Checkout
 Test Case 15: Place Order: Register before Checkout
@@ -22,31 +17,38 @@ Test Case 23: Verify address details in checkout page
 Test Case 24: Download Invoice after purchase order
 
 ----------------------Completed Scripting -----------------------------------------
-# Login Tests
+
+#AE-1 Sign-Up Tests
+Test Case 1: Register User
+Test Case 5: Register User with existing email
+
+#AE-2 Login Tests
 Test Case 2: Login User with correct email and password
 Test Case 3: Login User with incorrect email and password
 Test Case 4: Logout User
 
-#Sign-Up Tests
-Test Case 1: Register User
-Test Case 5: Register User with existing email
-
-#Contact Us Tests
+#AE-3 Contact Us Tests
 Test Case 6: Contact Us Form
 
-#Test Cases Tests
+#AE-4 Test Cases Tests
 Test Case 7: Verify Test Cases Page
 
-#Products Tests
+#AE-5 Products Tests
 Test Case 8: Verify All Products and product detail page
 Test Case 9: Search Product
 Test Case 18: View Category Products
 Test Case 19: View & Cart Brand Products
 
-#Product Review Tests
+#AE-6 Product Review Tests
 Test Case 21: Add review on product
 
-#Subscription Tests
+#AE-7 Subscription Tests
 
 Test Case 10: Verify Subscription in home page
 Test Case 11: Verify Subscription in Cart page
+
+#AE-8 Home Tests
+
+Test Case 25: Verify Scroll Up using 'Arrow' button and Scroll Down functionality
+Test Case 26: Verify Scroll Up without 'Arrow' button and Scroll Down functionality
+

@@ -25,6 +25,7 @@ public abstract class BasePage {
 	private final Locator subscriptionEmailTextBox;
 	private final Locator subscribeButton;
 	private final Locator categoryDisplayText;
+	private final Locator homeArrowButton;
 
 	public BasePage(Page page, SoftAssert softAssert) {
 		this.page = page;
@@ -36,6 +37,7 @@ public abstract class BasePage {
 		this.subscriptionEmailTextBox = page.getByPlaceholder("email address");
 		this.subscribeButton = page.locator("#subscribe");
 		this.categoryDisplayText = page.locator(".breadcrumbs .active");
+		this.homeArrowButton = page.locator("#scrollUp");
 	}
 
 	public void verifyPageLoaded(String expectedURL, String expectedTitle) {
@@ -66,13 +68,13 @@ public abstract class BasePage {
 
 		if (exactMatch) {
 			try {
-				assertThat(page.getByText(expectedMessage)).isVisible();
+				assertThat(page.getByText(expectedMessage).first()).isVisible();
 			} catch (Exception e) {
 				softAssert.fail("Text Message not displayed - " + expectedMessage);
 			}
 		} else {
 			try {
-				assertThat(page.getByText(Pattern.compile(expectedMessage))).isVisible();
+				assertThat(page.getByText(Pattern.compile(expectedMessage)).first()).isVisible();
 			} catch (Exception e) {
 				softAssert.fail("Text Message not displayed - " + expectedMessage);
 			}
@@ -98,5 +100,35 @@ public abstract class BasePage {
 	
 	public String getCategoryNavigationDisplayed() {
 		return categoryDisplayText.textContent().trim();
+	}
+	
+	public void scrollToPageBottomUsingKeyboard() {
+		page.keyboard().press("End");
+	}
+	
+	public void scrollToPageTopUsingKeyboard() {
+		page.keyboard().press("Home");
+	}
+	
+	public void scrollToPageTopUsingArrowKey() {
+		homeArrowButton.click();
+	}
+	
+	public void scrollToPageTopUsingEval() {
+		page.evaluate("window.scrollTo(0, 0)");
+		page.waitForTimeout(2000); //wait for smooth scroll to finish - optional for demo
+	}
+	
+	public void scrollToPageBottomUsingEval() {
+		page.evaluate("window.scrollTo(0, document.body.scrollHeight)");
+		page.waitForTimeout(2000); //wait for smooth scroll to finish - optional for demo
+	}
+	
+	public void scrollIntoViewOfElement(Locator locatorToView) {
+		locatorToView.scrollIntoViewIfNeeded();
+	}
+	
+	public void scrollIntoViewOfElementUsingEval(Locator locatorToView) {
+		page.evaluate("document.querySelector('#footer').scrollIntoView()");
 	}
 }

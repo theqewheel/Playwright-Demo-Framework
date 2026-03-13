@@ -15,13 +15,13 @@ import reporting.ReportManager;
 
 public class TestCasesTests extends BaseTest {
 
-	@Test(description = "AE3_TC07 - Verify the Test Cases Page", groups = { "smoke", "regression" })
+	@Test(description = "AE4_TC07 - Verify the Test Cases Page", groups = { "smoke", "regression" })
 	@Epic("Test Cases")
 	@Feature("Test Cases Page for Web App Functionality Tests")
 	@Story("Test Cases Page for Web App is available for view")
 	@Severity(SeverityLevel.MINOR)
 	@Owner("QE@Cloudyfolk")
-	public void Test_AE3_TC07_Verify_TestCases_Page() {
+	public void Test_AE4_TC07_Verify_TestCases_Page() {
 
 		// Step-1 Navigate to the URL
 		logger.info("Running:Step-1");

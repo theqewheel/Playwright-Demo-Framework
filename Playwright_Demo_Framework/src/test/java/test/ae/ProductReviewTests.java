@@ -13,13 +13,13 @@ import reporting.ReportManager;
 
 public class ProductReviewTests extends BaseTest {
 
-	@Test(description = "AE5_TC21 - Verify adding a product review", groups = { "smoke", "regression" })
+	@Test(description = "AE6_TC21 - Verify adding a product review", groups = { "smoke", "regression" })
 	@Epic("Product Search")
 	@Feature("Product Search Page for Products")
 	@Story("Products can be searched and provided a review")
 	@Severity(SeverityLevel.NORMAL)
 	@Owner("QE@Cloudyfolk")
-	public void Test_AE5_TC21_Verify_Adding_Product_Review() {
+	public void Test_AE6_TC21_Verify_Adding_Product_Review() {
 
 		// Step-1 Navigate to the URL
 		logger.info("Running:Step-1");

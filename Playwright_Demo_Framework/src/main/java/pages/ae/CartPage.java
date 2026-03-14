@@ -21,13 +21,14 @@ public class CartPage extends BasePage {
 	private final Locator proceedToCheckOutButton;
 	private final Locator cartTable;
 	private final Locator deleteItem;
+	private final Locator registerLoginLink;
 
 	public CartPage(Page page, SoftAssert softAssert) {
 		super(page, softAssert);
-		this.proceedToCheckOutButton = page.getByRole(AriaRole.LINK,
-				new Page.GetByRoleOptions().setName("Proceed To Checkout"));
+		this.proceedToCheckOutButton = page.getByText("Proceed To Checkout");
 		this.cartTable = page.locator("#cart_info_table");
 		this.deleteItem = page.locator(".cart_quantity_delete");
+		this.registerLoginLink = page.getByRole(AriaRole.LINK, new Page.GetByRoleOptions().setName("Register / Login"));
 	}
 
 	@Step("Verify Subscription Section Header in Cart Page")
@@ -44,11 +45,15 @@ public class CartPage extends BasePage {
 		proceedToCheckOutButton.click();
 	}
 
+	public void clickRegisterLoginLink() {
+		registerLoginLink.click();
+	}
+
 	private int getCartTableColumnIndex(String columnName) {
 
 		int columnIndex = 0;
 
-		Locator headers = page.locator("#cart_info_table .cart_menu td");
+		Locator headers = cartTable.locator(".cart_menu td");
 
 		for (Locator header : headers.all()) {
 			if (header.textContent().equalsIgnoreCase(columnName)) {
@@ -136,7 +141,15 @@ public class CartPage extends BasePage {
 		Map<String, String> productMap = new HashMap<String, String>();
 
 		for (Locator row : rows.all()) {
+			
 			Locator cells = row.locator("td");
+			
+			if(rowIndex==rowCount) {
+				String overallTotalPrice = cells.locator(".cart_total_price").textContent().split(" ")[1];
+				productMap.put("Overall Total", overallTotalPrice);
+				break;
+			}
+			
 			String name = cells.nth(getCartTableColumnIndex("Description")).locator("a").textContent().trim();
 			String[] description = cells.nth(getCartTableColumnIndex("Description")).locator("p").textContent().trim()
 					.split(">");
@@ -155,9 +168,9 @@ public class CartPage extends BasePage {
 			productMap.put("Total" + rowIndex, total);
 
 			logger.info("""
+
 									PRODUCT-{} DETAILS FROM CART
 					---------------------------------------------------
-					Product     : {}
 					Name        : {}
 					Category    : {}
 					SubCategory : {}
@@ -178,10 +191,11 @@ public class CartPage extends BasePage {
 
 								CART SUMMARY
 				---------------------------------------------------
-				Total Product {} Added To Cart
+				Total of <{}> Product/s are Added To Cart
+				Cart Total Price is '{}'
 				----------------------------------------------------
 
-				""", rowCount);
+				""", rowCount, productMap.get("Overall Total"));
 
 		return productMap;
 
@@ -233,27 +247,24 @@ public class CartPage extends BasePage {
 		int totalProductsThen = cartTable.locator("tbody tr").count();
 		logger.info("Total products in cart before deletion - " + totalProductsThen);
 
-		while(cartTable.locator("tbody tr").count()>0) {
+		while (cartTable.locator("tbody tr").count() > 0) {
 			cartTable.locator("tbody tr") // always get the first row
-					 .first()	
-					 .locator(deleteItem)
-					 .click();
-			
-			//page.waitForTimeout(500); // wait for row removal before next iteration
+					.first().locator(deleteItem).click();
+
+			// page.waitForTimeout(500); // wait for row removal before next iteration
 		}
 
 		int totalProductsNow = cartTable.locator("tbody tr").count();
 		logger.info("Total products in cart after deletion - " + totalProductsNow);
 
-		Assert.assertEquals(totalProductsNow, 0,
-				"All " + totalProductsThen + " products from cart was deleted !!!");
+		Assert.assertEquals(totalProductsNow, 0, "All " + totalProductsThen + " products from cart was deleted !!!");
 	}
 
 	public boolean verifyProductExistanceInCart(String productFullName) {
 		Locator matchedRowCells = cartTable.filter(
 				new Locator.FilterOptions().setHasText(Pattern.compile(productFullName, Pattern.CASE_INSENSITIVE)));
 
-		if(matchedRowCells.count()<1) {
+		if (matchedRowCells.count() < 1) {
 			logger.info("""
 
 					---------------------------------------------------
@@ -263,7 +274,7 @@ public class CartPage extends BasePage {
 					""", productFullName);
 			return false;
 		}
-		
+
 		logger.info("""
 
 				---------------------------------------------------
@@ -271,7 +282,7 @@ public class CartPage extends BasePage {
 				----------------------------------------------------
 
 				""", productFullName);
-		
+
 		return true;
 	}
 

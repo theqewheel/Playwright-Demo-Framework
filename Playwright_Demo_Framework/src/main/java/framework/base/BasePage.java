@@ -81,7 +81,7 @@ public abstract class BasePage {
 		}
 	}
 
-	public void ClickContinue() {
+	public void clickContinue() {
 		ContinueButton.click();
 	}
 
@@ -130,5 +130,9 @@ public abstract class BasePage {
 	
 	public void scrollIntoViewOfElementUsingEval(Locator locatorToView) {
 		page.evaluate("document.querySelector('#footer').scrollIntoView()");
+	}
+	
+	public void waitUntilPageLoadCompletes() {
+		page.waitForLoadState();
 	}
 }

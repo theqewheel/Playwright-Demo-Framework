@@ -21,7 +21,7 @@ public class DriverManager {
 	private static final ThreadLocal<Page> page = new ThreadLocal<>();
 	private Logger logger = LogManager.getLogger(DriverManager.class);
 	private boolean headlessMode;
-	
+
 	public void initDriver() {
 
 		headlessMode = Boolean.parseBoolean(ConfigManager.getProperty("headless"));
@@ -39,13 +39,14 @@ public class DriverManager {
 
 			logger.info("Launching Browser. HeadlessMode: {}", String.valueOf(headlessMode));
 
-			context.set(browser.get().newContext(new Browser.NewContextOptions().setViewportSize(null)));
+			context.set(browser.get()
+					.newContext(new Browser.NewContextOptions().setViewportSize(null).setAcceptDownloads(true)));
 
 			removeAdds(context.get());
 
 			logger.info("Browser Context Launched");
 
-			page.set(context.get().newPage());  
+			page.set(context.get().newPage());
 
 			logger.info("Browser Page opened.");
 
@@ -90,14 +91,18 @@ public class DriverManager {
 
 	public void quitDriver() {
 
-		if (page.get() != null) page.get().close();
-		if (context.get() != null) context.get().close();
-		if (browser.get() != null) browser.get().close();
-		if (playwright.get() != null) playwright.get().close();
+		if (page.get() != null)
+			page.get().close();
+		if (context.get() != null)
+			context.get().close();
+		if (browser.get() != null)
+			browser.get().close();
+		if (playwright.get() != null)
+			playwright.get().close();
 
 		logger.info("Closed Browser !!");
-		
-		//to avoid memory leaks - critical
+
+		// to avoid memory leaks - critical
 		page.remove();
 		context.remove();
 		browser.remove();

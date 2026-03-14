@@ -1,7 +1,5 @@
 package test.ae;
 
-import static org.testng.Assert.assertEquals;
-
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;

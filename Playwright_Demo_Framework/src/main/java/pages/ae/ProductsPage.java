@@ -154,13 +154,7 @@ public class ProductsPage extends BasePage {
 	}
 
 	public void clickAddProductToCart(int productIndex) {
-		Locator productCard = getProductCard(productIndex);
-		productCard.hover();
-		productCard.locator(".product-overlay .add-to-cart").click();
-	}
-
-	public void totalProductsAddedToCart(int productIndex) {
-		Locator productCard = getProductCard(productIndex - 1);
+		Locator productCard = getProductCard(productIndex-1);
 		productCard.hover();
 		productCard.locator(".product-overlay .add-to-cart").click();
 	}
@@ -252,9 +246,9 @@ public class ProductsPage extends BasePage {
 
 		Map<String, String> productDetailMap = new HashMap<String, String>();
 
-		String productFullName = getProductCard(productName).locator(".productinfo p").textContent().trim();
+		String productFullName = getProductCard(productName).locator(".productinfo p").first().textContent().trim();
 
-		String productPrice = getProductCard(productName).locator(".productinfo h2").textContent().trim()
+		String productPrice = getProductCard(productName).locator(".productinfo h2").first().textContent().trim()
 				.split("Rs. ")[1];
 
 		if (productFullName != null)
@@ -384,10 +378,10 @@ public class ProductsPage extends BasePage {
 			return null;
 		}
 
-		for (int i = 1; i < productNames.size(); i++) {
-			ProductDetails.put("Name" + i, readProductFullName(productNames.get(i)));
-			ProductDetails.put("Price" + i, readProductPrice(productNames.get(i)));
-			clickAddProductToCart(productNames.get(i));
+		for (int i = 1; i <= productNames.size(); i++) {
+			ProductDetails.put("Name" + i, readProductFullName(productNames.get(i-1)));
+			ProductDetails.put("Price" + i, readProductPrice(productNames.get(i-1)));
+			clickAddProductToCart(productNames.get(i-1));
 			if (i == productNames.size())
 				clickViewCart(); // view the cart once last product is added
 			else
@@ -431,12 +425,12 @@ public class ProductsPage extends BasePage {
 		}
 	}
 
-	public String getProductName(int productIndex) {
+	private String getProductName(int productIndex) {
 		return ProductCardsDiv.nth(productIndex).locator(".productinfo p").textContent().trim();
 	}
 
-	public String getProductPrice(int productIndex) {
-		return ProductCardsDiv.nth(productIndex).locator(".productinfo h2").textContent().trim();
+	private String getProductPrice(int productIndex) {
+		return ProductCardsDiv.nth(productIndex).locator(".productinfo h2").textContent().trim().split("Rs. ")[1];
 	}
 
 	public List<String> addAllProductsVisibleToCart() {
@@ -449,14 +443,14 @@ public class ProductsPage extends BasePage {
 		for (int i = 0; i < totalProductsVisible; i++) {
 			productList.add(getProductName(i));
 			clickAddProductToCart(i);
-			totalProductsAddedToCart += 1;
+			totalProductsAddedToCart++;
 			logger.info("""
 
 					---------------------------------------------------
-					Product {}: {} Added To Cart
+					Product {}: {} Added To Cart with Price {}
 					----------------------------------------------------
 
-					""", i, getProductName(i));
+					""", i, getProductName(i), getProductPrice(i));
 			if (i == totalProductsVisible - 1)
 				clickViewCart(); // view the cart once last product is added
 			else

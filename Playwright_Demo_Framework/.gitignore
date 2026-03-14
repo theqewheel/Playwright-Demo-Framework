@@ -6,6 +6,7 @@ target/
 *.project
 *.settings/
 test-output/
+downloads/
 
 # Compiled
 *.class

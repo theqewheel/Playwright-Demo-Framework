@@ -28,7 +28,7 @@ public class HomePage extends BasePage {
 	
 	public HomePage(Page page, SoftAssert softAssert) {
 		super(page,softAssert);
-		this.SignupLoginLink = page.getByText(Pattern.compile("Signup",Pattern.CASE_INSENSITIVE));
+		this.SignupLoginLink = page.getByRole(AriaRole.LINK, new Page.GetByRoleOptions().setName("Signup / Login"));
 		this.DeleteAccountLink = page.getByRole(AriaRole.LINK, new Page.GetByRoleOptions().setName(Pattern.compile("Delete Account",Pattern.CASE_INSENSITIVE)));
 		this.LogOutLink = page.getByRole(AriaRole.LINK, new GetByRoleOptions().setName("Logout"));
 		this.NavigationMenuLinks = page.locator("ul[class*='navbar'] a");
@@ -38,11 +38,11 @@ public class HomePage extends BasePage {
 		SignupLoginLink.click();
 	}
 	
-	public void DeleteAccount() {
+	public void clickDeleteAccount() {
 		DeleteAccountLink.click();
 	}
 	
-	public void LogOut() {
+	public void clickLogOut() {
 		LogOutLink.click();
 	}
 	

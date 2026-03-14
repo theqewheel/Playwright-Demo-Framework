@@ -1,13 +1,5 @@
 ----------------------Pending Scripting -----------------------------------------
 
-#AE-9 Add to Cart Tests 
-
-Test Case 12: Add Products in Cart
-Test Case 13: Verify Product quantity in Cart
-Test Case 17: Remove Products From Cart
-Test Case 20: Search Products and Verify Cart After Login
-Test Case 22: Add to cart from Recommended items
-
 #AE-10 Place Order Tests
 
 Test Case 14: Place Order: Register while Checkout
@@ -51,4 +43,13 @@ Test Case 11: Verify Subscription in Cart page
 
 Test Case 25: Verify Scroll Up using 'Arrow' button and Scroll Down functionality
 Test Case 26: Verify Scroll Up without 'Arrow' button and Scroll Down functionality
+
+#AE-9 Add to Cart Tests 
+
+Test Case 12: Add Products in Cart
+Test Case 13: Verify Product quantity in Cart
+Test Case 17: Remove Products From Cart
+Test Case 20: Search Products and Verify Cart After Login
+Test Case 22: Add to cart from Recommended items
+
 

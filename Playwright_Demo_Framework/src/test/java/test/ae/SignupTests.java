@@ -84,16 +84,16 @@ public class SignupTests extends BaseTest {
 		ReportManager.logStep("Verify Account Creation is Successful");
 		signupDetailPage.clickCreateAccount();
 		signupDetailPage.verifyTextMessageDisplayed("Account Created", false);
-		signupDetailPage.ClickContinue();
+		signupDetailPage.clickContinue();
 		ReportManager.logStep("Verify Auto-Login is Successful for the newly registered user");
 		homePage.verifyTextMessageDisplayed("Logged in as " + username, true);
 
 		// Step-7 Optional Step: Clean up the test account created
 		ReportManager.logStep("Verify Account Deletion is Successful");
-		homePage.DeleteAccount();
+		homePage.clickDeleteAccount();
 		homePage.verifyTextMessageDisplayed("Account Deleted", false);
 		homePage.verifyTextMessageDisplayed("permanently deleted", false);
-		homePage.ClickContinue();
+		homePage.clickContinue();
 
 	}
 

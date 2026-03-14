@@ -143,25 +143,46 @@ public class TestListener implements ITestListener, ISuiteListener, IInvokedMeth
 
 	public void afterInvocation(IInvokedMethod method, ITestResult result) {
 
-		// Only handle @AfterMethod
-		if (method.getTestMethod().isAfterMethodConfiguration()) {
+		// ✅ Block 1 — Actual test failure
+	    if (method.isTestMethod() && result.getStatus() == ITestResult.FAILURE) {
+	        Throwable cause = result.getThrowable();
 
-			Throwable throwable = result.getThrowable();
+	        if (cause != null && !(cause instanceof AssertionError)) {
+	            logger.error("========================================");
+	            logger.error("         ACTUAL TEST FAILURE            ");
+	            logger.error("========================================");
+	            logger.error("Test    : {}", result.getMethod().getMethodName());
+	            logger.error("Cause   : {}", cause.getClass().getSimpleName());
+	            
+	            // ✅ Pass cause as throwable - makes stack trace clickable in IDE!
+	            logger.error("Details : ", cause);
+	            logger.error("==================XXXXX=================");
+	        }
+	    }
 
-			if (throwable != null) {
-				logger.error("@AfterMethod failed for test: {}", result.getMethod().getMethodName());
-				logger.error("Reason: {}", throwable.getMessage());
+	    // ✅ Block 2 — Soft assertion failures
+	    if (method.getTestMethod().isAfterMethodConfiguration()) {
+	        Throwable throwable = result.getThrowable();
 
-				// ✅ Force test to FAILED status
-				result.setStatus(ITestResult.FAILURE);
-				result.setThrowable(throwable);
-			}
-			
-			if (ConfigManager.isScreenhotonFail()) {
+	        if (throwable instanceof AssertionError) {
+	            logger.error("========================================");
+	            logger.error("       SOFT ASSERTION FAILURES          ");
+	            logger.error("========================================");
+	            
+	            // Split failures on separate lines
+	            String[] failures = throwable.getMessage().split(",\n\t");
+	            for (int i = 0; i < failures.length; i++) {
+	                logger.error("  Failure {}: {}", i + 1, failures[i].trim());
+	            }
+	            
+	            // ✅ Pass throwable - makes it clickable too!
+	            logger.error("Stacktrace : ", throwable);
+	            logger.error("==================XXXXX=================");
 
-				attachScreenshot("FAILURE Screenshot:", result);
-			}
-
+	            result.setStatus(ITestResult.FAILURE);
+	            result.setThrowable(throwable);
+	        }
+		    
 			MDC.clear();
 		}
 	}

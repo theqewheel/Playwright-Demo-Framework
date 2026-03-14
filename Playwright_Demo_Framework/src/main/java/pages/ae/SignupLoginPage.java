@@ -1,15 +1,14 @@
 package pages.ae;
 
-import java.util.regex.Pattern;
-
-import org.testng.asserts.SoftAssert;
-import org.testng.collections.Objects.ToStringHelper;
-
-import com.microsoft.playwright.Locator;
-import com.microsoft.playwright.Page;
 import static com.microsoft.playwright.assertions.PlaywrightAssertions.assertThat;
 import static org.testng.Assert.assertEquals;
 
+import java.util.regex.Pattern;
+
+import org.testng.asserts.SoftAssert;
+
+import com.microsoft.playwright.Locator;
+import com.microsoft.playwright.Page;
 import com.microsoft.playwright.options.AriaRole;
 
 import framework.base.BasePage;
@@ -108,5 +107,6 @@ public class SignupLoginPage extends BasePage {
 			assertEquals(errorMsg, expectedMsg, "Invalid error message on same email signup");
 		}
 	}
+	
 
 }

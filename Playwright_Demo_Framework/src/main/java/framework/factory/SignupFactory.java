@@ -1,9 +1,10 @@
 package framework.factory;
 
-import framework.data.AccountInfo;
+import framework.data.AddressInfo;
+import framework.data.SignupData;
 import framework.utils.FakerDataUtil;
 
-public class AccountFactory {
+public class SignupFactory {
 
 	/** This factory Class is responsible for creating Objects
 	 *  This creates Objects for the following:
@@ -12,13 +13,13 @@ public class AccountFactory {
 	 *  	- Fake User Data with Time Stamp appends
 	 */
 	
-	public static AccountInfo createRandomAccount() {
+	public static SignupData createSignupData() {
 		
-		var faker = FakerDataUtil.getFaker();
-		return new AccountInfo(
-				"Autobot_" + faker.name().username(),
-				System.currentTimeMillis() + faker.internet().emailAddress(),
-				"Pwd@" + faker.number().digits(5)
+		return new SignupData(
+				 AccountFactory.createRandomAccount(),
+				 PersonalFactory.createRandomPersonalInfo(),
+				 AddressFactory.createRandomAddress()
 				);
 	}
+	
 }

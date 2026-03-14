@@ -2,12 +2,11 @@ package pages.ae;
 
 import static com.microsoft.playwright.assertions.PlaywrightAssertions.assertThat;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.regex.Pattern;
-
-import javax.swing.plaf.synth.SynthIcon;
 
 import org.testng.Assert;
 import org.testng.asserts.SoftAssert;
@@ -27,15 +26,13 @@ public class ProductsPage extends BasePage {
 	private final Locator searchProductsTextBox;
 	private final Locator searchProductsButton;
 	private final Locator categoryLinks;
-	private final Locator subscriptionHeader;
-	private final Locator subscriptionEmailTextBox;
-	private final Locator subscribeButton;
 	private final Locator subCategoryWomenLinks;
 	private final Locator subCategoryMenLinks;
 	private final Locator subCategoryKidsLinks;
 	private final Locator brandNameLinks;
-	private final Locator categoryDisplayText;
 	private final Locator featuredProductTitle;
+	private final Locator recommendedSectionHeader;
+	private final Locator recommendedProducts;
 
 	public ProductsPage(Page page, SoftAssert softAssert) {
 		super(page, softAssert);
@@ -43,16 +40,13 @@ public class ProductsPage extends BasePage {
 		this.searchProductsTextBox = page.getByPlaceholder("Search Product");
 		this.searchProductsButton = page.locator("#submit_search");
 		this.categoryLinks = page.locator("div[class*='category'] .panel-title");
-		this.subscriptionHeader = page.getByRole(AriaRole.HEADING, new Page.GetByRoleOptions().setName("Subscription"));
-		this.subscriptionEmailTextBox = page.getByPlaceholder("email address");
-		this.subscribeButton = page.getByRole(AriaRole.BUTTON)
-				.filter(new Locator.FilterOptions().setHas(page.locator("#subscribe")));
 		this.subCategoryWomenLinks = page.locator("#Women");
 		this.subCategoryMenLinks = page.locator("#Men");
 		this.subCategoryKidsLinks = page.locator("#Kids");
 		this.brandNameLinks = page.locator(".brands-name");
-		this.categoryDisplayText = page.locator(".breadcrumbs .active");
 		this.featuredProductTitle = page.locator(".features_items .title");
+		this.recommendedSectionHeader = page.locator(".recommended_items .title");
+		this.recommendedProducts = page.locator(".recommended_items");
 	}
 
 	@Step("Verify products list on load - default")
@@ -80,9 +74,9 @@ public class ProductsPage extends BasePage {
 	}
 
 	public void clickSubCategory(String category, String subCategory) {
-		
+
 		clickCategory(category);
-		
+
 		switch (category.toLowerCase()) {
 		case "women":
 			subCategoryWomenLinks.locator("a:has-text('" + StringUtil.capitalizeFirst(subCategory) + "')").click();
@@ -98,34 +92,24 @@ public class ProductsPage extends BasePage {
 		}
 	}
 
-	public String getCategoryNavigationDisplayed() {
-		return categoryDisplayText.textContent().trim();
-	}
-
 	public void verifyCategoryPageDisplay(String Category, String subCategory) {
+
 		verifyPageLoaded("category_products", subCategory);
 
 		// verify the navigation title for featured products
-		try {
-			assertThat(categoryDisplayText)
-					.containsText(Pattern.compile(Category + " > " + subCategory,Pattern.CASE_INSENSITIVE));
-		} catch (Exception e) {
-			softAssert.fail("The category navigation displayed is not >> " + Category + " > " + subCategory
-					+ ", Actual: " + getCategoryNavigationDisplayed());
-			logger.error("The category navigation displayed is not >> " + Category + " > " + subCategory + ", Actual: "
-					+ getCategoryNavigationDisplayed());
-		}
+		softAssert.assertTrue(getCategoryNavigationDisplayed().equalsIgnoreCase(Category + " > " + subCategory));
+		logger.error("The category navigation displayed is not >> " + Category + " > " + subCategory + ", Actual: "
+				+ getCategoryNavigationDisplayed());
 
 		// verify the featured title
 		try {
-			assertThat(featuredProductTitle).containsText(Pattern.compile(Category + " - " + subCategory + " " + "Products",Pattern.CASE_INSENSITIVE));
+			assertThat(featuredProductTitle).containsText(
+					Pattern.compile(Category + " - " + subCategory + " " + "Products", Pattern.CASE_INSENSITIVE));
 
 		} catch (Exception e) {
-			softAssert.fail("The featured title displayed is not >> "
-					+ Category + " - " + subCategory + " " + "Products"
-					+ ", Actual: " + featuredProductTitle.textContent().trim());
-			logger.error("The featured title displayed is not >> "
-					+ Category + " - " + subCategory + " " + "Products"
+			softAssert.fail("The featured title displayed is not >> " + Category + " - " + subCategory + " "
+					+ "Products" + ", Actual: " + featuredProductTitle.textContent().trim());
+			logger.error("The featured title displayed is not >> " + Category + " - " + subCategory + " " + "Products"
 					+ ", Actual: " + featuredProductTitle.textContent().trim());
 		}
 
@@ -137,6 +121,10 @@ public class ProductsPage extends BasePage {
 
 	private Locator getProductCard(int productIndex) {
 		return ProductCardsDiv.nth(productIndex);
+	}
+
+	private Locator getAllProductCards() {
+		return ProductCardsDiv;
 	}
 
 	public void clickViewProduct(String productName) {
@@ -166,7 +154,7 @@ public class ProductsPage extends BasePage {
 	}
 
 	public void clickAddProductToCart(int productIndex) {
-		Locator productCard = getProductCard(productIndex - 1);
+		Locator productCard = getProductCard(productIndex-1);
 		productCard.hover();
 		productCard.locator(".product-overlay .add-to-cart").click();
 	}
@@ -188,14 +176,9 @@ public class ProductsPage extends BasePage {
 		page.getByText("View Cart").click();
 	}
 
-	public void subscribe(String email) {
-		subscriptionEmailTextBox.fill(email);
-		subscribeButton.click();
-	}
-
 	@Step("Verify Subscription is success from Products Page")
-	public void verifySubscriptionSuccess() {
-		assertThat(page.getByText("You have been successfully subscribed!")).isVisible();
+	public void verifySubscriptionSuccessfromProductsPage() {
+		Assert.assertEquals(super.verifySubscriptionSuccess(), true);
 	}
 
 	@Step("Verify Searched Products")
@@ -263,23 +246,43 @@ public class ProductsPage extends BasePage {
 
 		Map<String, String> productDetailMap = new HashMap<String, String>();
 
-		String productPrice = getProductCard(productName)
-				.filter(new Locator.FilterOptions().setHas(page.locator("div[class*='productinfo'")))
-				.filter(new Locator.FilterOptions().setHas(page.locator("h2"))).textContent().trim();
+		String productFullName = getProductCard(productName).locator(".productinfo p").first().textContent().trim();
 
-		productPrice = productPrice.substring(productPrice.lastIndexOf("Rs. "));
+		String productPrice = getProductCard(productName).locator(".productinfo h2").first().textContent().trim()
+				.split("Rs. ")[1];
 
-		String productFullName = getProductCard(productName)
-				.filter(new Locator.FilterOptions().setHas(page.locator("div[class*='productinfo'")))
-				.filter(new Locator.FilterOptions().setHas(page.locator("p"))).textContent();
+		if (productFullName != null)
+			productDetailMap.put("Name", productFullName);
+		else {
+			logger.error("The Product Name is missing");
+		}
 
 		if (productPrice != null)
 			productDetailMap.put("Price", productPrice);
 		else {
 			logger.error("The Product Price is missing");
 		}
+
+		return productDetailMap;
+
+	}
+
+	private Map<String, String> readProductDetails(int productIndex) {
+
+		Map<String, String> productDetailMap = new HashMap<String, String>();
+
+		String productFullName = getProductCard(productIndex - 1).locator(".productinfo p").textContent().trim();
+
+		String productPrice = getProductCard(productIndex - 1).locator(".productinfo h2").textContent().trim()
+				.split("Rs. ")[1];
+
+		if (productPrice != null)
+			productDetailMap.put("Price" + productIndex, productPrice);
+		else {
+			logger.error("The Product Price is missing");
+		}
 		if (productFullName != null)
-			productDetailMap.put("Name", productFullName);
+			productDetailMap.put("Name" + productIndex, productFullName);
 		else {
 			logger.error("The Product Name is missing");
 		}
@@ -298,37 +301,221 @@ public class ProductsPage extends BasePage {
 		return productFullName;
 	}
 
+	public String readProductPrice(int productIndex) {
+		String productPrice = readProductDetails(productIndex).get("Price" + productIndex);
+		return productPrice;
+	}
+
+	public String readProductFullName(int productIndex) {
+		String productFullName = readProductDetails(productIndex).get("Name" + productIndex);
+		return productFullName;
+	}
+
 	public void selectBrand(String brandName) {
 		brandNameLinks.locator("a[href*='" + StringUtil.capitalizeFirst(brandName) + "']").click();
 	}
 
+	@Step("Verify brand page displayed")
 	public void verifyBrandPageDisplay(String brandName) {
+
 		verifyPageLoaded("brand_products", brandName);
 
 		// verify the navigation title for featured products
-		try {
-			assertThat(categoryDisplayText)
-					.containsText(Pattern.compile(brandName,Pattern.CASE_INSENSITIVE));
-		} catch (Exception e) {
-			softAssert.fail("The category navigation displayed is not >> " + brandName
-					+ ", Actual: " + getCategoryNavigationDisplayed());
-			logger.error("The category navigation displayed is not >> " + brandName 
-					+ ", Actual: " + getCategoryNavigationDisplayed());
-		}
+		softAssert.assertTrue(getCategoryNavigationDisplayed().equalsIgnoreCase(brandName));
+		logger.error("The category navigation displayed is not >> " + brandName + ", Actual: "
+				+ getCategoryNavigationDisplayed());
 
 		// verify the featured title
 		try {
-			assertThat(featuredProductTitle).containsText(Pattern.compile("Brand - " + brandName + " Products",Pattern.CASE_INSENSITIVE));
+			assertThat(featuredProductTitle)
+					.containsText(Pattern.compile("Brand - " + brandName + " Products", Pattern.CASE_INSENSITIVE));
 
 		} catch (Exception e) {
-			softAssert.fail("The featured title displayed is not >> "
-					+ "Brand - " + brandName + " Products"
+			softAssert.fail("The featured title displayed is not >> " + "Brand - " + brandName + " Products"
 					+ ", Actual: " + featuredProductTitle.textContent().trim());
-			logger.error("The featured title displayed is not >> "
-					+ "Brand - " + brandName + " Products"
-					+ ", Actual: " + featuredProductTitle.textContent().trim());
+			logger.error("The featured title displayed is not >> " + "Brand - " + brandName + " Products" + ", Actual: "
+					+ featuredProductTitle.textContent().trim());
 		}
 
+	}
+
+	public Map<String, String> addMultipleProductsToCartAndRetreiveProductDetails(int productCount) {
+
+		Map<String, String> ProductDetails = new HashMap<String, String>();
+
+		if (productCount <= 0) {
+			Assert.fail("The product count should be atleast '1' to proceed with Add to Cart.");
+			return null;
+		}
+
+		for (int i = 1; i <= productCount; i++) {
+			ProductDetails.put("Name" + i, readProductFullName(i));
+			ProductDetails.put("Price" + i, readProductPrice(i));
+			clickAddProductToCart(i);
+			if (i == productCount)
+				clickViewCart(); // view the cart once last product is added
+			else
+				clickContinueShopping();
+			logger.info("""
+
+					---------------------------------------------------
+					Product {} Added To Cart
+					Name  : {}
+					Price : {}
+					----------------------------------------------------
+
+					""", i, ProductDetails.get("Name" + i), ProductDetails.get("Price" + i));
+		}
+		return ProductDetails;
+	}
+
+	public Map<String, String> addMultipleProductsToCartAndRetreiveProductDetails(List<String> productNames) {
+
+		Map<String, String> ProductDetails = new HashMap<String, String>();
+
+		if (productNames.size() <= 0) {
+			Assert.fail("The product count should be atleast '1' to proceed with Add to Cart.");
+			return null;
+		}
+
+		for (int i = 1; i <= productNames.size(); i++) {
+			ProductDetails.put("Name" + i, readProductFullName(productNames.get(i-1)));
+			ProductDetails.put("Price" + i, readProductPrice(productNames.get(i-1)));
+			clickAddProductToCart(productNames.get(i-1));
+			if (i == productNames.size())
+				clickViewCart(); // view the cart once last product is added
+			else
+				clickContinueShopping();
+			logger.info("""
+
+					---------------------------------------------------
+					Product {} Added To Cart
+					Name  : {}
+					Price : {}
+					----------------------------------------------------
+
+					""", i, ProductDetails.get("Name" + i), ProductDetails.get("Price" + i));
+		}
+		return ProductDetails;
+	}
+
+	@Step("Add multiple products to Cart using a count of products")
+	public void addMultipleProductsToCart(int productCount) {
+
+		if (productCount <= 0) {
+			Assert.fail("The product count should be atleast '1' to proceed with Add to Cart.");
+		}
+
+		for (int i = 1; i <= productCount; i++) {
+			clickAddProductToCart(i);
+			clickContinueShopping();
+		}
+	}
+
+	@Step("Add multiple products to Cart using a list of named products")
+	public void addMultipleProductsToCart(List<String> productNames) {
+
+		if (productNames.size() <= 0) {
+			Assert.fail("The product count should be atleast '1' to proceed with Add to Cart.");
+		}
+
+		for (int i = 1; i < productNames.size(); i++) {
+			clickAddProductToCart(productNames.get(i));
+			clickContinueShopping();
+		}
+	}
+
+	private String getProductName(int productIndex) {
+		return ProductCardsDiv.nth(productIndex).locator(".productinfo p").textContent().trim();
+	}
+
+	private String getProductPrice(int productIndex) {
+		return ProductCardsDiv.nth(productIndex).locator(".productinfo h2").textContent().trim().split("Rs. ")[1];
+	}
+
+	public List<String> addAllProductsVisibleToCart() {
+
+		List<String> productList = new ArrayList<String>();
+		int totalProductsVisible = getAllProductCards().count();
+		logger.info("Total Products displayed on screen - " + totalProductsVisible);
+		int totalProductsAddedToCart = 0;
+
+		for (int i = 0; i < totalProductsVisible; i++) {
+			productList.add(getProductName(i));
+			clickAddProductToCart(i);
+			totalProductsAddedToCart++;
+			logger.info("""
+
+					---------------------------------------------------
+					Product {}: {} Added To Cart with Price {}
+					----------------------------------------------------
+
+					""", i, getProductName(i), getProductPrice(i));
+			if (i == totalProductsVisible - 1)
+				clickViewCart(); // view the cart once last product is added
+			else
+				clickContinueShopping();
+		}
+
+		logger.info("Total Products added to cart - " + totalProductsAddedToCart);
+		return productList;
+	}
+
+	@Step("Verify the recommended product section")
+	public void verifyRecommendedSectionDisplayed() {
+
+		recommendedSectionHeader.scrollIntoViewIfNeeded();
+		Assert.assertTrue(recommendedSectionHeader.isVisible(), "The recommended items section is not visible");
+		Assert.assertEquals(recommendedSectionHeader.textContent().trim().toUpperCase(),
+				"Recommended Items".toUpperCase());
+
+		Locator recommendedProduct = recommendedProducts.locator(".item.active .product-image-wrapper");
+		if (recommendedProduct.count() > 0) {
+			logger.info("Recommended Items list shows " + recommendedProduct.count() + " items.");
+		} else {
+			Assert.fail("The Recommended Items list is Empty !!!");
+		}
+	}
+
+	private Locator getActiveRecommendedProducts(String productName) {
+		return recommendedProducts.locator(".item.active .product-image-wrapper")
+				.filter(new Locator.FilterOptions().setHasText(productName));
+	}
+
+	@Step("Add recommended product to cart using a given product name")
+	public void addRecommendedProductToCart(String productName) {
+
+		int maxAttempts = 5; // max time to rotate carousel
+		int attempts = 0;
+
+		// check if the product exists in carousel
+		// wait for it to become visible
+		while (getActiveRecommendedProducts(productName).count() < 1 && attempts < maxAttempts) {
+			logger.info("Product '{}' is not active yet, clicking next attempt{}/{}...", productName, attempts + 1,
+					maxAttempts);
+			page.locator(".right.recommended-item-control").click();
+			page.waitForTimeout(500);
+			attempts++;
+		}
+
+		if (attempts == maxAttempts) {
+			Assert.fail(
+					"The product '" + productName + "' never became active on the page recommended products section");
+		}
+
+		// when product is active on carousel
+		getActiveRecommendedProducts(productName).locator(".add-to-cart").click();
+		logger.info("Added recommended Product '{}' to cart.", productName);
+	}
+
+	public String addActiveRecommendedProductToCart() {
+
+		Locator recommendedProduct = recommendedProducts.locator(".item.active .product-image-wrapper").first();
+		String productName = recommendedProduct.locator("p").textContent().trim();
+		recommendedProduct.locator("a").click();
+		logger.info("Added recommended Product '{}' to cart.", productName);
+		clickViewCart();
+		return productName;
 	}
 
 }

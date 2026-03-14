@@ -11,7 +11,9 @@ import com.microsoft.playwright.Locator;
 import com.microsoft.playwright.Page;
 import com.microsoft.playwright.options.AriaRole;
 
-import framework.logging.LogManager;;
+import framework.logging.LogManager;
+import io.qameta.allure.Step;
+import reporting.ReportManager;;
 
 public abstract class BasePage {
 
@@ -19,6 +21,11 @@ public abstract class BasePage {
 	protected Logger logger;
 	private final Locator ContinueButton;
 	protected SoftAssert softAssert;
+	private final Locator subscriptionHeader;
+	private final Locator subscriptionEmailTextBox;
+	private final Locator subscribeButton;
+	private final Locator categoryDisplayText;
+	private final Locator homeArrowButton;
 
 	public BasePage(Page page, SoftAssert softAssert) {
 		this.page = page;
@@ -26,6 +33,11 @@ public abstract class BasePage {
 		this.softAssert = softAssert;
 		this.ContinueButton = page.getByRole(AriaRole.LINK,
 				new Page.GetByRoleOptions().setName(Pattern.compile("Continue", Pattern.CASE_INSENSITIVE)));
+		this.subscriptionHeader = page.getByRole(AriaRole.HEADING, new Page.GetByRoleOptions().setName("Subscription"));
+		this.subscriptionEmailTextBox = page.getByPlaceholder("email address");
+		this.subscribeButton = page.locator("#subscribe");
+		this.categoryDisplayText = page.locator(".breadcrumbs .active");
+		this.homeArrowButton = page.locator("#scrollUp");
 	}
 
 	public void verifyPageLoaded(String expectedURL, String expectedTitle) {
@@ -56,21 +68,71 @@ public abstract class BasePage {
 
 		if (exactMatch) {
 			try {
-				assertThat(page.getByText(expectedMessage)).isVisible();
+				assertThat(page.getByText(expectedMessage).first()).isVisible();
 			} catch (Exception e) {
 				softAssert.fail("Text Message not displayed - " + expectedMessage);
 			}
 		} else {
 			try {
-				assertThat(page.getByText(Pattern.compile(expectedMessage))).isVisible();
+				assertThat(page.getByText(Pattern.compile(expectedMessage)).first()).isVisible();
 			} catch (Exception e) {
 				softAssert.fail("Text Message not displayed - " + expectedMessage);
 			}
 		}
 	}
 
-	public void ClickContinue() {
+	public void clickContinue() {
 		ContinueButton.click();
 	}
 
+	public void subscribe(String email) {
+		subscriptionEmailTextBox.fill(email);
+		subscribeButton.click();
+	}
+	
+	public Boolean verifySubscriptionHeaderVisibility() {
+	 return subscriptionHeader.isVisible();
+	}
+	
+	public Boolean verifySubscriptionSuccess() {
+		return page.getByText("You have been successfully subscribed!").isVisible();
+	}
+	
+	public String getCategoryNavigationDisplayed() {
+		return categoryDisplayText.textContent().trim();
+	}
+	
+	public void scrollToPageBottomUsingKeyboard() {
+		page.keyboard().press("End");
+	}
+	
+	public void scrollToPageTopUsingKeyboard() {
+		page.keyboard().press("Home");
+	}
+	
+	public void scrollToPageTopUsingArrowKey() {
+		homeArrowButton.click();
+	}
+	
+	public void scrollToPageTopUsingEval() {
+		page.evaluate("window.scrollTo(0, 0)");
+		page.waitForTimeout(2000); //wait for smooth scroll to finish - optional for demo
+	}
+	
+	public void scrollToPageBottomUsingEval() {
+		page.evaluate("window.scrollTo(0, document.body.scrollHeight)");
+		page.waitForTimeout(2000); //wait for smooth scroll to finish - optional for demo
+	}
+	
+	public void scrollIntoViewOfElement(Locator locatorToView) {
+		locatorToView.scrollIntoViewIfNeeded();
+	}
+	
+	public void scrollIntoViewOfElementUsingEval(Locator locatorToView) {
+		page.evaluate("document.querySelector('#footer').scrollIntoView()");
+	}
+	
+	public void waitUntilPageLoadCompletes() {
+		page.waitForLoadState();
+	}
 }

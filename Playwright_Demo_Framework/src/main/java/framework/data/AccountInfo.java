@@ -1,31 +1,29 @@
 package framework.data;
 
 public class AccountInfo {
-
-	/**
-	 * POJO Class - Plain Old Java Class
-	 * Data Holder - no code logic implemented
-	 * Just Variables + Constructor + Getter
-	 * This can be used for creating user dat for filling sign-up forms
-	 */
 	
-	private String username;
+	/** POJO Class
+	 * Simple Plain Old Java Class -  is a data holder with no logic implemented
+	 * Just variables + constructor + getters
+	 * This is for creating user Data for filling forms - Account Information
+	 */
+
+	
+	private String userName;
 	private String email;
 	private String password;
 	
-	public AccountInfo(String username, String password, String email) {
-		this.username = username;
+	public AccountInfo(String userName, String email, String password) {
+		this.userName = userName;
 		this.email = email;
 		this.password = password;
 	}
 	
-	/*
-	 * Getters
+	/* GETTER METHODS
 	 */
 	
-	public String getUsername() {return username;}
-	public String getPassword() {return password;}
+	public String getUsername() {return userName;}
 	public String getEmail() {return email;}
-	
+	public String getPassword() {return password;}
 	
 }

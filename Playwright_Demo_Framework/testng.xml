@@ -1,21 +1,24 @@
-<suite name="Playwright Demo Framework Tests - TA1 ">
-    
-    <parameter name="environment" value="QA"/>
-    
-    <listeners>
-    	<listener class-name="framework.listeners.TestListener"></listener>
-    </listeners>
-    
-    <test name="Release 1.0 Testing for AE">  
-    	<!--test classes defined here-->
-        <classes>
-        	<class name="test.SignupTests">
-	        	<methods>
-	        		<include name="Test_AE001_TC01_Verify_Existing_Email_SignUp"/>
-	        	</methods>
-        	</class> 		
-        </classes>
-        
-    </test>
-    
+<suite name="Playwright Demo Framework Tests - TA1 " parallel="methods"
+	thread-count="4">
+
+	<parameter name="environment" value="QA" />
+
+	<listeners>
+		<listener class-name="framework.listeners.TestListener"></listener>
+	</listeners>
+
+	<test name="Release 1.0 Testing for AE">
+		<!--test classes defined here-->
+		<classes>
+			<class name="test.ae.SignupTests" />
+			<class name="test.ae.LoginTests" />
+			<class name="test.ae.HomeTests" />
+			<class name="test.ae.ContactUsTests" />
+			<class name="test.ae.TestCasesTests" />
+			<class name="test.ae.SubscriptionTests" />
+			<class name="test.ae.ProductsTests" />
+			<class name="test.ae.ProductReviewTests" />
+		</classes>
+	</test>
+
 </suite>

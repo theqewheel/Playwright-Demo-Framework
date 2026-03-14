@@ -15,14 +15,26 @@ public class ProductDetailPage extends BasePage {
 	private final Locator reviewCardEmail;
 	private final Locator reviewCardReviewBody;
 	private final Locator reviewSubmitButton;
+	private final Locator quantityTextBox;
+	private final Locator addToCartButton;
+	private final Locator viewCartLink;
+	private final Locator continueShoppingButton;
+	
 
 	public ProductDetailPage(Page page, SoftAssert softAssert) {
 		super(page, softAssert);
 		this.productInfo = page.locator(".product-information");
-		this.reviewCardName = page.getByRole(AriaRole.TEXTBOX,new Page.GetByRoleOptions().setName("Your Name"));
-		this.reviewCardEmail = page.getByRole(AriaRole.TEXTBOX,new Page.GetByRoleOptions().setName("Email Address").setExact(true));;
-		this.reviewCardReviewBody = page.getByRole(AriaRole.TEXTBOX,new Page.GetByRoleOptions().setName("Add Review Here"));
-		this.reviewSubmitButton = page.getByRole(AriaRole.BUTTON,new Page.GetByRoleOptions().setName("Submit"));
+		this.reviewCardName = page.getByRole(AriaRole.TEXTBOX, new Page.GetByRoleOptions().setName("Your Name"));
+		this.reviewCardEmail = page.getByRole(AriaRole.TEXTBOX,
+				new Page.GetByRoleOptions().setName("Email Address").setExact(true));
+		;
+		this.reviewCardReviewBody = page.getByRole(AriaRole.TEXTBOX,
+				new Page.GetByRoleOptions().setName("Add Review Here"));
+		this.reviewSubmitButton = page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName("Submit"));
+		this.quantityTextBox = page.locator("#quantity");
+		this.addToCartButton = page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName("Add to cart"));
+		this.viewCartLink = page.getByText("View Cart");
+		this.continueShoppingButton = page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName("Continue Shopping"));
 	}
 
 	public void verifyProductDetailsAreVisible() {
@@ -33,23 +45,17 @@ public class ProductDetailPage extends BasePage {
 		softAssert.assertTrue(fetchProductCondition() != null, "Product Condition is not available");
 		softAssert.assertTrue(fetchProductBrand() != null, "Product Brand is not available");
 		logger.info("""
-				
+
 				Product Details
 				---------------
 				Name     	 :{}
 				Category 	 :{}
 				Price    	 :{}
-				Availability :{} 
+				Availability :{}
 				Condition    :{}
 				Brand        :{}
-				""",
-				fetchProductName(),
-				fetchProductCategory(),
-				fetchProductPrice(),
-				fetchProductAvailability(),
-				fetchProductCondition(),
-				fetchProductBrand()
-				);
+				""", fetchProductName(), fetchProductCategory(), fetchProductPrice(), fetchProductAvailability(),
+				fetchProductCondition(), fetchProductBrand());
 	}
 
 	public String fetchProductName() {
@@ -101,20 +107,35 @@ public class ProductDetailPage extends BasePage {
 
 		return productBrand;
 	}
-	
+
 	public void verifyWriteAReviewPage() {
 		verifyTextMessageDisplayed("Write Your Review", true);
 	}
-	
-	public void writeProductReviewAndSubmit(String name, String email, String content) {		
+
+	public void writeProductReviewAndSubmit(String name, String email, String content) {
 		reviewCardName.fill(name);
 		reviewCardEmail.fill(email);
 		reviewCardReviewBody.fill(content);
-		reviewSubmitButton.click();	
+		reviewSubmitButton.click();
 	}
-	
+
 	public void verifyReviewSubmissionSuccessMessage() {
 		verifyTextMessageDisplayed("Thank you for your review", true);
 	}
 
+	public void increaseProductPurchaseQuantity(int productQuantity) {
+		quantityTextBox.fill(String.valueOf(productQuantity));
+	}
+	
+	public void clickViewCart() {
+		viewCartLink.click();
+	}
+	
+	public void addToCart() {
+		addToCartButton.click();
+	}
+	
+	public void clickContinueShopping() {
+		continueShoppingButton.click();
+	}
 }

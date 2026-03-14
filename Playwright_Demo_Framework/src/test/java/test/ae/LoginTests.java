@@ -99,7 +99,7 @@ public class LoginTests extends BaseTest {
 		homePage.verifyPageLoaded("automationexercise.com", "Automation Exercise");
 		
 		// Step-4 Logout
-		homePage.LogOut();
+		homePage.clickLogOut();
 		homePage.verifyPageLoaded("/login", "Login");
 
 	}

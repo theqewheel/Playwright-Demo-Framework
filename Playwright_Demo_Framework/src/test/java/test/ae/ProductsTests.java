@@ -16,14 +16,14 @@ import reporting.ReportManager;
 
 public class ProductsTests extends BaseTest {
 
-	@Test(description = "AE4_TC08 - Verify the All Products and Product Details Page", groups = { "smoke",
+	@Test(description = "AE5_TC08 - Verify the All Products and Product Details Page", groups = { "smoke",
 			"regression" })
 	@Epic("Product Search")
 	@Feature("Product Search Page for Products")
 	@Story("Products can be searched and viewed in detail")
 	@Severity(SeverityLevel.BLOCKER)
 	@Owner("QE@Cloudyfolk")
-	public void Test_AE4_TC08_Verify_Product_Search_Detail_Page() {
+	public void Test_AE5_TC08_Verify_Product_Search_Detail_Page() {
 
 		// Step-1 Navigate to the URL
 		logger.info("Running:Step-1");
@@ -45,14 +45,14 @@ public class ProductsTests extends BaseTest {
 		productDetailPage.verifyProductDetailsAreVisible();
 	}
 
-	@Test(description = "AE4_TC09 - Verify Search functionality shows all the Searched Products", groups = {
+	@Test(description = "AE5_TC09 - Verify Search functionality shows all the Searched Products", groups = {
 			"regression" })
 	@Epic("Product Search")
 	@Feature("Product Search Page for Products")
 	@Story("Products can be searched and viewed in detail")
 	@Severity(SeverityLevel.NORMAL)
 	@Owner("QE@Cloudyfolk")
-	public void Test_AE4_TC09_Verify_Product_Search_Lists_All_Relevant_Products() {
+	public void Test_AE5_TC09_Verify_Product_Search_Lists_All_Relevant_Products() {
 
 		// Step-1 Navigate to the URL
 		logger.info("Running:Step-1");
@@ -71,13 +71,13 @@ public class ProductsTests extends BaseTest {
 		productsPage.verifySearchedProducts("Green");
 	}
 
-	@Test(description = "AE4_TC18 - Verify category filtering for products", groups = { "smoke", "regression" })
+	@Test(description = "AE5_TC18 - Verify category filtering for products", groups = { "smoke", "regression" })
 	@Epic("Product Search")
 	@Feature("Product Search Page for Products")
 	@Story("Products can be searched with filter - category")
 	@Severity(SeverityLevel.NORMAL)
 	@Owner("QE@Cloudyfolk")
-	public void Test_AE4_TC18_Verify_Product_Category_Filtering() {
+	public void Test_AE5_TC18_Verify_Product_Category_Filtering() {
 
 		// Step-1 Navigate to the URL
 		logger.info("Running:Step-1");
@@ -99,13 +99,13 @@ public class ProductsTests extends BaseTest {
 		productsPage.verifyProductsListonLoad();
 	}
 
-	@Test(description = "AE4_TC19 - Verify brand filtering for products", groups = { "smoke", "regression" })
+	@Test(description = "AE5_TC19 - Verify brand filtering for products", groups = { "smoke", "regression" })
 	@Epic("Product Search")
 	@Feature("Product Search Page for Products")
 	@Story("Products can be searched with filter - brand")
 	@Severity(SeverityLevel.NORMAL)
 	@Owner("QE@Cloudyfolk")
-	public void Test_AE4_TC19_Verify_Product_Brand_Filtering() {
+	public void Test_AE5_TC19_Verify_Product_Brand_Filtering() {
 
 		// Step-1 Navigate to the URL
 		logger.info("Running:Step-1");

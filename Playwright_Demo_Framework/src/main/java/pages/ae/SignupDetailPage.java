@@ -2,15 +2,19 @@ package pages.ae;
 
 import static com.microsoft.playwright.assertions.PlaywrightAssertions.assertThat;
 
+import java.util.Random;
 import java.util.regex.Pattern;
 
 import org.testng.asserts.SoftAssert;
+import org.yaml.snakeyaml.representer.BaseRepresenter;
 
 import com.microsoft.playwright.Locator;
 import com.microsoft.playwright.Page;
 import com.microsoft.playwright.options.AriaRole;
 
 import framework.base.BasePage;
+import framework.data.SignupData;
+import framework.utils.StringUtil;
 import io.qameta.allure.Step;
 
 public class SignupDetailPage extends BasePage {
@@ -153,4 +157,33 @@ public class SignupDetailPage extends BasePage {
 			softAssert.fail("Missing Auto-populated fields - Name/Email");
 		}
 	}
+	
+	@Step("Enter account information for signup with Faker Library")
+	public void enterFakerAccountInformation(SignupData data) {
+		selectGender(data.getPersonalInfo().getGender());
+		enterPassword(data.getAccountInfo().getPassword());
+		selectDateOfBirth(String.valueOf(data.getPersonalInfo().getDob().getDayOfMonth()),
+				StringUtil.capitalizeFirst(String.valueOf(data.getPersonalInfo().getDob().getMonth())),
+				String.valueOf(data.getPersonalInfo().getDob().getYear()));
+		optNewsLetter(new Random().nextBoolean());
+		optSpecialOffers(new Random().nextBoolean());
+		enterFirstAndLastName(data.getPersonalInfo().getFirstName(), data.getPersonalInfo().getLastName());
+	}
+	
+	@Step("Enter address information for signup with Faker Library")
+	public void enterFakerAddressInformation(SignupData data) {
+		enterCompany(data.getAddressInfo().getCompany());
+		enterAddress(data.getAddressInfo().getAddress1());
+		enterAddress2(data.getAddressInfo().getAddress2());
+		try {	
+			selectCountry(data.getAddressInfo().getCountry());
+		}catch(Exception e) {		
+			selectCountry("India");			//defaulting to a value
+		}
+		enterState(data.getAddressInfo().getState());
+		enterCity(data.getAddressInfo().getCity());
+		enterZipcode(data.getAddressInfo().getZip());
+		enterMobileNumber(data.getAddressInfo().getPhoneNumber());
+	}
+	
 }

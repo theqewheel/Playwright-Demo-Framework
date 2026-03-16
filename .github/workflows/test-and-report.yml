@@ -1,0 +1,99 @@
+name: Playwright TestNG Tests
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '0 9 * * 1'
+
+jobs:
+  run-tests:
+    runs-on: ubuntu-latest
+
+    steps:
+
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Java 17
+        uses: actions/setup-java@v4
+        with:
+          java-version: '17'
+          distribution: 'temurin'
+          cache: maven
+
+      - name: Install Playwright browsers
+        run: mvn exec:java -e -D exec.mainClass=com.microsoft.playwright.CLI -D exec.args="install --with-deps chromium"
+
+      - name: Run tests
+        run: mvn test
+        continue-on-error: true
+
+      - name: Generate Allure report
+        if: always()
+        run: mvn allure:report
+
+      - name: Get test summary
+        if: always()
+        id: summary
+        run: |
+          TOTAL=$(find target/surefire-reports -name "*.xml" 2>/dev/null | xargs grep -h 'tests=' 2>/dev/null | grep -oP 'tests="\K[0-9]+' | awk '{s+=$1}END{print s+0}')
+          FAILED=$(find target/surefire-reports -name "*.xml" 2>/dev/null | xargs grep -h 'failures=' 2>/dev/null | grep -oP 'failures="\K[0-9]+' | awk '{s+=$1}END{print s+0}')
+          SKIPPED=$(find target/surefire-reports -name "*.xml" 2>/dev/null | xargs grep -h 'skipped=' 2>/dev/null | grep -oP 'skipped="\K[0-9]+' | awk '{s+=$1}END{print s+0}')
+          PASSED=$((TOTAL - FAILED - SKIPPED))
+          if [ "$FAILED" -eq 0 ]; then STATUS="✅ PASSED"; else STATUS="❌ FAILED"; fi
+          echo "total=$TOTAL"     >> $GITHUB_OUTPUT
+          echo "passed=$PASSED"   >> $GITHUB_OUTPUT
+          echo "failed=$FAILED"   >> $GITHUB_OUTPUT
+          echo "skipped=$SKIPPED" >> $GITHUB_OUTPUT
+          echo "status=$STATUS"   >> $GITHUB_OUTPUT
+          echo "date=$(date +'%d %b %Y %H:%M UTC')" >> $GITHUB_OUTPUT
+
+      - name: Publish report to GitHub Pages
+        if: always()
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: target/allure-report
+          publish_branch: gh-pages
+
+      - name: Zip report for email
+        if: always()
+        run: cd target && zip -r allure-report.zip allure-report/
+
+      - name: Send email to team
+        if: always()
+        uses: dawidd6/action-send-mail@v3
+        with:
+          server_address: smtp.gmail.com
+          server_port: 587
+          username: ${{ secrets.MAIL_USERNAME }}
+          password: ${{ secrets.MAIL_PASSWORD }}
+          to: ${{ secrets.MAIL_TO }}
+          from: QE Automation <${{ secrets.MAIL_USERNAME }}>
+          subject: "[${{ steps.summary.outputs.status }}] Test Report - ${{ steps.summary.outputs.date }}"
+          body: |
+            Hi Team,
+
+            Automated test run for theqewheel/Playwright-Demo-Framework completed.
+
+            ─────────────────────────────
+            EXECUTION SUMMARY
+            ─────────────────────────────
+            Status  : ${{ steps.summary.outputs.status }}
+            Date    : ${{ steps.summary.outputs.date }}
+            Branch  : main
+            ─────────────────────────────
+            Total   : ${{ steps.summary.outputs.total }}
+            Passed  : ${{ steps.summary.outputs.passed }}
+            Failed  : ${{ steps.summary.outputs.failed }}
+            Skipped : ${{ steps.summary.outputs.skipped }}
+            ─────────────────────────────
+
+            Full Allure Report:
+            https://theqewheel.github.io/Playwright-Demo-Framework/
+
+            Report ZIP is attached to this email.
+
+            Regards,
+            TheQEWheel Automation Pipeline
+          attachments: target/allure-report.zip

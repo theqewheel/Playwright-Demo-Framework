@@ -33,7 +33,13 @@ jobs:
 
       - name: Generate Allure report
         if: always()
-        run: mvn allure:report
+        run: |
+          echo "=== allure-results contents ==="
+          ls -la target/allure-results/ || echo "No allure-results folder!"
+          echo "=== Generating report ==="
+          mvn allure:report
+          echo "=== target contents after report ==="
+          ls -la target/
 
       - name: Get test summary
         if: always()

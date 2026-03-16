@@ -61,7 +61,7 @@ jobs:
 
       - name: Zip report for email
         if: always()
-        run: cd target && zip -r allure-report.zip allure-report/
+        run: zip -r target/allure-report.zip target/allure-report/
 
       - name: Send email to team
         if: always()

@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     defaults:
       run:
-        working-directory: Playwright-Demo-Framework
+        working-directory: Playwright_Demo_Framework
 
     steps:
 
@@ -56,7 +56,7 @@ jobs:
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: Playwright-Demo-Framework/target/allure-report
+          publish_dir: Playwright_Demo_Framework/target/allure-report
           publish_branch: gh-pages
 
       - name: Zip report for email
@@ -93,10 +93,10 @@ jobs:
             ─────────────────────────────
 
             Full Allure Report:
-            https://theqewheel.github.io/Playwright-Demo-Framework/
+            https://theqewheel.github.io/Playwright_Demo_Framework/
 
             Report ZIP is attached to this email.
 
             Regards,
             TheQEWheel Automation Pipeline
-          attachments: Playwright-Demo-Framework/target/allure-report.zip
+          attachments: Playwright_Demo_Framework/target/allure-report.zip

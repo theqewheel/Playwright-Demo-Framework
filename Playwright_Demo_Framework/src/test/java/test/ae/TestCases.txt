@@ -1,12 +1,5 @@
 ----------------------Pending Scripting -----------------------------------------
 
-#AE-10 Place Order Tests
-
-Test Case 14: Place Order: Register while Checkout
-Test Case 15: Place Order: Register before Checkout
-Test Case 16: Place Order: Login before Checkout
-Test Case 23: Verify address details in checkout page
-Test Case 24: Download Invoice after purchase order
 
 ----------------------Completed Scripting -----------------------------------------
 
@@ -52,4 +45,11 @@ Test Case 17: Remove Products From Cart
 Test Case 20: Search Products and Verify Cart After Login
 Test Case 22: Add to cart from Recommended items
 
+#AE-10 Place Order Tests
+
+Test Case 14: Place Order: Register while Checkout
+Test Case 15: Place Order: Register before Checkout
+Test Case 16: Place Order: Login before Checkout
+Test Case 23: Verify address details in checkout page
+Test Case 24: Download Invoice after purchase order
 

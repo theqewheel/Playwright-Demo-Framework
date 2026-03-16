@@ -8,6 +8,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.regex.Pattern;
 
+import org.slf4j.helpers.Reporter;
 import org.testng.Assert;
 import org.testng.asserts.SoftAssert;
 
@@ -69,10 +70,12 @@ public class ProductsPage extends BasePage {
 
 	}
 
+	@Step("Click category-{category}")
 	public void clickCategory(String category) {
 		categoryLinks.locator(page.locator("a[href='#" + StringUtil.capitalizeFirst(category) + "']")).click();
 	}
 
+	@Step("Click subCategory-{subCategory} under category-{category}")
 	public void clickSubCategory(String category, String subCategory) {
 
 		clickCategory(category);
@@ -92,6 +95,7 @@ public class ProductsPage extends BasePage {
 		}
 	}
 
+	@Step("Verify category page displayed")
 	public void verifyCategoryPageDisplay(String Category, String subCategory) {
 
 		verifyPageLoaded("category_products", subCategory);
@@ -127,6 +131,7 @@ public class ProductsPage extends BasePage {
 		return ProductCardsDiv;
 	}
 
+	@Step("Click view product button on the product '{productName}'")
 	public void clickViewProduct(String productName) {
 		Locator productCard = getProductCard(productName);
 		if (productCard.count() > 1) {
@@ -137,11 +142,13 @@ public class ProductsPage extends BasePage {
 		productCard.getByRole(AriaRole.LINK, new Locator.GetByRoleOptions().setName("View Product")).click();
 	}
 
+	@Step("Click view product with index '{productIndex}'")
 	public void clickViewProduct(int productIndex) {
 		Locator productCard = getProductCard(productIndex - 1);
 		productCard.getByRole(AriaRole.LINK, new Locator.GetByRoleOptions().setName("View Product")).click();
 	}
 
+	@Step("Click add to cart for the product '{productName}'")
 	public void clickAddProductToCart(String productName) {
 		Locator productCard = getProductCard(productName);
 		if (productCard.count() > 1) {
@@ -153,8 +160,9 @@ public class ProductsPage extends BasePage {
 		productCard.locator(".product-overlay .add-to-cart").click();
 	}
 
+	@Step("Click add to cart for the product with index '{productIndex}'")
 	public void clickAddProductToCart(int productIndex) {
-		Locator productCard = getProductCard(productIndex-1);
+		Locator productCard = getProductCard(productIndex - 1);
 		productCard.hover();
 		productCard.locator(".product-overlay .add-to-cart").click();
 	}
@@ -168,10 +176,12 @@ public class ProductsPage extends BasePage {
 		}
 	}
 
+	@Step("Click continue shopping button")
 	public void clickContinueShopping() {
 		page.getByText("Continue Shopping").click();
 	}
 
+	@Step("Click view cart link")
 	public void clickViewCart() {
 		page.getByText("View Cart").click();
 	}
@@ -181,7 +191,7 @@ public class ProductsPage extends BasePage {
 		Assert.assertEquals(super.verifySubscriptionSuccess(), true);
 	}
 
-	@Step("Verify Searched Products")
+	@Step("Verify Searched Products for the search keyword '{productName}'")
 	public void verifySearchedProducts(String productName) {
 
 		int productCount = getProductCard(productName).count();
@@ -205,6 +215,22 @@ public class ProductsPage extends BasePage {
 
 			ReportManager.logStep("The search list displayed products are - " + String.join(", ", productNames));
 
+			// ✅ Build the same formatted string for Allure
+			StringBuilder allureReport = new StringBuilder();
+
+			// Product details section
+			allureReport.append(String.format("""
+
+					   Search List of Products
+					------------------------------
+					%s
+					------------------------------
+					""", String.join(", ", productNames)));
+
+			// ✅ Attach to Allure — shows as collapsible section in report
+			ReportManager.attachTextContentAsSection("Products List on Search Keyword - " + productName,
+					allureReport.toString());
+
 		} else {
 			logger.warn("The searched product - " + productName + " has not found any matching products.");
 			Assert.assertTrue(productCount == 0,
@@ -212,7 +238,7 @@ public class ProductsPage extends BasePage {
 		}
 	}
 
-	@Step("Verify Searched Products has expected count of products")
+	@Step("Verify Searched Products for the keyword '{productName}' has expected count of products as '{listCount}'")
 	public void verifySearchedProducts(String productName, int listCount) {
 
 		int productCountActual = getProductCard(productName).count();
@@ -233,15 +259,34 @@ public class ProductsPage extends BasePage {
 
 			ReportManager.logStep("The search list displayed products are - " + String.join(", ", productNames));
 
-		} else {
-			logger.warn("The searched product - " + productName + " has not found " + listCount
-					+ " matching products. Expected count: " + listCount);
-			Assert.assertTrue(productCountActual == listCount, "The searched product - " + productName
-					+ " has not found " + listCount + " matching products. Expected count: " + listCount);
-		}
+			// ✅ Build the same formatted string for Allure
+			StringBuilder allureReport = new StringBuilder();
+
+			// Product details section
+			allureReport.append(String.format("""
+
+					   Search List of Products
+					------------------------------
+					%s
+					------------------------------
+					""", String.join(", ", productNames)));
+
+		// ✅ Attach to Allure — shows as collapsible section in report
+		ReportManager.attachTextContentAsSection("Products List on Search Keyword - " + productName,
+				allureReport.toString());
+
+	}else
+
+	{
+		logger.warn("The searched product - " + productName + " has not found " + listCount
+				+ " matching products. Expected count: " + listCount);
+		Assert.assertTrue(productCountActual == listCount, "The searched product - " + productName + " has not found "
+				+ listCount + " matching products. Expected count: " + listCount);
+	}
 
 	}
 
+	@Step("Read product details for the product name - '{productName}'")
 	private Map<String, String> readProductDetails(String productName) {
 
 		Map<String, String> productDetailMap = new HashMap<String, String>();
@@ -263,10 +308,14 @@ public class ProductsPage extends BasePage {
 			logger.error("The Product Price is missing");
 		}
 
+		ReportManager.attachTextContentAsSection("Product Details",
+				StringUtil.formattedStringForMaps(productDetailMap).toString());
+
 		return productDetailMap;
 
 	}
 
+	@Step("Read product details for the product index - '{productIndex}'")
 	private Map<String, String> readProductDetails(int productIndex) {
 
 		Map<String, String> productDetailMap = new HashMap<String, String>();
@@ -287,35 +336,47 @@ public class ProductsPage extends BasePage {
 			logger.error("The Product Name is missing");
 		}
 
+		ReportManager.attachTextContentAsSection("Product Details",
+				StringUtil.formattedStringForMaps(productDetailMap).toString());
+
 		return productDetailMap;
 
 	}
 
+	@Step("Read product price for the product name - '{productName}'")
 	public String readProductPrice(String productName) {
 		String productPrice = readProductDetails(productName).get("Price");
+		ReportManager.addParameter("Product Price", productPrice);
 		return productPrice;
 	}
 
+	@Step("Read product full name for the product name - '{productName}'")
 	public String readProductFullName(String productName) {
 		String productFullName = readProductDetails(productName).get("Name");
+		ReportManager.addParameter("Product Name", productName);
 		return productFullName;
 	}
 
+	@Step("Read product price for the product index - '{productIndex}'")
 	public String readProductPrice(int productIndex) {
 		String productPrice = readProductDetails(productIndex).get("Price" + productIndex);
+		ReportManager.addParameter("Product Price", productPrice);
 		return productPrice;
 	}
 
+	@Step("Read product full name for the product index - '{productIndex}'")
 	public String readProductFullName(int productIndex) {
 		String productFullName = readProductDetails(productIndex).get("Name" + productIndex);
+		ReportManager.addParameter("Product Name", productFullName);
 		return productFullName;
 	}
 
+	@Step("Select the brand '{brandName}'")
 	public void selectBrand(String brandName) {
 		brandNameLinks.locator("a[href*='" + StringUtil.capitalizeFirst(brandName) + "']").click();
 	}
 
-	@Step("Verify brand page displayed")
+	@Step("Verify brand page displayed for the brand - '{brandName}'")
 	public void verifyBrandPageDisplay(String brandName) {
 
 		verifyPageLoaded("brand_products", brandName);
@@ -339,6 +400,7 @@ public class ProductsPage extends BasePage {
 
 	}
 
+	@Step("Add multiple products '<<count - {productCount}>>' to cart and retrieve product details ")
 	public Map<String, String> addMultipleProductsToCartAndRetreiveProductDetails(int productCount) {
 
 		Map<String, String> ProductDetails = new HashMap<String, String>();
@@ -362,13 +424,32 @@ public class ProductsPage extends BasePage {
 					Product {} Added To Cart
 					Name  : {}
 					Price : {}
-					----------------------------------------------------
-
+					------------------------xxxx-----------------------
 					""", i, ProductDetails.get("Name" + i), ProductDetails.get("Price" + i));
 		}
+
+		// ✅ Build the same formatted string for Allure
+		StringBuilder allureReport = new StringBuilder();
+
+		// Product details section — loop for each product
+		for (int i = 1; i <= productCount; i++) {
+			allureReport.append(String.format("""
+
+					---------------------------------------------------
+					Product %s Added To Cart
+					Name  : %s
+					Price : %s
+					------------------------xxxx-----------------------
+					""", i, ProductDetails.get("Name" + i), ProductDetails.get("Price" + i)));
+		}
+
+		// ✅ Attach to Allure — shows as collapsible section in report
+		ReportManager.attachTextContentAsSection("Added To Cart - Product Details", allureReport.toString());
+
 		return ProductDetails;
 	}
 
+	@Step("Add multiple products '<<productNames>>' to cart and retrieve product details ")
 	public Map<String, String> addMultipleProductsToCartAndRetreiveProductDetails(List<String> productNames) {
 
 		Map<String, String> ProductDetails = new HashMap<String, String>();
@@ -379,9 +460,9 @@ public class ProductsPage extends BasePage {
 		}
 
 		for (int i = 1; i <= productNames.size(); i++) {
-			ProductDetails.put("Name" + i, readProductFullName(productNames.get(i-1)));
-			ProductDetails.put("Price" + i, readProductPrice(productNames.get(i-1)));
-			clickAddProductToCart(productNames.get(i-1));
+			ProductDetails.put("Name" + i, readProductFullName(productNames.get(i - 1)));
+			ProductDetails.put("Price" + i, readProductPrice(productNames.get(i - 1)));
+			clickAddProductToCart(productNames.get(i - 1));
 			if (i == productNames.size())
 				clickViewCart(); // view the cart once last product is added
 			else
@@ -392,14 +473,32 @@ public class ProductsPage extends BasePage {
 					Product {} Added To Cart
 					Name  : {}
 					Price : {}
-					----------------------------------------------------
-
+					------------------------xxxx-----------------------
 					""", i, ProductDetails.get("Name" + i), ProductDetails.get("Price" + i));
 		}
+
+		// ✅ Build the same formatted string for Allure
+		StringBuilder allureReport = new StringBuilder();
+
+		// Product details section — loop for each product
+		for (int i = 1; i <= productNames.size(); i++) {
+			allureReport.append(String.format("""
+
+					---------------------------------------------------
+					Product %s Added To Cart
+					Name  : %s
+					Price : %s
+					------------------------xxxx-----------------------
+					""", i, ProductDetails.get("Name" + i), ProductDetails.get("Price" + i)));
+		}
+
+		// ✅ Attach to Allure — shows as collapsible section in report
+		ReportManager.attachTextContentAsSection("Added To Cart - Product Details", allureReport.toString());
+
 		return ProductDetails;
 	}
 
-	@Step("Add multiple products to Cart using a count of products")
+	@Step("Add multiple products to Cart <<product count: {productCount}>>")
 	public void addMultipleProductsToCart(int productCount) {
 
 		if (productCount <= 0) {
@@ -412,7 +511,7 @@ public class ProductsPage extends BasePage {
 		}
 	}
 
-	@Step("Add multiple products to Cart using a list of named products")
+	@Step("Add multiple products to Cart <<product names: {productNames}>>")
 	public void addMultipleProductsToCart(List<String> productNames) {
 
 		if (productNames.size() <= 0) {
@@ -425,14 +524,22 @@ public class ProductsPage extends BasePage {
 		}
 	}
 
+	@Step("Read product name at index '{productIndex}'")
 	private String getProductName(int productIndex) {
-		return ProductCardsDiv.nth(productIndex).locator(".productinfo p").textContent().trim();
+		String productName = ProductCardsDiv.nth(productIndex).locator(".productinfo p").textContent().trim();
+		ReportManager.addParameter("Product Name", productName);
+		return productName;
 	}
 
+	@Step("Read product price at index '{productIndex}'")
 	private String getProductPrice(int productIndex) {
-		return ProductCardsDiv.nth(productIndex).locator(".productinfo h2").textContent().trim().split("Rs. ")[1];
+		String productPrice = ProductCardsDiv.nth(productIndex).locator(".productinfo h2").textContent().trim()
+				.split("Rs. ")[1];
+		ReportManager.addParameter("Product Price", productPrice);
+		return productPrice;
 	}
 
+	@Step("Add all products visible on the 'Products' page to the shopping cart")
 	public List<String> addAllProductsVisibleToCart() {
 
 		List<String> productList = new ArrayList<String>();
@@ -440,6 +547,9 @@ public class ProductsPage extends BasePage {
 		logger.info("Total Products displayed on screen - " + totalProductsVisible);
 		int totalProductsAddedToCart = 0;
 
+		// ✅ Build the same formatted string for Allure
+		StringBuilder allureReport = new StringBuilder();
+				
 		for (int i = 0; i < totalProductsVisible; i++) {
 			productList.add(getProductName(i));
 			clickAddProductToCart(i);
@@ -451,11 +561,24 @@ public class ProductsPage extends BasePage {
 					----------------------------------------------------
 
 					""", i, getProductName(i), getProductPrice(i));
+			
+			// Product details section — loop for each product
+			allureReport.append(String.format("""
+
+					---------------------------------------------------
+					Product %d: %s Added To Cart with Price %s
+					----------------------------------------------------
+
+					""", i, getProductName(i), getProductPrice(i)));
+			
 			if (i == totalProductsVisible - 1)
 				clickViewCart(); // view the cart once last product is added
 			else
 				clickContinueShopping();
 		}
+
+		// ✅ Attach to Allure — shows as collapsible section in report
+		ReportManager.attachTextContentAsSection("Added To Cart - Product Details", allureReport.toString());
 
 		logger.info("Total Products added to cart - " + totalProductsAddedToCart);
 		return productList;
@@ -482,7 +605,7 @@ public class ProductsPage extends BasePage {
 				.filter(new Locator.FilterOptions().setHasText(productName));
 	}
 
-	@Step("Add recommended product to cart using a given product name")
+	@Step("Add a recommended product to cart for product name - '{productName}'")
 	public void addRecommendedProductToCart(String productName) {
 
 		int maxAttempts = 5; // max time to rotate carousel
@@ -508,6 +631,7 @@ public class ProductsPage extends BasePage {
 		logger.info("Added recommended Product '{}' to cart.", productName);
 	}
 
+	@Step("Add any active recommended product to the shopping cart")
 	public String addActiveRecommendedProductToCart() {
 
 		Locator recommendedProduct = recommendedProducts.locator(".item.active .product-image-wrapper").first();
@@ -515,6 +639,7 @@ public class ProductsPage extends BasePage {
 		recommendedProduct.locator("a").click();
 		logger.info("Added recommended Product '{}' to cart.", productName);
 		clickViewCart();
+		ReportManager.addParameter("Product Name", productName);
 		return productName;
 	}
 

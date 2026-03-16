@@ -13,6 +13,7 @@ import io.qameta.allure.Feature;
 import io.qameta.allure.Owner;
 import io.qameta.allure.Severity;
 import io.qameta.allure.SeverityLevel;
+import io.qameta.allure.Step;
 import io.qameta.allure.Story;
 import reporting.ReportManager;
 
@@ -28,7 +29,6 @@ public class AddToCartTests extends BaseTest {
 
 		// Step-1 Navigate to the URL
 		logger.info("Running:Step-1");
-		ReportManager.logStep("Navigating to Automation Exercise");
 		homePage.verifyPageLoaded("automationexercise", "Automation Exercise");
 
 		// Step-2 Adding products to cart

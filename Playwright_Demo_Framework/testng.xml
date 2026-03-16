@@ -1,4 +1,4 @@
-<suite name="Playwright Demo Framework Tests - TA1 " parallel="methods"
+<suite name="Playwright Demo Framework Tests - TA1 " parallel="classes"
 	thread-count="4">
 
 	<parameter name="environment" value="QA" />
@@ -18,6 +18,8 @@
 			<class name="test.ae.SubscriptionTests" />
 			<class name="test.ae.ProductsTests" />
 			<class name="test.ae.ProductReviewTests" />
+			<class name="test.ae.AddToCartTests" />
+			<class name="test.ae.PlaceOrderTests" />
 		</classes>
 	</test>
 

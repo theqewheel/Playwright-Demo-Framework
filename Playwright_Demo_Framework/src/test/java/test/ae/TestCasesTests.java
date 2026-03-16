@@ -9,8 +9,6 @@ import io.qameta.allure.Owner;
 import io.qameta.allure.Severity;
 import io.qameta.allure.SeverityLevel;
 import io.qameta.allure.Story;
-import pages.ae.HomePage;
-import pages.ae.TestCasesPage;
 import reporting.ReportManager;
 
 public class TestCasesTests extends BaseTest {

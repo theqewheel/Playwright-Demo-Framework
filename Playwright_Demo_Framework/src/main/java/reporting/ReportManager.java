@@ -1,18 +1,14 @@
 package reporting;
 
-import io.qameta.allure.Allure;
 import java.io.ByteArrayInputStream;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.io.InputStream;
 import java.nio.file.Files;
 import java.nio.file.Path;
 
 import org.slf4j.Logger;
 
 import framework.logging.LogManager;
+import io.qameta.allure.Allure;
 
 public class ReportManager {
 	
@@ -26,7 +22,7 @@ public class ReportManager {
 		Allure.step(message);
 	}
 	
-	public static void addAttachement(String filename, String fileType, Path savePath, String fileExtension){
+	public static void addFileAttachement(String filename, String fileType, Path savePath, String fileExtension){
 		try {
 			Allure.addAttachment(
 					filename, 
@@ -39,5 +35,12 @@ public class ReportManager {
 			e.printStackTrace();
 		} 
 	}
+	
+	public static void addParameter(String name, Object value) {
+		Allure.parameter(name, value);
+	}
 
+	public static void attachTextContentAsSection(String contentName, String contentString) {
+		Allure.addAttachment(contentName, "text/plain", contentString, ".txt");
+	}
 }

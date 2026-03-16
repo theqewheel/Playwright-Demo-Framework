@@ -11,9 +11,6 @@ import io.qameta.allure.Owner;
 import io.qameta.allure.Severity;
 import io.qameta.allure.SeverityLevel;
 import io.qameta.allure.Story;
-import pages.ae.HomePage;
-import pages.ae.SignupDetailPage;
-import pages.ae.SignupLoginPage;
 import reporting.ReportManager;
 
 public class LoginTests extends BaseTest {
@@ -39,10 +36,10 @@ public class LoginTests extends BaseTest {
 		signupLoginPage.verifyPageHeader("login", "Login to your account");
 
 		// Step-3 Enter Login Credentials and Login
-		signupLoginPage.EnterLoginDetails("theqewheel@gmail.com", "admin@123");
+		signupLoginPage.EnterLoginDetails("theqewheel@gmail.com", "admin123");
 		signupLoginPage.ClickLogin();
 		signupLoginPage.verifyPageLoaded("automationexercise.com", "Automation Exercise");
-		assertEquals(homePage.getLoggedInUsername(), "TheQEWheel", "Invalid username on login");
+		assertEquals(homePage.getLoggedInUsername(), "theqewheel", "Invalid username on login");
 
 	}
 
@@ -94,7 +91,7 @@ public class LoginTests extends BaseTest {
 		signupLoginPage.verifyPageHeader("login", "Login to your account");
 
 		// Step-3 Enter Login Credentials and Login
-		signupLoginPage.EnterLoginDetails("theqewheel@gmail.com", "admin@123");
+		signupLoginPage.EnterLoginDetails("theqewheel@gmail.com", "admin123");
 		signupLoginPage.ClickLogin();
 		homePage.verifyPageLoaded("automationexercise.com", "Automation Exercise");
 		

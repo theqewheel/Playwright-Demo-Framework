@@ -9,8 +9,6 @@ import io.qameta.allure.Owner;
 import io.qameta.allure.Severity;
 import io.qameta.allure.SeverityLevel;
 import io.qameta.allure.Story;
-import pages.ae.ContactUsPage;
-import pages.ae.HomePage;
 import reporting.ReportManager;
 
 public class ContactUsTests extends BaseTest {

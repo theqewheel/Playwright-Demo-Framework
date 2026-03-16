@@ -6,7 +6,6 @@ import java.util.Random;
 import java.util.regex.Pattern;
 
 import org.testng.asserts.SoftAssert;
-import org.yaml.snakeyaml.representer.BaseRepresenter;
 
 import com.microsoft.playwright.Locator;
 import com.microsoft.playwright.Page;
@@ -70,6 +69,7 @@ public class SignupDetailPage extends BasePage {
 		this.CreateAccountButton = page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName(Pattern.compile("Create Account",Pattern.CASE_INSENSITIVE)));
 	}
 
+	@Step("Select gender as '{gender}'")
 	public void selectGender(String gender) {
 		if(gender.equalsIgnoreCase("male") || gender.equalsIgnoreCase("m")) {
 			MaleRadioButton.click();
@@ -79,61 +79,75 @@ public class SignupDetailPage extends BasePage {
 		}
 	}
 	
+	@Step("Enter password ********")
 	public void enterPassword(String password) {
 		PasswordTextbox.fill(password);
 	}
 	
+	@Step("Select date of birth as day-month-year '{day}-{month}-{year}'")
 	public void selectDateOfBirth(String day, String month, String year) {
 		DaysDropdown.selectOption(day);
 		MonthsDropdown.selectOption(month);
 		YearsDropdown.selectOption(year);
 	}
 	
+	@Step("Set the checkbox for Opt new letter as : '{opt}'")
 	public void optNewsLetter(boolean opt) {
 		 setCheckBox(NewsletterCheckbox, opt, "Newsletter");
 	}
 	
+	@Step("Set the checkbox for Opt new letter as : '{opt}'")
 	public void optSpecialOffers(boolean opt) {
 		 setCheckBox(SpecialOffersCheckbox, opt, "Special Offers");
 	}
 	
+	@Step("Enter firstname - '{}' and lastname - '{}'")
 	public void enterFirstAndLastName(String firstName,String lastName) {
 		FirstNameTextbox.fill(firstName);
 		LastNameTextbox.fill(lastName);
 	}
 	
+	@Step("Enter company name - '{company}'")
 	public void enterCompany(String company) {
 		CompanyTextbox.fill(company);
 	}
 	
+	@Step("Enter address line 1 - '{address}'")
 	public void enterAddress(String address) {
 		AddressTextbox.fill(address);
 	}
 	
+	@Step("Enter address line 2 - '{address2}'")
 	public void enterAddress2(String address2) {
 		Address2Textbox.fill(address2);
 	}
 	
+	@Step("Select country - '{country}'")
 	public void selectCountry(String country) {
 		CountryDropdown.selectOption(country);
 	}
 	
+	@Step("Enter state - '{state}'")
 	public void enterState(String state) {
 		StateTextbox.fill(state);
 	}
 	
+	@Step("Enter city - '{city}'")
 	public void enterCity(String city) {
 		CityTextbox.fill(city);
 	}
 	
+	@Step("Enter zipcode - '{zipcpde}'")
 	public void enterZipcode(String zipcode) {
 		ZipcodeTextbox.fill(zipcode);
 	}
 	
+	@Step("Enter mobile number - '{mobileNumber}'")
 	public void enterMobileNumber(String mobileNumber) {
 		MobileNumberTextbox.fill(mobileNumber);
 	}
 	
+	@Step("Click create account button")
 	public void clickCreateAccount() {
 		CreateAccountButton.click();
 	}
@@ -148,7 +162,7 @@ public class SignupDetailPage extends BasePage {
 		}
 	}
 	
-	@Step("Verify auto-populated name and email on Sign-Up Details Page")
+	@Step("Verify auto-populated name '{expectedName}' and email '{expectedEmail}' on Sign-Up Details Page")
 	public void verifyAutoPopulatedNameAndEmail(String expectedName, String expectedEmail) {
 		try {
 			assertThat(NameTextbox).hasAttribute("value", expectedName);

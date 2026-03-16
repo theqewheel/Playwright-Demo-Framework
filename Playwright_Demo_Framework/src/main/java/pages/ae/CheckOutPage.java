@@ -12,12 +12,15 @@ import org.testng.Assert;
 import org.testng.asserts.SoftAssert;
 
 import com.microsoft.playwright.Download;
+import com.microsoft.playwright.ElementHandle.ClickOptions;
 import com.microsoft.playwright.Locator;
 import com.microsoft.playwright.Page;
 import com.microsoft.playwright.options.AriaRole;
 
 import framework.base.BasePage;
 import framework.data.SignupData;
+import io.qameta.allure.Allure;
+import io.qameta.allure.Step;
 import reporting.ReportManager;
 
 public class CheckOutPage extends BasePage {
@@ -57,10 +60,12 @@ public class CheckOutPage extends BasePage {
 		this.cardExpirationMonth = page.getByTestId("expiry-month");
 		this.cardExpirationYear = page.getByTestId("expiry-year");
 		this.payAndConfirmButton = page.getByTestId("pay-button");
-		this.downloadInvoiceButton = page.getByRole(AriaRole.LINK, new Page.GetByRoleOptions().setName("Download Invoice"));
+		this.downloadInvoiceButton = page.getByRole(AriaRole.LINK,
+				new Page.GetByRoleOptions().setName("Download Invoice"));
 		this.cartTable = page.locator("#cart_info");
 	}
 
+	@Step("Read delivery address displayed on checkout page")
 	public Map<String, String> fetchDeliveryAddress() {
 
 		Map<String, String> deliveryAddressMap = new HashMap<String, String>();
@@ -90,9 +95,9 @@ public class CheckOutPage extends BasePage {
 
 		logger.info("""
 
-				---------------------------------------------------------------------------------
+				-------------------------------------------------------------------------
 				               DELIVERY ADDRESS ON CHECKOUT
-				---------------------------------------------------------------------------------
+				-------------------------------------------------------------------------
 				Title Fullname  : {}
 				Company Name    : {}
 				Address Line1   : {}
@@ -100,13 +105,36 @@ public class CheckOutPage extends BasePage {
 				Address Line3   : {}
 				Country         : {}
 				Phone           : {}
-				---------------------------------------------------------------------------------
+				-------------------------------------------------------------------------
 				""", addressline1, addressline2, addressline3, addressline4, addressline5, addressline6, addressline7);
+
+		// ✅ Build the same formatted string for Allure
+		StringBuilder allureReport = new StringBuilder();
+
+		// Add Invoice summary section
+		allureReport.append(String.format("""
+
+				-------------------------------------------------------------------------
+				               DELIVERY ADDRESS ON CHECKOUT
+				-------------------------------------------------------------------------
+				Title Fullname  : %s
+				Company Name    : %s
+				Address Line1   : %s
+				Address Line2   : %s
+				Address Line3   : %s
+				Country         : %s
+				Phone           : %s
+				-------------------------------------------------------------------------
+				""", addressline1, addressline2, addressline3, addressline4, addressline5, addressline6, addressline7));
+
+		// ✅ Attach to Allure — shows as collapsible section in report
+		ReportManager.attachTextContentAsSection("Checkout-Delivery Address Details", allureReport.toString());
 
 		return deliveryAddressMap;
 
 	}
 
+	@Step("Read invoice address displayed on checkout page")
 	public Map<String, String> fetchInvoiceAddress() {
 
 		Map<String, String> invoiceAddressMap = new HashMap<String, String>();
@@ -119,7 +147,8 @@ public class CheckOutPage extends BasePage {
 
 		String addressline4 = invoiceAddress.locator(addressLineLocatorString).nth(2).textContent().trim();
 
-		String addressline5 = invoiceAddress.locator(addressLineCityStatePostcodeLocatorString).textContent().replaceAll("\\s+", " ").trim(); // replace multiple spaces/tabs/newlines with single space
+		String addressline5 = invoiceAddress.locator(addressLineCityStatePostcodeLocatorString).textContent()
+				.replaceAll("\\s+", " ").trim(); // replace multiple spaces/tabs/newlines with single space
 
 		String addressline6 = invoiceAddress.locator(addressLineCountryLocatorString).textContent().trim();
 
@@ -135,9 +164,9 @@ public class CheckOutPage extends BasePage {
 
 		logger.info("""
 
-				---------------------------------------------------------------------------------
+				-------------------------------------------------------------------------
 				               INVOICE ADDRESS ON CHECKOUT
-				---------------------------------------------------------------------------------
+				-------------------------------------------------------------------------
 				Title Fullname  : {}
 				Company Name    : {}
 				Address Line1   : {}
@@ -145,22 +174,48 @@ public class CheckOutPage extends BasePage {
 				Address Line3   : {}
 				Country         : {}
 				Phone           : {}
-				---------------------------------------------------------------------------------
+				--------------------------------------------------------------------------
 				""", addressline1, addressline2, addressline3, addressline4, addressline5, addressline6, addressline7);
+
+		// ✅ Build the same formatted string for Allure
+		StringBuilder allureReport = new StringBuilder();
+
+		// Add Invoice summary section
+		allureReport.append(String.format("""
+
+				-------------------------------------------------------------------------
+				               INVOICE ADDRESS ON CHECKOUT
+				-------------------------------------------------------------------------
+				Title Fullname  : %s
+				Company Name    : %s
+				Address Line1   : %s
+				Address Line2   : %s
+				Address Line3   : %s
+				Country         : %s
+				Phone           : %s
+				-------------------------------------------------------------------------
+				""", addressline1, addressline2, addressline3, addressline4, addressline5, addressline6, addressline7));
+
+		// ✅ Attach to Allure — shows as collapsible section in report
+		ReportManager.attachTextContentAsSection("Checkout-Invoice Address Details", allureReport.toString());
 
 		return invoiceAddressMap;
 
 	}
-	
+
+	@Step("Enter checkout comment")
 	public void enterCheckoutComment(String comment) {
-		if (comment.isBlank()) comment = "The order placed should be delivered as early as possible to the delivery address.";
+		if (comment.isBlank())
+			comment = "The order placed should be delivered as early as possible to the delivery address.";
 		checkoutComment.fill(comment);
 	}
-	
+
+	@Step("Click place order button")
 	public void clickPlaceOrder() {
 		placeOrderButton.click();
 	}
-	
+
+	@Step("Read delivery address displayed on checkout page")
 	public void fillFakerPaymentDetails(SignupData data) {
 		cardPayeeName.fill(data.getPersonalInfo().getpaymentCardPayeeName());
 		cardNumber.fill(data.getPersonalInfo().getpaymentCardNumber());
@@ -168,12 +223,14 @@ public class CheckOutPage extends BasePage {
 		cardExpirationMonth.fill(data.getPersonalInfo().getpaymentCardExpirationMonth());
 		cardExpirationYear.fill(data.getPersonalInfo().getpaymentCardExpirationYear());
 	}
-	
+
+	@Step("Click pay and confirm order")
 	public void clickPayAndConfirmOrder() {
 		payAndConfirmButton.click();
 	}
-	
-	public void clickDownloadInvoice() {
+
+	@Step("Click download invoice button")
+	private void clickDownloadInvoice() {
 		downloadInvoiceButton.click();
 	}
 
@@ -194,7 +251,8 @@ public class CheckOutPage extends BasePage {
 		return columnIndex;
 
 	}
-	
+
+	@Step("Read all cart product details")
 	public Map<String, String> readAllCartProductDetails() {
 
 		Locator rows = cartTable.locator("tbody tr");
@@ -204,15 +262,15 @@ public class CheckOutPage extends BasePage {
 		Map<String, String> productMap = new HashMap<String, String>();
 
 		for (Locator row : rows.all()) {
-			
+
 			Locator cells = row.locator("td");
-			
-			if(rowIndex==rowCount) {
+
+			if (rowIndex == rowCount) {
 				String overallTotalPrice = cells.locator(".cart_total_price").textContent().split(" ")[1];
 				productMap.put("Overall Total", overallTotalPrice);
 				break;
 			}
-			
+
 			String name = cells.nth(getCartTableColumnIndex("Description")).locator("a").textContent().trim();
 			String[] description = cells.nth(getCartTableColumnIndex("Description")).locator("p").textContent().trim()
 					.split(">");
@@ -231,7 +289,7 @@ public class CheckOutPage extends BasePage {
 			productMap.put("Total" + rowIndex, total);
 
 			logger.info("""
-					
+
 									PRODUCT-{} DETAILS FROM CART
 					---------------------------------------------------
 					Name        : {}
@@ -246,7 +304,7 @@ public class CheckOutPage extends BasePage {
 					productMap.get("SubCategory" + rowIndex), productMap.get("Price" + rowIndex),
 					productMap.get("Quantity" + rowIndex), productMap.get("Total" + rowIndex));
 
-			if(rowIndex != rowCount)
+			if (rowIndex != rowCount)
 				rowIndex += 1;
 		}
 
@@ -260,77 +318,107 @@ public class CheckOutPage extends BasePage {
 
 				""", rowCount, productMap.get("Overall Total"));
 
+		// ✅ Build the same formatted string for Allure
+		StringBuilder allureReport = new StringBuilder();
+
+		// Product details section — loop for each product
+		for (int i = 1; i < rowCount; i++) {
+			allureReport.append(String.format("""
+					PRODUCT-%d DETAILS FROM CART
+					---------------------------------------------------
+					Name        : %s
+					Category    : %s
+					SubCategory : %s
+					Price       : %s
+					Quantity    : %s
+					Total       : %s
+					---------------------------------------------------
+
+					""", i, productMap.get("Name" + i), productMap.get("Category" + i),
+					productMap.get("SubCategory" + i), productMap.get("Price" + i), productMap.get("Quantity" + i),
+					productMap.get("Total" + i)));
+		}
+
+		// Cart summary section
+		allureReport.append(String.format("""
+				CART SUMMARY
+				---------------------------------------------------
+				Total of <%d> Product/s are Added To Cart
+				Cart Total Price is '%s'
+				---------------------------------------------------
+				""", rowCount, productMap.get("Overall Total")));
+
+		// ✅ Attach to Allure — shows as collapsible section in report
+		ReportManager.attachTextContentAsSection("Cart Details", allureReport.toString());
+
 		return productMap;
 
 	}
-	
-	
+
+	@Step("Download invoice and save file")
 	public Path downloadInvoice() {
 
-	    Download download = page.waitForDownload(() -> {
-	        clickDownloadInvoice();  
-	    });
+		Download download = page.waitForDownload(() -> {
+			clickDownloadInvoice();
+		});
 
-	    // ✅ Check download didn't fail
-	    String failure = download.failure();
-	    Assert.assertNull(failure, "Download Invoice failed: " + failure);
+		// ✅ Check download didn't fail
+		String failure = download.failure();
+		Assert.assertNull(failure, "Download Invoice failed: " + failure);
 
-	    // ✅ Handle filename
-	    String fileName = download.suggestedFilename();
-	    if (fileName == null || fileName.isEmpty()) {
-	        fileName = "invoice_" + System.currentTimeMillis() + ".txt";
-	    }
+		// ✅ Handle filename
+		String fileName = download.suggestedFilename();
+		if (fileName == null || fileName.isEmpty()) {
+			fileName = "invoice_" + System.currentTimeMillis() + ".txt";
+		}
 
-	    // ✅ Create downloads directory if not exists
-	    Path downloadsDir = Paths.get("downloads");
-	    downloadsDir.toFile().mkdirs();
+		// ✅ Create downloads directory if not exists
+		Path downloadsDir = Paths.get("downloads");
+		downloadsDir.toFile().mkdirs();
 
-	    Path savePath = Paths.get("downloads/" + fileName);
-	    download.saveAs(savePath);
+		Path savePath = Paths.get("downloads/" + fileName);
+		download.saveAs(savePath);
 
-	    // ✅ Verify file on disk
-	    File file = savePath.toFile();
-	    Assert.assertTrue(file.exists(),     "Invoice file not found!");
-	    Assert.assertTrue(file.length() > 0, "Invoice file is empty!");
+		// ✅ Verify file on disk
+		File file = savePath.toFile();
+		Assert.assertTrue(file.exists(), "Invoice file not found!");
+		Assert.assertTrue(file.length() > 0, "Invoice file is empty!");
 
-	    logger.info("✅ Invoice downloaded!");
-	    logger.info("   Name : {}", fileName);
-	    logger.info("   Size : {} bytes", file.length());
-	    logger.info("   Path : {}", savePath.toAbsolutePath());
-	    
-	    ReportManager.addAttachement(fileName, "text/plain", savePath, ".txt");
+		logger.info("✅ Invoice downloaded!");
+		logger.info("   Name : {}", fileName);
+		logger.info("   Size : {} bytes", file.length());
+		logger.info("   Path : {}", savePath.toAbsolutePath());
 
-	    return savePath;  // ← return path for content verification
+		ReportManager.addFileAttachement(fileName, "text/plain", savePath, ".txt");
+		
+		ReportManager.addParameter("File Path", savePath);
+
+		return savePath; // ← return path for content verification
 	}
 
-	public void verifyInvoiceContent(Path invoicePath, String firstName, 
-	                                  String lastName, String totalAmount) {
-	    try {
-	        // ✅ Read txt file content
-	        String fileContent = new String(Files.readAllBytes(invoicePath))
-	                                .replaceAll("\\s+", " ")  // normalize spaces
-	                                .trim();
+	@Step("Verify the invoice content include the custome fullname {firstName} {lastName} and the total amount of purchase as Rs.{totalAmount}")
+	public void verifyInvoiceContent(Path invoicePath, String firstName, String lastName, String totalAmount) {
+		try {
+			// ✅ Read txt file content
+			String fileContent = new String(Files.readAllBytes(invoicePath)).replaceAll("\\s+", " ") // normalize spaces
+					.trim();
 
-	        logger.info("Invoice Content: {}", fileContent);
+			logger.info("Invoice Content: {}", fileContent);
 
-	        // ✅ Build expected message
-	        String expectedMessage = String.format(
-	            "Hi %s %s, Your total purchase amount is %s. Thank you",
-	            firstName, lastName, totalAmount);
+			// ✅ Build expected message
+			String expectedMessage = String.format("Hi %s %s, Your total purchase amount is %s. Thank you", firstName,
+					lastName, totalAmount);
 
-	        logger.info("Expected Message: {}", expectedMessage);
+			logger.info("Expected Message: {}", expectedMessage);
 
-	        // ✅ Verify content
-	        softAssert.assertTrue(
-	            fileContent.contains(expectedMessage),
-	            "Invoice content mismatch!\n" +
-	            "Expected  : " + expectedMessage + "\n" +
-	            "Actual    : " + fileContent);
+			// ✅ Verify content
+			softAssert.assertTrue(fileContent.contains(expectedMessage), "Invoice content mismatch!\n" + "Expected  : "
+					+ expectedMessage + "\n" + "Actual    : " + fileContent);
 
-	        logger.info("✅ Invoice content verified!");
-	    } catch (IOException e) {
-	        Assert.fail("Failed to read invoice file: " + e.getMessage());
-	    }
+			logger.info("✅ Invoice content verified!");
+		} catch (IOException e) {
+			Assert.fail("Failed to read invoice file: " + e.getMessage());
+		}
 	}
-	
+
 }

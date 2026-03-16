@@ -12,8 +12,7 @@ import com.microsoft.playwright.Page;
 import com.microsoft.playwright.options.AriaRole;
 
 import framework.logging.LogManager;
-import io.qameta.allure.Step;
-import reporting.ReportManager;;
+import io.qameta.allure.Step;;
 
 public abstract class BasePage {
 
@@ -40,11 +39,13 @@ public abstract class BasePage {
 		this.homeArrowButton = page.locator("#scrollUp");
 	}
 
+	@Step("Verify the page load with expected URL {expectedURL} and expected Title {expectedTitle}")
 	public void verifyPageLoaded(String expectedURL, String expectedTitle) {
 		assertThat(page).hasURL(Pattern.compile(expectedURL, Pattern.CASE_INSENSITIVE));
 		assertThat(page).hasTitle(Pattern.compile(expectedTitle, Pattern.CASE_INSENSITIVE));
 	}
 
+	@Step("Set checkbox - '{checkboxName}' as {shouldBeChecked}")
 	public void setCheckBox(Locator checkbox, boolean shouldBeChecked, String checkboxName) {
 
 		boolean isChecked = checkbox.isChecked();
@@ -64,6 +65,7 @@ public abstract class BasePage {
 
 	}
 
+	@Step("Verify the text - '{expectedMessage}' displayed on the page with exactmatch as {exactMatch}")
 	public void verifyTextMessageDisplayed(String expectedMessage, Boolean exactMatch) {
 
 		if (exactMatch) {
@@ -81,23 +83,28 @@ public abstract class BasePage {
 		}
 	}
 
+	@Step("Click continue button")
 	public void clickContinue() {
 		ContinueButton.click();
 	}
 
+	@Step("Subscribe to the page with email - {email}")
 	public void subscribe(String email) {
 		subscriptionEmailTextBox.fill(email);
 		subscribeButton.click();
 	}
 	
+	@Step("Verify 'Subscription' header visibility")
 	public Boolean verifySubscriptionHeaderVisibility() {
 	 return subscriptionHeader.isVisible();
 	}
 	
+	@Step("Verify subscription success message is visible")
 	public Boolean verifySubscriptionSuccess() {
 		return page.getByText("You have been successfully subscribed!").isVisible();
 	}
 	
+	@Step("Get the navigation category displayed")
 	public String getCategoryNavigationDisplayed() {
 		return categoryDisplayText.textContent().trim();
 	}

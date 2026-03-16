@@ -8,6 +8,9 @@ on:
 jobs:
   run-tests:
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: Playwright-Demo-Framework
 
     steps:
 
@@ -70,7 +73,7 @@ jobs:
           password: ${{ secrets.MAIL_PASSWORD }}
           to: ${{ secrets.MAIL_TO }}
           from: QE Automation <${{ secrets.MAIL_USERNAME }}>
-          subject: "[${{ steps.summary.outputs.status }}] Test Report - ${{ steps.summary.outputs.date }}"
+          subject: "[${{ steps.summary.outputs.status }}] AE Regression Demo Test Report - ${{ steps.summary.outputs.date }}"
           body: |
             Hi Team,
 
@@ -96,4 +99,4 @@ jobs:
 
             Regards,
             TheQEWheel Automation Pipeline
-          attachments: target/allure-report.zip
+          attachments: Playwright-Demo-Framework/target/allure-report.zip

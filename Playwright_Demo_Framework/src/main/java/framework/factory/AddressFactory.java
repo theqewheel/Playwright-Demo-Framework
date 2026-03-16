@@ -2,7 +2,6 @@ package framework.factory;
 
 import java.util.List;
 
-import framework.data.AccountInfo;
 import framework.data.AddressInfo;
 import framework.utils.FakerDataUtil;
 

@@ -12,6 +12,7 @@ import com.microsoft.playwright.Page;
 import framework.drivers.DriverManager;
 import framework.listeners.TestListener;
 import framework.logging.LogManager;
+import io.qameta.allure.Step;
 import pages.ae.CartPage;
 import pages.ae.CheckOutPage;
 import pages.ae.ContactUsPage;
@@ -67,6 +68,7 @@ public class BaseTest {
 	}
 
 	@AfterMethod
+	@Step("Exit the Application")
 	public void teardown(ITestResult result) {
 
 		try {

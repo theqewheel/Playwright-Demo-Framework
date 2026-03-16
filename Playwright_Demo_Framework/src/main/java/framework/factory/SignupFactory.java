@@ -1,8 +1,6 @@
 package framework.factory;
 
-import framework.data.AddressInfo;
 import framework.data.SignupData;
-import framework.utils.FakerDataUtil;
 
 public class SignupFactory {
 

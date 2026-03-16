@@ -12,6 +12,7 @@ import com.microsoft.playwright.Playwright;
 
 import framework.config.ConfigManager;
 import framework.logging.LogManager;
+import io.qameta.allure.Step;
 
 public class DriverManager {
 
@@ -50,9 +51,7 @@ public class DriverManager {
 
 			logger.info("Browser Page opened.");
 
-			page.get().navigate(baseURL);
-
-			logger.info("Navigated to Base URL: {}", baseURL);
+			navigateToAppBaseURL(baseURL);
 
 		} catch (Exception e) {
 
@@ -121,4 +120,9 @@ public class DriverManager {
 		context.route("**/*google_vignette*", route -> route.abort());
 	}
 
+	@Step("Navigate to the Test URL")
+	private void navigateToAppBaseURL(String baseURL){
+		page.get().navigate(baseURL);
+		logger.info("Navigated to Base URL: {}", baseURL);
+	}
 }

@@ -1,5 +1,7 @@
 package framework.utils;
 
+import java.util.Map;
+
 public class StringUtil {
 	
 	/**
@@ -20,4 +22,10 @@ public class StringUtil {
 	           input.substring(1).toLowerCase();
 	}
 	
+	public static StringBuilder formattedStringForMaps(Map<String,String> map) {
+		
+		StringBuilder sBuilder = new StringBuilder();
+		map.forEach((key, value) -> sBuilder.append(String.format("%-20s : %s%n", key, value)));
+		return sBuilder;
+	}
 }

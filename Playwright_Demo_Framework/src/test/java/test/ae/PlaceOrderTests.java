@@ -1,21 +1,12 @@
 package test.ae;
 
-import java.io.File;
-import java.net.ResponseCache;
 import java.nio.file.Path;
-import java.nio.file.Paths;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.UUID;
 
-import org.testng.Assert;
 import org.testng.annotations.Test;
 
-import com.microsoft.playwright.Download;
-
 import base.BaseTest;
-import ch.qos.logback.core.joran.conditional.IfAction;
 import framework.data.SignupData;
 import framework.factory.SignupFactory;
 import io.qameta.allure.Epic;
@@ -23,7 +14,6 @@ import io.qameta.allure.Feature;
 import io.qameta.allure.Owner;
 import io.qameta.allure.Severity;
 import io.qameta.allure.SeverityLevel;
-import io.qameta.allure.Step;
 import io.qameta.allure.Story;
 import reporting.ReportManager;
 
@@ -463,7 +453,7 @@ public class PlaceOrderTests extends BaseTest {
 
 		// Step-2 Sign-up to checkout
 		logger.info("Running:Step-2");
-		cartPage.clickRegisterLoginLink();
+		homePage.clickSignupLoginLink();
 		signupLoginPage.verifyPageLoaded("/login", "Signup");
 
 		SignupData data = fetchFakeDataForTest();
@@ -481,7 +471,7 @@ public class PlaceOrderTests extends BaseTest {
 		logger.info("Running:Step-3");
 		homePage.clickMenu("Products");
 		int prodCount = 2; // update for more count of products
-		Map<String, String> productDetails = productsPage.addMultipleProductsToCartAndRetreiveProductDetails(prodCount);
+		productsPage.addMultipleProductsToCartAndRetreiveProductDetails(prodCount);
 
 		// Step-4 Go to cart and proceed to checkout
 		logger.info("Running:Step-4");

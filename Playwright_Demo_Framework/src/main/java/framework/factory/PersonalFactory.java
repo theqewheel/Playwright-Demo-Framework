@@ -2,7 +2,6 @@ package framework.factory;
 
 import java.time.LocalDate;
 import java.time.ZoneId;
-import java.util.Random;
 
 import framework.data.PersonalInfo;
 import framework.utils.FakerDataUtil;

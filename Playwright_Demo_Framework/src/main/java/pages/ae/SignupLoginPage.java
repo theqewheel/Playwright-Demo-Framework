@@ -39,41 +39,49 @@ public class SignupLoginPage extends BasePage {
 		this.LoginButton = page.getByTestId("login-button");
 	}
 
+	@Step("Enter sign-up username - '{name}'")
 	public void EnterSignupName(String name) {
 		SignupNameTextbox.fill(name);
 	}
 
+	@Step("Enter sign-up email - '{email}'")
 	public void EnterSignupEmail(String email) {
 		SignupEmailTextbox.fill(email);
 	}
 
+	@Step("Enter login email - '{email}'")
 	public void EnterLoginEmail(String email) {
 		LoginEmailTextbox.fill(email);
 	}
 
+	@Step("Enter login password - '*******'")
 	public void EnterLoginPassword(String password) {
 		LoginPasswordTextbox.fill(password);
 	}
 
+	@Step("Enter sign-up details")
 	public void EnterSignupDetails(String name, String email) {
 		EnterSignupName(name);
 		EnterSignupEmail(email);
 	}
 
+	@Step("Enter login details")
 	public void EnterLoginDetails(String email, String password) {
 		EnterLoginEmail(email);
 		EnterLoginPassword(password);
 	}
 
+	@Step("Click sign up button")
 	public void ClickSignup() {
 		SignupButton.click();
 	}
 
+	@Step("Click login button")
 	public void ClickLogin() {
 		LoginButton.click();
 	}
 
-	@Step("Verify Page Header - is displayed for the Login/Signup Page")
+	@Step("Verify Page Header - is displayed for - '{pagename}' with header - '{expectedHeader}'")
 	public void verifyPageHeader(String pagename, String expectedHeader) {
 
 		try {

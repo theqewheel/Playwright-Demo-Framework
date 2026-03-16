@@ -2,7 +2,6 @@ package pages.ae;
 
 import java.util.HashMap;
 import java.util.Map;
-import java.util.concurrent.ForkJoinPool;
 import java.util.regex.Pattern;
 
 import org.testng.Assert;
@@ -13,8 +12,10 @@ import com.microsoft.playwright.Page;
 import com.microsoft.playwright.options.AriaRole;
 
 import framework.base.BasePage;
+import framework.utils.StringUtil;
+import io.qameta.allure.Allure;
 import io.qameta.allure.Step;
-import io.qameta.allure.internal.shadowed.jackson.databind.introspect.DefaultAccessorNamingStrategy.FirstCharBasedValidator;
+import reporting.ReportManager;
 
 public class CartPage extends BasePage {
 
@@ -41,10 +42,12 @@ public class CartPage extends BasePage {
 		Assert.assertEquals(super.verifySubscriptionSuccess(), true);
 	}
 
+	@Step("Click Proceed to Checkout Button")
 	public void clickProceedToCheckout() {
 		proceedToCheckOutButton.click();
 	}
 
+	@Step("Click register/login link")
 	public void clickRegisterLoginLink() {
 		registerLoginLink.click();
 	}
@@ -67,6 +70,7 @@ public class CartPage extends BasePage {
 
 	}
 
+	@Step("Read product details from the Shopping Cart using name - {productFullName}")
 	public Map<String, String> readCartProductDetails(String productFullName) {
 
 		Locator matchedRowCells = cartTable.locator("tbody tr").filter(
@@ -101,10 +105,13 @@ public class CartPage extends BasePage {
 		productMap.put("Price", price);
 		productMap.put("Quantity", quantity);
 		productMap.put("Total", total);
+		
+		ReportManager.attachTextContentAsSection("Cart Product Details", StringUtil.formattedStringForMaps(productMap).toString());
 
 		return productMap;
 	}
 
+	@Step("Read product details from the Shopping Cart using index - {productIndex}")
 	public Map<String, String> readCartProductDetails(int productIndex) {
 
 		Locator matchedRowCells = cartTable.locator("tbody tr").nth(productIndex - 1).locator("td");
@@ -129,9 +136,12 @@ public class CartPage extends BasePage {
 		productMap.put("Quantity", quantity);
 		productMap.put("Total", total);
 
+		ReportManager.attachTextContentAsSection("Cart Product Details", StringUtil.formattedStringForMaps(productMap).toString());
+		
 		return productMap;
 	}
 
+	@Step("Read all product details from the Shopping Cart")
 	public Map<String, String> readAllCartProductDetails() {
 
 		Locator rows = cartTable.locator("tbody tr");
@@ -196,12 +206,54 @@ public class CartPage extends BasePage {
 				----------------------------------------------------
 
 				""", rowCount, productMap.get("Overall Total"));
+		
+		// ✅ Build the same formatted string for Allure
+		StringBuilder allureReport = new StringBuilder();
+
+		// Product details section — loop for each product
+		for (int i = 1; i <= rowCount; i++) {
+		    allureReport.append(String.format("""
+		            PRODUCT-%d DETAILS FROM CART
+		            ---------------------------------------------------
+		            Name        : %s
+		            Category    : %s
+		            SubCategory : %s
+		            Price       : %s
+		            Quantity    : %s
+		            Total       : %s
+		            ---------------------------------------------------
+		            
+		            """,
+		        i,
+		        productMap.get("Name" + i),
+		        productMap.get("Category" + i),
+		        productMap.get("SubCategory" + i),
+		        productMap.get("Price" + i),
+		        productMap.get("Quantity" + i),
+		        productMap.get("Total" + i)
+		    ));
+		}
+
+		// Cart summary section
+		allureReport.append(String.format("""
+		        CART SUMMARY
+		        ---------------------------------------------------
+		        Total of <%d> Product/s are Added To Cart
+		        Cart Total Price is '%s'
+		        ---------------------------------------------------
+		        """,
+		    rowCount,
+		    productMap.get("Overall Total")
+		));
+
+		// ✅ Attach to Allure — shows as collapsible section in report
+		ReportManager.attachTextContentAsSection("Cart Details", allureReport.toString());
 
 		return productMap;
 
 	}
 
-	@Step("Verify removal of product using name")
+	@Step("Verify removal of product using name - {productName}")
 	public void removeProductFromCart(String productName) {
 
 		int totalProductsThen = cartTable.locator("tbody tr").count();
@@ -226,7 +278,7 @@ public class CartPage extends BasePage {
 		Assert.assertEquals(totalProductsNow, totalProductsThen - 1, "Product - " + productName + " deleted from Cart");
 	}
 
-	@Step("Verify removal of product using index")
+	@Step("Verify removal of product using index - {productIndex}")
 	public void removeProductFromCart(int productIndex) {
 
 		int totalProductsThen = cartTable.locator("tbody tr").count();
@@ -260,6 +312,7 @@ public class CartPage extends BasePage {
 		Assert.assertEquals(totalProductsNow, 0, "All " + totalProductsThen + " products from cart was deleted !!!");
 	}
 
+	@Step("Verify existence of a product in the Shopping Cart")
 	public boolean verifyProductExistanceInCart(String productFullName) {
 		Locator matchedRowCells = cartTable.filter(
 				new Locator.FilterOptions().setHasText(Pattern.compile(productFullName, Pattern.CASE_INSENSITIVE)));

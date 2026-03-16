@@ -1,15 +1,12 @@
 package pages.ae;
 
-import static com.microsoft.playwright.assertions.PlaywrightAssertions.assertThat;
 import static org.testng.Assert.assertEquals;
 
-import java.util.List;
 import java.util.regex.Pattern;
 
 import org.testng.Assert;
 import org.testng.asserts.SoftAssert;
 
-import com.github.javafaker.Superhero;
 import com.microsoft.playwright.Locator;
 import com.microsoft.playwright.Page;
 import com.microsoft.playwright.Page.GetByRoleOptions;
@@ -34,21 +31,27 @@ public class HomePage extends BasePage {
 		this.NavigationMenuLinks = page.locator("ul[class*='navbar'] a");
 	}
 
+	@Step("Click Signup / Login link")
 	public void clickSignupLoginLink() {
 		SignupLoginLink.click();
 	}
 	
+	@Step("Click delete account link")
 	public void clickDeleteAccount() {
 		DeleteAccountLink.click();
 	}
 	
+	@Step("Click logout link")
 	public void clickLogOut() {
 		LogOutLink.click();
 	}
 	
+	@Step("Get the logged in username")
 	public String getLoggedInUsername() {	
 		String loggedinMessage = page.getByText("Logged in as").textContent().trim();
-		return loggedinMessage.substring(loggedinMessage.lastIndexOf(" ") + 1);	
+		String username = loggedinMessage.substring(loggedinMessage.lastIndexOf(" ") + 1);
+		ReportManager.addParameter("Logged in User", username);
+		return username;
 	}
 	
 	@Step("Verify Invalid Email Error on Login")
@@ -57,6 +60,7 @@ public class HomePage extends BasePage {
 		assertEquals(errorMessage, "Your email or password is incorrect!", "Incorrect Login credentials");
 	}
 	
+	@Step("Click the menu - '{menu}' on the AE Home page")
 	public void clickMenu(String menu) {
 		NavigationMenuLinks.filter(new Locator.FilterOptions().setHasText(menu)).click();
 		logger.info("Navigating to " + menu);					   

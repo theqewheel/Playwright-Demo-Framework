@@ -1,0 +1,12 @@
+
+-------------------------------------------------------------------------
+               INVOICE ADDRESS ON CHECKOUT
+-------------------------------------------------------------------------
+Title Fullname  : Mrs. Earnest Johns
+Company Name    : Spencer-Goodwin
+Address Line1   : 2537 Phebe Trail
+Address Line2   : Suite 375
+Address Line3   : Prosaccoborough Wyoming 953486
+Country         : Singapore
+Phone           : 0066347352
+-------------------------------------------------------------------------

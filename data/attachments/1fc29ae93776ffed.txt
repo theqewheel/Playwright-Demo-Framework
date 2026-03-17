@@ -1,0 +1,12 @@
+
+-------------------------------------------------------------------------
+               INVOICE ADDRESS ON CHECKOUT
+-------------------------------------------------------------------------
+Title Fullname  : Mrs. Sean Wilkinson
+Company Name    : Mills, Osinski and Herzog
+Address Line1   : 23039 Skiles Centers
+Address Line2   : Suite 237
+Address Line3   : New Rashadfort Nebraska 083322
+Country         : Israel
+Phone           : 7388423758
+-------------------------------------------------------------------------

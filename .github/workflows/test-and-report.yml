@@ -63,6 +63,14 @@ jobs:
           publish_dir: Playwright_Demo_Framework/target/site/allure-maven-plugin
           publish_branch: gh-pages
 
+      - name: Upload Allure report as artifact
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: allure-report-${{ steps.summary.outputs.date }}
+          path: Playwright_Demo_Framework/target/site/allure-maven-plugin/
+          retention-days: 14
+
       - name: Send email to team
         if: always()
         uses: dawidd6/action-send-mail@v3
@@ -92,8 +100,11 @@ jobs:
             Skipped : ${{ steps.summary.outputs.skipped }}
             ─────────────────────────────
 
-            Full Allure Report (click to open):
+            Latest Allure Report (GitHub Pages):
             https://theqewheel.github.io/Playwright-Demo-Framework/
+
+            Past Reports (retained 14 days):
+            https://github.com/theqewheel/Playwright-Demo-Framework/actions
 
             Regards,
             TheQEWheel Automation Pipeline

@@ -1,0 +1,12 @@
+
+-------------------------------------------------------------------------
+               DELIVERY ADDRESS ON CHECKOUT
+-------------------------------------------------------------------------
+Title Fullname  : Mrs. Nathan Labadie
+Company Name    : Kohler Inc
+Address Line1   : 55192 Twanda Forest
+Address Line2   : Suite 917
+Address Line3   : Willieborough Indiana 319433
+Country         : Canada
+Phone           : 9743361045
+-------------------------------------------------------------------------

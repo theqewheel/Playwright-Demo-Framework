@@ -1,0 +1,12 @@
+
+-------------------------------------------------------------------------
+               INVOICE ADDRESS ON CHECKOUT
+-------------------------------------------------------------------------
+Title Fullname  : Mr. Yuko Kling
+Company Name    : Toy, Gutmann and Hahn
+Address Line1   : 186 Fahey Lakes
+Address Line2   : Suite 568
+Address Line3   : New Cleliaburgh New Mexico 684164
+Country         : United States
+Phone           : 9107520285
+-------------------------------------------------------------------------

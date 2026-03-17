@@ -1,0 +1,12 @@
+
+-------------------------------------------------------------------------
+               DELIVERY ADDRESS ON CHECKOUT
+-------------------------------------------------------------------------
+Title Fullname  : Mr. Afton Schuppe
+Company Name    : Lindgren-Jast
+Address Line1   : 80568 Keenan Glen
+Address Line2   : Suite 846
+Address Line3   : Krismouth New York 824573
+Country         : United States
+Phone           : 9764243621
+-------------------------------------------------------------------------

@@ -1,0 +1,12 @@
+
+-------------------------------------------------------------------------
+               DELIVERY ADDRESS ON CHECKOUT
+-------------------------------------------------------------------------
+Title Fullname  : Mrs. Laquanda Murray
+Company Name    : Wunsch, Mraz and Jenkins
+Address Line1   : 4760 Valerie Pines
+Address Line2   : Apt. 861
+Address Line3   : South Reathaborough California 251084
+Country         : United States
+Phone           : 8946749787
+-------------------------------------------------------------------------

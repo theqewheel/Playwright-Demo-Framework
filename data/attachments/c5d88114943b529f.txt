@@ -1,0 +1,12 @@
+
+-------------------------------------------------------------------------
+               DELIVERY ADDRESS ON CHECKOUT
+-------------------------------------------------------------------------
+Title Fullname  : Mr. Darryl Mohr
+Company Name    : Bailey, Kilback and Vandervort
+Address Line1   : 6647 Bruen Isle
+Address Line2   : Apt. 799
+Address Line3   : South Earleanton Delaware 840571
+Country         : New Zealand
+Phone           : 7741938364
+-------------------------------------------------------------------------

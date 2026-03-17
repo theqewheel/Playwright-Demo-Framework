@@ -1,0 +1,12 @@
+
+-------------------------------------------------------------------------
+               DELIVERY ADDRESS ON CHECKOUT
+-------------------------------------------------------------------------
+Title Fullname  : Mrs. Dara Stracke
+Company Name    : Spinka Inc
+Address Line1   : 471 Wilbur Key
+Address Line2   : Suite 105
+Address Line3   : Lake Kamala Oklahoma 173673
+Country         : Israel
+Phone           : 0774433734
+-------------------------------------------------------------------------

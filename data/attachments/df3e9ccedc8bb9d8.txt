@@ -1,0 +1,25 @@
+PRODUCT-1 DETAILS FROM CART
+---------------------------------------------------
+Name        : Blue Top
+Category    : Women
+SubCategory : Tops
+Price       : 500
+Quantity    : 1
+Total       : 500
+---------------------------------------------------
+
+PRODUCT-2 DETAILS FROM CART
+---------------------------------------------------
+Name        : Men Tshirt
+Category    : Men
+SubCategory : Tshirts
+Price       : 400
+Quantity    : 1
+Total       : 400
+---------------------------------------------------
+
+CART SUMMARY
+---------------------------------------------------
+Total of <3> Product/s are Added To Cart
+Cart Total Price is '900'
+---------------------------------------------------

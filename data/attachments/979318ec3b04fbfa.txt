@@ -1,0 +1,12 @@
+
+-------------------------------------------------------------------------
+               DELIVERY ADDRESS ON CHECKOUT
+-------------------------------------------------------------------------
+Title Fullname  : Mr. Nichol Hahn
+Company Name    : Kertzmann Inc
+Address Line1   : 56500 Rosenbaum Camp
+Address Line2   : Suite 811
+Address Line3   : East Tamar Colorado 183006
+Country         : Canada
+Phone           : 1549464540
+-------------------------------------------------------------------------

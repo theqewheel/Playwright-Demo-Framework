@@ -1,0 +1,282 @@
+name: Playwright TestNG Tests
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '0 9 * * 1'
+
+jobs:
+  run-tests:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: Playwright_Demo_Framework
+
+    steps:
+
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Java 17
+        uses: actions/setup-java@v4
+        with:
+          java-version: '17'
+          distribution: 'temurin'
+          cache: maven
+
+      - name: Install Playwright browsers
+        run: mvn exec:java -e -D exec.mainClass=com.microsoft.playwright.CLI -D exec.args="install --with-deps chromium"
+
+      - name: Run tests
+        run: mvn test
+        continue-on-error: true
+
+      - name: Generate Allure report
+        if: always()
+        run: |
+          mvn allure:report
+          echo "=== target/site contents ==="
+          ls -la target/site/ || echo "no site folder"
+          ls -la target/site/allure-maven-plugin/ || echo "no allure-maven-plugin folder"
+
+      - name: Get test summary
+        if: always()
+        id: summary
+        run: |
+          # ✅ Loop through each TEST-*.xml individually to avoid double-counting parallel runs
+          TOTAL=0; FAILED=0; SKIPPED=0; ERRORS=0
+
+          for f in $(find target/surefire-reports -name "TEST-*.xml" 2>/dev/null); do
+            t=$(grep -oP  'tests="\K[0-9]+'    "$f" | head -1)
+            fa=$(grep -oP 'failures="\K[0-9]+' "$f" | head -1)
+            sk=$(grep -oP 'skipped="\K[0-9]+'  "$f" | head -1)
+            er=$(grep -oP 'errors="\K[0-9]+'   "$f" | head -1)
+            TOTAL=$((TOTAL   + ${t:-0}))
+            FAILED=$((FAILED  + ${fa:-0}))
+            SKIPPED=$((SKIPPED + ${sk:-0}))
+            ERRORS=$((ERRORS  + ${er:-0}))
+          done
+
+          PASSED=$((TOTAL - FAILED - SKIPPED - ERRORS))
+          BROKEN=$ERRORS
+
+          if [ "$FAILED" -eq 0 ] && [ "$ERRORS" -eq 0 ]; then
+            STATUS="✅ PASSED"
+          else
+            STATUS="❌ FAILED"
+          fi
+
+          echo "total=$TOTAL"     >> $GITHUB_OUTPUT
+          echo "passed=$PASSED"   >> $GITHUB_OUTPUT
+          echo "failed=$FAILED"   >> $GITHUB_OUTPUT
+          echo "skipped=$SKIPPED" >> $GITHUB_OUTPUT
+          echo "broken=$BROKEN"   >> $GITHUB_OUTPUT
+          echo "status=$STATUS"   >> $GITHUB_OUTPUT
+          echo "date=$(date +'%d %b %Y %H:%M UTC')" >> $GITHUB_OUTPUT
+
+      - name: Publish report to GitHub Pages
+        if: always()
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: Playwright_Demo_Framework/target/site/allure-maven-plugin
+          publish_branch: gh-pages
+
+      - name: Upload Allure report as artifact
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: allure-report-${{ steps.summary.outputs.date }}
+          path: Playwright_Demo_Framework/target/site/allure-maven-plugin/
+          retention-days: 14
+
+      - name: Build HTML email report
+        if: always()
+        run: |
+          P=${{ steps.summary.outputs.passed }}
+          F=${{ steps.summary.outputs.failed }}
+          S=${{ steps.summary.outputs.skipped }}
+          B=${{ steps.summary.outputs.broken }}
+          T=${{ steps.summary.outputs.total }}
+
+          SUITE_NAME="Playwright Demo Framework Tests - TA1"
+          TEST_BLOCK="Release 1.0 Testing for AE"
+
+          # ── Build per-test rows from surefire XMLs ──
+          ROWS=""
+          for f in $(find target/surefire-reports -name "TEST-*.xml" 2>/dev/null | sort); do
+            CLASS=$(grep -oP 'name="[^"]*testsuite[^"]*"\s' "$f" 2>/dev/null || grep -oP 'classname="\K[^"]+' "$f" | head -1)
+            SHORT_CLASS=$(grep -oP 'classname="\K[^"]+' "$f" | head -1 | awk -F. '{print $NF}')
+            while IFS= read -r line; do
+              TNAME=$(echo "$line" | grep -oP 'name="\K[^"]+')
+              STATUS_RAW="passed"
+              if echo "$line" | grep -q "failure\|<failure"; then STATUS_RAW="failed"; fi
+              if echo "$line" | grep -q "error\|<error";   then STATUS_RAW="broken"; fi
+              if echo "$line" | grep -q "skipped\|<skipped"; then STATUS_RAW="skipped"; fi
+              case $STATUS_RAW in
+                passed)  COLOR="#2da44e"; LABEL="✅ Passed"  ;;
+                failed)  COLOR="#cf222e"; LABEL="❌ Failed"  ;;
+                broken)  COLOR="#bf8700"; LABEL="🔧 Broken"  ;;
+                skipped) COLOR="#6e7781"; LABEL="⏭ Skipped" ;;
+              esac
+              ROWS="${ROWS}<tr>
+                <td style='padding:8px 12px;border-bottom:1px solid #e1e4e8;font-size:13px;color:#555;'>${SHORT_CLASS}</td>
+                <td style='padding:8px 12px;border-bottom:1px solid #e1e4e8;font-size:13px;'>${TNAME}</td>
+                <td style='padding:8px 12px;border-bottom:1px solid #e1e4e8;'>
+                  <span style='background:${COLOR};color:#fff;padding:3px 10px;border-radius:12px;font-size:12px;'>${LABEL}</span>
+                </td>
+              </tr>"
+            done < <(grep '<testcase ' "$f")
+          done
+
+          # ── SVG Donut Chart values ──
+          if [ "$T" -gt 0 ]; then
+            PIE_P=$(echo "scale=2; $P * 251.2 / $T" | bc)
+            PIE_F=$(echo "scale=2; $F * 251.2 / $T" | bc)
+            PIE_S=$(echo "scale=2; $S * 251.2 / $T" | bc)
+            PIE_B=$(echo "scale=2; $B * 251.2 / $T" | bc)
+            OFF_F=$(echo "scale=2; $PIE_P" | bc)
+            OFF_S=$(echo "scale=2; $PIE_P + $PIE_F" | bc)
+            OFF_B=$(echo "scale=2; $PIE_P + $PIE_F + $PIE_S" | bc)
+          else
+            PIE_P=0; PIE_F=0; PIE_S=0; PIE_B=0
+            OFF_F=0; OFF_S=0; OFF_B=0
+          fi
+
+          # ── Status banner colour ──
+          if [ "$F" -eq 0 ] && [ "$B" -eq 0 ]; then
+            BANNER_BG="#e6ffed"; BANNER_BORDER="#2da44e"
+          else
+            BANNER_BG="#fff5f5"; BANNER_BORDER="#cf222e"
+          fi
+
+          cat > /tmp/email_report.html << HTMLEOF
+          <!DOCTYPE html>
+          <html>
+          <body style="margin:0;padding:0;background:#f6f8fa;font-family:Arial,sans-serif;">
+          <div style="max-width:680px;margin:30px auto;background:#ffffff;border-radius:10px;overflow:hidden;box-shadow:0 2px 12px rgba(0,0,0,0.1);">
+
+            <!-- Header -->
+            <div style="background:#0d1117;padding:28px 32px;">
+              <div style="font-size:20px;font-weight:bold;color:#ffffff;">🤖 TheQEWheel Automation Report</div>
+              <div style="font-size:13px;color:#8b949e;margin-top:6px;">${{ steps.summary.outputs.date }} &nbsp;|&nbsp; Branch: main</div>
+            </div>
+
+            <!-- Suite Info Bar -->
+            <div style="background:#161b22;padding:12px 32px;display:flex;gap:24px;">
+              <span style="color:#58a6ff;font-size:13px;">📦 Suite: <b>${SUITE_NAME}</b></span>
+              &nbsp;&nbsp;
+              <span style="color:#8b949e;font-size:13px;">🧪 Test Block: <b>${TEST_BLOCK}</b></span>
+            </div>
+
+            <!-- Status Banner -->
+            <div style="background:${BANNER_BG};border-left:5px solid ${BANNER_BORDER};padding:16px 32px;margin:0;">
+              <div style="font-size:20px;font-weight:bold;color:#0d1117;">${{ steps.summary.outputs.status }}</div>
+            </div>
+
+            <!-- Pie Chart + Summary Cards -->
+            <div style="padding:28px 32px;">
+              <table width="100%" cellpadding="0" cellspacing="0">
+                <tr>
+                  <!-- SVG Donut -->
+                  <td width="180" valign="middle" align="center">
+                    <svg width="160" height="160" viewBox="0 0 100 100">
+                      <circle cx="50" cy="50" r="40" fill="none" stroke="#e1e4e8" stroke-width="18"/>
+                      <circle cx="50" cy="50" r="40" fill="none" stroke="#2da44e" stroke-width="18"
+                        stroke-dasharray="${PIE_P} 251.2" stroke-dashoffset="0"
+                        transform="rotate(-90 50 50)"/>
+                      <circle cx="50" cy="50" r="40" fill="none" stroke="#cf222e" stroke-width="18"
+                        stroke-dasharray="${PIE_F} 251.2" stroke-dashoffset="-${OFF_F}"
+                        transform="rotate(-90 50 50)"/>
+                      <circle cx="50" cy="50" r="40" fill="none" stroke="#6e7781" stroke-width="18"
+                        stroke-dasharray="${PIE_S} 251.2" stroke-dashoffset="-${OFF_S}"
+                        transform="rotate(-90 50 50)"/>
+                      <circle cx="50" cy="50" r="40" fill="none" stroke="#bf8700" stroke-width="18"
+                        stroke-dasharray="${PIE_B} 251.2" stroke-dashoffset="-${OFF_B}"
+                        transform="rotate(-90 50 50)"/>
+                      <text x="50" y="46" text-anchor="middle" font-size="16" font-weight="bold" fill="#0d1117">${T}</text>
+                      <text x="50" y="58" text-anchor="middle" font-size="8" fill="#6e7781">TOTAL</text>
+                    </svg>
+                  </td>
+                  <!-- Summary Cards -->
+                  <td valign="middle">
+                    <table cellpadding="0" cellspacing="8">
+                      <tr>
+                        <td>
+                          <div style="background:#f0fff4;border:1px solid #2da44e;border-radius:8px;padding:12px 18px;text-align:center;min-width:90px;">
+                            <div style="font-size:26px;font-weight:bold;color:#2da44e;">${P}</div>
+                            <div style="font-size:12px;color:#555;">✅ Passed</div>
+                          </div>
+                        </td>
+                        <td>
+                          <div style="background:#fff5f5;border:1px solid #cf222e;border-radius:8px;padding:12px 18px;text-align:center;min-width:90px;">
+                            <div style="font-size:26px;font-weight:bold;color:#cf222e;">${F}</div>
+                            <div style="font-size:12px;color:#555;">❌ Failed</div>
+                          </div>
+                        </td>
+                        <td>
+                          <div style="background:#fffbf0;border:1px solid #bf8700;border-radius:8px;padding:12px 18px;text-align:center;min-width:90px;">
+                            <div style="font-size:26px;font-weight:bold;color:#bf8700;">${B}</div>
+                            <div style="font-size:12px;color:#555;">🔧 Broken</div>
+                          </div>
+                        </td>
+                        <td>
+                          <div style="background:#f6f8fa;border:1px solid #6e7781;border-radius:8px;padding:12px 18px;text-align:center;min-width:90px;">
+                            <div style="font-size:26px;font-weight:bold;color:#6e7781;">${S}</div>
+                            <div style="font-size:12px;color:#555;">⏭ Skipped</div>
+                          </div>
+                        </td>
+                      </tr>
+                    </table>
+                  </td>
+                </tr>
+              </table>
+            </div>
+
+            <!-- Test Results Table -->
+            <div style="padding:0 32px 28px;">
+              <div style="font-size:15px;font-weight:bold;color:#0d1117;margin-bottom:12px;">📋 Test Results</div>
+              <table width="100%" cellpadding="0" cellspacing="0" style="border-collapse:collapse;border:1px solid #e1e4e8;border-radius:8px;overflow:hidden;">
+                <thead>
+                  <tr style="background:#f6f8fa;">
+                    <th style="padding:10px 12px;text-align:left;font-size:12px;color:#6e7781;border-bottom:2px solid #e1e4e8;width:30%;">TEST SUITE</th>
+                    <th style="padding:10px 12px;text-align:left;font-size:12px;color:#6e7781;border-bottom:2px solid #e1e4e8;">TEST NAME</th>
+                    <th style="padding:10px 12px;text-align:left;font-size:12px;color:#6e7781;border-bottom:2px solid #e1e4e8;width:110px;">STATUS</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  ${ROWS}
+                </tbody>
+              </table>
+            </div>
+
+            <!-- Footer -->
+            <div style="background:#f6f8fa;padding:20px 32px;border-top:1px solid #e1e4e8;text-align:center;">
+              <a href="https://theqewheel.github.io/Playwright-Demo-Framework/"
+                style="background:#0d1117;color:#ffffff;padding:11px 26px;border-radius:6px;text-decoration:none;font-size:14px;font-weight:bold;display:inline-block;">
+                🔗 Open Full Allure Report
+              </a>
+              <div style="font-size:11px;color:#8b949e;margin-top:14px;">
+                TheQEWheel Automation Pipeline · GitHub Actions · Past reports retained for 14 days
+                <br/>
+                <a href="https://github.com/theqewheel/Playwright-Demo-Framework/actions" style="color:#58a6ff;">View all runs →</a>
+              </div>
+            </div>
+
+          </div>
+          </body>
+          </html>
+          HTMLEOF
+
+      - name: Send email to team
+        if: always()
+        uses: dawidd6/action-send-mail@v3
+        with:
+          server_address: smtp.gmail.com
+          server_port: 587
+          username: ${{ secrets.MAIL_USERNAME }}
+          password: ${{ secrets.MAIL_PASSWORD }}
+          to: ${{ secrets.MAIL_TO }}
+          from: QE Automation <${{ secrets.MAIL_USERNAME }}>
+          subject: "[${{ steps.summary.outputs.status }}] AE Regression Demo Test Report - ${{ steps.summary.outputs.date }}"
+          html_body: file:///tmp/email_report.html

@@ -34,12 +34,10 @@ jobs:
       - name: Generate Allure report
         if: always()
         run: |
-          echo "=== allure-results contents ==="
-          ls -la target/allure-results/ || echo "No allure-results folder!"
-          echo "=== Generating report ==="
           mvn allure:report
-          echo "=== target contents after report ==="
+          echo "=== target contents ==="
           ls -la target/
+          ls -la target/allure-report/ || echo "allure-report folder not created!"
 
       - name: Get test summary
         if: always()
@@ -67,7 +65,15 @@ jobs:
 
       - name: Zip report for email
         if: always()
-        run: zip -r target/allure-report.zip target/allure-report/
+        run: |
+          if [ -d "target/allure-report" ]; then
+            zip -r target/allure-report.zip target/allure-report/
+            echo "✅ Zipped successfully"
+          else
+            echo "⚠️ allure-report folder missing — skipping zip"
+            mkdir -p target
+            zip -r target/allure-report.zip target/ --include "target/allure-results/*"
+            fi
 
       - name: Send email to team
         if: always()

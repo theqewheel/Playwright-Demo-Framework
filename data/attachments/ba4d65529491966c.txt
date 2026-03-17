@@ -1,0 +1,12 @@
+
+-------------------------------------------------------------------------
+               INVOICE ADDRESS ON CHECKOUT
+-------------------------------------------------------------------------
+Title Fullname  : Mrs. Caroll Kautzer
+Company Name    : Hintz Inc
+Address Line1   : 80952 Schaefer Hollow
+Address Line2   : Suite 814
+Address Line3   : North Jeniferfort Rhode Island 542581
+Country         : Australia
+Phone           : 8936414378
+-------------------------------------------------------------------------

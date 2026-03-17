@@ -1,0 +1,12 @@
+
+-------------------------------------------------------------------------
+               DELIVERY ADDRESS ON CHECKOUT
+-------------------------------------------------------------------------
+Title Fullname  : Mrs. Quinn Buckridge
+Company Name    : Goyette-Weimann
+Address Line1   : 31511 Little Trace
+Address Line2   : Suite 137
+Address Line3   : Wolfport Oregon 254647
+Country         : United States
+Phone           : 7166681054
+-------------------------------------------------------------------------

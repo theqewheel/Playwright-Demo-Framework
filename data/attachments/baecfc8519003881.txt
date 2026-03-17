@@ -1,0 +1,12 @@
+
+-------------------------------------------------------------------------
+               DELIVERY ADDRESS ON CHECKOUT
+-------------------------------------------------------------------------
+Title Fullname  : Mr. Frankie Jenkins
+Company Name    : Rodriguez, Hoeger and Reilly
+Address Line1   : 6640 Weissnat Spring
+Address Line2   : Apt. 879
+Address Line3   : Port Alvaland Iowa 136115
+Country         : Canada
+Phone           : 5126363814
+-------------------------------------------------------------------------

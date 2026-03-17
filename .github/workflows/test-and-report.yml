@@ -43,24 +43,28 @@ jobs:
         if: always()
         id: summary
         run: |
-          # ✅ Loop through each TEST-*.xml individually to avoid double-counting parallel runs
-          TOTAL=0; FAILED=0; SKIPPED=0; ERRORS=0
+          # ✅ Count actual <testcase> elements — immune to parallel double-counting
+          # Reading tests= attribute from <testsuite> causes 52 instead of 26
+          # because parallel runs generate both class-level AND summary XMLs
+          # Counting <testcase lines directly gives exactly 1 count per real test
+          TOTAL=0; PASSED=0; FAILED=0; SKIPPED=0; BROKEN=0
 
-          for f in $(find target/surefire-reports -name "TEST-*.xml" 2>/dev/null); do
-            t=$(grep -oP  'tests="\K[0-9]+'    "$f" | head -1)
-            fa=$(grep -oP 'failures="\K[0-9]+' "$f" | head -1)
-            sk=$(grep -oP 'skipped="\K[0-9]+'  "$f" | head -1)
-            er=$(grep -oP 'errors="\K[0-9]+'   "$f" | head -1)
-            TOTAL=$((TOTAL   + ${t:-0}))
-            FAILED=$((FAILED  + ${fa:-0}))
-            SKIPPED=$((SKIPPED + ${sk:-0}))
-            ERRORS=$((ERRORS  + ${er:-0}))
+          for f in $(find target/surefire-reports -name "TEST-*.xml" 2>/dev/null | sort); do
+            while IFS= read -r line; do
+              TOTAL=$((TOTAL + 1))
+              if echo "$line" | grep -q "<failure"; then
+                FAILED=$((FAILED + 1))
+              elif echo "$line" | grep -q "<error"; then
+                BROKEN=$((BROKEN + 1))
+              elif echo "$line" | grep -q "<skipped"; then
+                SKIPPED=$((SKIPPED + 1))
+              else
+                PASSED=$((PASSED + 1))
+              fi
+            done < <(grep '<testcase ' "$f")
           done
 
-          PASSED=$((TOTAL - FAILED - SKIPPED - ERRORS))
-          BROKEN=$ERRORS
-
-          if [ "$FAILED" -eq 0 ] && [ "$ERRORS" -eq 0 ]; then
+          if [ "$FAILED" -eq 0 ] && [ "$BROKEN" -eq 0 ]; then
             STATUS="✅ PASSED"
           else
             STATUS="❌ FAILED"
@@ -72,7 +76,13 @@ jobs:
           echo "skipped=$SKIPPED" >> $GITHUB_OUTPUT
           echo "broken=$BROKEN"   >> $GITHUB_OUTPUT
           echo "status=$STATUS"   >> $GITHUB_OUTPUT
-          echo "date=$(date +'%d %b %Y %H:%M UTC')" >> $GITHUB_OUTPUT
+          # Display date — human readable
+          echo "date=$(date +'%d %b %Y %H:%M UTC')"      >> $GITHUB_OUTPUT
+          # Safe date — no colons or spaces, used for artifact name
+          echo "safe_date=$(date +'%d-%b-%Y_%H%M-UTC')"  >> $GITHUB_OUTPUT
+          # Timezone variants for email subtitle
+          echo "ist=$(TZ='Asia/Kolkata'     date +'%d %b %Y %H:%M IST')" >> $GITHUB_OUTPUT
+          echo "est=$(TZ='America/New_York' date +'%d %b %Y %H:%M EST')" >> $GITHUB_OUTPUT
 
       - name: Publish report to GitHub Pages
         if: always()
@@ -86,7 +96,8 @@ jobs:
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: allure-report-${{ steps.summary.outputs.date }}
+          # ✅ safe_date used here — colons in time caused artifact name error
+          name: allure-report-${{ steps.summary.outputs.safe_date }}
           path: Playwright_Demo_Framework/target/site/allure-maven-plugin/
           retention-days: 14
 
@@ -102,31 +113,36 @@ jobs:
           SUITE_NAME="Playwright Demo Framework Tests - TA1"
           TEST_BLOCK="Release 1.0 Testing for AE"
 
-          # ── Build per-test rows from surefire XMLs ──
-          ROWS=""
+          # ── Section 2: Per-class breakdown ──
+          # ✅ Count <testcase lines directly — same fix as Get test summary step
+          CLASS_ROWS=""
           for f in $(find target/surefire-reports -name "TEST-*.xml" 2>/dev/null | sort); do
-            CLASS=$(grep -oP 'name="[^"]*testsuite[^"]*"\s' "$f" 2>/dev/null || grep -oP 'classname="\K[^"]+' "$f" | head -1)
             SHORT_CLASS=$(grep -oP 'classname="\K[^"]+' "$f" | head -1 | awk -F. '{print $NF}')
+
+            CT=0; CP=0; CF=0; CS=0; CE=0
+
             while IFS= read -r line; do
-              TNAME=$(echo "$line" | grep -oP 'name="\K[^"]+')
-              STATUS_RAW="passed"
-              if echo "$line" | grep -q "failure\|<failure"; then STATUS_RAW="failed"; fi
-              if echo "$line" | grep -q "error\|<error";   then STATUS_RAW="broken"; fi
-              if echo "$line" | grep -q "skipped\|<skipped"; then STATUS_RAW="skipped"; fi
-              case $STATUS_RAW in
-                passed)  COLOR="#2da44e"; LABEL="✅ Passed"  ;;
-                failed)  COLOR="#cf222e"; LABEL="❌ Failed"  ;;
-                broken)  COLOR="#bf8700"; LABEL="🔧 Broken"  ;;
-                skipped) COLOR="#6e7781"; LABEL="⏭ Skipped" ;;
-              esac
-              ROWS="${ROWS}<tr>
-                <td style='padding:8px 12px;border-bottom:1px solid #e1e4e8;font-size:13px;color:#555;'>${SHORT_CLASS}</td>
-                <td style='padding:8px 12px;border-bottom:1px solid #e1e4e8;font-size:13px;'>${TNAME}</td>
-                <td style='padding:8px 12px;border-bottom:1px solid #e1e4e8;'>
-                  <span style='background:${COLOR};color:#fff;padding:3px 10px;border-radius:12px;font-size:12px;'>${LABEL}</span>
-                </td>
-              </tr>"
+              CT=$((CT + 1))
+              if echo "$line" | grep -q "<failure"; then
+                CF=$((CF + 1))
+              elif echo "$line" | grep -q "<error"; then
+                CE=$((CE + 1))
+              elif echo "$line" | grep -q "<skipped"; then
+                CS=$((CS + 1))
+              else
+                CP=$((CP + 1))
+              fi
             done < <(grep '<testcase ' "$f")
+
+            CLASS_ROWS="${CLASS_ROWS}
+            <tr>
+              <td style='padding:9px 14px;border-bottom:1px solid #f0f0f0;font-size:13px;color:#24292f;font-weight:500;'>${SHORT_CLASS}</td>
+              <td style='padding:9px 14px;border-bottom:1px solid #f0f0f0;font-size:13px;text-align:center;color:#24292f;'>${CT}</td>
+              <td style='padding:9px 14px;border-bottom:1px solid #f0f0f0;font-size:13px;text-align:center;color:#2da44e;font-weight:bold;'>${CP}</td>
+              <td style='padding:9px 14px;border-bottom:1px solid #f0f0f0;font-size:13px;text-align:center;color:#cf222e;font-weight:bold;'>${CF}</td>
+              <td style='padding:9px 14px;border-bottom:1px solid #f0f0f0;font-size:13px;text-align:center;color:#6e7781;'>${CS}</td>
+              <td style='padding:9px 14px;border-bottom:1px solid #f0f0f0;font-size:13px;text-align:center;color:#bf8700;'>${CE}</td>
+            </tr>"
           done
 
           # ── SVG Donut Chart values ──
@@ -139,127 +155,173 @@ jobs:
             OFF_S=$(echo "scale=2; $PIE_P + $PIE_F" | bc)
             OFF_B=$(echo "scale=2; $PIE_P + $PIE_F + $PIE_S" | bc)
           else
-            PIE_P=0; PIE_F=0; PIE_S=0; PIE_B=0
+            PIE_P=251.2; PIE_F=0; PIE_S=0; PIE_B=0
             OFF_F=0; OFF_S=0; OFF_B=0
           fi
 
-          # ── Status banner colour ──
           if [ "$F" -eq 0 ] && [ "$B" -eq 0 ]; then
-            BANNER_BG="#e6ffed"; BANNER_BORDER="#2da44e"
+            STATUS_COLOR="#2da44e"
           else
-            BANNER_BG="#fff5f5"; BANNER_BORDER="#cf222e"
+            STATUS_COLOR="#cf222e"
           fi
 
           cat > /tmp/email_report.html << HTMLEOF
           <!DOCTYPE html>
           <html>
-          <body style="margin:0;padding:0;background:#f6f8fa;font-family:Arial,sans-serif;">
-          <div style="max-width:680px;margin:30px auto;background:#ffffff;border-radius:10px;overflow:hidden;box-shadow:0 2px 12px rgba(0,0,0,0.1);">
+          <body style="margin:0;padding:20px 0;background:#f6f8fa;font-family:Arial,Helvetica,sans-serif;">
+          <div style="max-width:700px;margin:0 auto;background:#ffffff;border-radius:12px;overflow:hidden;box-shadow:0 4px 16px rgba(0,0,0,0.10);">
 
-            <!-- Header -->
-            <div style="background:#0d1117;padding:28px 32px;">
-              <div style="font-size:20px;font-weight:bold;color:#ffffff;">🤖 TheQEWheel Automation Report</div>
-              <div style="font-size:13px;color:#8b949e;margin-top:6px;">${{ steps.summary.outputs.date }} &nbsp;|&nbsp; Branch: main</div>
+            <!-- ═══════════════ HEADER ═══════════════ -->
+            <div style="background:#0d1117;padding:32px;text-align:center;">
+              <div style="font-size:22px;font-weight:bold;color:#ffffff;letter-spacing:0.5px;">
+                🤖 Test Automation Report
+              </div>
+              <div style="margin-top:10px;font-size:12px;color:#8b949e;line-height:2.0;">
+                ${{ steps.summary.outputs.ist }}
+                &nbsp;|&nbsp;
+                ${{ steps.summary.outputs.date }}
+                &nbsp;|&nbsp;
+                ${{ steps.summary.outputs.est }}
+                <br/>
+                <span style="color:#58a6ff;">Branch: <b>main</b></span>
+                &nbsp;&nbsp;·&nbsp;&nbsp;
+                <span style="color:${STATUS_COLOR};font-weight:bold;">${{ steps.summary.outputs.status }}</span>
+              </div>
             </div>
 
-            <!-- Suite Info Bar -->
-            <div style="background:#161b22;padding:12px 32px;display:flex;gap:24px;">
-              <span style="color:#58a6ff;font-size:13px;">📦 Suite: <b>${SUITE_NAME}</b></span>
-              &nbsp;&nbsp;
-              <span style="color:#8b949e;font-size:13px;">🧪 Test Block: <b>${TEST_BLOCK}</b></span>
-            </div>
+            <!-- ═══════════════ SECTION 1: SUITE DETAILS ═══════════════ -->
+            <div style="padding:28px 32px 20px;">
+              <div style="font-size:13px;font-weight:bold;color:#0d1117;margin-bottom:14px;text-transform:uppercase;letter-spacing:0.8px;border-bottom:2px solid #f0f0f0;padding-bottom:8px;">
+                Section 1 — Suite Details
+              </div>
 
-            <!-- Status Banner -->
-            <div style="background:${BANNER_BG};border-left:5px solid ${BANNER_BORDER};padding:16px 32px;margin:0;">
-              <div style="font-size:20px;font-weight:bold;color:#0d1117;">${{ steps.summary.outputs.status }}</div>
-            </div>
-
-            <!-- Pie Chart + Summary Cards -->
-            <div style="padding:28px 32px;">
-              <table width="100%" cellpadding="0" cellspacing="0">
-                <tr>
-                  <!-- SVG Donut -->
-                  <td width="180" valign="middle" align="center">
-                    <svg width="160" height="160" viewBox="0 0 100 100">
-                      <circle cx="50" cy="50" r="40" fill="none" stroke="#e1e4e8" stroke-width="18"/>
-                      <circle cx="50" cy="50" r="40" fill="none" stroke="#2da44e" stroke-width="18"
-                        stroke-dasharray="${PIE_P} 251.2" stroke-dashoffset="0"
-                        transform="rotate(-90 50 50)"/>
-                      <circle cx="50" cy="50" r="40" fill="none" stroke="#cf222e" stroke-width="18"
-                        stroke-dasharray="${PIE_F} 251.2" stroke-dashoffset="-${OFF_F}"
-                        transform="rotate(-90 50 50)"/>
-                      <circle cx="50" cy="50" r="40" fill="none" stroke="#6e7781" stroke-width="18"
-                        stroke-dasharray="${PIE_S} 251.2" stroke-dashoffset="-${OFF_S}"
-                        transform="rotate(-90 50 50)"/>
-                      <circle cx="50" cy="50" r="40" fill="none" stroke="#bf8700" stroke-width="18"
-                        stroke-dasharray="${PIE_B} 251.2" stroke-dashoffset="-${OFF_B}"
-                        transform="rotate(-90 50 50)"/>
-                      <text x="50" y="46" text-anchor="middle" font-size="16" font-weight="bold" fill="#0d1117">${T}</text>
-                      <text x="50" y="58" text-anchor="middle" font-size="8" fill="#6e7781">TOTAL</text>
-                    </svg>
+              <!-- Suite summary table -->
+              <table width="100%" cellpadding="0" cellspacing="0"
+                style="border-collapse:collapse;border:1px solid #e8eaed;border-radius:8px;overflow:hidden;font-size:13px;">
+                <tr style="background:#f8f9fa;">
+                  <td style="padding:11px 16px;border-bottom:1px solid #e8eaed;border-right:1px solid #e8eaed;color:#6e7781;width:38%;font-weight:bold;">
+                    Test Suite Name
                   </td>
-                  <!-- Summary Cards -->
-                  <td valign="middle">
-                    <table cellpadding="0" cellspacing="8">
-                      <tr>
-                        <td>
-                          <div style="background:#f0fff4;border:1px solid #2da44e;border-radius:8px;padding:12px 18px;text-align:center;min-width:90px;">
-                            <div style="font-size:26px;font-weight:bold;color:#2da44e;">${P}</div>
-                            <div style="font-size:12px;color:#555;">✅ Passed</div>
-                          </div>
-                        </td>
-                        <td>
-                          <div style="background:#fff5f5;border:1px solid #cf222e;border-radius:8px;padding:12px 18px;text-align:center;min-width:90px;">
-                            <div style="font-size:26px;font-weight:bold;color:#cf222e;">${F}</div>
-                            <div style="font-size:12px;color:#555;">❌ Failed</div>
-                          </div>
-                        </td>
-                        <td>
-                          <div style="background:#fffbf0;border:1px solid #bf8700;border-radius:8px;padding:12px 18px;text-align:center;min-width:90px;">
-                            <div style="font-size:26px;font-weight:bold;color:#bf8700;">${B}</div>
-                            <div style="font-size:12px;color:#555;">🔧 Broken</div>
-                          </div>
-                        </td>
-                        <td>
-                          <div style="background:#f6f8fa;border:1px solid #6e7781;border-radius:8px;padding:12px 18px;text-align:center;min-width:90px;">
-                            <div style="font-size:26px;font-weight:bold;color:#6e7781;">${S}</div>
-                            <div style="font-size:12px;color:#555;">⏭ Skipped</div>
-                          </div>
-                        </td>
-                      </tr>
-                    </table>
+                  <td style="padding:11px 16px;border-bottom:1px solid #e8eaed;color:#24292f;">
+                    ${SUITE_NAME}
+                  </td>
+                </tr>
+                <tr>
+                  <td style="padding:11px 16px;border-bottom:1px solid #e8eaed;border-right:1px solid #e8eaed;color:#6e7781;font-weight:bold;">
+                    Test Block
+                  </td>
+                  <td style="padding:11px 16px;border-bottom:1px solid #e8eaed;color:#24292f;">
+                    ${TEST_BLOCK}
+                  </td>
+                </tr>
+                <tr style="background:#f8f9fa;">
+                  <td style="padding:11px 16px;border-right:1px solid #e8eaed;color:#6e7781;font-weight:bold;">
+                    Total Tests
+                  </td>
+                  <td style="padding:11px 16px;color:#24292f;font-weight:bold;">
+                    ${T}
                   </td>
                 </tr>
               </table>
+
+              <!-- Donut Chart + Legend -->
+              <div style="margin-top:24px;">
+                <table width="100%" cellpadding="0" cellspacing="0">
+                  <tr>
+                    <td width="190" valign="middle" align="center">
+                      <svg width="170" height="170" viewBox="0 0 100 100">
+                        <circle cx="50" cy="50" r="40" fill="none" stroke="#e1e4e8" stroke-width="20"/>
+                        <circle cx="50" cy="50" r="40" fill="none" stroke="#2da44e" stroke-width="20"
+                          stroke-dasharray="${PIE_P} 251.2" stroke-dashoffset="0"
+                          transform="rotate(-90 50 50)"/>
+                        <circle cx="50" cy="50" r="40" fill="none" stroke="#cf222e" stroke-width="20"
+                          stroke-dasharray="${PIE_F} 251.2" stroke-dashoffset="-${OFF_F}"
+                          transform="rotate(-90 50 50)"/>
+                        <circle cx="50" cy="50" r="40" fill="none" stroke="#6e7781" stroke-width="20"
+                          stroke-dasharray="${PIE_S} 251.2" stroke-dashoffset="-${OFF_S}"
+                          transform="rotate(-90 50 50)"/>
+                        <circle cx="50" cy="50" r="40" fill="none" stroke="#bf8700" stroke-width="20"
+                          stroke-dasharray="${PIE_B} 251.2" stroke-dashoffset="-${OFF_B}"
+                          transform="rotate(-90 50 50)"/>
+                        <text x="50" y="45" text-anchor="middle" font-size="15" font-weight="bold" fill="#0d1117">${T}</text>
+                        <text x="50" y="57" text-anchor="middle" font-size="7.5" fill="#6e7781">TOTAL</text>
+                      </svg>
+                    </td>
+                    <td valign="middle" style="padding-left:16px;">
+                      <table cellpadding="7" cellspacing="0">
+                        <tr>
+                          <td><span style="display:inline-block;width:13px;height:13px;background:#2da44e;border-radius:3px;"></span></td>
+                          <td style="font-size:13px;color:#555;padding-left:8px;">Passed</td>
+                          <td style="font-size:20px;font-weight:bold;color:#2da44e;padding-left:20px;">${P}</td>
+                        </tr>
+                        <tr>
+                          <td><span style="display:inline-block;width:13px;height:13px;background:#cf222e;border-radius:3px;"></span></td>
+                          <td style="font-size:13px;color:#555;padding-left:8px;">Failed</td>
+                          <td style="font-size:20px;font-weight:bold;color:#cf222e;padding-left:20px;">${F}</td>
+                        </tr>
+                        <tr>
+                          <td><span style="display:inline-block;width:13px;height:13px;background:#6e7781;border-radius:3px;"></span></td>
+                          <td style="font-size:13px;color:#555;padding-left:8px;">Skipped</td>
+                          <td style="font-size:20px;font-weight:bold;color:#6e7781;padding-left:20px;">${S}</td>
+                        </tr>
+                        <tr>
+                          <td><span style="display:inline-block;width:13px;height:13px;background:#bf8700;border-radius:3px;"></span></td>
+                          <td style="font-size:13px;color:#555;padding-left:8px;">Broken</td>
+                          <td style="font-size:20px;font-weight:bold;color:#bf8700;padding-left:20px;">${B}</td>
+                        </tr>
+                      </table>
+                    </td>
+                  </tr>
+                </table>
+              </div>
             </div>
 
-            <!-- Test Results Table -->
-            <div style="padding:0 32px 28px;">
-              <div style="font-size:15px;font-weight:bold;color:#0d1117;margin-bottom:12px;">📋 Test Results</div>
-              <table width="100%" cellpadding="0" cellspacing="0" style="border-collapse:collapse;border:1px solid #e1e4e8;border-radius:8px;overflow:hidden;">
+            <!-- ═══════════════ SECTION 2: PER-CLASS BREAKDOWN ═══════════════ -->
+            <div style="padding:8px 32px 28px;">
+              <div style="font-size:13px;font-weight:bold;color:#0d1117;margin-bottom:14px;text-transform:uppercase;letter-spacing:0.8px;border-bottom:2px solid #f0f0f0;padding-bottom:8px;">
+                Section 2 — Test Class Breakdown
+              </div>
+              <table width="100%" cellpadding="0" cellspacing="0"
+                style="border-collapse:collapse;border:1px solid #e8eaed;border-radius:8px;overflow:hidden;">
                 <thead>
-                  <tr style="background:#f6f8fa;">
-                    <th style="padding:10px 12px;text-align:left;font-size:12px;color:#6e7781;border-bottom:2px solid #e1e4e8;width:30%;">TEST SUITE</th>
-                    <th style="padding:10px 12px;text-align:left;font-size:12px;color:#6e7781;border-bottom:2px solid #e1e4e8;">TEST NAME</th>
-                    <th style="padding:10px 12px;text-align:left;font-size:12px;color:#6e7781;border-bottom:2px solid #e1e4e8;width:110px;">STATUS</th>
+                  <tr style="background:#f8f9fa;">
+                    <th style="padding:10px 14px;text-align:left;font-size:11px;color:#6e7781;border-bottom:2px solid #e8eaed;text-transform:uppercase;letter-spacing:0.5px;">Test Class</th>
+                    <th style="padding:10px 14px;text-align:center;font-size:11px;color:#6e7781;border-bottom:2px solid #e8eaed;text-transform:uppercase;letter-spacing:0.5px;">Total</th>
+                    <th style="padding:10px 14px;text-align:center;font-size:11px;color:#2da44e;border-bottom:2px solid #e8eaed;text-transform:uppercase;letter-spacing:0.5px;">Passed</th>
+                    <th style="padding:10px 14px;text-align:center;font-size:11px;color:#cf222e;border-bottom:2px solid #e8eaed;text-transform:uppercase;letter-spacing:0.5px;">Failed</th>
+                    <th style="padding:10px 14px;text-align:center;font-size:11px;color:#6e7781;border-bottom:2px solid #e8eaed;text-transform:uppercase;letter-spacing:0.5px;">Skipped</th>
+                    <th style="padding:10px 14px;text-align:center;font-size:11px;color:#bf8700;border-bottom:2px solid #e8eaed;text-transform:uppercase;letter-spacing:0.5px;">Broken</th>
                   </tr>
                 </thead>
                 <tbody>
-                  ${ROWS}
+                  ${CLASS_ROWS}
                 </tbody>
               </table>
             </div>
 
-            <!-- Footer -->
-            <div style="background:#f6f8fa;padding:20px 32px;border-top:1px solid #e1e4e8;text-align:center;">
-              <a href="https://theqewheel.github.io/Playwright-Demo-Framework/"
-                style="background:#0d1117;color:#ffffff;padding:11px 26px;border-radius:6px;text-decoration:none;font-size:14px;font-weight:bold;display:inline-block;">
-                🔗 Open Full Allure Report
-              </a>
-              <div style="font-size:11px;color:#8b949e;margin-top:14px;">
-                TheQEWheel Automation Pipeline · GitHub Actions · Past reports retained for 14 days
-                <br/>
-                <a href="https://github.com/theqewheel/Playwright-Demo-Framework/actions" style="color:#58a6ff;">View all runs →</a>
+            <!-- ═══════════════ FOOTER ═══════════════ -->
+            <div style="background:#f6f8fa;padding:24px 32px;border-top:1px solid #e8eaed;text-align:center;">
+              <div style="margin-bottom:16px;font-size:12px;color:#6e7781;">
+                💾 Past reports retained as workflow artifacts for <b>14 days</b>
+              </div>
+              <table align="center" cellpadding="0" cellspacing="0">
+                <tr>
+                  <td style="padding-right:12px;">
+                    <a href="https://theqewheel.github.io/Playwright-Demo-Framework/"
+                      style="background:#0d1117;color:#ffffff;padding:11px 22px;border-radius:6px;text-decoration:none;font-size:13px;font-weight:bold;display:inline-block;">
+                      🔗 Latest Allure Report
+                    </a>
+                  </td>
+                  <td>
+                    <a href="https://github.com/theqewheel/Playwright-Demo-Framework/actions/workflows/test-and-report.yml"
+                      style="background:#ffffff;color:#0d1117;padding:11px 22px;border-radius:6px;text-decoration:none;font-size:13px;font-weight:bold;display:inline-block;border:1px solid #d0d7de;">
+                      📂 All Runs — 14 Day History
+                    </a>
+                  </td>
+                </tr>
+              </table>
+              <div style="font-size:11px;color:#8b949e;margin-top:16px;">
+                TheQEWheel Automation Pipeline · Powered by GitHub Actions
               </div>
             </div>
 

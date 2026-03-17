@@ -45,19 +45,14 @@ jobs:
         run: |
           TOTAL=0; PASSED=0; FAILED=0; SKIPPED=0; BROKEN=0
 
-          # ✅ KEY FIX — For each unique class name, keep only the SMALLEST file.
-          # Why: parallel runs generate two XMLs per class —
-          #   (1) TEST-test.ae.HomeTests.xml     → small  → 2 tests  (CORRECT)
-          #   (2) TEST-TestSuite.xml             → large  → 26 tests (WRONG aggregate)
-          # The aggregate always has more bytes than the individual class file.
-          # So smallest file = real per-class data. Always.
+          # ✅ Smallest file per class = real per-class XML
+          # Large file = suite aggregate XML — must be ignored
           declare -A CLASS_FILE
 
           for f in $(find target/surefire-reports -name "TEST-*.xml" 2>/dev/null); do
             CLASS=$(grep -oP 'classname="\K[^"]+' "$f" | head -1 | awk -F. '{print $NF}')
             [ -z "$CLASS" ] && continue
             SIZE=$(wc -c < "$f")
-
             if [ -z "${CLASS_FILE[$CLASS]+x}" ]; then
               CLASS_FILE[$CLASS]="$SIZE $f"
             else
@@ -113,7 +108,6 @@ jobs:
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          # ✅ safe_date — no colons or spaces, avoids artifact name error
           name: allure-report-${{ steps.summary.outputs.safe_date }}
           path: Playwright_Demo_Framework/target/site/allure-maven-plugin/
           retention-days: 14
@@ -131,7 +125,6 @@ jobs:
           TEST_BLOCK="Release 1.0 Testing for AE"
 
           # ── Section 2: Per-class breakdown ──
-          # ✅ Same smallest-file-per-class fix as Get test summary step
           CLASS_ROWS=""
           declare -A CLASS_FILE
 
@@ -139,7 +132,6 @@ jobs:
             CLASS=$(grep -oP 'classname="\K[^"]+' "$f" | head -1 | awk -F. '{print $NF}')
             [ -z "$CLASS" ] && continue
             SIZE=$(wc -c < "$f")
-
             if [ -z "${CLASS_FILE[$CLASS]+x}" ]; then
               CLASS_FILE[$CLASS]="$SIZE $f"
             else
@@ -150,7 +142,6 @@ jobs:
             fi
           done
 
-          # Sort class names alphabetically for consistent table order
           for CLASS in $(echo "${!CLASS_FILE[@]}" | tr ' ' '\n' | sort); do
             f=$(echo "${CLASS_FILE[$CLASS]}" | awk '{print $2}')
             CT=0; CP=0; CF=0; CS=0; CE=0
@@ -179,19 +170,22 @@ jobs:
             </tr>"
           done
 
-          # ── SVG Donut Chart values ──
+          # ── Bar chart percentage widths ──
+          # ✅ Integer % used as HTML table cell widths — email-safe, no SVG needed
           if [ "$T" -gt 0 ]; then
-            PIE_P=$(echo "scale=2; $P * 251.2 / $T" | bc)
-            PIE_F=$(echo "scale=2; $F * 251.2 / $T" | bc)
-            PIE_S=$(echo "scale=2; $S * 251.2 / $T" | bc)
-            PIE_B=$(echo "scale=2; $B * 251.2 / $T" | bc)
-            OFF_F=$(echo "scale=2; $PIE_P" | bc)
-            OFF_S=$(echo "scale=2; $PIE_P + $PIE_F" | bc)
-            OFF_B=$(echo "scale=2; $PIE_P + $PIE_F + $PIE_S" | bc)
+            PIE_PCT_P=$(echo "$P * 100 / $T" | bc)
+            PIE_PCT_F=$(echo "$F * 100 / $T" | bc)
+            PIE_PCT_S=$(echo "$S * 100 / $T" | bc)
+            PIE_PCT_B=$(echo "$B * 100 / $T" | bc)
           else
-            PIE_P=251.2; PIE_F=0; PIE_S=0; PIE_B=0
-            OFF_F=0; OFF_S=0; OFF_B=0
+            PIE_PCT_P=0; PIE_PCT_F=0; PIE_PCT_S=0; PIE_PCT_B=0
           fi
+
+          # Ensure bars with count > 0 show at least a sliver (min 2%)
+          [ "$P" -gt 0 ] && [ "$PIE_PCT_P" -eq 0 ] && PIE_PCT_P=2
+          [ "$F" -gt 0 ] && [ "$PIE_PCT_F" -eq 0 ] && PIE_PCT_F=2
+          [ "$S" -gt 0 ] && [ "$PIE_PCT_S" -eq 0 ] && PIE_PCT_S=2
+          [ "$B" -gt 0 ] && [ "$PIE_PCT_B" -eq 0 ] && PIE_PCT_B=2
 
           if [ "$F" -eq 0 ] && [ "$B" -eq 0 ]; then
             STATUS_COLOR="#2da44e"
@@ -229,6 +223,7 @@ jobs:
                 Section 1 — Suite Details
               </div>
 
+              <!-- Suite summary table -->
               <table width="100%" cellpadding="0" cellspacing="0"
                 style="border-collapse:collapse;border:1px solid #e8eaed;border-radius:8px;overflow:hidden;font-size:13px;">
                 <tr style="background:#f8f9fa;">
@@ -257,55 +252,106 @@ jobs:
                 </tr>
               </table>
 
-              <!-- Donut Chart + Legend -->
+              <!-- ✅ Stat Cards + Horizontal Bar Chart -->
+              <!-- SVG not used — Gmail/Outlook strip SVG entirely -->
+              <!-- Pure HTML table approach renders in every email client -->
               <div style="margin-top:24px;">
-                <table width="100%" cellpadding="0" cellspacing="0">
+
+                <!-- Stat Cards Row -->
+                <table width="100%" cellpadding="0" cellspacing="0" style="margin-bottom:24px;">
                   <tr>
-                    <td width="190" valign="middle" align="center">
-                      <svg width="170" height="170" viewBox="0 0 100 100">
-                        <circle cx="50" cy="50" r="40" fill="none" stroke="#e1e4e8" stroke-width="20"/>
-                        <circle cx="50" cy="50" r="40" fill="none" stroke="#2da44e" stroke-width="20"
-                          stroke-dasharray="${PIE_P} 251.2" stroke-dashoffset="0"
-                          transform="rotate(-90 50 50)"/>
-                        <circle cx="50" cy="50" r="40" fill="none" stroke="#cf222e" stroke-width="20"
-                          stroke-dasharray="${PIE_F} 251.2" stroke-dashoffset="-${OFF_F}"
-                          transform="rotate(-90 50 50)"/>
-                        <circle cx="50" cy="50" r="40" fill="none" stroke="#6e7781" stroke-width="20"
-                          stroke-dasharray="${PIE_S} 251.2" stroke-dashoffset="-${OFF_S}"
-                          transform="rotate(-90 50 50)"/>
-                        <circle cx="50" cy="50" r="40" fill="none" stroke="#bf8700" stroke-width="20"
-                          stroke-dasharray="${PIE_B} 251.2" stroke-dashoffset="-${OFF_B}"
-                          transform="rotate(-90 50 50)"/>
-                        <text x="50" y="45" text-anchor="middle" font-size="15" font-weight="bold" fill="#0d1117">${T}</text>
-                        <text x="50" y="57" text-anchor="middle" font-size="7.5" fill="#6e7781">TOTAL</text>
-                      </svg>
+                    <td width="25%" style="padding:4px;">
+                      <div style="background:#f0fff4;border:1px solid #2da44e;border-radius:8px;padding:14px 8px;text-align:center;">
+                        <div style="font-size:28px;font-weight:bold;color:#2da44e;">${P}</div>
+                        <div style="font-size:11px;color:#555;margin-top:3px;">✅ Passed</div>
+                      </div>
                     </td>
-                    <td valign="middle" style="padding-left:16px;">
-                      <table cellpadding="7" cellspacing="0">
+                    <td width="25%" style="padding:4px;">
+                      <div style="background:#fff5f5;border:1px solid #cf222e;border-radius:8px;padding:14px 8px;text-align:center;">
+                        <div style="font-size:28px;font-weight:bold;color:#cf222e;">${F}</div>
+                        <div style="font-size:11px;color:#555;margin-top:3px;">❌ Failed</div>
+                      </div>
+                    </td>
+                    <td width="25%" style="padding:4px;">
+                      <div style="background:#f6f8fa;border:1px solid #6e7781;border-radius:8px;padding:14px 8px;text-align:center;">
+                        <div style="font-size:28px;font-weight:bold;color:#6e7781;">${S}</div>
+                        <div style="font-size:11px;color:#555;margin-top:3px;">⏭ Skipped</div>
+                      </div>
+                    </td>
+                    <td width="25%" style="padding:4px;">
+                      <div style="background:#fffbf0;border:1px solid #bf8700;border-radius:8px;padding:14px 8px;text-align:center;">
+                        <div style="font-size:28px;font-weight:bold;color:#bf8700;">${B}</div>
+                        <div style="font-size:11px;color:#555;margin-top:3px;">🔧 Broken</div>
+                      </div>
+                    </td>
+                  </tr>
+                </table>
+
+                <!-- Horizontal Bar Chart -->
+                <div style="font-size:12px;color:#6e7781;margin-bottom:12px;font-weight:bold;text-transform:uppercase;letter-spacing:0.5px;">
+                  Test Distribution
+                </div>
+
+                <!-- Passed -->
+                <table width="100%" cellpadding="0" cellspacing="0" style="margin-bottom:10px;">
+                  <tr>
+                    <td width="68" style="font-size:12px;color:#555;padding-right:10px;white-space:nowrap;">Passed</td>
+                    <td>
+                      <table width="100%" cellpadding="0" cellspacing="0" style="background:#f0f0f0;border-radius:4px;overflow:hidden;height:18px;">
                         <tr>
-                          <td><span style="display:inline-block;width:13px;height:13px;background:#2da44e;border-radius:3px;"></span></td>
-                          <td style="font-size:13px;color:#555;padding-left:8px;">Passed</td>
-                          <td style="font-size:20px;font-weight:bold;color:#2da44e;padding-left:20px;">${P}</td>
-                        </tr>
-                        <tr>
-                          <td><span style="display:inline-block;width:13px;height:13px;background:#cf222e;border-radius:3px;"></span></td>
-                          <td style="font-size:13px;color:#555;padding-left:8px;">Failed</td>
-                          <td style="font-size:20px;font-weight:bold;color:#cf222e;padding-left:20px;">${F}</td>
-                        </tr>
-                        <tr>
-                          <td><span style="display:inline-block;width:13px;height:13px;background:#6e7781;border-radius:3px;"></span></td>
-                          <td style="font-size:13px;color:#555;padding-left:8px;">Skipped</td>
-                          <td style="font-size:20px;font-weight:bold;color:#6e7781;padding-left:20px;">${S}</td>
-                        </tr>
-                        <tr>
-                          <td><span style="display:inline-block;width:13px;height:13px;background:#bf8700;border-radius:3px;"></span></td>
-                          <td style="font-size:13px;color:#555;padding-left:8px;">Broken</td>
-                          <td style="font-size:20px;font-weight:bold;color:#bf8700;padding-left:20px;">${B}</td>
+                          <td width="${PIE_PCT_P}%" style="background:#2da44e;height:18px;border-radius:4px 0 0 4px;"></td>
+                          <td style="font-size:11px;color:#555;padding-left:8px;">${P} &nbsp;<span style="color:#aaa;">(${PIE_PCT_P}%)</span></td>
                         </tr>
                       </table>
                     </td>
                   </tr>
                 </table>
+
+                <!-- Failed -->
+                <table width="100%" cellpadding="0" cellspacing="0" style="margin-bottom:10px;">
+                  <tr>
+                    <td width="68" style="font-size:12px;color:#555;padding-right:10px;white-space:nowrap;">Failed</td>
+                    <td>
+                      <table width="100%" cellpadding="0" cellspacing="0" style="background:#f0f0f0;border-radius:4px;overflow:hidden;height:18px;">
+                        <tr>
+                          <td width="${PIE_PCT_F}%" style="background:#cf222e;height:18px;border-radius:4px 0 0 4px;"></td>
+                          <td style="font-size:11px;color:#555;padding-left:8px;">${F} &nbsp;<span style="color:#aaa;">(${PIE_PCT_F}%)</span></td>
+                        </tr>
+                      </table>
+                    </td>
+                  </tr>
+                </table>
+
+                <!-- Skipped -->
+                <table width="100%" cellpadding="0" cellspacing="0" style="margin-bottom:10px;">
+                  <tr>
+                    <td width="68" style="font-size:12px;color:#555;padding-right:10px;white-space:nowrap;">Skipped</td>
+                    <td>
+                      <table width="100%" cellpadding="0" cellspacing="0" style="background:#f0f0f0;border-radius:4px;overflow:hidden;height:18px;">
+                        <tr>
+                          <td width="${PIE_PCT_S}%" style="background:#6e7781;height:18px;border-radius:4px 0 0 4px;"></td>
+                          <td style="font-size:11px;color:#555;padding-left:8px;">${S} &nbsp;<span style="color:#aaa;">(${PIE_PCT_S}%)</span></td>
+                        </tr>
+                      </table>
+                    </td>
+                  </tr>
+                </table>
+
+                <!-- Broken -->
+                <table width="100%" cellpadding="0" cellspacing="0" style="margin-bottom:4px;">
+                  <tr>
+                    <td width="68" style="font-size:12px;color:#555;padding-right:10px;white-space:nowrap;">Broken</td>
+                    <td>
+                      <table width="100%" cellpadding="0" cellspacing="0" style="background:#f0f0f0;border-radius:4px;overflow:hidden;height:18px;">
+                        <tr>
+                          <td width="${PIE_PCT_B}%" style="background:#bf8700;height:18px;border-radius:4px 0 0 4px;"></td>
+                          <td style="font-size:11px;color:#555;padding-left:8px;">${B} &nbsp;<span style="color:#aaa;">(${PIE_PCT_B}%)</span></td>
+                        </tr>
+                      </table>
+                    </td>
+                  </tr>
+                </table>
+
               </div>
             </div>
 

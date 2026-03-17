@@ -44,24 +44,32 @@ jobs:
         id: summary
         run: |
           TOTAL=0; PASSED=0; FAILED=0; SKIPPED=0; BROKEN=0
-          SEEN_CLASSES=""
 
-          for f in $(find target/surefire-reports -name "TEST-*.xml" 2>/dev/null | sort); do
+          # ✅ KEY FIX — For each unique class name, keep only the SMALLEST file.
+          # Why: parallel runs generate two XMLs per class —
+          #   (1) TEST-test.ae.HomeTests.xml     → small  → 2 tests  (CORRECT)
+          #   (2) TEST-TestSuite.xml             → large  → 26 tests (WRONG aggregate)
+          # The aggregate always has more bytes than the individual class file.
+          # So smallest file = real per-class data. Always.
+          declare -A CLASS_FILE
 
-            # ✅ Extract short class name from file
+          for f in $(find target/surefire-reports -name "TEST-*.xml" 2>/dev/null); do
             CLASS=$(grep -oP 'classname="\K[^"]+' "$f" | head -1 | awk -F. '{print $NF}')
+            [ -z "$CLASS" ] && continue
+            SIZE=$(wc -c < "$f")
 
-            # ✅ Deduplication — parallel runs generate multiple XMLs for same class
-            # We skip any class we have already counted
-            if echo "$SEEN_CLASSES" | grep -qw "$CLASS"; then
-              echo "⏭ Skipping duplicate XML for: $CLASS"
-              continue
+            if [ -z "${CLASS_FILE[$CLASS]+x}" ]; then
+              CLASS_FILE[$CLASS]="$SIZE $f"
+            else
+              EXISTING_SIZE=$(echo "${CLASS_FILE[$CLASS]}" | awk '{print $1}')
+              if [ "$SIZE" -lt "$EXISTING_SIZE" ]; then
+                CLASS_FILE[$CLASS]="$SIZE $f"
+              fi
             fi
-            SEEN_CLASSES="$SEEN_CLASSES $CLASS"
+          done
 
-            # ✅ Count <testcase lines directly — not tests= attribute on <testsuite>
-            # tests= attribute gets duplicated across summary + class XMLs
-            # <testcase lines are always exactly 1 per real test method
+          for entry in "${CLASS_FILE[@]}"; do
+            f=$(echo "$entry" | awk '{print $2}')
             while IFS= read -r line; do
               TOTAL=$((TOTAL + 1))
               if echo "$line" | grep -q "<failure"; then
@@ -88,11 +96,8 @@ jobs:
           echo "skipped=$SKIPPED" >> $GITHUB_OUTPUT
           echo "broken=$BROKEN"   >> $GITHUB_OUTPUT
           echo "status=$STATUS"   >> $GITHUB_OUTPUT
-          # Human readable — used in email subject and body
           echo "date=$(date +'%d %b %Y %H:%M UTC')"      >> $GITHUB_OUTPUT
-          # Safe date — no colons/spaces — used for artifact name only
           echo "safe_date=$(date +'%d-%b-%Y_%H%M-UTC')"  >> $GITHUB_OUTPUT
-          # Timezone variants for email header
           echo "ist=$(TZ='Asia/Kolkata'     date +'%d %b %Y %H:%M IST')" >> $GITHUB_OUTPUT
           echo "est=$(TZ='America/New_York' date +'%d %b %Y %H:%M EST')" >> $GITHUB_OUTPUT
 
@@ -108,7 +113,7 @@ jobs:
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          # ✅ safe_date avoids colon error — colons not allowed in artifact names
+          # ✅ safe_date — no colons or spaces, avoids artifact name error
           name: allure-report-${{ steps.summary.outputs.safe_date }}
           path: Playwright_Demo_Framework/target/site/allure-maven-plugin/
           retention-days: 14
@@ -126,19 +131,28 @@ jobs:
           TEST_BLOCK="Release 1.0 Testing for AE"
 
           # ── Section 2: Per-class breakdown ──
-          # ✅ Same deduplication logic as Get test summary step
+          # ✅ Same smallest-file-per-class fix as Get test summary step
           CLASS_ROWS=""
-          SEEN_CLASSES=""
+          declare -A CLASS_FILE
 
-          for f in $(find target/surefire-reports -name "TEST-*.xml" 2>/dev/null | sort); do
-            SHORT_CLASS=$(grep -oP 'classname="\K[^"]+' "$f" | head -1 | awk -F. '{print $NF}')
+          for f in $(find target/surefire-reports -name "TEST-*.xml" 2>/dev/null); do
+            CLASS=$(grep -oP 'classname="\K[^"]+' "$f" | head -1 | awk -F. '{print $NF}')
+            [ -z "$CLASS" ] && continue
+            SIZE=$(wc -c < "$f")
 
-            # ✅ Skip duplicate class files — same class should not appear twice in table
-            if echo "$SEEN_CLASSES" | grep -qw "$SHORT_CLASS"; then
-              continue
+            if [ -z "${CLASS_FILE[$CLASS]+x}" ]; then
+              CLASS_FILE[$CLASS]="$SIZE $f"
+            else
+              EXISTING_SIZE=$(echo "${CLASS_FILE[$CLASS]}" | awk '{print $1}')
+              if [ "$SIZE" -lt "$EXISTING_SIZE" ]; then
+                CLASS_FILE[$CLASS]="$SIZE $f"
+              fi
             fi
-            SEEN_CLASSES="$SEEN_CLASSES $SHORT_CLASS"
+          done
 
+          # Sort class names alphabetically for consistent table order
+          for CLASS in $(echo "${!CLASS_FILE[@]}" | tr ' ' '\n' | sort); do
+            f=$(echo "${CLASS_FILE[$CLASS]}" | awk '{print $2}')
             CT=0; CP=0; CF=0; CS=0; CE=0
 
             while IFS= read -r line; do
@@ -156,7 +170,7 @@ jobs:
 
             CLASS_ROWS="${CLASS_ROWS}
             <tr>
-              <td style='padding:9px 14px;border-bottom:1px solid #f0f0f0;font-size:13px;color:#24292f;font-weight:500;'>${SHORT_CLASS}</td>
+              <td style='padding:9px 14px;border-bottom:1px solid #f0f0f0;font-size:13px;color:#24292f;font-weight:500;'>${CLASS}</td>
               <td style='padding:9px 14px;border-bottom:1px solid #f0f0f0;font-size:13px;text-align:center;color:#24292f;'>${CT}</td>
               <td style='padding:9px 14px;border-bottom:1px solid #f0f0f0;font-size:13px;text-align:center;color:#2da44e;font-weight:bold;'>${CP}</td>
               <td style='padding:9px 14px;border-bottom:1px solid #f0f0f0;font-size:13px;text-align:center;color:#cf222e;font-weight:bold;'>${CF}</td>

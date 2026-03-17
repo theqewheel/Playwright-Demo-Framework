@@ -39,7 +39,7 @@ public class ContactUsTests extends BaseTest {
 				"autobot@gmail.com",
 				"Query on New Test Cases for Performance",
 				"Hi There, Can you also add few test cases for performance testing the application.");
-		contactUsPage.uploadFileFromLocalDirectory("C:\\Users\\theqe\\Downloads\\Science.pdf");
+		//contactUsPage.uploadFileFromLocalDirectory("C:\\Users\\theqe\\Downloads\\Science.pdf");
 		contactUsPage.uploadFileFromProjectDirectory("test1.txt");
 		contactUsPage.clickSubmit();
 		contactUsPage.verifySuccessMessage();

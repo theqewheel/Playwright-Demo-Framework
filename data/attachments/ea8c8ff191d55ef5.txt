@@ -1,0 +1,12 @@
+
+-------------------------------------------------------------------------
+               INVOICE ADDRESS ON CHECKOUT
+-------------------------------------------------------------------------
+Title Fullname  : Mr. Maye Dibbert
+Company Name    : Streich-Macejkovic
+Address Line1   : 1902 Osinski Parkways
+Address Line2   : Apt. 599
+Address Line3   : Lake Melania North Carolina 361471
+Country         : United States
+Phone           : 0782758840
+-------------------------------------------------------------------------

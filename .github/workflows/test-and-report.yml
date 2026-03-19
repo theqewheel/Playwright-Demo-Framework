@@ -57,7 +57,8 @@ jobs:
           if [ ! -d "$RESULTS_DIR" ]; then
             echo "⚠️ No allure-results directory found!"
           else
-            for f in "$RESULTS_DIR"/*.json; do
+            # ✅ Only read *-result.json — not containers or attachments
+            for f in "$RESULTS_DIR"/*-result.json; do
               [ -f "$f" ] || continue
               STATUS_VAL=$(grep -oP '"status"\s*:\s*"\K[^"]+' "$f" | head -1)
               case "$STATUS_VAL" in
@@ -119,26 +120,27 @@ jobs:
           SUITE_NAME="Playwright Demo Framework Tests - TA1"
           TEST_BLOCK="Release 1.0 Testing for AE"
 
-          # ── Per-class breakdown from allure-results JSON ──────────────────
+          # ── Per-class breakdown from allure-results ───────────────────────
           CLASS_ROWS=""
           declare -A C_TOTAL C_PASS C_FAIL C_SKIP C_BROKEN
 
-          for f in target/allure-results/*.json; do
+          for f in target/allure-results/*-result.json; do
             [ -f "$f" ] || continue
 
-            # Get class name from fullName field e.g. test.ae.HomeTests#methodName
+            # ✅ fullName: test.ae.HomeTests#testMethod
+            # → strip #method → take last segment after dot = HomeTests
             FULL=$(grep -oP '"fullName"\s*:\s*"\K[^"]+' "$f" | head -1)
-            CLASS=$(echo "$FULL" | awk -F. '{print $NF}' | awk -F'#' '{print $1}')
+            CLASS=$(echo "$FULL" | awk -F'#' '{print $1}' | awk -F'.' '{print $NF}')
             [ -z "$CLASS" ] && continue
 
             STATUS_VAL=$(grep -oP '"status"\s*:\s*"\K[^"]+' "$f" | head -1)
 
             C_TOTAL[$CLASS]=$(( ${C_TOTAL[$CLASS]:-0} + 1 ))
             case "$STATUS_VAL" in
-              passed)  C_PASS[$CLASS]=$(( ${C_PASS[$CLASS]:-0} + 1 ))   ;;
-              failed)  C_FAIL[$CLASS]=$(( ${C_FAIL[$CLASS]:-0} + 1 ))   ;;
+              passed)  C_PASS[$CLASS]=$(( ${C_PASS[$CLASS]:-0} + 1 ))    ;;
+              failed)  C_FAIL[$CLASS]=$(( ${C_FAIL[$CLASS]:-0} + 1 ))    ;;
               broken)  C_BROKEN[$CLASS]=$(( ${C_BROKEN[$CLASS]:-0} + 1 )) ;;
-              skipped) C_SKIP[$CLASS]=$(( ${C_SKIP[$CLASS]:-0} + 1 ))   ;;
+              skipped) C_SKIP[$CLASS]=$(( ${C_SKIP[$CLASS]:-0} + 1 ))    ;;
             esac
           done
 

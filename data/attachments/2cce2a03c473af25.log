@@ -1,7 +1,0 @@
-2026-03-19 19:21:45 [TestNG-test-Release 1.0 Testing for AE-4] INFO  [qa] [Test_AE7_TC10_Verify_Subscription_Cart_Page] framework.listeners.TestListener - -----------------  STARTING TEST : Test_AE7_TC10_Verify_Subscription_Cart_Page  -----------------
-2026-03-19 19:21:45 [TestNG-test-Release 1.0 Testing for AE-4] INFO  [qa] [Test_AE7_TC10_Verify_Subscription_Cart_Page] test.ae.SubscriptionTests - Running:Step-1
-2026-03-19 19:21:46 [TestNG-test-Release 1.0 Testing for AE-4] INFO  [qa] [Test_AE7_TC10_Verify_Subscription_Cart_Page] pages.ae.HomePage - Navigating to cart
-2026-03-19 19:21:47 [TestNG-test-Release 1.0 Testing for AE-4] INFO  [qa] [Test_AE7_TC10_Verify_Subscription_Cart_Page] test.ae.SubscriptionTests - Running:Step-2
-2026-03-19 19:21:49 [TestNG-test-Release 1.0 Testing for AE-4] INFO  [qa] [Test_AE7_TC10_Verify_Subscription_Cart_Page] framework.listeners.TestListener - {TEST PASSED: Test_AE7_TC10_Verify_Subscription_Cart_Page
-2026-03-19 19:21:49 [TestNG-test-Release 1.0 Testing for AE-4] ERROR [qa] [Test_AE7_TC10_Verify_Subscription_Cart_Page] io.qameta.allure.AllureLifecycle - Could not add attachment: no test is running
-2026-03-19 19:21:49 [TestNG-test-Release 1.0 Testing for AE-4] INFO  [qa] [Test_AE7_TC10_Verify_Subscription_Cart_Page] framework.listeners.TestListener - Screenshot attached: PASSED Screenshot:

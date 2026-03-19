@@ -1,6 +1,0 @@
-2026-03-19 19:21:46 [TestNG-test-Release 1.0 Testing for AE-2] INFO  [qa] [Test_AE2_TC04_Verify_User_Logout] framework.listeners.TestListener - -----------------  STARTING TEST : Test_AE2_TC04_Verify_User_Logout  -----------------
-2026-03-19 19:21:46 [TestNG-test-Release 1.0 Testing for AE-2] INFO  [qa] [Test_AE2_TC04_Verify_User_Logout] test.ae.LoginTests - Running:Step-1
-2026-03-19 19:21:48 [TestNG-test-Release 1.0 Testing for AE-2] INFO  [qa] [Test_AE2_TC04_Verify_User_Logout] test.ae.LoginTests - Running:Step-2
-2026-03-19 19:21:58 [TestNG-test-Release 1.0 Testing for AE-2] INFO  [qa] [Test_AE2_TC04_Verify_User_Logout] framework.listeners.TestListener - {TEST PASSED: Test_AE2_TC04_Verify_User_Logout
-2026-03-19 19:21:58 [TestNG-test-Release 1.0 Testing for AE-2] ERROR [qa] [Test_AE2_TC04_Verify_User_Logout] io.qameta.allure.AllureLifecycle - Could not add attachment: no test is running
-2026-03-19 19:21:58 [TestNG-test-Release 1.0 Testing for AE-2] INFO  [qa] [Test_AE2_TC04_Verify_User_Logout] framework.listeners.TestListener - Screenshot attached: PASSED Screenshot:

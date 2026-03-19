@@ -1,0 +1,135 @@
+2026-03-19 19:42:06 [TestNG-test-Release 1.0 Testing for AE-4] INFO  [qa] [Test_AE10_TC15_Verify_Place_Order_For_Customer_Registered_Before_Checkout] framework.listeners.TestListener - -----------------  STARTING TEST : Test_AE10_TC15_Verify_Place_Order_For_Customer_Registered_Before_Checkout  -----------------
+2026-03-19 19:42:06 [TestNG-test-Release 1.0 Testing for AE-4] INFO  [qa] [Test_AE10_TC15_Verify_Place_Order_For_Customer_Registered_Before_Checkout] test.ae.PlaceOrderTests - Running:Step-1
+2026-03-19 19:42:07 [TestNG-test-Release 1.0 Testing for AE-4] INFO  [qa] [Test_AE10_TC15_Verify_Place_Order_For_Customer_Registered_Before_Checkout] test.ae.PlaceOrderTests - Running:Step-2
+2026-03-19 19:42:18 [TestNG-test-Release 1.0 Testing for AE-4] INFO  [qa] [Test_AE10_TC15_Verify_Place_Order_For_Customer_Registered_Before_Checkout] pages.ae.SignupDetailPage - Checkbox: 'Newsletter' is set to: true
+2026-03-19 19:42:18 [TestNG-test-Release 1.0 Testing for AE-4] INFO  [qa] [Test_AE10_TC15_Verify_Place_Order_For_Customer_Registered_Before_Checkout] pages.ae.SignupDetailPage - Checkbox: 'Special Offers' is set to: false
+2026-03-19 19:42:18 [TestNG-test-Release 1.0 Testing for AE-4] ERROR [qa] [Test_AE10_TC15_Verify_Place_Order_For_Customer_Registered_Before_Checkout] io.qameta.allure.util.NamingUtils - Could not process empty pattern
+2026-03-19 19:42:18 [TestNG-test-Release 1.0 Testing for AE-4] ERROR [qa] [Test_AE10_TC15_Verify_Place_Order_For_Customer_Registered_Before_Checkout] io.qameta.allure.util.NamingUtils - Could not process empty pattern
+2026-03-19 19:42:27 [TestNG-test-Release 1.0 Testing for AE-4] ERROR [qa] [Test_AE10_TC15_Verify_Place_Order_For_Customer_Registered_Before_Checkout] io.qameta.allure.util.NamingUtils - Could not find parameter zipcpde
+2026-03-19 19:42:32 [TestNG-test-Release 1.0 Testing for AE-4] INFO  [qa] [Test_AE10_TC15_Verify_Place_Order_For_Customer_Registered_Before_Checkout] test.ae.PlaceOrderTests - Running:Step-3
+2026-03-19 19:42:33 [TestNG-test-Release 1.0 Testing for AE-4] INFO  [qa] [Test_AE10_TC15_Verify_Place_Order_For_Customer_Registered_Before_Checkout] pages.ae.HomePage - Navigating to Products
+2026-03-19 19:42:33 [TestNG-test-Release 1.0 Testing for AE-4] WARN  [qa] [Test_AE10_TC15_Verify_Place_Order_For_Customer_Registered_Before_Checkout] pages.ae.ProductsPage - Multiple matching products found for - Sleeveless, hence choosing the first match found.
+2026-03-19 19:42:36 [TestNG-test-Release 1.0 Testing for AE-4] INFO  [qa] [Test_AE10_TC15_Verify_Place_Order_For_Customer_Registered_Before_Checkout] pages.ae.ProductsPage - 
+---------------------------------------------------
+Product 1 Added To Cart
+Name  : Sleeveless Dress
+Price : 1000
+------------------------xxxx-----------------------
+
+2026-03-19 19:42:36 [TestNG-test-Release 1.0 Testing for AE-4] WARN  [qa] [Test_AE10_TC15_Verify_Place_Order_For_Customer_Registered_Before_Checkout] pages.ae.ProductsPage - Multiple matching products found for - Unicorn, hence choosing the first match found.
+2026-03-19 19:42:40 [TestNG-test-Release 1.0 Testing for AE-4] INFO  [qa] [Test_AE10_TC15_Verify_Place_Order_For_Customer_Registered_Before_Checkout] pages.ae.ProductsPage - 
+---------------------------------------------------
+Product 2 Added To Cart
+Name  : Sleeveless Unicorn Patch Gown - Pink
+Price : 1050
+------------------------xxxx-----------------------
+
+2026-03-19 19:42:43 [TestNG-test-Release 1.0 Testing for AE-4] INFO  [qa] [Test_AE10_TC15_Verify_Place_Order_For_Customer_Registered_Before_Checkout] pages.ae.ProductsPage - 
+---------------------------------------------------
+Product 3 Added To Cart
+Name  : Winter Top
+Price : 600
+------------------------xxxx-----------------------
+
+2026-03-19 19:42:46 [TestNG-test-Release 1.0 Testing for AE-4] INFO  [qa] [Test_AE10_TC15_Verify_Place_Order_For_Customer_Registered_Before_Checkout] pages.ae.ProductsPage - 
+---------------------------------------------------
+Product 4 Added To Cart
+Name  : Little Girls Mr. Panda Shirt
+Price : 1200
+------------------------xxxx-----------------------
+
+2026-03-19 19:42:46 [TestNG-test-Release 1.0 Testing for AE-4] INFO  [qa] [Test_AE10_TC15_Verify_Place_Order_For_Customer_Registered_Before_Checkout] test.ae.PlaceOrderTests - Running:Step-4
+2026-03-19 19:42:48 [TestNG-test-Release 1.0 Testing for AE-4] INFO  [qa] [Test_AE10_TC15_Verify_Place_Order_For_Customer_Registered_Before_Checkout] pages.ae.HomePage - Navigating to Cart
+2026-03-19 19:42:49 [TestNG-test-Release 1.0 Testing for AE-4] INFO  [qa] [Test_AE10_TC15_Verify_Place_Order_For_Customer_Registered_Before_Checkout] test.ae.PlaceOrderTests - Running:Step-5.1
+2026-03-19 19:42:49 [TestNG-test-Release 1.0 Testing for AE-4] INFO  [qa] [Test_AE10_TC15_Verify_Place_Order_For_Customer_Registered_Before_Checkout] pages.ae.CheckOutPage - 
+-------------------------------------------------------------------------
+               DELIVERY ADDRESS ON CHECKOUT
+-------------------------------------------------------------------------
+Title Fullname  : Mrs. Genaro Gerlach
+Company Name    : Stark and Sons
+Address Line1   : 06198 Monahan Walks
+Address Line2   : Apt. 785
+Address Line3   : South Ricohaven Washington 136322
+Country         : United States
+Phone           : 8531370478
+-------------------------------------------------------------------------
+
+2026-03-19 19:42:49 [TestNG-test-Release 1.0 Testing for AE-4] INFO  [qa] [Test_AE10_TC15_Verify_Place_Order_For_Customer_Registered_Before_Checkout] pages.ae.CheckOutPage - 
+-------------------------------------------------------------------------
+               INVOICE ADDRESS ON CHECKOUT
+-------------------------------------------------------------------------
+Title Fullname  : Mrs. Genaro Gerlach
+Company Name    : Stark and Sons
+Address Line1   : 06198 Monahan Walks
+Address Line2   : Apt. 785
+Address Line3   : South Ricohaven Washington 136322
+Country         : United States
+Phone           : 8531370478
+--------------------------------------------------------------------------
+
+2026-03-19 19:42:49 [TestNG-test-Release 1.0 Testing for AE-4] INFO  [qa] [Test_AE10_TC15_Verify_Place_Order_For_Customer_Registered_Before_Checkout] test.ae.PlaceOrderTests - Running:Step-5.2
+2026-03-19 19:42:49 [TestNG-test-Release 1.0 Testing for AE-4] INFO  [qa] [Test_AE10_TC15_Verify_Place_Order_For_Customer_Registered_Before_Checkout] pages.ae.CheckOutPage - 
+				PRODUCT-1 DETAILS FROM CART
+---------------------------------------------------
+Name        : Sleeveless Dress
+Category    : Women
+SubCategory : Dress
+Price       : 1000
+Quantity    : 1
+Total       : 1000
+----------------------------------------------------
+
+
+2026-03-19 19:42:49 [TestNG-test-Release 1.0 Testing for AE-4] INFO  [qa] [Test_AE10_TC15_Verify_Place_Order_For_Customer_Registered_Before_Checkout] pages.ae.CheckOutPage - 
+				PRODUCT-2 DETAILS FROM CART
+---------------------------------------------------
+Name        : Sleeveless Unicorn Patch Gown - Pink
+Category    : Kids
+SubCategory : Dress
+Price       : 1050
+Quantity    : 1
+Total       : 1050
+----------------------------------------------------
+
+
+2026-03-19 19:42:50 [TestNG-test-Release 1.0 Testing for AE-4] INFO  [qa] [Test_AE10_TC15_Verify_Place_Order_For_Customer_Registered_Before_Checkout] pages.ae.CheckOutPage - 
+				PRODUCT-3 DETAILS FROM CART
+---------------------------------------------------
+Name        : Winter Top
+Category    : Women
+SubCategory : Tops
+Price       : 600
+Quantity    : 1
+Total       : 600
+----------------------------------------------------
+
+
+2026-03-19 19:42:50 [TestNG-test-Release 1.0 Testing for AE-4] INFO  [qa] [Test_AE10_TC15_Verify_Place_Order_For_Customer_Registered_Before_Checkout] pages.ae.CheckOutPage - 
+				PRODUCT-4 DETAILS FROM CART
+---------------------------------------------------
+Name        : Little Girls Mr. Panda Shirt
+Category    : Kids
+SubCategory : Tops & Shirts
+Price       : 1200
+Quantity    : 1
+Total       : 1200
+----------------------------------------------------
+
+
+2026-03-19 19:42:50 [TestNG-test-Release 1.0 Testing for AE-4] INFO  [qa] [Test_AE10_TC15_Verify_Place_Order_For_Customer_Registered_Before_Checkout] pages.ae.CheckOutPage - 
+				CART SUMMARY
+---------------------------------------------------
+Total of <4> Product/s are Added To Cart
+Cart Total Price is '3850'
+----------------------------------------------------
+
+
+2026-03-19 19:42:50 [TestNG-test-Release 1.0 Testing for AE-4] INFO  [qa] [Test_AE10_TC15_Verify_Place_Order_For_Customer_Registered_Before_Checkout] test.ae.PlaceOrderTests - The expected cart total: 3850
+2026-03-19 19:42:50 [TestNG-test-Release 1.0 Testing for AE-4] INFO  [qa] [Test_AE10_TC15_Verify_Place_Order_For_Customer_Registered_Before_Checkout] test.ae.PlaceOrderTests - Running:Step-7
+2026-03-19 19:42:52 [TestNG-test-Release 1.0 Testing for AE-4] INFO  [qa] [Test_AE10_TC15_Verify_Place_Order_For_Customer_Registered_Before_Checkout] test.ae.PlaceOrderTests - Running:Step-8
+2026-03-19 19:42:57 [TestNG-test-Release 1.0 Testing for AE-4] INFO  [qa] [Test_AE10_TC15_Verify_Place_Order_For_Customer_Registered_Before_Checkout] test.ae.PlaceOrderTests - Running:Step-9
+2026-03-19 19:43:00 [TestNG-test-Release 1.0 Testing for AE-4] INFO  [qa] [Test_AE10_TC15_Verify_Place_Order_For_Customer_Registered_Before_Checkout] test.ae.PlaceOrderTests - Running:Step-10
+2026-03-19 19:43:00 [TestNG-test-Release 1.0 Testing for AE-4] INFO  [qa] [Test_AE10_TC15_Verify_Place_Order_For_Customer_Registered_Before_Checkout] test.ae.PlaceOrderTests - Running:Step-11 >>>> Cleanup
+2026-03-19 19:43:02 [TestNG-test-Release 1.0 Testing for AE-4] INFO  [qa] [Test_AE10_TC15_Verify_Place_Order_For_Customer_Registered_Before_Checkout] framework.listeners.TestListener - {TEST PASSED: Test_AE10_TC15_Verify_Place_Order_For_Customer_Registered_Before_Checkout
+2026-03-19 19:43:03 [TestNG-test-Release 1.0 Testing for AE-4] ERROR [qa] [Test_AE10_TC15_Verify_Place_Order_For_Customer_Registered_Before_Checkout] io.qameta.allure.AllureLifecycle - Could not add attachment: no test is running
+2026-03-19 19:43:03 [TestNG-test-Release 1.0 Testing for AE-4] INFO  [qa] [Test_AE10_TC15_Verify_Place_Order_For_Customer_Registered_Before_Checkout] framework.listeners.TestListener - Screenshot attached: PASSED Screenshot:

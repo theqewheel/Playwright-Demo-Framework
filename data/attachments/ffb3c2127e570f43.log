@@ -1,0 +1,73 @@
+2026-03-19 19:42:10 [TestNG-test-Release 1.0 Testing for AE-1] INFO  [qa] [Test_AE9_TC20_Verify_Cart_On_Login] framework.listeners.TestListener - -----------------  STARTING TEST : Test_AE9_TC20_Verify_Cart_On_Login  -----------------
+2026-03-19 19:42:10 [TestNG-test-Release 1.0 Testing for AE-1] INFO  [qa] [Test_AE9_TC20_Verify_Cart_On_Login] test.ae.AddToCartTests - Running:Step-1
+2026-03-19 19:42:11 [TestNG-test-Release 1.0 Testing for AE-1] INFO  [qa] [Test_AE9_TC20_Verify_Cart_On_Login] test.ae.AddToCartTests - Running:Step-2
+2026-03-19 19:42:12 [TestNG-test-Release 1.0 Testing for AE-1] INFO  [qa] [Test_AE9_TC20_Verify_Cart_On_Login] pages.ae.HomePage - Navigating to Products
+2026-03-19 19:42:15 [TestNG-test-Release 1.0 Testing for AE-1] INFO  [qa] [Test_AE9_TC20_Verify_Cart_On_Login] pages.ae.ProductsPage - The searched product - Sleeveless has found 3 matching products.
+2026-03-19 19:42:15 [TestNG-test-Release 1.0 Testing for AE-1] INFO  [qa] [Test_AE9_TC20_Verify_Cart_On_Login] pages.ae.ProductsPage - 
+   Search List of Products
+------------------------------
+Sleeveless Dress, Sleeveless Unicorn Patch Gown - Pink, Sleeveless Unicorn Print Fit & Flare Net Dress - Multi
+------------------------------
+
+2026-03-19 19:42:15 [TestNG-test-Release 1.0 Testing for AE-1] INFO  [qa] [Test_AE9_TC20_Verify_Cart_On_Login] test.ae.AddToCartTests - Running:Step-3
+2026-03-19 19:42:15 [TestNG-test-Release 1.0 Testing for AE-1] INFO  [qa] [Test_AE9_TC20_Verify_Cart_On_Login] pages.ae.ProductsPage - Total Products displayed on screen - 3
+2026-03-19 19:42:17 [TestNG-test-Release 1.0 Testing for AE-1] INFO  [qa] [Test_AE9_TC20_Verify_Cart_On_Login] pages.ae.ProductsPage - 
+---------------------------------------------------
+Product 0: Sleeveless Dress Added To Cart with Price 1000
+----------------------------------------------------
+
+
+2026-03-19 19:42:20 [TestNG-test-Release 1.0 Testing for AE-1] INFO  [qa] [Test_AE9_TC20_Verify_Cart_On_Login] pages.ae.ProductsPage - 
+---------------------------------------------------
+Product 1: Sleeveless Unicorn Patch Gown - Pink Added To Cart with Price 1050
+----------------------------------------------------
+
+
+2026-03-19 19:42:24 [TestNG-test-Release 1.0 Testing for AE-1] INFO  [qa] [Test_AE9_TC20_Verify_Cart_On_Login] pages.ae.ProductsPage - 
+---------------------------------------------------
+Product 2: Sleeveless Unicorn Print Fit & Flare Net Dress - Multi Added To Cart with Price 1100
+----------------------------------------------------
+
+
+2026-03-19 19:42:25 [TestNG-test-Release 1.0 Testing for AE-1] INFO  [qa] [Test_AE9_TC20_Verify_Cart_On_Login] pages.ae.ProductsPage - Total Products added to cart - 3
+2026-03-19 19:42:25 [TestNG-test-Release 1.0 Testing for AE-1] INFO  [qa] [Test_AE9_TC20_Verify_Cart_On_Login] pages.ae.CartPage - 
+---------------------------------------------------
+Product Sleeveless Dress is Visible on Cart
+----------------------------------------------------
+
+
+2026-03-19 19:42:25 [TestNG-test-Release 1.0 Testing for AE-1] INFO  [qa] [Test_AE9_TC20_Verify_Cart_On_Login] pages.ae.CartPage - 
+---------------------------------------------------
+Product Sleeveless Unicorn Patch Gown - Pink is Visible on Cart
+----------------------------------------------------
+
+
+2026-03-19 19:42:25 [TestNG-test-Release 1.0 Testing for AE-1] INFO  [qa] [Test_AE9_TC20_Verify_Cart_On_Login] pages.ae.CartPage - 
+---------------------------------------------------
+Product Sleeveless Unicorn Print Fit & Flare Net Dress - Multi is Visible on Cart
+----------------------------------------------------
+
+
+2026-03-19 19:42:25 [TestNG-test-Release 1.0 Testing for AE-1] INFO  [qa] [Test_AE9_TC20_Verify_Cart_On_Login] test.ae.AddToCartTests - Running:Step-4
+2026-03-19 19:42:31 [TestNG-test-Release 1.0 Testing for AE-1] INFO  [qa] [Test_AE9_TC20_Verify_Cart_On_Login] pages.ae.HomePage - Navigating to Cart
+2026-03-19 19:42:31 [TestNG-test-Release 1.0 Testing for AE-1] INFO  [qa] [Test_AE9_TC20_Verify_Cart_On_Login] pages.ae.CartPage - 
+---------------------------------------------------
+Product Sleeveless Dress is Visible on Cart
+----------------------------------------------------
+
+
+2026-03-19 19:42:31 [TestNG-test-Release 1.0 Testing for AE-1] INFO  [qa] [Test_AE9_TC20_Verify_Cart_On_Login] pages.ae.CartPage - 
+---------------------------------------------------
+Product Sleeveless Unicorn Patch Gown - Pink is Visible on Cart
+----------------------------------------------------
+
+
+2026-03-19 19:42:32 [TestNG-test-Release 1.0 Testing for AE-1] INFO  [qa] [Test_AE9_TC20_Verify_Cart_On_Login] pages.ae.CartPage - 
+---------------------------------------------------
+Product Sleeveless Unicorn Print Fit & Flare Net Dress - Multi is Visible on Cart
+----------------------------------------------------
+
+
+2026-03-19 19:42:32 [TestNG-test-Release 1.0 Testing for AE-1] INFO  [qa] [Test_AE9_TC20_Verify_Cart_On_Login] framework.listeners.TestListener - {TEST PASSED: Test_AE9_TC20_Verify_Cart_On_Login
+2026-03-19 19:42:32 [TestNG-test-Release 1.0 Testing for AE-1] ERROR [qa] [Test_AE9_TC20_Verify_Cart_On_Login] io.qameta.allure.AllureLifecycle - Could not add attachment: no test is running
+2026-03-19 19:42:32 [TestNG-test-Release 1.0 Testing for AE-1] INFO  [qa] [Test_AE9_TC20_Verify_Cart_On_Login] framework.listeners.TestListener - Screenshot attached: PASSED Screenshot:

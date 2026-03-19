@@ -1,0 +1,12 @@
+
+-------------------------------------------------------------------------
+               INVOICE ADDRESS ON CHECKOUT
+-------------------------------------------------------------------------
+Title Fullname  : Mrs. Thanh Gislason
+Company Name    : Cartwright-Schuster
+Address Line1   : 344 McDermott Meadow
+Address Line2   : Suite 255
+Address Line3   : New Dee Texas 016166
+Country         : New Zealand
+Phone           : 3407341231
+-------------------------------------------------------------------------

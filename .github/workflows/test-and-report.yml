@@ -49,53 +49,30 @@ jobs:
         if: always()
         id: summary
         run: |
-          echo "=== DEBUG: Finding surefire XML files ==="
-          find . -name "TEST-*.xml" 2>/dev/null | head -20
-          echo "=== DEBUG: Current directory ==="
-          pwd
-          echo "========================================="
-
+          echo "=== Reading from allure-results ==="
           TOTAL=0; PASSED=0; FAILED=0; SKIPPED=0; BROKEN=0
 
-          declare -A CLASS_FILE
+          RESULTS_DIR="target/allure-results"
 
-          for f in $(find target/surefire-reports -name "TEST-*.xml" 2>/dev/null); do
-            CLASS=$(grep -oP 'classname="\K[^"]+' "$f" | head -1 | awk -F. '{print $NF}')
-            [ -z "$CLASS" ] && continue
-            SIZE=$(wc -c < "$f")
-            if [ -z "${CLASS_FILE[$CLASS]+x}" ]; then
-              CLASS_FILE[$CLASS]="$SIZE $f"
-            else
-              EXISTING_SIZE=$(echo "${CLASS_FILE[$CLASS]}" | awk '{print $1}')
-              if [ "$SIZE" -lt "$EXISTING_SIZE" ]; then
-                CLASS_FILE[$CLASS]="$SIZE $f"
-              fi
-            fi
-          done
-
-          echo "=== DEBUG: Classes found ==="
-          for k in "${!CLASS_FILE[@]}"; do echo "  $k => ${CLASS_FILE[$k]}"; done
-          echo "============================="
-
-          for entry in "${CLASS_FILE[@]}"; do
-            f=$(echo "$entry" | awk '{print $2}')
-            while IFS= read -r line; do
+          if [ ! -d "$RESULTS_DIR" ]; then
+            echo "⚠️ No allure-results directory found!"
+          else
+            for f in "$RESULTS_DIR"/*.json; do
+              [ -f "$f" ] || continue
+              STATUS_VAL=$(grep -oP '"status"\s*:\s*"\K[^"]+' "$f" | head -1)
+              case "$STATUS_VAL" in
+                passed)  PASSED=$((PASSED + 1))  ;;
+                failed)  FAILED=$((FAILED + 1))  ;;
+                broken)  BROKEN=$((BROKEN + 1))  ;;
+                skipped) SKIPPED=$((SKIPPED + 1)) ;;
+              esac
               TOTAL=$((TOTAL + 1))
-              if echo "$line" | grep -q "<failure"; then
-                FAILED=$((FAILED + 1))
-              elif echo "$line" | grep -q "<error"; then
-                BROKEN=$((BROKEN + 1))
-              elif echo "$line" | grep -q "<skipped"; then
-                SKIPPED=$((SKIPPED + 1))
-              else
-                PASSED=$((PASSED + 1))
-              fi
-            done < <(grep '<testcase ' "$f")
-          done
+            done
+          fi
 
-          echo "=== DEBUG: Final counts ==="
+          echo "=== Final counts ==="
           echo "  TOTAL=$TOTAL PASSED=$PASSED FAILED=$FAILED SKIPPED=$SKIPPED BROKEN=$BROKEN"
-          echo "==========================="
+          echo "===================="
 
           if [ "$FAILED" -eq 0 ] && [ "$BROKEN" -eq 0 ]; then
             STATUS="✅ PASSED"
@@ -142,39 +119,35 @@ jobs:
           SUITE_NAME="Playwright Demo Framework Tests - TA1"
           TEST_BLOCK="Release 1.0 Testing for AE"
 
+          # ── Per-class breakdown from allure-results JSON ──────────────────
           CLASS_ROWS=""
-          declare -A CLASS_FILE
+          declare -A C_TOTAL C_PASS C_FAIL C_SKIP C_BROKEN
 
-          for f in $(find target/surefire-reports -name "TEST-*.xml" 2>/dev/null); do
-            CLASS=$(grep -oP 'classname="\K[^"]+' "$f" | head -1 | awk -F. '{print $NF}')
+          for f in target/allure-results/*.json; do
+            [ -f "$f" ] || continue
+
+            # Get class name from fullName field e.g. test.ae.HomeTests#methodName
+            FULL=$(grep -oP '"fullName"\s*:\s*"\K[^"]+' "$f" | head -1)
+            CLASS=$(echo "$FULL" | awk -F. '{print $NF}' | awk -F'#' '{print $1}')
             [ -z "$CLASS" ] && continue
-            SIZE=$(wc -c < "$f")
-            if [ -z "${CLASS_FILE[$CLASS]+x}" ]; then
-              CLASS_FILE[$CLASS]="$SIZE $f"
-            else
-              EXISTING_SIZE=$(echo "${CLASS_FILE[$CLASS]}" | awk '{print $1}')
-              if [ "$SIZE" -lt "$EXISTING_SIZE" ]; then
-                CLASS_FILE[$CLASS]="$SIZE $f"
-              fi
-            fi
+
+            STATUS_VAL=$(grep -oP '"status"\s*:\s*"\K[^"]+' "$f" | head -1)
+
+            C_TOTAL[$CLASS]=$(( ${C_TOTAL[$CLASS]:-0} + 1 ))
+            case "$STATUS_VAL" in
+              passed)  C_PASS[$CLASS]=$(( ${C_PASS[$CLASS]:-0} + 1 ))   ;;
+              failed)  C_FAIL[$CLASS]=$(( ${C_FAIL[$CLASS]:-0} + 1 ))   ;;
+              broken)  C_BROKEN[$CLASS]=$(( ${C_BROKEN[$CLASS]:-0} + 1 )) ;;
+              skipped) C_SKIP[$CLASS]=$(( ${C_SKIP[$CLASS]:-0} + 1 ))   ;;
+            esac
           done
 
-          for CLASS in $(echo "${!CLASS_FILE[@]}" | tr ' ' '\n' | sort); do
-            f=$(echo "${CLASS_FILE[$CLASS]}" | awk '{print $2}')
-            CT=0; CP=0; CF=0; CS=0; CE=0
-
-            while IFS= read -r line; do
-              CT=$((CT + 1))
-              if echo "$line" | grep -q "<failure"; then
-                CF=$((CF + 1))
-              elif echo "$line" | grep -q "<error"; then
-                CE=$((CE + 1))
-              elif echo "$line" | grep -q "<skipped"; then
-                CS=$((CS + 1))
-              else
-                CP=$((CP + 1))
-              fi
-            done < <(grep '<testcase ' "$f")
+          for CLASS in $(echo "${!C_TOTAL[@]}" | tr ' ' '\n' | sort); do
+            CT=${C_TOTAL[$CLASS]:-0}
+            CP=${C_PASS[$CLASS]:-0}
+            CF=${C_FAIL[$CLASS]:-0}
+            CS=${C_SKIP[$CLASS]:-0}
+            CE=${C_BROKEN[$CLASS]:-0}
 
             CLASS_ROWS="${CLASS_ROWS}
             <tr>
@@ -187,6 +160,7 @@ jobs:
             </tr>"
           done
 
+          # ── Bar chart percentages ──────────────────────────────────────────
           if [ "$T" -gt 0 ]; then
             PIE_PCT_P=$(echo "$P * 100 / $T" | bc)
             PIE_PCT_F=$(echo "$F * 100 / $T" | bc)
@@ -265,6 +239,7 @@ jobs:
               </table>
 
               <div style="margin-top:24px;">
+                <!-- Stat Cards -->
                 <table width="100%" cellpadding="0" cellspacing="0" style="margin-bottom:24px;">
                   <tr>
                     <td width="25%" style="padding:4px;">
@@ -294,6 +269,7 @@ jobs:
                   </tr>
                 </table>
 
+                <!-- Bar Chart -->
                 <div style="font-size:12px;color:#6e7781;margin-bottom:12px;font-weight:bold;text-transform:uppercase;letter-spacing:0.5px;">
                   Test Distribution
                 </div>

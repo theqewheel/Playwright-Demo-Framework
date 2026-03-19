@@ -1,0 +1,10 @@
+2026-03-19 19:22:36 [TestNG-test-Release 1.0 Testing for AE-3] INFO  [qa] [Test_AE5_TC19_Verify_Product_Brand_Filtering] framework.listeners.TestListener - -----------------  STARTING TEST : Test_AE5_TC19_Verify_Product_Brand_Filtering  -----------------
+2026-03-19 19:22:36 [TestNG-test-Release 1.0 Testing for AE-3] INFO  [qa] [Test_AE5_TC19_Verify_Product_Brand_Filtering] test.ae.ProductsTests - Running:Step-1
+2026-03-19 19:22:36 [TestNG-test-Release 1.0 Testing for AE-3] INFO  [qa] [Test_AE5_TC19_Verify_Product_Brand_Filtering] test.ae.ProductsTests - Running:Step-2
+2026-03-19 19:22:37 [TestNG-test-Release 1.0 Testing for AE-3] INFO  [qa] [Test_AE5_TC19_Verify_Product_Brand_Filtering] pages.ae.HomePage - Navigating to Products
+2026-03-19 19:22:37 [TestNG-test-Release 1.0 Testing for AE-3] INFO  [qa] [Test_AE5_TC19_Verify_Product_Brand_Filtering] test.ae.ProductsTests - Running:Step-3
+2026-03-19 19:22:39 [TestNG-test-Release 1.0 Testing for AE-3] ERROR [qa] [Test_AE5_TC19_Verify_Product_Brand_Filtering] pages.ae.ProductsPage - The category navigation displayed is not >> BABYHUG, Actual: Babyhug
+2026-03-19 19:22:41 [TestNG-test-Release 1.0 Testing for AE-3] ERROR [qa] [Test_AE5_TC19_Verify_Product_Brand_Filtering] pages.ae.ProductsPage - The category navigation displayed is not >> MaDame, Actual: Madame
+2026-03-19 19:22:41 [TestNG-test-Release 1.0 Testing for AE-3] INFO  [qa] [Test_AE5_TC19_Verify_Product_Brand_Filtering] framework.listeners.TestListener - {TEST PASSED: Test_AE5_TC19_Verify_Product_Brand_Filtering
+2026-03-19 19:22:41 [TestNG-test-Release 1.0 Testing for AE-3] ERROR [qa] [Test_AE5_TC19_Verify_Product_Brand_Filtering] io.qameta.allure.AllureLifecycle - Could not add attachment: no test is running
+2026-03-19 19:22:41 [TestNG-test-Release 1.0 Testing for AE-3] INFO  [qa] [Test_AE5_TC19_Verify_Product_Brand_Filtering] framework.listeners.TestListener - Screenshot attached: PASSED Screenshot:

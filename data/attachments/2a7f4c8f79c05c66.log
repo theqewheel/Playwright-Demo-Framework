@@ -1,7 +1,0 @@
-2026-03-19 19:06:07 [TestNG-test-Release 1.0 Testing for AE-1] INFO  [qa] [Test_AE1_TC05_Verify_Existing_Email_SignUp] framework.listeners.TestListener - -----------------  STARTING TEST : Test_AE1_TC05_Verify_Existing_Email_SignUp  -----------------
-2026-03-19 19:06:07 [TestNG-test-Release 1.0 Testing for AE-1] INFO  [qa] [Test_AE1_TC05_Verify_Existing_Email_SignUp] test.ae.SignupTests - Running:Step-1
-2026-03-19 19:06:09 [TestNG-test-Release 1.0 Testing for AE-1] INFO  [qa] [Test_AE1_TC05_Verify_Existing_Email_SignUp] test.ae.SignupTests - Running:Step-2
-2026-03-19 19:06:11 [TestNG-test-Release 1.0 Testing for AE-1] INFO  [qa] [Test_AE1_TC05_Verify_Existing_Email_SignUp] test.ae.SignupTests - Running:Step-3
-2026-03-19 19:06:15 [TestNG-test-Release 1.0 Testing for AE-1] INFO  [qa] [Test_AE1_TC05_Verify_Existing_Email_SignUp] framework.listeners.TestListener - {TEST PASSED: Test_AE1_TC05_Verify_Existing_Email_SignUp
-2026-03-19 19:06:15 [TestNG-test-Release 1.0 Testing for AE-1] ERROR [qa] [Test_AE1_TC05_Verify_Existing_Email_SignUp] io.qameta.allure.AllureLifecycle - Could not add attachment: no test is running
-2026-03-19 19:06:15 [TestNG-test-Release 1.0 Testing for AE-1] INFO  [qa] [Test_AE1_TC05_Verify_Existing_Email_SignUp] framework.listeners.TestListener - Screenshot attached: PASSED Screenshot:

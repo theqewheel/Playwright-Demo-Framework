@@ -1,0 +1,11 @@
+2026-03-19 19:21:15 [TestNG-test-Release 1.0 Testing for AE-4] INFO  [qa] [Test_AE3_TC06_Verify_Contact_Us_Form_Submission_Guest_User] framework.listeners.TestListener - -----------------  STARTING TEST : Test_AE3_TC06_Verify_Contact_Us_Form_Submission_Guest_User  -----------------
+2026-03-19 19:21:15 [TestNG-test-Release 1.0 Testing for AE-4] INFO  [qa] [Test_AE3_TC06_Verify_Contact_Us_Form_Submission_Guest_User] test.ae.ContactUsTests - Running:Step-1
+2026-03-19 19:21:18 [TestNG-test-Release 1.0 Testing for AE-4] INFO  [qa] [Test_AE3_TC06_Verify_Contact_Us_Form_Submission_Guest_User] test.ae.ContactUsTests - Running:Step-2
+2026-03-19 19:21:20 [TestNG-test-Release 1.0 Testing for AE-4] INFO  [qa] [Test_AE3_TC06_Verify_Contact_Us_Form_Submission_Guest_User] pages.ae.HomePage - Navigating to Contact us
+2026-03-19 19:21:21 [TestNG-test-Release 1.0 Testing for AE-4] INFO  [qa] [Test_AE3_TC06_Verify_Contact_Us_Form_Submission_Guest_User] test.ae.ContactUsTests - Running:Step-3
+2026-03-19 19:21:24 [TestNG-test-Release 1.0 Testing for AE-4] ERROR [qa] [Test_AE3_TC06_Verify_Contact_Us_Form_Submission_Guest_User] io.qameta.allure.util.NamingUtils - Could not find parameter query
+2026-03-19 19:21:26 [TestNG-test-Release 1.0 Testing for AE-4] INFO  [qa] [Test_AE3_TC06_Verify_Contact_Us_Form_Submission_Guest_User] pages.ae.ContactUsPage - Accepting the Dialog Alert: Press OK to proceed!
+2026-03-19 19:21:28 [TestNG-test-Release 1.0 Testing for AE-4] INFO  [qa] [Test_AE3_TC06_Verify_Contact_Us_Form_Submission_Guest_User] test.ae.ContactUsTests - Running:Step-4
+2026-03-19 19:21:31 [TestNG-test-Release 1.0 Testing for AE-4] INFO  [qa] [Test_AE3_TC06_Verify_Contact_Us_Form_Submission_Guest_User] framework.listeners.TestListener - {TEST PASSED: Test_AE3_TC06_Verify_Contact_Us_Form_Submission_Guest_User
+2026-03-19 19:21:33 [TestNG-test-Release 1.0 Testing for AE-4] ERROR [qa] [Test_AE3_TC06_Verify_Contact_Us_Form_Submission_Guest_User] io.qameta.allure.AllureLifecycle - Could not add attachment: no test is running
+2026-03-19 19:21:33 [TestNG-test-Release 1.0 Testing for AE-4] INFO  [qa] [Test_AE3_TC06_Verify_Contact_Us_Form_Submission_Guest_User] framework.listeners.TestListener - Screenshot attached: PASSED Screenshot:

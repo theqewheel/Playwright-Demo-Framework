@@ -142,6 +142,7 @@ public class PlaceOrderTests extends BaseTest {
 		page.onResponse(response -> {
 			if (page.getByText("order has been placed").count() > 0) {
 				checkOutPage.verifyTextMessageDisplayed("Your order has been placed successfully!", true);
+				captureScreenshot("Order placement message");
 			}
 		});
 
@@ -195,20 +196,15 @@ public class PlaceOrderTests extends BaseTest {
 		Map<String, String> productDetails = productsPage
 				.addMultipleProductsToCartAndRetreiveProductDetails(productsToOrderList);
 
-		// Step-4 Go to cart and proceed to checkout
+		// Step-4 Navigate to Cart and proceed to checkout
 		logger.info("Running:Step-4");
-		homePage.clickMenu("Cart");
-		cartPage.clickProceedToCheckout();
-
-		// Step-5 Navigate to Cart and proceed to checkout
-		logger.info("Running:Step-5");
 		homePage.clickMenu("Cart");
 		cartPage.clickProceedToCheckout();
 		cartPage.waitUntilPageLoadCompletes();
 		cartPage.verifyPageLoaded("/checkout", "Checkout");
 
-		// Step-6 Verify address details
-		logger.info("Running:Step-6.1");
+		// Step-5 Verify address details
+		logger.info("Running:Step-5.1");
 		Map<String, String> deliveryAddressOnCheckout = checkOutPage.fetchDeliveryAddress();
 		softAssert.assertEquals(deliveryAddressOnCheckout.get("AddressLine1"),
 				(data.getPersonalInfo().getGender().equals("Male") ? "Mr" : "Mrs") + ". "
@@ -235,8 +231,8 @@ public class PlaceOrderTests extends BaseTest {
 		softAssert.assertEquals(invoiceAddressOnCheckout, deliveryAddressOnCheckout,
 				"The invoice and delivery address on Check-out are not equal!");
 
-		// Step 6 Review Order Details
-		logger.info("Running:Step-6.2");
+		// Step 5 Review Order Details
+		logger.info("Running:Step-5.2");
 		int calculatedCartTotals = 0;
 		Map<String, String> cartProductDetails = checkOutPage.readAllCartProductDetails();
 		for (int i = 1; i <= prodCount; i++) {
@@ -323,7 +319,7 @@ public class PlaceOrderTests extends BaseTest {
 		signupDetailPage.clickContinue();
 		homePage.verifyTextMessageDisplayed("Logged in as " + data.getAccountInfo().getUsername(), true);
 		homePage.clickLogOut();
-
+		
 		// Step-2 Login to account (You can supply a valid credential here -- not
 		// recommended though!)
 		logger.info("Running:Step-2");
@@ -340,20 +336,15 @@ public class PlaceOrderTests extends BaseTest {
 		Map<String, String> productDetails = productsPage
 				.addMultipleProductsToCartAndRetreiveProductDetails(productsToOrderList);
 
-		// Step-4 Go to cart and proceed to checkout
+		// Step-4 Navigate to Cart and proceed to checkout
 		logger.info("Running:Step-4");
-		homePage.clickMenu("Cart");
-		cartPage.clickProceedToCheckout();
-
-		// Step-5 Navigate to Cart and proceed to checkout
-		logger.info("Running:Step-5");
 		homePage.clickMenu("Cart");
 		cartPage.clickProceedToCheckout();
 		cartPage.waitUntilPageLoadCompletes();
 		cartPage.verifyPageLoaded("/checkout", "Checkout");
 
-		// Step-6 Verify address details
-		logger.info("Running:Step-6.1");
+		// Step-5 Verify address details
+		logger.info("Running:Step-5.1");
 		Map<String, String> deliveryAddressOnCheckout = checkOutPage.fetchDeliveryAddress();
 		softAssert.assertEquals(deliveryAddressOnCheckout.get("AddressLine1"),
 				(data.getPersonalInfo().getGender().equals("Male") ? "Mr" : "Mrs") + ". "
@@ -380,8 +371,8 @@ public class PlaceOrderTests extends BaseTest {
 		softAssert.assertEquals(invoiceAddressOnCheckout, deliveryAddressOnCheckout,
 				"The invoice and delivery address on Check-out are not equal!");
 
-		// Step 6 Review Order Details
-		logger.info("Running:Step-6.2");
+		// Step 5 Review Order Details
+		logger.info("Running:Step-5.2");
 		int calculatedCartTotals = 0;
 		Map<String, String> cartProductDetails = checkOutPage.readAllCartProductDetails();
 		for (int i = 1; i <= prodCount; i++) {
@@ -423,6 +414,7 @@ public class PlaceOrderTests extends BaseTest {
 		page.onResponse(response -> {
 			if (page.getByText("order has been placed").count() > 0) {
 				checkOutPage.verifyTextMessageDisplayed("Your order has been placed successfully!", true);
+				captureScreenshot("Order placement message");
 			}
 		});
 
@@ -473,21 +465,16 @@ public class PlaceOrderTests extends BaseTest {
 		int prodCount = 2; // update for more count of products
 		productsPage.addMultipleProductsToCartAndRetreiveProductDetails(prodCount);
 
-		// Step-4 Go to cart and proceed to checkout
+		// Step-4 Navigate to Cart and proceed to checkout
 		logger.info("Running:Step-4");
-		homePage.clickMenu("Cart");
-		cartPage.clickProceedToCheckout();
-
-		// Step-5 Navigate to Cart and proceed to checkout
-		logger.info("Running:Step-5");
 		homePage.clickMenu("Cart");
 		cartPage.clickProceedToCheckout();
 		cartPage.waitUntilPageLoadCompletes();
 		cartPage.verifyPageLoaded("/checkout", "Checkout");
 
-		// Step-6 Verify delivery address details is same as that provided during
+		// Step-5 Verify delivery address details is same as that provided during
 		// sign-up
-		logger.info("Running:Step-6");
+		logger.info("Running:Step-5");
 		Map<String, String> deliveryAddressOnCheckout = checkOutPage.fetchDeliveryAddress();
 		softAssert.assertEquals(deliveryAddressOnCheckout.get("AddressLine1"),
 				(data.getPersonalInfo().getGender().equals("Male") ? "Mr" : "Mrs") + ". "

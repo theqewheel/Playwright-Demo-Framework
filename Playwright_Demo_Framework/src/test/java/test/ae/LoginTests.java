@@ -67,7 +67,6 @@ public class LoginTests extends BaseTest {
 		signupLoginPage.EnterLoginDetails("autobot@gmail.com", "admin@123");
 		signupLoginPage.ClickLogin();
 		homePage.verifyInvalidLoginError();
-
 	}
 
 	@Test(description = "AE2_TC05 - Verify logging out from the application", groups = { "regression" })

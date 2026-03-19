@@ -53,6 +53,7 @@ public class ProductsPage extends BasePage {
 	@Step("Verify products list on load - default")
 	public void verifyProductsListonLoad() {
 		if (ProductCardsDiv.count() < 1) {
+			captureScreenshot();
 			Assert.fail("No products displayed on ALL Products page - default load");
 		}
 	}
@@ -63,6 +64,7 @@ public class ProductsPage extends BasePage {
 		searchProductsButton.click();
 		page.waitForLoadState();
 		try {
+			captureScreenshot();
 			assertThat(page.getByText("Searched Products")).isVisible();
 		} catch (Exception e) {
 			softAssert.fail("Page Header - Searched Products is not visible");
@@ -98,6 +100,7 @@ public class ProductsPage extends BasePage {
 	@Step("Verify category page displayed")
 	public void verifyCategoryPageDisplay(String Category, String subCategory) {
 
+		captureScreenshot();
 		verifyPageLoaded("category_products", subCategory);
 
 		// verify the navigation title for featured products
@@ -170,6 +173,7 @@ public class ProductsPage extends BasePage {
 	@Step("Verify success message on clicking - Add to cart")
 	public void verifyAddtoCartSuccessMessage() {
 		try {
+			captureScreenshot();
 			assertThat(page.getByText("Your product has been added to cart.")).isVisible();
 		} catch (Exception e) {
 			softAssert.fail("Success Message on Adding to cart is not visible");
@@ -188,12 +192,15 @@ public class ProductsPage extends BasePage {
 
 	@Step("Verify Subscription is success from Products Page")
 	public void verifySubscriptionSuccessfromProductsPage() {
+		captureScreenshot();
 		Assert.assertEquals(super.verifySubscriptionSuccess(), true);
 	}
 
 	@Step("Verify Searched Products for the search keyword '{productName}'")
 	public void verifySearchedProducts(String productName) {
 
+		captureScreenshot();
+		
 		int productCount = getProductCard(productName).count();
 
 		Assert.assertTrue(productCount > 0,
@@ -241,6 +248,8 @@ public class ProductsPage extends BasePage {
 	@Step("Verify Searched Products for the keyword '{productName}' has expected count of products as '{listCount}'")
 	public void verifySearchedProducts(String productName, int listCount) {
 
+		captureScreenshot();
+		
 		int productCountActual = getProductCard(productName).count();
 
 		if (productCountActual == listCount) {
@@ -379,6 +388,8 @@ public class ProductsPage extends BasePage {
 	@Step("Verify brand page displayed for the brand - '{brandName}'")
 	public void verifyBrandPageDisplay(String brandName) {
 
+		captureScreenshot();
+		
 		verifyPageLoaded("brand_products", brandName);
 
 		// verify the navigation title for featured products
@@ -588,6 +599,7 @@ public class ProductsPage extends BasePage {
 	public void verifyRecommendedSectionDisplayed() {
 
 		recommendedSectionHeader.scrollIntoViewIfNeeded();
+		captureScreenshot();
 		Assert.assertTrue(recommendedSectionHeader.isVisible(), "The recommended items section is not visible");
 		Assert.assertEquals(recommendedSectionHeader.textContent().trim().toUpperCase(),
 				"Recommended Items".toUpperCase());
@@ -627,16 +639,17 @@ public class ProductsPage extends BasePage {
 		}
 
 		// when product is active on carousel
+		captureScreenshot();
 		getActiveRecommendedProducts(productName).locator(".add-to-cart").click();
 		logger.info("Added recommended Product '{}' to cart.", productName);
 	}
 
 	@Step("Add any active recommended product to the shopping cart")
 	public String addActiveRecommendedProductToCart() {
-
 		Locator recommendedProduct = recommendedProducts.locator(".item.active .product-image-wrapper").first();
 		String productName = recommendedProduct.locator("p").textContent().trim();
 		recommendedProduct.locator("a").click();
+		captureScreenshot();
 		logger.info("Added recommended Product '{}' to cart.", productName);
 		clickViewCart();
 		ReportManager.addParameter("Product Name", productName);

@@ -34,16 +34,19 @@ public class HomePage extends BasePage {
 	@Step("Click Signup / Login link")
 	public void clickSignupLoginLink() {
 		SignupLoginLink.click();
+		captureScreenshot();
 	}
 	
 	@Step("Click delete account link")
 	public void clickDeleteAccount() {
 		DeleteAccountLink.click();
+		captureScreenshot();
 	}
 	
 	@Step("Click logout link")
 	public void clickLogOut() {
 		LogOutLink.click();
+		captureScreenshot();
 	}
 	
 	@Step("Get the logged in username")
@@ -56,6 +59,7 @@ public class HomePage extends BasePage {
 	
 	@Step("Verify Invalid Email Error on Login")
 	public void verifyInvalidLoginError() {
+		captureScreenshot();
 		String errorMessage = page.getByText("Your email or password is incorrect").textContent().trim();
 		assertEquals(errorMessage, "Your email or password is incorrect!", "Incorrect Login credentials");
 	}
@@ -68,11 +72,13 @@ public class HomePage extends BasePage {
 	
 	@Step("Verify Subscription Section Header in Home Page")
 	public void verifySubscriptionHeaderHomePage() {
+		captureScreenshot();
 		Assert.assertEquals(super.verifySubscriptionHeaderVisibility(), true); 
 	}
 	
 	@Step("Verify Subscription is success from Home Page")
 	public void verifySubscriptionSuccessfromHomePage() {
+		captureScreenshot();
 		Assert.assertEquals(super.verifySubscriptionSuccess(), true); 
 	}
 

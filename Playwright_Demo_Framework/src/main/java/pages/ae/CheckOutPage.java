@@ -130,6 +130,8 @@ public class CheckOutPage extends BasePage {
 		// ✅ Attach to Allure — shows as collapsible section in report
 		ReportManager.attachTextContentAsSection("Checkout-Delivery Address Details", allureReport.toString());
 
+		captureScreenshot();
+		
 		return deliveryAddressMap;
 
 	}
@@ -199,6 +201,8 @@ public class CheckOutPage extends BasePage {
 		// ✅ Attach to Allure — shows as collapsible section in report
 		ReportManager.attachTextContentAsSection("Checkout-Invoice Address Details", allureReport.toString());
 
+		captureScreenshot();
+		
 		return invoiceAddressMap;
 
 	}
@@ -208,11 +212,13 @@ public class CheckOutPage extends BasePage {
 		if (comment.isBlank())
 			comment = "The order placed should be delivered as early as possible to the delivery address.";
 		checkoutComment.fill(comment);
+		captureScreenshot();
 	}
 
 	@Step("Click place order button")
 	public void clickPlaceOrder() {
 		placeOrderButton.click();
+		captureScreenshot();
 	}
 
 	@Step("Read delivery address displayed on checkout page")
@@ -316,7 +322,7 @@ public class CheckOutPage extends BasePage {
 				Cart Total Price is '{}'
 				----------------------------------------------------
 
-				""", rowCount, productMap.get("Overall Total"));
+				""", rowCount-1, productMap.get("Overall Total"));
 
 		// ✅ Build the same formatted string for Allure
 		StringBuilder allureReport = new StringBuilder();
@@ -346,7 +352,7 @@ public class CheckOutPage extends BasePage {
 				Total of <%d> Product/s are Added To Cart
 				Cart Total Price is '%s'
 				---------------------------------------------------
-				""", rowCount, productMap.get("Overall Total")));
+				""", rowCount-1, productMap.get("Overall Total")));
 
 		// ✅ Attach to Allure — shows as collapsible section in report
 		ReportManager.attachTextContentAsSection("Cart Details", allureReport.toString());

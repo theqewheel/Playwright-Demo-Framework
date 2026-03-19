@@ -88,6 +88,7 @@ public class ContactUsPage extends BasePage {
 	
 	@Step("Verify Contact Us Form submission is success")
 	public void verifySuccessMessage() {
+		captureScreenshot();
 		String message = SuccessMessage.textContent().trim();
 		assertEquals(message, "Success! Your details have been submitted successfully.","Invalid Success Message");
 	}
@@ -98,6 +99,7 @@ public class ContactUsPage extends BasePage {
 		enterEmail(email);
 		enterSubject(subject);
 		enterQuery(queryMessage);
+		captureScreenshot();
 	}
 	
 	@Step("Click Home button")

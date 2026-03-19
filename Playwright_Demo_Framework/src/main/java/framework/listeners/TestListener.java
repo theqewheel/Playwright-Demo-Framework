@@ -1,5 +1,8 @@
 package framework.listeners;
 
+import java.nio.file.Files;
+import java.nio.file.Path;
+
 import org.slf4j.Logger;
 import org.slf4j.MDC;
 import org.testng.IInvokedMethod;
@@ -14,6 +17,7 @@ import com.microsoft.playwright.Page;
 import framework.config.ConfigManager;
 import framework.drivers.DriverManager;
 import framework.logging.LogManager;
+import io.qameta.allure.Allure;
 import reporting.ReportManager;
 
 public class TestListener implements ITestListener, ISuiteListener, IInvokedMethodListener  {
@@ -51,6 +55,9 @@ public class TestListener implements ITestListener, ISuiteListener, IInvokedMeth
 		logger.info("==============================================");
 		logger.info("Finished Suite: {}", suite.getName());
 		logger.info("================XXXXXXXXXXXXXX================");
+		
+	    // ✅ Attach suite-level log to Allure
+	    attachSuiteLog();
 	}
 
 	/**
@@ -192,23 +199,50 @@ public class TestListener implements ITestListener, ISuiteListener, IInvokedMeth
 	 */
 
 	private void attachScreenshot(String name, ITestResult result) {
+        try {
+            // ✅ Static getter — gets THIS thread's page from ThreadLocal
+            // Never use new DriverManager().getPage() — always returns null!
+            Page page = DriverManager.getCurrentPage();
 
-		Page page = new DriverManager().getPage();
+            if (page != null) {
+                byte[] screenshot = page.screenshot(
+                    new Page.ScreenshotOptions().setFullPage(true)
+                );
+                ReportManager.attachScreenshot(name, screenshot);
 
-		if (page != null) {
-
-			// capture screenshot with Playwright
-
-			byte[] screenshot = page.screenshot(new Page.ScreenshotOptions().setFullPage(true));
-
-			// attach screenshot with Report Manager
-
-			ReportManager.attachScreenshot(name, screenshot);
-
-			if (result.getStatus() == ITestResult.FAILURE) {
-				ReportManager.logStep("Test failed: {}" + result.getThrowable().getMessage());
-			}
-		}
+                if (result.getStatus() == ITestResult.FAILURE
+                        && result.getThrowable() != null) {
+                    ReportManager.logStep(
+                        "Test failed: " + result.getThrowable().getMessage()
+                    );
+                }
+                logger.info("Screenshot attached: {}", name);
+            } else {
+                logger.warn("Page is null — screenshot skipped for: {}", name);
+            }
+        } catch (Exception e) {
+            logger.error("Failed to attach screenshot in listener: {}",
+                    e.getMessage());
+        }
+    }
+	
+	private void attachSuiteLog() {
+	    try {
+	        Path suiteLog = Path.of("logs/tests/suite-execution.log");
+	        if (Files.exists(suiteLog)) {
+	            ReportManager.addFileAttachement(
+	                "📋 Suite Execution Log",
+	                "text/plain",
+	                suiteLog,
+	                ".log"
+	            );
+	            logger.info("Suite log attached to Allure.");
+	        } else {
+	            logger.warn("Suite log not found: {}", suiteLog);
+	        }
+	    } catch (Exception e) {
+	        logger.error("Failed to attach suite log: {}", e.getMessage());
+	    }
 	}
-
 }
+

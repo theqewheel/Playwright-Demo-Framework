@@ -1,5 +1,9 @@
 package base;
 
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+
 import org.slf4j.Logger;
 import org.testng.ITestResult;
 import org.testng.annotations.AfterMethod;
@@ -8,6 +12,7 @@ import org.testng.annotations.Listeners;
 import org.testng.asserts.SoftAssert;
 
 import com.microsoft.playwright.Page;
+import com.microsoft.playwright.Tracing;
 
 import framework.drivers.DriverManager;
 import framework.listeners.TestListener;
@@ -22,69 +27,221 @@ import pages.ae.ProductsPage;
 import pages.ae.SignupDetailPage;
 import pages.ae.SignupLoginPage;
 import pages.ae.TestCasesPage;
+import reporting.ReportManager;
 
 @Listeners(TestListener.class)
 public class BaseTest {
 
-	protected Page page;
-	protected Logger logger;
-	protected SoftAssert softAssert;
-	protected DriverManager driver;
-	protected HomePage homePage;
-	protected SignupLoginPage signupLoginPage;
-	protected ContactUsPage contactUsPage;
-	protected ProductsPage productsPage;
-	protected SignupDetailPage signupDetailPage;
-	protected TestCasesPage testCasesPage;
-	protected CartPage cartPage;
-	protected CheckOutPage checkOutPage;
-	protected ProductDetailPage productDetailPage;
+    protected Page              page;
+    protected Logger            logger;
+    protected SoftAssert        softAssert;
+    protected DriverManager     driver;
+    protected HomePage          homePage;
+    protected SignupLoginPage   signupLoginPage;
+    protected ContactUsPage     contactUsPage;
+    protected ProductsPage      productsPage;
+    protected SignupDetailPage  signupDetailPage;
+    protected TestCasesPage     testCasesPage;
+    protected CartPage          cartPage;
+    protected CheckOutPage      checkOutPage;
+    protected ProductDetailPage productDetailPage;
 
-	@BeforeMethod
-	public void setup() {
+    /** 
+    * ══════════════════════════════════════════════════════════════════════════
+    * SETUP - RUN Before every test method
+    * ══════════════════════════════════════════════════════════════════════════
+    */
+    
+    @BeforeMethod
+    public void setup() {
 
-		logger = LogManager.getLogger(this.getClass());
+        logger     = LogManager.getLogger(this.getClass());
+        driver     = new DriverManager();
+        softAssert = new SoftAssert();
 
-		driver = new DriverManager();
+        driver.initDriver();
 
-		driver.initDriver();
+        page = driver.getPage();
 
-		page = driver.getPage();
+        logger.info("Initial SETUP completed.");
 
-		logger.info("Initial SETUP is completed.");
+        // ── Initialize page objects ───────────────────────────────────────────
+        homePage          = new HomePage(page, softAssert);
+        signupLoginPage   = new SignupLoginPage(page, softAssert);
+        contactUsPage     = new ContactUsPage(page, softAssert);
+        productsPage      = new ProductsPage(page, softAssert);
+        signupDetailPage  = new SignupDetailPage(page, softAssert);
+        testCasesPage     = new TestCasesPage(page, softAssert);
+        cartPage          = new CartPage(page, softAssert);
+        checkOutPage      = new CheckOutPage(page, softAssert);
+        productDetailPage = new ProductDetailPage(page, softAssert);
+    }
 
-		softAssert = new SoftAssert();
+    /** 
+    * ══════════════════════════════════════════════════════════════════════════
+    * TEARDOWN - RUN After every test method
+    * ══════════════════════════════════════════════════════════════════════════
+    */
+  
+    @AfterMethod
+    public void teardown(ITestResult result) {
 
-		// initialize page classes
-		homePage = new HomePage(page, softAssert);
-		signupLoginPage = new SignupLoginPage(page, softAssert);
-		contactUsPage = new ContactUsPage(page, softAssert);
-		productsPage = new ProductsPage(page, softAssert);
-		signupDetailPage = new SignupDetailPage(page, softAssert);
-		testCasesPage = new TestCasesPage(page, softAssert);
-		cartPage = new CartPage(page, softAssert);
-		checkOutPage = new CheckOutPage(page, softAssert);
-		productDetailPage = new ProductDetailPage(page, softAssert);
-	}
+        // ── 1. Soft assert check ──────────────────────────────────────────────
+        AssertionError softAssertError = null;
+        try {
+            softAssert.assertAll();
+        } catch (AssertionError e) {
+            softAssertError = e;
+            result.setStatus(ITestResult.FAILURE);
+            result.setThrowable(e);
+            logger.error("Soft assertion failure in: {}", result.getName());
+        }
 
-	@AfterMethod
-	@Step("Exit the Application")
-	public void teardown(ITestResult result) {
+        // ── 2. Capture everything BEFORE driver closes ────────────────────────
+        Path tracePath = null;
+        Path videoPath = null;
 
-		try {
-			softAssert.assertAll(); // throws assertion error if failures exist
-		} catch (AssertionError e) {
-			result.setStatus(ITestResult.FAILURE); //mark failure
-			result.setThrowable(e); //re-throw so listener catches it
-			throw e;
-		} finally { 
-			driver.quitDriver(); //always runs
-			logger.info("Driver SHUTDOWN is successfull !");
-		}
-	}
+        try {
+            // ── Stop trace ────────────────────────────────────────────────────
+            tracePath = Files.createTempFile(
+                "trace-" + result.getName() + "-", ".zip"
+            );
+            driver.getContext().tracing().stop(
+                new Tracing.StopOptions().setPath(tracePath)
+            );
+            logger.info("Trace stopped for: {}", result.getName());
+        } catch (Exception e) {
+            logger.error("Failed to stop trace: {}", e.getMessage());
+        }
 
-	protected byte[] captureScreenshot() {
-		return page.screenshot(new Page.ScreenshotOptions().setFullPage(true));
-	}
+        try {
+            // ── Get video path — while page still open ────────────────────────
+            if (page.video() != null) {
+                videoPath = page.video().path();
+            }
+        } catch (Exception e) {
+            logger.warn("Could not get video path: {}", e.getMessage());
+        }
 
+        // ── 3. Attach after driver closes — finally guarantees driver always closes
+        try {
+            // Nothing here — attachments happen in finally AFTER driver closes
+        } finally {
+
+            // ✅ ALWAYS runs — driver closes here no matter what failed above
+            try {
+                driver.quitDriver();
+                logger.info("Driver shutdown successful.");
+            } catch (Exception e) {
+                logger.error("Error during driver shutdown: {}", e.getMessage());
+            }
+
+            // ── Attach trace ──────────────────────────────────────────────────
+            try {
+                if (tracePath != null && Files.exists(tracePath)) {
+                    ReportManager.addFileAttachement(
+                        "🎭 Playwright Trace — " + result.getName(),
+                        "application/zip",
+                        tracePath,
+                        ".zip"
+                    );
+                    ReportManager.logStep(
+                        "Trace captured. Download and open at https://trace.playwright.dev"
+                    );
+                    logger.info("Trace attached for: {}", result.getName());
+                }
+            } catch (Exception e) {
+                logger.error("Failed to attach trace: {}", e.getMessage());
+            } finally {
+                deleteTempFile(tracePath, "trace");
+            }
+
+            // ── Attach video ──────────────────────────────────────────────────
+            try {
+                if (videoPath != null && Files.exists(videoPath)) {
+                    ReportManager.addFileAttachement(
+                        "🎬 Test Video — " + result.getName(),
+                        "video/webm",
+                        videoPath,
+                        ".webm"
+                    );
+                    logger.info("Video attached for: {}", result.getName());
+                }
+            } catch (Exception e) {
+                logger.error("Failed to attach video: {}", e.getMessage());
+            } finally {
+                deleteTempFile(videoPath, "video");
+                driver.cleanVideoDir();
+            }
+
+            // ── Attach log file ───────────────────────────────────────────────
+            try {
+                Path logPath = getLogFilePath(result.getName());
+                if (logPath != null && Files.exists(logPath)) {
+                    ReportManager.addFileAttachement(
+                        "📋 Test Log — " + result.getName(),
+                        "text/plain",
+                        logPath,
+                        ".log"
+                    );
+                    logger.info("Log file attached for: {}", result.getName());
+                }
+            } catch (Exception e) {
+                logger.error("Failed to attach log file: {}", e.getMessage());
+            }
+        }
+
+        // ── 4. Mark failures on Soft Assertions so TestNG marks test correctly ─────────────────
+        if (softAssertError != null) {
+            result.setStatus(ITestResult.FAILURE);
+            result.setThrowable(softAssertError);
+        }
+    }
+
+    /** 
+    * ══════════════════════════════════════════════════════════════════════════
+    * HELPERS
+    * ══════════════════════════════════════════════════════════════════════════
+    */
+  
+    // ── Manual screenshot for use inside test methods ─────────────────────────
+    protected void captureScreenshot(String stepDescription) {
+        try {
+            byte[] screenshot = page.screenshot(
+                new Page.ScreenshotOptions().setFullPage(true)
+            );
+            ReportManager.attachScreenshot("📸 Screenshot - " + stepDescription, screenshot);
+        } catch (Exception e) {
+            logger.error("Manual screenshot failed: {}", e.getMessage());
+        }
+    }
+
+    // ── Get per-test log file path ─────────────────────────────────────────────
+    // SiftingAppender writes one file per test to logs/tests/{testname}.log
+    private Path getLogFilePath(String testName) {
+        try {
+            Path logFile = Path.of("logs/tests/" + testName + ".log");
+            if (Files.exists(logFile)) {
+                return logFile;
+            } else {
+                logger.warn("Log file not found for test: {}", testName);
+            }
+        } catch (Exception e) {
+            logger.warn("Could not locate log file: {}", e.getMessage());
+        }
+        return null;
+    }
+
+    // ── Delete temp file safely ────────────────────────────────────────────────
+    private void deleteTempFile(Path path, String type) {
+        if (path != null) {
+            try {
+                Files.deleteIfExists(path);
+                logger.info("{} temp file deleted from disk.", type);
+            } catch (IOException e) {
+                logger.warn("Could not delete {} temp file: {}", type,
+                        e.getMessage());
+            }
+        }
+    }
 }

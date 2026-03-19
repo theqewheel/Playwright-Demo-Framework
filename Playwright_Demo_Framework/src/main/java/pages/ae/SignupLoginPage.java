@@ -69,6 +69,7 @@ public class SignupLoginPage extends BasePage {
 	public void EnterLoginDetails(String email, String password) {
 		EnterLoginEmail(email);
 		EnterLoginPassword(password);
+		captureScreenshot();
 	}
 
 	@Step("Click sign up button")
@@ -85,6 +86,7 @@ public class SignupLoginPage extends BasePage {
 	public void verifyPageHeader(String pagename, String expectedHeader) {
 
 		try {
+			captureScreenshot();
 			switch (pagename.toLowerCase()) {
 
 			case "signup":
@@ -107,6 +109,7 @@ public class SignupLoginPage extends BasePage {
 	@Step("Verify error message for signing up with existing email")
 	public void verifyErrorForExistingEmailSignUp() {
 
+		captureScreenshot();
 		if (page.getByText("Email Address already exist!") != null) {
 
 			String errorMsg = page.getByText("Email Address already exist!").textContent().trim();

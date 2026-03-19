@@ -1,0 +1,12 @@
+
+-------------------------------------------------------------------------
+               INVOICE ADDRESS ON CHECKOUT
+-------------------------------------------------------------------------
+Title Fullname  : Mrs. Kyla Bahringer
+Company Name    : Roob-Lehner
+Address Line1   : 1930 Beahan Green
+Address Line2   : Suite 728
+Address Line3   : Lake Evieshire Arizona 674273
+Country         : India
+Phone           : 5182347238
+-------------------------------------------------------------------------

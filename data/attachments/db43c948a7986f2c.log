@@ -1,0 +1,58 @@
+2026-03-19 18:41:44 [TestNG-test-Release 1.0 Testing for AE-4] INFO  [qa] [Test_AE10_TC23_Verify_Address_On_Checkout] framework.listeners.TestListener - -----------------  STARTING TEST : Test_AE10_TC23_Verify_Address_On_Checkout  -----------------
+2026-03-19 18:41:44 [TestNG-test-Release 1.0 Testing for AE-4] INFO  [qa] [Test_AE10_TC23_Verify_Address_On_Checkout] test.ae.PlaceOrderTests - Running:Step-1
+2026-03-19 18:41:45 [TestNG-test-Release 1.0 Testing for AE-4] INFO  [qa] [Test_AE10_TC23_Verify_Address_On_Checkout] test.ae.PlaceOrderTests - Running:Step-2
+2026-03-19 18:41:55 [TestNG-test-Release 1.0 Testing for AE-4] INFO  [qa] [Test_AE10_TC23_Verify_Address_On_Checkout] pages.ae.SignupDetailPage - Checkbox: 'Newsletter' is set to: false
+2026-03-19 18:41:56 [TestNG-test-Release 1.0 Testing for AE-4] INFO  [qa] [Test_AE10_TC23_Verify_Address_On_Checkout] pages.ae.SignupDetailPage - Checkbox: 'Special Offers' is set to: true
+2026-03-19 18:41:56 [TestNG-test-Release 1.0 Testing for AE-4] ERROR [qa] [Test_AE10_TC23_Verify_Address_On_Checkout] io.qameta.allure.util.NamingUtils - Could not process empty pattern
+2026-03-19 18:41:56 [TestNG-test-Release 1.0 Testing for AE-4] ERROR [qa] [Test_AE10_TC23_Verify_Address_On_Checkout] io.qameta.allure.util.NamingUtils - Could not process empty pattern
+2026-03-19 18:42:04 [TestNG-test-Release 1.0 Testing for AE-4] ERROR [qa] [Test_AE10_TC23_Verify_Address_On_Checkout] io.qameta.allure.util.NamingUtils - Could not find parameter zipcpde
+2026-03-19 18:42:09 [TestNG-test-Release 1.0 Testing for AE-4] INFO  [qa] [Test_AE10_TC23_Verify_Address_On_Checkout] test.ae.PlaceOrderTests - Running:Step-3
+2026-03-19 18:42:10 [TestNG-test-Release 1.0 Testing for AE-4] INFO  [qa] [Test_AE10_TC23_Verify_Address_On_Checkout] pages.ae.HomePage - Navigating to Products
+2026-03-19 18:42:14 [TestNG-test-Release 1.0 Testing for AE-4] INFO  [qa] [Test_AE10_TC23_Verify_Address_On_Checkout] pages.ae.ProductsPage - 
+---------------------------------------------------
+Product 1 Added To Cart
+Name  : Blue Top
+Price : 500
+------------------------xxxx-----------------------
+
+2026-03-19 18:42:17 [TestNG-test-Release 1.0 Testing for AE-4] INFO  [qa] [Test_AE10_TC23_Verify_Address_On_Checkout] pages.ae.ProductsPage - 
+---------------------------------------------------
+Product 2 Added To Cart
+Name  : Men Tshirt
+Price : 400
+------------------------xxxx-----------------------
+
+2026-03-19 18:42:17 [TestNG-test-Release 1.0 Testing for AE-4] INFO  [qa] [Test_AE10_TC23_Verify_Address_On_Checkout] test.ae.PlaceOrderTests - Running:Step-4
+2026-03-19 18:42:18 [TestNG-test-Release 1.0 Testing for AE-4] INFO  [qa] [Test_AE10_TC23_Verify_Address_On_Checkout] pages.ae.HomePage - Navigating to Cart
+2026-03-19 18:42:19 [TestNG-test-Release 1.0 Testing for AE-4] INFO  [qa] [Test_AE10_TC23_Verify_Address_On_Checkout] test.ae.PlaceOrderTests - Running:Step-5
+2026-03-19 18:42:19 [TestNG-test-Release 1.0 Testing for AE-4] INFO  [qa] [Test_AE10_TC23_Verify_Address_On_Checkout] pages.ae.CheckOutPage - 
+-------------------------------------------------------------------------
+               DELIVERY ADDRESS ON CHECKOUT
+-------------------------------------------------------------------------
+Title Fullname  : Mrs. Kyla Bahringer
+Company Name    : Roob-Lehner
+Address Line1   : 1930 Beahan Green
+Address Line2   : Suite 728
+Address Line3   : Lake Evieshire Arizona 674273
+Country         : India
+Phone           : 5182347238
+-------------------------------------------------------------------------
+
+2026-03-19 18:42:20 [TestNG-test-Release 1.0 Testing for AE-4] INFO  [qa] [Test_AE10_TC23_Verify_Address_On_Checkout] pages.ae.CheckOutPage - 
+-------------------------------------------------------------------------
+               INVOICE ADDRESS ON CHECKOUT
+-------------------------------------------------------------------------
+Title Fullname  : Mrs. Kyla Bahringer
+Company Name    : Roob-Lehner
+Address Line1   : 1930 Beahan Green
+Address Line2   : Suite 728
+Address Line3   : Lake Evieshire Arizona 674273
+Country         : India
+Phone           : 5182347238
+--------------------------------------------------------------------------
+
+2026-03-19 18:42:20 [TestNG-test-Release 1.0 Testing for AE-4] INFO  [qa] [Test_AE10_TC23_Verify_Address_On_Checkout] test.ae.PlaceOrderTests - Running:Step-7
+2026-03-19 18:42:20 [TestNG-test-Release 1.0 Testing for AE-4] INFO  [qa] [Test_AE10_TC23_Verify_Address_On_Checkout] test.ae.PlaceOrderTests - Running:Step-8 >>>> Cleanup
+2026-03-19 18:42:22 [TestNG-test-Release 1.0 Testing for AE-4] INFO  [qa] [Test_AE10_TC23_Verify_Address_On_Checkout] framework.listeners.TestListener - {TEST PASSED: Test_AE10_TC23_Verify_Address_On_Checkout
+2026-03-19 18:42:23 [TestNG-test-Release 1.0 Testing for AE-4] ERROR [qa] [Test_AE10_TC23_Verify_Address_On_Checkout] io.qameta.allure.AllureLifecycle - Could not add attachment: no test is running
+2026-03-19 18:42:23 [TestNG-test-Release 1.0 Testing for AE-4] INFO  [qa] [Test_AE10_TC23_Verify_Address_On_Checkout] framework.listeners.TestListener - Screenshot attached: PASSED Screenshot:

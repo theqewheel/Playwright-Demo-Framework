@@ -31,6 +31,7 @@ public class SubscriptionTests extends BaseTest{
 		ReportManager.logStep("Subscribing to Portal");
 		homePage.verifySubscriptionHeaderHomePage();
 		homePage.subscribe("AutoTest1@cloudyfolk.com");
+		homePage.waitUntilPageLoadCompletes();
 		homePage.verifySubscriptionSuccessfromHomePage();
 	}
 	
@@ -53,6 +54,7 @@ public class SubscriptionTests extends BaseTest{
 		ReportManager.logStep("Subscribing to Portal");
 		cartPage.verifySubscriptionHeaderCartPage();
 		cartPage.subscribe("AutoTest2@cloudyfolk.com");
+		homePage.waitUntilPageLoadCompletes();
 		cartPage.verifySubscriptionSuccessfromCartPage();
 	}
 

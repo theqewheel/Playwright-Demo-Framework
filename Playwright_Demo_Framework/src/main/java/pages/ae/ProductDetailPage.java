@@ -79,6 +79,7 @@ public class ProductDetailPage extends BasePage {
 
 		// ✅ Attach to Allure — shows as collapsible section in report
 		ReportManager.attachTextContentAsSection("Product Details", allureReport.toString());
+		captureScreenshot();
 	}
 
 	@Step("Fetch the product name")
@@ -142,6 +143,7 @@ public class ProductDetailPage extends BasePage {
 	@Step("Verify write a review page")
 	public void verifyWriteAReviewPage() {
 		verifyTextMessageDisplayed("Write Your Review", true);
+		captureScreenshot();
 	}
 
 	@Step("Write product review and submit with name-{name}, email-{email} & content-{}")
@@ -149,22 +151,26 @@ public class ProductDetailPage extends BasePage {
 		reviewCardName.fill(name);
 		reviewCardEmail.fill(email);
 		reviewCardReviewBody.fill(content);
+		captureScreenshot();
 		reviewSubmitButton.click();
 	}
 
 	@Step("Verify review submission success message")
 	public void verifyReviewSubmissionSuccessMessage() {
 		verifyTextMessageDisplayed("Thank you for your review", true);
+		captureScreenshot();
 	}
 
 	@Step("Increase purchase quantity on product as {productQuantity}")
 	public void increaseProductPurchaseQuantity(int productQuantity) {
 		quantityTextBox.fill(String.valueOf(productQuantity));
+		captureScreenshot();
 	}
 
 	@Step("Click view cart")
 	public void clickViewCart() {
 		viewCartLink.click();
+		captureScreenshot();
 	}
 
 	@Step("Click add to cart")

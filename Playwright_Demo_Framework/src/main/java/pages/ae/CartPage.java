@@ -35,21 +35,25 @@ public class CartPage extends BasePage {
 	@Step("Verify Subscription Section Header in Cart Page")
 	public void verifySubscriptionHeaderCartPage() {
 		Assert.assertEquals(super.verifySubscriptionHeaderVisibility(), true);
+		captureScreenshot();
 	}
 
 	@Step("Verify Subscription is success from Cart Page")
 	public void verifySubscriptionSuccessfromCartPage() {
 		Assert.assertEquals(super.verifySubscriptionSuccess(), true);
+		captureScreenshot();
 	}
 
 	@Step("Click Proceed to Checkout Button")
 	public void clickProceedToCheckout() {
 		proceedToCheckOutButton.click();
+		captureScreenshot();
 	}
 
 	@Step("Click register/login link")
 	public void clickRegisterLoginLink() {
 		registerLoginLink.click();
+		captureScreenshot();
 	}
 
 	private int getCartTableColumnIndex(String columnName) {
@@ -107,7 +111,8 @@ public class CartPage extends BasePage {
 		productMap.put("Total", total);
 		
 		ReportManager.attachTextContentAsSection("Cart Product Details", StringUtil.formattedStringForMaps(productMap).toString());
-
+		captureScreenshot();
+		
 		return productMap;
 	}
 
@@ -137,6 +142,7 @@ public class CartPage extends BasePage {
 		productMap.put("Total", total);
 
 		ReportManager.attachTextContentAsSection("Cart Product Details", StringUtil.formattedStringForMaps(productMap).toString());
+		captureScreenshot();
 		
 		return productMap;
 	}
@@ -205,7 +211,7 @@ public class CartPage extends BasePage {
 				Cart Total Price is '{}'
 				----------------------------------------------------
 
-				""", rowCount, productMap.get("Overall Total"));
+				""", rowCount-1, productMap.get("Overall Total"));
 		
 		// ✅ Build the same formatted string for Allure
 		StringBuilder allureReport = new StringBuilder();
@@ -242,13 +248,14 @@ public class CartPage extends BasePage {
 		        Cart Total Price is '%s'
 		        ---------------------------------------------------
 		        """,
-		    rowCount,
+		    rowCount-1,
 		    productMap.get("Overall Total")
 		));
 
 		// ✅ Attach to Allure — shows as collapsible section in report
 		ReportManager.attachTextContentAsSection("Cart Details", allureReport.toString());
-
+		captureScreenshot();
+		
 		return productMap;
 
 	}
@@ -275,6 +282,8 @@ public class CartPage extends BasePage {
 
 		int totalProductsNow = cartTable.locator("tbody tr").count();
 
+		captureScreenshot();
+		
 		Assert.assertEquals(totalProductsNow, totalProductsThen - 1, "Product - " + productName + " deleted from Cart");
 	}
 
@@ -288,6 +297,8 @@ public class CartPage extends BasePage {
 		matchedRowCells.locator(deleteItem).click();
 
 		int totalProductsNow = cartTable.locator("tbody tr").count();
+		
+		captureScreenshot();
 
 		Assert.assertEquals(totalProductsNow, totalProductsThen - 1,
 				"Product earlier at Index - " + productIndex + " deleted from Cart");
@@ -309,6 +320,8 @@ public class CartPage extends BasePage {
 		int totalProductsNow = cartTable.locator("tbody tr").count();
 		logger.info("Total products in cart after deletion - " + totalProductsNow);
 
+		captureScreenshot();
+		
 		Assert.assertEquals(totalProductsNow, 0, "All " + totalProductsThen + " products from cart was deleted !!!");
 	}
 
@@ -336,6 +349,8 @@ public class CartPage extends BasePage {
 
 				""", productFullName);
 
+		captureScreenshot();
+		
 		return true;
 	}
 

@@ -60,7 +60,6 @@ public class SignupTests extends BaseTest {
 		signupDetailPage.selectDateOfBirth("10", "May", "1990");
 		signupDetailPage.optNewsLetter(true);
 		signupDetailPage.optSpecialOffers(false);
-		ReportManager.attachScreenshot("Account Info Entered", captureScreenshot());
 
 		// Step-5 Enter the Address information
 		logger.info("Running:Step-5");
@@ -74,7 +73,8 @@ public class SignupTests extends BaseTest {
 		signupDetailPage.enterCity("Pollachi");
 		signupDetailPage.enterZipcode("600123");
 		signupDetailPage.enterMobileNumber("90123456789");
-		ReportManager.attachScreenshot("Address Info Entered", captureScreenshot());
+		signupDetailPage.optSpecialOffers(false);
+		captureScreenshot("Entering Address");
 
 		// Step-6 Create Account and verify that account is created successfully
 		logger.info("Running:Step-6");

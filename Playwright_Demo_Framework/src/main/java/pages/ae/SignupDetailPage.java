@@ -155,6 +155,7 @@ public class SignupDetailPage extends BasePage {
 	@Step("Verify Page Header - Account & Address info is displayed")
 	public void verifyPageHeadersDisplayed() {
 		try {
+			captureScreenshot();
 			assertThat(PageHeaderAccountInfo).isVisible();
 			assertThat(PageHeaderAddressInfo).isVisible();
 		}catch(Exception e) {
@@ -182,6 +183,7 @@ public class SignupDetailPage extends BasePage {
 		optNewsLetter(new Random().nextBoolean());
 		optSpecialOffers(new Random().nextBoolean());
 		enterFirstAndLastName(data.getPersonalInfo().getFirstName(), data.getPersonalInfo().getLastName());
+		captureScreenshot();
 	}
 	
 	@Step("Enter address information for signup with Faker Library")
@@ -198,6 +200,7 @@ public class SignupDetailPage extends BasePage {
 		enterCity(data.getAddressInfo().getCity());
 		enterZipcode(data.getAddressInfo().getZip());
 		enterMobileNumber(data.getAddressInfo().getPhoneNumber());
+		captureScreenshot();
 	}
 	
 }

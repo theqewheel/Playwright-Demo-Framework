@@ -12,7 +12,8 @@ import com.microsoft.playwright.Page;
 import com.microsoft.playwright.options.AriaRole;
 
 import framework.logging.LogManager;
-import io.qameta.allure.Step;;
+import io.qameta.allure.Step;
+import reporting.ReportManager;;
 
 public abstract class BasePage {
 
@@ -43,6 +44,7 @@ public abstract class BasePage {
 	public void verifyPageLoaded(String expectedURL, String expectedTitle) {
 		assertThat(page).hasURL(Pattern.compile(expectedURL, Pattern.CASE_INSENSITIVE));
 		assertThat(page).hasTitle(Pattern.compile(expectedTitle, Pattern.CASE_INSENSITIVE));
+		captureScreenshot();
 	}
 
 	@Step("Set checkbox - '{checkboxName}' as {shouldBeChecked}")
@@ -142,4 +144,16 @@ public abstract class BasePage {
 	public void waitUntilPageLoadCompletes() {
 		page.waitForLoadState();
 	}
+	
+    // ── Manual screenshot for use inside page methods ─────────────────────────
+    protected void captureScreenshot() {
+        try {
+            byte[] screenshot = page.screenshot(
+                new Page.ScreenshotOptions().setFullPage(true)
+            );
+            ReportManager.attachScreenshot("📸 Screenshot", screenshot);
+        } catch (Exception e) {
+            logger.error("Manual screenshot failed: {}", e.getMessage());
+        }
+    }
 }

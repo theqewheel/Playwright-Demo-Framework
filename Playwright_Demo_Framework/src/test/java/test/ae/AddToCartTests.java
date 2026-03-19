@@ -122,6 +122,7 @@ public class AddToCartTests extends BaseTest {
 		// Step-4 Remove all products in cart (Optional Test)
 		logger.info("Running:Step-4");
 		cartPage.removeAllProductsFromCart();
+		captureScreenshot("Remove all products in cart");
 	}
 
 	@Test(description = "AE9_TC20 - Verify added products in cart after login", groups = { "regression" })

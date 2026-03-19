@@ -32,6 +32,7 @@ public class HomeTests extends BaseTest {
 		homePage.verifySubscriptionHeaderVisibility();
 		homePage.scrollToPageTopUsingArrowKey();
 		homePage.verifyTextMessageDisplayed("Full-Fledged practice website for Automation Engineers", true);
+		captureScreenshot("After scroll with arrow");
 
 	}
 
@@ -56,5 +57,6 @@ public class HomeTests extends BaseTest {
 		//homePage.scrollToPageTopUsingKeyboard();
 		homePage.scrollToPageTopUsingEval();
 		homePage.verifyTextMessageDisplayed("Full-Fledged practice website for Automation Engineers", true);
+		captureScreenshot("After scroll without arrow");
 	}
 }

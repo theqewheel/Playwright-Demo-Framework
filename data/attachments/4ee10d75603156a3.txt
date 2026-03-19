@@ -1,0 +1,12 @@
+
+-------------------------------------------------------------------------
+               INVOICE ADDRESS ON CHECKOUT
+-------------------------------------------------------------------------
+Title Fullname  : Mrs. Darius Zboncak
+Company Name    : Mayert, Murray and Heller
+Address Line1   : 129 Gleason Lakes
+Address Line2   : Apt. 326
+Address Line3   : Clarktown Kentucky 224468
+Country         : Australia
+Phone           : 7790743484
+-------------------------------------------------------------------------

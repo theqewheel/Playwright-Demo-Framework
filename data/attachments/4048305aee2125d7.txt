@@ -1,0 +1,12 @@
+
+-------------------------------------------------------------------------
+               INVOICE ADDRESS ON CHECKOUT
+-------------------------------------------------------------------------
+Title Fullname  : Mrs. Olin Jakubowski
+Company Name    : Feeney, Goodwin and Stamm
+Address Line1   : 642 Mohr Lake
+Address Line2   : Suite 678
+Address Line3   : West Duncanport Alabama 427827
+Country         : Israel
+Phone           : 0784044805
+-------------------------------------------------------------------------

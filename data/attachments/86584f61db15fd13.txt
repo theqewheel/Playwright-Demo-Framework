@@ -1,0 +1,12 @@
+
+-------------------------------------------------------------------------
+               INVOICE ADDRESS ON CHECKOUT
+-------------------------------------------------------------------------
+Title Fullname  : Mr. Cassondra King
+Company Name    : Cruickshank, Abshire and Thompson
+Address Line1   : 92653 Hartmann Club
+Address Line2   : Suite 890
+Address Line3   : Charashire Delaware 850710
+Country         : Singapore
+Phone           : 0327711463
+-------------------------------------------------------------------------

@@ -1,0 +1,12 @@
+
+-------------------------------------------------------------------------
+               INVOICE ADDRESS ON CHECKOUT
+-------------------------------------------------------------------------
+Title Fullname  : Mrs. Bruno McLaughlin
+Company Name    : Kuhic-Shields
+Address Line1   : 1880 Jay Alley
+Address Line2   : Apt. 992
+Address Line3   : Michealside South Carolina 077660
+Country         : India
+Phone           : 8920654005
+-------------------------------------------------------------------------

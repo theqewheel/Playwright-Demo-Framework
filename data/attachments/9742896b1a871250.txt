@@ -1,0 +1,12 @@
+
+-------------------------------------------------------------------------
+               DELIVERY ADDRESS ON CHECKOUT
+-------------------------------------------------------------------------
+Title Fullname  : Mrs. Tabetha King
+Company Name    : Effertz, Kulas and Larson
+Address Line1   : 3377 Vandervort Mills
+Address Line2   : Suite 741
+Address Line3   : Port Kamala Oregon 458144
+Country         : Canada
+Phone           : 2423362648
+-------------------------------------------------------------------------

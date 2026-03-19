@@ -2,6 +2,12 @@ name: Playwright TestNG Tests
 
 on:
   workflow_dispatch:
+    inputs:
+      email_to:
+        description: 'Send report to (comma separated emails)'
+        required: false
+        default: ''
+
   schedule:
     - cron: '0 9 * * 1'
 
@@ -45,8 +51,6 @@ jobs:
         run: |
           TOTAL=0; PASSED=0; FAILED=0; SKIPPED=0; BROKEN=0
 
-          # ✅ Smallest file per class = real per-class XML
-          # Large file = suite aggregate XML — must be ignored
           declare -A CLASS_FILE
 
           for f in $(find target/surefire-reports -name "TEST-*.xml" 2>/dev/null); do
@@ -124,7 +128,7 @@ jobs:
           SUITE_NAME="Playwright Demo Framework Tests - TA1"
           TEST_BLOCK="Release 1.0 Testing for AE"
 
-          # ── Section 2: Per-class breakdown ──
+          # ── Per-class breakdown ──
           CLASS_ROWS=""
           declare -A CLASS_FILE
 
@@ -170,8 +174,7 @@ jobs:
             </tr>"
           done
 
-          # ── Bar chart percentage widths ──
-          # ✅ Integer % used as HTML table cell widths — email-safe, no SVG needed
+          # ── Bar chart percentages ──
           if [ "$T" -gt 0 ]; then
             PIE_PCT_P=$(echo "$P * 100 / $T" | bc)
             PIE_PCT_F=$(echo "$F * 100 / $T" | bc)
@@ -181,7 +184,6 @@ jobs:
             PIE_PCT_P=0; PIE_PCT_F=0; PIE_PCT_S=0; PIE_PCT_B=0
           fi
 
-          # Ensure bars with count > 0 show at least a sliver (min 2%)
           [ "$P" -gt 0 ] && [ "$PIE_PCT_P" -eq 0 ] && PIE_PCT_P=2
           [ "$F" -gt 0 ] && [ "$PIE_PCT_F" -eq 0 ] && PIE_PCT_F=2
           [ "$S" -gt 0 ] && [ "$PIE_PCT_S" -eq 0 ] && PIE_PCT_S=2
@@ -222,8 +224,6 @@ jobs:
               <div style="font-size:13px;font-weight:bold;color:#0d1117;margin-bottom:14px;text-transform:uppercase;letter-spacing:0.8px;border-bottom:2px solid #f0f0f0;padding-bottom:8px;">
                 Section 1 — Suite Details
               </div>
-
-              <!-- Suite summary table -->
               <table width="100%" cellpadding="0" cellspacing="0"
                 style="border-collapse:collapse;border:1px solid #e8eaed;border-radius:8px;overflow:hidden;font-size:13px;">
                 <tr style="background:#f8f9fa;">
@@ -252,12 +252,8 @@ jobs:
                 </tr>
               </table>
 
-              <!-- ✅ Stat Cards + Horizontal Bar Chart -->
-              <!-- SVG not used — Gmail/Outlook strip SVG entirely -->
-              <!-- Pure HTML table approach renders in every email client -->
               <div style="margin-top:24px;">
-
-                <!-- Stat Cards Row -->
+                <!-- Stat Cards -->
                 <table width="100%" cellpadding="0" cellspacing="0" style="margin-bottom:24px;">
                   <tr>
                     <td width="25%" style="padding:4px;">
@@ -287,12 +283,10 @@ jobs:
                   </tr>
                 </table>
 
-                <!-- Horizontal Bar Chart -->
+                <!-- Bar Chart -->
                 <div style="font-size:12px;color:#6e7781;margin-bottom:12px;font-weight:bold;text-transform:uppercase;letter-spacing:0.5px;">
                   Test Distribution
                 </div>
-
-                <!-- Passed -->
                 <table width="100%" cellpadding="0" cellspacing="0" style="margin-bottom:10px;">
                   <tr>
                     <td width="68" style="font-size:12px;color:#555;padding-right:10px;white-space:nowrap;">Passed</td>
@@ -306,8 +300,6 @@ jobs:
                     </td>
                   </tr>
                 </table>
-
-                <!-- Failed -->
                 <table width="100%" cellpadding="0" cellspacing="0" style="margin-bottom:10px;">
                   <tr>
                     <td width="68" style="font-size:12px;color:#555;padding-right:10px;white-space:nowrap;">Failed</td>
@@ -321,8 +313,6 @@ jobs:
                     </td>
                   </tr>
                 </table>
-
-                <!-- Skipped -->
                 <table width="100%" cellpadding="0" cellspacing="0" style="margin-bottom:10px;">
                   <tr>
                     <td width="68" style="font-size:12px;color:#555;padding-right:10px;white-space:nowrap;">Skipped</td>
@@ -336,8 +326,6 @@ jobs:
                     </td>
                   </tr>
                 </table>
-
-                <!-- Broken -->
                 <table width="100%" cellpadding="0" cellspacing="0" style="margin-bottom:4px;">
                   <tr>
                     <td width="68" style="font-size:12px;color:#555;padding-right:10px;white-space:nowrap;">Broken</td>
@@ -351,7 +339,6 @@ jobs:
                     </td>
                   </tr>
                 </table>
-
               </div>
             </div>
 
@@ -417,7 +404,7 @@ jobs:
           server_port: 587
           username: ${{ secrets.MAIL_USERNAME }}
           password: ${{ secrets.MAIL_PASSWORD }}
-          to: ${{ secrets.MAIL_TO }}
+          to: ${{ github.event.inputs.email_to != '' && github.event.inputs.email_to || secrets.MAIL_TO }}
           from: QE Automation <${{ secrets.MAIL_USERNAME }}>
           subject: "[${{ steps.summary.outputs.status }}] AE Regression Demo Test Report - ${{ steps.summary.outputs.date }}"
           html_body: file:///tmp/email_report.html

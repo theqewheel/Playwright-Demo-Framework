@@ -1,0 +1,58 @@
+2026-03-23 10:09:07 [TestNG-test-Release 1.0 Testing for AE-4] INFO  [qa] [Test_AE10_TC23_Verify_Address_On_Checkout] framework.listeners.TestListener - -----------------  STARTING TEST : Test_AE10_TC23_Verify_Address_On_Checkout  -----------------
+2026-03-23 10:09:07 [TestNG-test-Release 1.0 Testing for AE-4] INFO  [qa] [Test_AE10_TC23_Verify_Address_On_Checkout] test.ae.PlaceOrderTests - Running:Step-1
+2026-03-23 10:09:08 [TestNG-test-Release 1.0 Testing for AE-4] INFO  [qa] [Test_AE10_TC23_Verify_Address_On_Checkout] test.ae.PlaceOrderTests - Running:Step-2
+2026-03-23 10:09:18 [TestNG-test-Release 1.0 Testing for AE-4] INFO  [qa] [Test_AE10_TC23_Verify_Address_On_Checkout] pages.ae.SignupDetailPage - Checkbox: 'Newsletter' is set to: false
+2026-03-23 10:09:19 [TestNG-test-Release 1.0 Testing for AE-4] INFO  [qa] [Test_AE10_TC23_Verify_Address_On_Checkout] pages.ae.SignupDetailPage - Checkbox: 'Special Offers' is set to: true
+2026-03-23 10:09:19 [TestNG-test-Release 1.0 Testing for AE-4] ERROR [qa] [Test_AE10_TC23_Verify_Address_On_Checkout] io.qameta.allure.util.NamingUtils - Could not process empty pattern
+2026-03-23 10:09:19 [TestNG-test-Release 1.0 Testing for AE-4] ERROR [qa] [Test_AE10_TC23_Verify_Address_On_Checkout] io.qameta.allure.util.NamingUtils - Could not process empty pattern
+2026-03-23 10:09:27 [TestNG-test-Release 1.0 Testing for AE-4] ERROR [qa] [Test_AE10_TC23_Verify_Address_On_Checkout] io.qameta.allure.util.NamingUtils - Could not find parameter zipcpde
+2026-03-23 10:09:32 [TestNG-test-Release 1.0 Testing for AE-4] INFO  [qa] [Test_AE10_TC23_Verify_Address_On_Checkout] test.ae.PlaceOrderTests - Running:Step-3
+2026-03-23 10:09:33 [TestNG-test-Release 1.0 Testing for AE-4] INFO  [qa] [Test_AE10_TC23_Verify_Address_On_Checkout] pages.ae.HomePage - Navigating to Products
+2026-03-23 10:09:36 [TestNG-test-Release 1.0 Testing for AE-4] INFO  [qa] [Test_AE10_TC23_Verify_Address_On_Checkout] pages.ae.ProductsPage - 
+---------------------------------------------------
+Product 1 Added To Cart
+Name  : Blue Top
+Price : 500
+------------------------xxxx-----------------------
+
+2026-03-23 10:09:40 [TestNG-test-Release 1.0 Testing for AE-4] INFO  [qa] [Test_AE10_TC23_Verify_Address_On_Checkout] pages.ae.ProductsPage - 
+---------------------------------------------------
+Product 2 Added To Cart
+Name  : Men Tshirt
+Price : 400
+------------------------xxxx-----------------------
+
+2026-03-23 10:09:40 [TestNG-test-Release 1.0 Testing for AE-4] INFO  [qa] [Test_AE10_TC23_Verify_Address_On_Checkout] test.ae.PlaceOrderTests - Running:Step-4
+2026-03-23 10:09:41 [TestNG-test-Release 1.0 Testing for AE-4] INFO  [qa] [Test_AE10_TC23_Verify_Address_On_Checkout] pages.ae.HomePage - Navigating to Cart
+2026-03-23 10:09:42 [TestNG-test-Release 1.0 Testing for AE-4] INFO  [qa] [Test_AE10_TC23_Verify_Address_On_Checkout] test.ae.PlaceOrderTests - Running:Step-5
+2026-03-23 10:09:43 [TestNG-test-Release 1.0 Testing for AE-4] INFO  [qa] [Test_AE10_TC23_Verify_Address_On_Checkout] pages.ae.CheckOutPage - 
+-------------------------------------------------------------------------
+               DELIVERY ADDRESS ON CHECKOUT
+-------------------------------------------------------------------------
+Title Fullname  : Mr. Dave McDermott
+Company Name    : Hirthe-Johnston
+Address Line1   : 644 Kulas Crest
+Address Line2   : Apt. 593
+Address Line3   : Port Albertamouth New Mexico 260863
+Country         : Australia
+Phone           : 4394687348
+-------------------------------------------------------------------------
+
+2026-03-23 10:09:43 [TestNG-test-Release 1.0 Testing for AE-4] INFO  [qa] [Test_AE10_TC23_Verify_Address_On_Checkout] pages.ae.CheckOutPage - 
+-------------------------------------------------------------------------
+               INVOICE ADDRESS ON CHECKOUT
+-------------------------------------------------------------------------
+Title Fullname  : Mr. Dave McDermott
+Company Name    : Hirthe-Johnston
+Address Line1   : 644 Kulas Crest
+Address Line2   : Apt. 593
+Address Line3   : Port Albertamouth New Mexico 260863
+Country         : Australia
+Phone           : 4394687348
+--------------------------------------------------------------------------
+
+2026-03-23 10:09:43 [TestNG-test-Release 1.0 Testing for AE-4] INFO  [qa] [Test_AE10_TC23_Verify_Address_On_Checkout] test.ae.PlaceOrderTests - Running:Step-7
+2026-03-23 10:09:43 [TestNG-test-Release 1.0 Testing for AE-4] INFO  [qa] [Test_AE10_TC23_Verify_Address_On_Checkout] test.ae.PlaceOrderTests - Running:Step-8 >>>> Cleanup
+2026-03-23 10:09:45 [TestNG-test-Release 1.0 Testing for AE-4] INFO  [qa] [Test_AE10_TC23_Verify_Address_On_Checkout] framework.listeners.TestListener - {TEST PASSED: Test_AE10_TC23_Verify_Address_On_Checkout
+2026-03-23 10:09:46 [TestNG-test-Release 1.0 Testing for AE-4] ERROR [qa] [Test_AE10_TC23_Verify_Address_On_Checkout] io.qameta.allure.AllureLifecycle - Could not add attachment: no test is running
+2026-03-23 10:09:46 [TestNG-test-Release 1.0 Testing for AE-4] INFO  [qa] [Test_AE10_TC23_Verify_Address_On_Checkout] framework.listeners.TestListener - Screenshot attached: PASSED Screenshot:

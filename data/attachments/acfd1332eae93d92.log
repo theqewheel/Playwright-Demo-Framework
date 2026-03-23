@@ -1,0 +1,22 @@
+2026-03-23 10:05:55 [TestNG-test-Release 1.0 Testing for AE-1] INFO  [qa] [Test_AE9_TC12_Verify_Add_Products_In_Cart] framework.listeners.TestListener - -----------------  STARTING TEST : Test_AE9_TC12_Verify_Add_Products_In_Cart  -----------------
+2026-03-23 10:05:55 [TestNG-test-Release 1.0 Testing for AE-1] INFO  [qa] [Test_AE9_TC12_Verify_Add_Products_In_Cart] test.ae.AddToCartTests - Running:Step-1
+2026-03-23 10:05:59 [TestNG-test-Release 1.0 Testing for AE-1] INFO  [qa] [Test_AE9_TC12_Verify_Add_Products_In_Cart] test.ae.AddToCartTests - Running:Step-2
+2026-03-23 10:06:01 [TestNG-test-Release 1.0 Testing for AE-1] INFO  [qa] [Test_AE9_TC12_Verify_Add_Products_In_Cart] pages.ae.HomePage - Navigating to Products
+2026-03-23 10:06:05 [TestNG-test-Release 1.0 Testing for AE-1] INFO  [qa] [Test_AE9_TC12_Verify_Add_Products_In_Cart] pages.ae.ProductsPage - 
+---------------------------------------------------
+Product 1 Added To Cart
+Name  : Blue Top
+Price : 500
+------------------------xxxx-----------------------
+
+2026-03-23 10:06:08 [TestNG-test-Release 1.0 Testing for AE-1] INFO  [qa] [Test_AE9_TC12_Verify_Add_Products_In_Cart] pages.ae.ProductsPage - 
+---------------------------------------------------
+Product 2 Added To Cart
+Name  : Men Tshirt
+Price : 400
+------------------------xxxx-----------------------
+
+2026-03-23 10:06:08 [TestNG-test-Release 1.0 Testing for AE-1] INFO  [qa] [Test_AE9_TC12_Verify_Add_Products_In_Cart] test.ae.AddToCartTests - Running:Step-3
+2026-03-23 10:06:09 [TestNG-test-Release 1.0 Testing for AE-1] INFO  [qa] [Test_AE9_TC12_Verify_Add_Products_In_Cart] framework.listeners.TestListener - {TEST PASSED: Test_AE9_TC12_Verify_Add_Products_In_Cart
+2026-03-23 10:06:09 [TestNG-test-Release 1.0 Testing for AE-1] ERROR [qa] [Test_AE9_TC12_Verify_Add_Products_In_Cart] io.qameta.allure.AllureLifecycle - Could not add attachment: no test is running
+2026-03-23 10:06:09 [TestNG-test-Release 1.0 Testing for AE-1] INFO  [qa] [Test_AE9_TC12_Verify_Add_Products_In_Cart] framework.listeners.TestListener - Screenshot attached: PASSED Screenshot:

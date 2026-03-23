@@ -1,0 +1,14 @@
+2026-03-23 10:05:19 [TestNG-test-Release 1.0 Testing for AE-3] INFO  [qa] [Test_AE8_TC26_Verify_Home_Page_Scroll_Without_Arrow] framework.listeners.TestListener - -----------------  STARTING TEST : Test_AE8_TC26_Verify_Home_Page_Scroll_Without_Arrow  -----------------
+2026-03-23 10:05:19 [TestNG-test-Release 1.0 Testing for AE-3] INFO  [qa] [Test_AE8_TC26_Verify_Home_Page_Scroll_Without_Arrow] test.ae.HomeTests - Running:Step-1
+2026-03-23 10:05:21 [TestNG-test-Release 1.0 Testing for AE-3] INFO  [qa] [Test_AE8_TC26_Verify_Home_Page_Scroll_Without_Arrow] test.ae.HomeTests - Running:Step-2
+2026-03-23 10:05:31 [TestNG-test-Release 1.0 Testing for AE-3] INFO  [qa] [Test_AE8_TC26_Verify_Home_Page_Scroll_Without_Arrow] framework.listeners.TestListener - {TEST FAILED: Test_AE8_TC26_Verify_Home_Page_Scroll_Without_Arrow
+2026-03-23 10:05:31 [TestNG-test-Release 1.0 Testing for AE-3] ERROR [qa] [Test_AE8_TC26_Verify_Home_Page_Scroll_Without_Arrow] framework.listeners.TestListener - Failure Reason: org.opentest4j.AssertionFailedError: Locator expected to be visible
+Call log:
+  - Assert "isVisible" with timeout 5000ms
+  - waiting for getByText("Full-Fledged practice website for Automation Engineers").first()
+    8 × locator resolved to <h2>Full-Fledged practice website for Automation Engi…</h2>
+      - unexpected value "hidden"
+2026-03-23 10:05:33 [TestNG-test-Release 1.0 Testing for AE-3] ERROR [qa] [Test_AE8_TC26_Verify_Home_Page_Scroll_Without_Arrow] io.qameta.allure.AllureLifecycle - Could not add attachment: no test is running
+2026-03-23 10:05:33 [TestNG-test-Release 1.0 Testing for AE-3] ERROR [qa] [Test_AE8_TC26_Verify_Home_Page_Scroll_Without_Arrow] io.qameta.allure.AllureLifecycle - Could not start step: no test case running
+2026-03-23 10:05:33 [TestNG-test-Release 1.0 Testing for AE-3] ERROR [qa] [Test_AE8_TC26_Verify_Home_Page_Scroll_Without_Arrow] io.qameta.allure.AllureLifecycle - Could not stop step: step with uuid e635bffd-1ca7-4659-bd5b-506d12ac6b14 not found
+2026-03-23 10:05:33 [TestNG-test-Release 1.0 Testing for AE-3] INFO  [qa] [Test_AE8_TC26_Verify_Home_Page_Scroll_Without_Arrow] framework.listeners.TestListener - Screenshot attached: FAILURE Screenshot:

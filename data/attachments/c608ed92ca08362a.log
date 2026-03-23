@@ -1,0 +1,9 @@
+2026-03-23 10:05:41 [TestNG-test-Release 1.0 Testing for AE-4] INFO  [qa] [Test_AE7_TC10_Verify_Subscription_Home_Page] framework.listeners.TestListener - -----------------  STARTING TEST : Test_AE7_TC10_Verify_Subscription_Home_Page  -----------------
+2026-03-23 10:05:41 [TestNG-test-Release 1.0 Testing for AE-4] INFO  [qa] [Test_AE7_TC10_Verify_Subscription_Home_Page] test.ae.SubscriptionTests - Running:Step-1
+2026-03-23 10:05:44 [TestNG-test-Release 1.0 Testing for AE-4] INFO  [qa] [Test_AE7_TC10_Verify_Subscription_Home_Page] test.ae.SubscriptionTests - Running:Step-2
+2026-03-23 10:05:52 [TestNG-test-Release 1.0 Testing for AE-4] INFO  [qa] [Test_AE7_TC10_Verify_Subscription_Home_Page] framework.listeners.TestListener - {TEST FAILED: Test_AE7_TC10_Verify_Subscription_Home_Page
+2026-03-23 10:05:52 [TestNG-test-Release 1.0 Testing for AE-4] ERROR [qa] [Test_AE7_TC10_Verify_Subscription_Home_Page] framework.listeners.TestListener - Failure Reason: java.lang.AssertionError: expected [true] but found [false]
+2026-03-23 10:05:54 [TestNG-test-Release 1.0 Testing for AE-4] ERROR [qa] [Test_AE7_TC10_Verify_Subscription_Home_Page] io.qameta.allure.AllureLifecycle - Could not add attachment: no test is running
+2026-03-23 10:05:54 [TestNG-test-Release 1.0 Testing for AE-4] ERROR [qa] [Test_AE7_TC10_Verify_Subscription_Home_Page] io.qameta.allure.AllureLifecycle - Could not start step: no test case running
+2026-03-23 10:05:54 [TestNG-test-Release 1.0 Testing for AE-4] ERROR [qa] [Test_AE7_TC10_Verify_Subscription_Home_Page] io.qameta.allure.AllureLifecycle - Could not stop step: step with uuid f351f78d-a535-4651-8420-f180f094b6e8 not found
+2026-03-23 10:05:54 [TestNG-test-Release 1.0 Testing for AE-4] INFO  [qa] [Test_AE7_TC10_Verify_Subscription_Home_Page] framework.listeners.TestListener - Screenshot attached: FAILURE Screenshot:

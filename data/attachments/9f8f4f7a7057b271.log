@@ -1,0 +1,12 @@
+2026-03-23 10:06:13 [TestNG-test-Release 1.0 Testing for AE-1] INFO  [qa] [Test_AE9_TC13_Verify_Subscription_Home_Page] framework.listeners.TestListener - -----------------  STARTING TEST : Test_AE9_TC13_Verify_Subscription_Home_Page  -----------------
+2026-03-23 10:06:13 [TestNG-test-Release 1.0 Testing for AE-1] INFO  [qa] [Test_AE9_TC13_Verify_Subscription_Home_Page] test.ae.AddToCartTests - Running:Step-1
+2026-03-23 10:06:15 [TestNG-test-Release 1.0 Testing for AE-1] INFO  [qa] [Test_AE9_TC13_Verify_Subscription_Home_Page] test.ae.AddToCartTests - Running:Step-2
+2026-03-23 10:06:15 [TestNG-test-Release 1.0 Testing for AE-1] WARN  [qa] [Test_AE9_TC13_Verify_Subscription_Home_Page] pages.ae.ProductsPage - Multiple matching products found for - Stylish, hence choosing the first match found.
+2026-03-23 10:06:19 [TestNG-test-Release 1.0 Testing for AE-1] WARN  [qa] [Test_AE9_TC13_Verify_Subscription_Home_Page] pages.ae.ProductsPage - Multiple matching products found for - Summer White Top, hence choosing the first match found.
+2026-03-23 10:06:22 [TestNG-test-Release 1.0 Testing for AE-1] WARN  [qa] [Test_AE9_TC13_Verify_Subscription_Home_Page] pages.ae.ProductsPage - Multiple matching products found for - Blue Top, hence choosing the first match found.
+2026-03-23 10:06:26 [TestNG-test-Release 1.0 Testing for AE-1] INFO  [qa] [Test_AE9_TC13_Verify_Subscription_Home_Page] test.ae.AddToCartTests - Running:Step-3
+2026-03-23 10:06:26 [TestNG-test-Release 1.0 Testing for AE-1] WARN  [qa] [Test_AE9_TC13_Verify_Subscription_Home_Page] pages.ae.ProductsPage - Multiple matching products found for - Sleeveless, hence choosing the first match found.
+2026-03-23 10:06:29 [TestNG-test-Release 1.0 Testing for AE-1] INFO  [qa] [Test_AE9_TC13_Verify_Subscription_Home_Page] test.ae.AddToCartTests - Running:Step-4
+2026-03-23 10:06:31 [TestNG-test-Release 1.0 Testing for AE-1] INFO  [qa] [Test_AE9_TC13_Verify_Subscription_Home_Page] framework.listeners.TestListener - {TEST PASSED: Test_AE9_TC13_Verify_Subscription_Home_Page
+2026-03-23 10:06:31 [TestNG-test-Release 1.0 Testing for AE-1] ERROR [qa] [Test_AE9_TC13_Verify_Subscription_Home_Page] io.qameta.allure.AllureLifecycle - Could not add attachment: no test is running
+2026-03-23 10:06:31 [TestNG-test-Release 1.0 Testing for AE-1] INFO  [qa] [Test_AE9_TC13_Verify_Subscription_Home_Page] framework.listeners.TestListener - Screenshot attached: PASSED Screenshot:

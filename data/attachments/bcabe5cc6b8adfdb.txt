@@ -1,0 +1,12 @@
+
+-------------------------------------------------------------------------
+               INVOICE ADDRESS ON CHECKOUT
+-------------------------------------------------------------------------
+Title Fullname  : Mr. Santiago Kozey
+Company Name    : Stoltenberg, O'Hara and Smitham
+Address Line1   : 748 Vasiliki Villages
+Address Line2   : Apt. 629
+Address Line3   : Schulistmouth Wyoming 345435
+Country         : Australia
+Phone           : 4403672307
+-------------------------------------------------------------------------

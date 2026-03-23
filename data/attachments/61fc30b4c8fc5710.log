@@ -1,0 +1,10 @@
+2026-03-23 10:06:08 [TestNG-test-Release 1.0 Testing for AE-3] INFO  [qa] [Test_AE5_TC18_Verify_Product_Category_Filtering] framework.listeners.TestListener - -----------------  STARTING TEST : Test_AE5_TC18_Verify_Product_Category_Filtering  -----------------
+2026-03-23 10:06:08 [TestNG-test-Release 1.0 Testing for AE-3] INFO  [qa] [Test_AE5_TC18_Verify_Product_Category_Filtering] test.ae.ProductsTests - Running:Step-1
+2026-03-23 10:06:10 [TestNG-test-Release 1.0 Testing for AE-3] INFO  [qa] [Test_AE5_TC18_Verify_Product_Category_Filtering] test.ae.ProductsTests - Running:Step-2
+2026-03-23 10:06:11 [TestNG-test-Release 1.0 Testing for AE-3] INFO  [qa] [Test_AE5_TC18_Verify_Product_Category_Filtering] pages.ae.HomePage - Navigating to Products
+2026-03-23 10:06:13 [TestNG-test-Release 1.0 Testing for AE-3] INFO  [qa] [Test_AE5_TC18_Verify_Product_Category_Filtering] test.ae.ProductsTests - Running:Step-3
+2026-03-23 10:06:16 [TestNG-test-Release 1.0 Testing for AE-3] ERROR [qa] [Test_AE5_TC18_Verify_Product_Category_Filtering] pages.ae.ProductsPage - The category navigation displayed is not >> WOMEN > DRESS, Actual: Women > Dress
+2026-03-23 10:06:19 [TestNG-test-Release 1.0 Testing for AE-3] ERROR [qa] [Test_AE5_TC18_Verify_Product_Category_Filtering] pages.ae.ProductsPage - The category navigation displayed is not >> MEN > JEANS, Actual: Men > Jeans
+2026-03-23 10:06:19 [TestNG-test-Release 1.0 Testing for AE-3] INFO  [qa] [Test_AE5_TC18_Verify_Product_Category_Filtering] framework.listeners.TestListener - {TEST PASSED: Test_AE5_TC18_Verify_Product_Category_Filtering
+2026-03-23 10:06:19 [TestNG-test-Release 1.0 Testing for AE-3] ERROR [qa] [Test_AE5_TC18_Verify_Product_Category_Filtering] io.qameta.allure.AllureLifecycle - Could not add attachment: no test is running
+2026-03-23 10:06:19 [TestNG-test-Release 1.0 Testing for AE-3] INFO  [qa] [Test_AE5_TC18_Verify_Product_Category_Filtering] framework.listeners.TestListener - Screenshot attached: PASSED Screenshot:

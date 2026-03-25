@@ -1,0 +1,62 @@
+<suite name="Playwright Demo Framework Tests - TA1 [BrowserStack]"
+       parallel="tests"
+       thread-count="3">
+
+    <parameter name="environment" value="QA" />
+
+    <listeners>
+        <listener class-name="framework.listeners.TestListener"/>
+    </listeners>
+
+    <!-- ═══ Thread 1 — Chrome ═══════════════════════════════════════════ -->
+    <test name="BrowserStack - Chrome">
+        <parameter name="bs.browser" value="chrome"/>
+        <classes>
+            <class name="test.ae.SignupTests"       />
+<!--            <class name="test.ae.LoginTests"        />
+            <class name="test.ae.HomeTests"         />
+            <class name="test.ae.ContactUsTests"    />
+            <class name="test.ae.TestCasesTests"    />
+            <class name="test.ae.SubscriptionTests" />
+            <class name="test.ae.ProductsTests"     />
+            <class name="test.ae.ProductReviewTests"/>
+            <class name="test.ae.AddToCartTests"    />
+            <class name="test.ae.PlaceOrderTests"   />-->
+        </classes>
+    </test>
+
+    <!-- ═══ Thread 2 — Firefox ══════════════════════════════════════════ -->
+    <test name="BrowserStack - Firefox">
+        <parameter name="bs.browser" value="firefox"/>
+        <classes>
+            <class name="test.ae.SignupTests"       />
+<!--            <class name="test.ae.LoginTests"        />
+            <class name="test.ae.HomeTests"         />
+            <class name="test.ae.ContactUsTests"    />
+            <class name="test.ae.TestCasesTests"    />
+            <class name="test.ae.SubscriptionTests" />
+            <class name="test.ae.ProductsTests"     />
+            <class name="test.ae.ProductReviewTests"/>
+            <class name="test.ae.AddToCartTests"    />
+            <class name="test.ae.PlaceOrderTests"   />-->
+        </classes>
+    </test>
+
+    <!-- ═══ Thread 3 — Edge ═════════════════════════════════════════════ -->
+    <test name="BrowserStack - Edge">
+        <parameter name="bs.browser" value="edge"/>
+        <classes>
+            <class name="test.ae.SignupTests"       />
+<!--            <class name="test.ae.LoginTests"        />
+            <class name="test.ae.HomeTests"         />
+            <class name="test.ae.ContactUsTests"    />
+            <class name="test.ae.TestCasesTests"    />
+            <class name="test.ae.SubscriptionTests" />
+            <class name="test.ae.ProductsTests"     />
+            <class name="test.ae.ProductReviewTests"/>
+            <class name="test.ae.AddToCartTests"    />
+            <class name="test.ae.PlaceOrderTests"   />-->
+        </classes>
+    </test>
+
+</suite>

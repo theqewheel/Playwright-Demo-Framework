@@ -1,14 +1,12 @@
 package framework.config;
 
 import java.io.InputStream;
-import java.lang.foreign.ValueLayout;
 import java.util.Properties;
 
 import org.slf4j.Logger;
 import org.testng.ISuite;
 
 import framework.logging.LogManager;
-import io.qameta.allure.internal.shadowed.jackson.databind.EnumNamingStrategies.CamelCaseStrategy;
 
 
 public class ConfigManager {

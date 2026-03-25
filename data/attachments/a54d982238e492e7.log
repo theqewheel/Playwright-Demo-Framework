@@ -1,0 +1,35 @@
+2026-03-25 11:16:14 [TestNG-tests-2] INFO  [qa] [Test_AE1_TC01_Verify_New_User_SignUp] framework.listeners.TestListener - -----------------  STARTING TEST : Test_AE1_TC01_Verify_New_User_SignUp  -----------------
+2026-03-25 11:16:14 [TestNG-tests-2] INFO  [qa] [Test_AE1_TC01_Verify_New_User_SignUp] framework.listeners.TestListener - {TEST SKIPPED: Test_AE1_TC01_Verify_New_User_SignUp
+2026-03-25 11:16:14 [TestNG-tests-2] ERROR [qa] [Test_AE1_TC01_Verify_New_User_SignUp] framework.listeners.TestListener - Skip Reason: java.lang.RuntimeException: Driver initialization failed
+2026-03-25 11:16:33 [TestNG-tests-3] INFO  [qa] [Test_AE1_TC01_Verify_New_User_SignUp] framework.listeners.TestListener - -----------------  STARTING TEST : Test_AE1_TC01_Verify_New_User_SignUp  -----------------
+2026-03-25 11:16:33 [TestNG-tests-3] INFO  [qa] [Test_AE1_TC01_Verify_New_User_SignUp] test.ae.SignupTests - Running:Step-1
+2026-03-25 11:16:36 [TestNG-tests-1] INFO  [qa] [Test_AE1_TC01_Verify_New_User_SignUp] framework.listeners.TestListener - -----------------  STARTING TEST : Test_AE1_TC01_Verify_New_User_SignUp  -----------------
+2026-03-25 11:16:36 [TestNG-tests-1] INFO  [qa] [Test_AE1_TC01_Verify_New_User_SignUp] test.ae.SignupTests - Running:Step-1
+2026-03-25 11:16:39 [TestNG-tests-3] INFO  [qa] [Test_AE1_TC01_Verify_New_User_SignUp] test.ae.SignupTests - Running:Step-2
+2026-03-25 11:16:43 [TestNG-tests-3] INFO  [qa] [Test_AE1_TC01_Verify_New_User_SignUp] test.ae.SignupTests - Running:Step-3
+2026-03-25 11:16:47 [TestNG-tests-1] INFO  [qa] [Test_AE1_TC01_Verify_New_User_SignUp] test.ae.SignupTests - Running:Step-2
+2026-03-25 11:16:47 [TestNG-tests-3] INFO  [qa] [Test_AE1_TC01_Verify_New_User_SignUp] test.ae.SignupTests - Running:Step-4
+2026-03-25 11:16:49 [TestNG-tests-3] INFO  [qa] [Test_AE1_TC01_Verify_New_User_SignUp] pages.ae.SignupDetailPage - Checkbox: 'Newsletter' is set to: true
+2026-03-25 11:16:50 [TestNG-tests-3] INFO  [qa] [Test_AE1_TC01_Verify_New_User_SignUp] pages.ae.SignupDetailPage - Checkbox: 'Special Offers' is set to: false
+2026-03-25 11:16:50 [TestNG-tests-3] INFO  [qa] [Test_AE1_TC01_Verify_New_User_SignUp] test.ae.SignupTests - Running:Step-5
+2026-03-25 11:16:50 [TestNG-tests-3] ERROR [qa] [Test_AE1_TC01_Verify_New_User_SignUp] io.qameta.allure.util.NamingUtils - Could not process empty pattern
+2026-03-25 11:16:50 [TestNG-tests-3] ERROR [qa] [Test_AE1_TC01_Verify_New_User_SignUp] io.qameta.allure.util.NamingUtils - Could not process empty pattern
+2026-03-25 11:16:51 [TestNG-tests-1] INFO  [qa] [Test_AE1_TC01_Verify_New_User_SignUp] test.ae.SignupTests - Running:Step-3
+2026-03-25 11:16:52 [TestNG-tests-3] ERROR [qa] [Test_AE1_TC01_Verify_New_User_SignUp] io.qameta.allure.util.NamingUtils - Could not find parameter zipcpde
+2026-03-25 11:16:53 [TestNG-tests-3] INFO  [qa] [Test_AE1_TC01_Verify_New_User_SignUp] pages.ae.SignupDetailPage - Checkbox: 'Special Offers' is set to: false
+2026-03-25 11:16:54 [TestNG-tests-3] INFO  [qa] [Test_AE1_TC01_Verify_New_User_SignUp] test.ae.SignupTests - Running:Step-6
+2026-03-25 11:16:55 [TestNG-tests-1] INFO  [qa] [Test_AE1_TC01_Verify_New_User_SignUp] test.ae.SignupTests - Running:Step-4
+2026-03-25 11:16:58 [TestNG-tests-1] INFO  [qa] [Test_AE1_TC01_Verify_New_User_SignUp] pages.ae.SignupDetailPage - Checkbox: 'Newsletter' is set to: true
+2026-03-25 11:16:58 [TestNG-tests-1] INFO  [qa] [Test_AE1_TC01_Verify_New_User_SignUp] pages.ae.SignupDetailPage - Checkbox: 'Special Offers' is set to: false
+2026-03-25 11:16:58 [TestNG-tests-1] INFO  [qa] [Test_AE1_TC01_Verify_New_User_SignUp] test.ae.SignupTests - Running:Step-5
+2026-03-25 11:16:58 [TestNG-tests-1] ERROR [qa] [Test_AE1_TC01_Verify_New_User_SignUp] io.qameta.allure.util.NamingUtils - Could not process empty pattern
+2026-03-25 11:16:58 [TestNG-tests-1] ERROR [qa] [Test_AE1_TC01_Verify_New_User_SignUp] io.qameta.allure.util.NamingUtils - Could not process empty pattern
+2026-03-25 11:17:01 [TestNG-tests-1] ERROR [qa] [Test_AE1_TC01_Verify_New_User_SignUp] io.qameta.allure.util.NamingUtils - Could not find parameter zipcpde
+2026-03-25 11:17:03 [TestNG-tests-1] INFO  [qa] [Test_AE1_TC01_Verify_New_User_SignUp] pages.ae.SignupDetailPage - Checkbox: 'Special Offers' is set to: false
+2026-03-25 11:17:03 [TestNG-tests-3] INFO  [qa] [Test_AE1_TC01_Verify_New_User_SignUp] framework.listeners.TestListener - {TEST PASSED: Test_AE1_TC01_Verify_New_User_SignUp
+2026-03-25 11:17:04 [TestNG-tests-1] INFO  [qa] [Test_AE1_TC01_Verify_New_User_SignUp] test.ae.SignupTests - Running:Step-6
+2026-03-25 11:17:07 [TestNG-tests-3] ERROR [qa] [Test_AE1_TC01_Verify_New_User_SignUp] io.qameta.allure.AllureLifecycle - Could not add attachment: no test is running
+2026-03-25 11:17:07 [TestNG-tests-3] INFO  [qa] [Test_AE1_TC01_Verify_New_User_SignUp] framework.listeners.TestListener - Screenshot attached: PASSED Screenshot:
+2026-03-25 11:17:16 [TestNG-tests-1] INFO  [qa] [Test_AE1_TC01_Verify_New_User_SignUp] framework.listeners.TestListener - {TEST PASSED: Test_AE1_TC01_Verify_New_User_SignUp
+2026-03-25 11:17:23 [TestNG-tests-1] ERROR [qa] [Test_AE1_TC01_Verify_New_User_SignUp] io.qameta.allure.AllureLifecycle - Could not add attachment: no test is running
+2026-03-25 11:17:23 [TestNG-tests-1] INFO  [qa] [Test_AE1_TC01_Verify_New_User_SignUp] framework.listeners.TestListener - Screenshot attached: PASSED Screenshot:

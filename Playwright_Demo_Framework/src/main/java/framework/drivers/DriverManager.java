@@ -151,43 +151,11 @@ public class DriverManager {
 
 		try {
 
-			String username = ConfigManager.getBSUsername();
-			String accessKey = ConfigManager.getBSAccessKey();
-
-			// ✅ Read from ThreadLocal — guaranteed correct per thread
-			String bsBrowser = bsBrowserName.get();
-			if (bsBrowser == null || bsBrowser.isEmpty()) {
-				bsBrowser = "chrome"; // safe default
-			}
-
-			logger.info("Connecting to BrowserStack. Browser: {}", bsBrowser);
-
-			// ── Build capabilities ─────────────────────────────────────────────
-			Map<String, Object> caps = new HashMap<>();
-			caps.put("browser", bsBrowser);
-			caps.put("browser_version", "latest");
-			caps.put("os", "Windows");
-			caps.put("os_version", "11");
-			caps.put("name", Thread.currentThread().getName());
-			caps.put("build", ConfigManager.getBSBuildName());
-			caps.put("project", ConfigManager.getBSProjectName());
-			caps.put("browserstack.username", username);
-			caps.put("browserstack.accessKey", accessKey);
-			caps.put("browserstack.debug", "true"); // enables BS screenshots
-			caps.put("browserstack.networkLogs", "true"); // enables BS network logs
-
-			// ── Build connection URL ───────────────────────────────────────────
-			String capsJson = new Gson().toJson(caps);
-			String capsEncoded = URLEncoder.encode(capsJson, StandardCharsets.UTF_8);
-			String wsEndpoint = "wss://cdp.browserstack.com/playwright?caps=" + capsEncoded;
-
 			// ── Connect via Playwright CDP ─────────────────────────────────────
 			playwright.set(Playwright.create());
 			playwright.get().selectors().setTestIdAttribute(ConfigManager.getProperty("test-id"));
 
-			browser.set(playwright.get().chromium().connect(wsEndpoint));
-
-			logger.info("Connected to BrowserStack successfully. Browser: {}", bsBrowser);
+			browser.set(initBrowserStackBrowser());
 
 			// ── Context — no video on BS (BS records its own video) ───────────
 			context.set(browser.get()
@@ -210,6 +178,69 @@ public class DriverManager {
 		}
 	}
 
+	
+	/**
+	 * ══════════════════════════════════════════════════════════════════════════
+	 * BROWSERSTACK BROWSER SELECTION
+	 * ══════════════════════════════════════════════════════════════════════════
+	 */
+
+	private Browser initBrowserStackBrowser() {
+
+		String username = ConfigManager.getBSUsername();
+		String accessKey = ConfigManager.getBSAccessKey();
+		
+		// Step 1 — determine BS browser name and Playwright type first
+		String bsBrowser = bsBrowserName.get();
+		if (bsBrowser == null || bsBrowser.isEmpty()) bsBrowser = "chrome";
+
+		// Step 2 — build caps with correct BS browser name
+		Map<String, Object> caps = new HashMap<>();
+		caps.put("browser_version", "latest");
+		caps.put("os", "Windows");
+		caps.put("os_version", "11");
+		caps.put("name", Thread.currentThread().getName());
+		caps.put("build", ConfigManager.getBSBuildName());
+		caps.put("project", ConfigManager.getBSProjectName());
+		caps.put("browserstack.username", username);
+		caps.put("browserstack.accessKey", accessKey);
+		caps.put("browserstack.debug", "true");
+		caps.put("browserstack.networkLogs", "true");
+
+		// Step 3 — set correct browser in caps + build endpoint
+		switch (bsBrowser.toLowerCase()) {
+		    case "firefox":
+		        caps.put("browser", "playwright-firefox");
+		        break;
+		    case "webkit":
+		        caps.put("browser", "playwright-webkit");
+		        break;
+		    case "edge":
+		        caps.put("browser", "edge");
+		        break;
+		    default:
+		        caps.put("browser", "chrome");
+		        break;
+		}
+
+		logger.info("Connecting to BrowserStack. Browser: {}", bsBrowser);
+		
+		// Step 4 — encode caps and build WS URL
+		String capsJson = new Gson().toJson(caps);
+		String capsEncoded = URLEncoder.encode(capsJson, StandardCharsets.UTF_8);
+		String wsEndpoint = "wss://cdp.browserstack.com/playwright?caps=" + capsEncoded;
+
+		// Step 5 — connect with correct Playwright browser type
+		switch (bsBrowser.toLowerCase()) {
+		    case "firefox":
+		        return playwright.get().firefox().connect(wsEndpoint);
+		    case "webkit":
+		    	return playwright.get().webkit().connect(wsEndpoint);
+		    default: // chrome, edge, chromium
+		    	return playwright.get().chromium().connect(wsEndpoint);
+		}
+	}
+	
 	/**
 	 * ══════════════════════════════════════════════════════════════════════════
 	 * TRACING

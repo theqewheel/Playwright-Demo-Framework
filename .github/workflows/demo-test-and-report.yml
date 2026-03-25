@@ -223,7 +223,7 @@ jobs:
                 &nbsp;|&nbsp;
                 ${{ steps.summary.outputs.est }}
                 <br/>
-                <span style="color:#58a6ff;">Branch: <b>main</b></span>
+                <span style="color:#58a6ff;">Branch: <b>${{ github.ref_name }}</b></span>
                 &nbsp;&nbsp;·&nbsp;&nbsp;
                 <span style="color:${STATUS_COLOR};font-weight:bold;">${{ steps.summary.outputs.status }}</span>
               </div>

@@ -1,0 +1,14 @@
+2026-03-25 05:08:34 [TestNG-test-Release 1.0 Testing for AE-1] INFO  [qa] [Test_AE9_TC22_Verify_Add_Recommended_To_Cart] framework.listeners.TestListener - -----------------  STARTING TEST : Test_AE9_TC22_Verify_Add_Recommended_To_Cart  -----------------
+2026-03-25 05:08:34 [TestNG-test-Release 1.0 Testing for AE-1] INFO  [qa] [Test_AE9_TC22_Verify_Add_Recommended_To_Cart] test.ae.AddToCartTests - Running:Step-1
+2026-03-25 05:08:35 [TestNG-test-Release 1.0 Testing for AE-1] INFO  [qa] [Test_AE9_TC22_Verify_Add_Recommended_To_Cart] test.ae.AddToCartTests - Running:Step-2
+2026-03-25 05:08:35 [TestNG-test-Release 1.0 Testing for AE-1] INFO  [qa] [Test_AE9_TC22_Verify_Add_Recommended_To_Cart] pages.ae.ProductsPage - Product 'Blue' is not active yet, clicking next attempt1/5...
+2026-03-25 05:08:39 [TestNG-test-Release 1.0 Testing for AE-1] INFO  [qa] [Test_AE9_TC22_Verify_Add_Recommended_To_Cart] pages.ae.ProductsPage - Added recommended Product 'Blue' to cart.
+2026-03-25 05:08:40 [TestNG-test-Release 1.0 Testing for AE-1] INFO  [qa] [Test_AE9_TC22_Verify_Add_Recommended_To_Cart] pages.ae.CartPage - 
+---------------------------------------------------
+Product Blue is Visible on Cart
+----------------------------------------------------
+
+
+2026-03-25 05:08:40 [TestNG-test-Release 1.0 Testing for AE-1] INFO  [qa] [Test_AE9_TC22_Verify_Add_Recommended_To_Cart] framework.listeners.TestListener - {TEST PASSED: Test_AE9_TC22_Verify_Add_Recommended_To_Cart
+2026-03-25 05:08:40 [TestNG-test-Release 1.0 Testing for AE-1] ERROR [qa] [Test_AE9_TC22_Verify_Add_Recommended_To_Cart] io.qameta.allure.AllureLifecycle - Could not add attachment: no test is running
+2026-03-25 05:08:40 [TestNG-test-Release 1.0 Testing for AE-1] INFO  [qa] [Test_AE9_TC22_Verify_Add_Recommended_To_Cart] framework.listeners.TestListener - Screenshot attached: PASSED Screenshot:

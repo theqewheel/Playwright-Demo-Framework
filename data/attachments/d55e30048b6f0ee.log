@@ -1,6 +1,0 @@
-2026-03-23 10:05:21 [TestNG-test-Release 1.0 Testing for AE-2] INFO  [qa] [Test_AE2_TC03_Verify_InValid_User_Login] framework.listeners.TestListener - -----------------  STARTING TEST : Test_AE2_TC03_Verify_InValid_User_Login  -----------------
-2026-03-23 10:05:21 [TestNG-test-Release 1.0 Testing for AE-2] INFO  [qa] [Test_AE2_TC03_Verify_InValid_User_Login] test.ae.LoginTests - Running:Step-1
-2026-03-23 10:05:24 [TestNG-test-Release 1.0 Testing for AE-2] INFO  [qa] [Test_AE2_TC03_Verify_InValid_User_Login] test.ae.LoginTests - Running:Step-2
-2026-03-23 10:05:29 [TestNG-test-Release 1.0 Testing for AE-2] INFO  [qa] [Test_AE2_TC03_Verify_InValid_User_Login] framework.listeners.TestListener - {TEST PASSED: Test_AE2_TC03_Verify_InValid_User_Login
-2026-03-23 10:05:29 [TestNG-test-Release 1.0 Testing for AE-2] ERROR [qa] [Test_AE2_TC03_Verify_InValid_User_Login] io.qameta.allure.AllureLifecycle - Could not add attachment: no test is running
-2026-03-23 10:05:29 [TestNG-test-Release 1.0 Testing for AE-2] INFO  [qa] [Test_AE2_TC03_Verify_InValid_User_Login] framework.listeners.TestListener - Screenshot attached: PASSED Screenshot:

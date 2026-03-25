@@ -114,7 +114,9 @@ public class ConfigManager {
 	//Called from Test Driver
 	public static boolean getHeadlessmode() {
 		switch(getProperty("execution.mode").toLowerCase()) {
-			case "github" : return false;
+			case "github" : 
+			case "native" :
+				return false;
 			case "browserstack": 
 			case "local":
 			default:

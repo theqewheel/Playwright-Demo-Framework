@@ -1,0 +1,40 @@
+2026-03-25 09:51:12 [TestNG-test-Release 1.0 Testing for AE-1] INFO  [qa] [Test_AE10_TC14_Verify_Place_Order_For_Customer_Registered_On_Checkout] framework.listeners.TestListener - -----------------  STARTING TEST : Test_AE10_TC14_Verify_Place_Order_For_Customer_Registered_On_Checkout  -----------------
+2026-03-25 09:51:12 [TestNG-test-Release 1.0 Testing for AE-1] INFO  [qa] [Test_AE10_TC14_Verify_Place_Order_For_Customer_Registered_On_Checkout] test.ae.PlaceOrderTests - Running:Step-1
+2026-03-25 09:51:19 [TestNG-test-Release 1.0 Testing for AE-1] INFO  [qa] [Test_AE10_TC14_Verify_Place_Order_For_Customer_Registered_On_Checkout] test.ae.PlaceOrderTests - Running:Step-2
+2026-03-25 09:51:20 [TestNG-test-Release 1.0 Testing for AE-1] INFO  [qa] [Test_AE10_TC14_Verify_Place_Order_For_Customer_Registered_On_Checkout] pages.ae.HomePage - Navigating to Products
+2026-03-25 09:51:25 [TestNG-test-Release 1.0 Testing for AE-1] INFO  [qa] [Test_AE10_TC14_Verify_Place_Order_For_Customer_Registered_On_Checkout] pages.ae.ProductsPage - 
+---------------------------------------------------
+Product 1 Added To Cart
+Name  : Blue Top
+Price : 500
+------------------------xxxx-----------------------
+
+2026-03-25 09:51:29 [TestNG-test-Release 1.0 Testing for AE-1] INFO  [qa] [Test_AE10_TC14_Verify_Place_Order_For_Customer_Registered_On_Checkout] pages.ae.ProductsPage - 
+---------------------------------------------------
+Product 2 Added To Cart
+Name  : Men Tshirt
+Price : 400
+------------------------xxxx-----------------------
+
+2026-03-25 09:51:29 [TestNG-test-Release 1.0 Testing for AE-1] INFO  [qa] [Test_AE10_TC14_Verify_Place_Order_For_Customer_Registered_On_Checkout] test.ae.PlaceOrderTests - Running:Step-3
+2026-03-25 09:51:30 [TestNG-test-Release 1.0 Testing for AE-1] INFO  [qa] [Test_AE10_TC14_Verify_Place_Order_For_Customer_Registered_On_Checkout] pages.ae.HomePage - Navigating to Cart
+2026-03-25 09:51:32 [TestNG-test-Release 1.0 Testing for AE-1] INFO  [qa] [Test_AE10_TC14_Verify_Place_Order_For_Customer_Registered_On_Checkout] test.ae.PlaceOrderTests - Running:Step-4
+2026-03-25 09:51:40 [TestNG-test-Release 1.0 Testing for AE-1] INFO  [qa] [Test_AE10_TC14_Verify_Place_Order_For_Customer_Registered_On_Checkout] pages.ae.SignupDetailPage - Checkbox: 'Newsletter' is set to: false
+2026-03-25 09:51:41 [TestNG-test-Release 1.0 Testing for AE-1] INFO  [qa] [Test_AE10_TC14_Verify_Place_Order_For_Customer_Registered_On_Checkout] pages.ae.SignupDetailPage - Checkbox: 'Special Offers' is set to: true
+2026-03-25 09:51:41 [TestNG-test-Release 1.0 Testing for AE-1] ERROR [qa] [Test_AE10_TC14_Verify_Place_Order_For_Customer_Registered_On_Checkout] io.qameta.allure.util.NamingUtils - Could not process empty pattern
+2026-03-25 09:51:41 [TestNG-test-Release 1.0 Testing for AE-1] ERROR [qa] [Test_AE10_TC14_Verify_Place_Order_For_Customer_Registered_On_Checkout] io.qameta.allure.util.NamingUtils - Could not process empty pattern
+2026-03-25 09:51:45 [TestNG-test-Release 1.0 Testing for AE-1] ERROR [qa] [Test_AE10_TC14_Verify_Place_Order_For_Customer_Registered_On_Checkout] io.qameta.allure.util.NamingUtils - Could not find parameter zipcpde
+2026-03-25 09:51:51 [TestNG-test-Release 1.0 Testing for AE-1] INFO  [qa] [Test_AE10_TC14_Verify_Place_Order_For_Customer_Registered_On_Checkout] test.ae.PlaceOrderTests - Running:Step-5
+2026-03-25 09:51:52 [TestNG-test-Release 1.0 Testing for AE-1] INFO  [qa] [Test_AE10_TC14_Verify_Place_Order_For_Customer_Registered_On_Checkout] pages.ae.HomePage - Navigating to Cart
+2026-03-25 09:52:01 [TestNG-test-Release 1.0 Testing for AE-1] INFO  [qa] [Test_AE10_TC14_Verify_Place_Order_For_Customer_Registered_On_Checkout] framework.listeners.TestListener - {TEST FAILED: Test_AE10_TC14_Verify_Place_Order_For_Customer_Registered_On_Checkout
+2026-03-25 09:52:01 [TestNG-test-Release 1.0 Testing for AE-1] ERROR [qa] [Test_AE10_TC14_Verify_Place_Order_For_Customer_Registered_On_Checkout] framework.listeners.TestListener - Failure Reason: org.opentest4j.AssertionFailedError: Page URL expected to match regex
+Expected: /checkout
+Received: https://automationexercise.com/view_cart
+
+Call log:
+  - Assert "hasURL" with timeout 5000ms
+    8 × unexpected value "https://automationexercise.com/view_cart"
+2026-03-25 09:52:02 [TestNG-test-Release 1.0 Testing for AE-1] ERROR [qa] [Test_AE10_TC14_Verify_Place_Order_For_Customer_Registered_On_Checkout] io.qameta.allure.AllureLifecycle - Could not add attachment: no test is running
+2026-03-25 09:52:02 [TestNG-test-Release 1.0 Testing for AE-1] ERROR [qa] [Test_AE10_TC14_Verify_Place_Order_For_Customer_Registered_On_Checkout] io.qameta.allure.AllureLifecycle - Could not start step: no test case running
+2026-03-25 09:52:02 [TestNG-test-Release 1.0 Testing for AE-1] ERROR [qa] [Test_AE10_TC14_Verify_Place_Order_For_Customer_Registered_On_Checkout] io.qameta.allure.AllureLifecycle - Could not stop step: step with uuid cabfe72c-3183-4f2b-8ed8-4afc9e7a7ca6 not found
+2026-03-25 09:52:02 [TestNG-test-Release 1.0 Testing for AE-1] INFO  [qa] [Test_AE10_TC14_Verify_Place_Order_For_Customer_Registered_On_Checkout] framework.listeners.TestListener - Screenshot attached: FAILURE Screenshot:

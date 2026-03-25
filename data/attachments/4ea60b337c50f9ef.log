@@ -1,0 +1,17 @@
+2026-03-25 09:52:56 [TestNG-test-Release 1.0 Testing for AE-4] INFO  [qa] [Test_AE9_TC17_Verify_Removal_From_Cart] framework.listeners.TestListener - -----------------  STARTING TEST : Test_AE9_TC17_Verify_Removal_From_Cart  -----------------
+2026-03-25 09:52:56 [TestNG-test-Release 1.0 Testing for AE-4] INFO  [qa] [Test_AE9_TC17_Verify_Removal_From_Cart] test.ae.AddToCartTests - Running:Step-1
+2026-03-25 09:53:03 [TestNG-test-Release 1.0 Testing for AE-4] INFO  [qa] [Test_AE9_TC17_Verify_Removal_From_Cart] test.ae.AddToCartTests - Running:Step-2
+2026-03-25 09:53:14 [TestNG-test-Release 1.0 Testing for AE-4] INFO  [qa] [Test_AE9_TC17_Verify_Removal_From_Cart] test.ae.AddToCartTests - Running:Step-3
+2026-03-25 09:53:15 [TestNG-test-Release 1.0 Testing for AE-4] INFO  [qa] [Test_AE9_TC17_Verify_Removal_From_Cart] pages.ae.HomePage - Navigating to Cart
+2026-03-25 09:53:21 [TestNG-test-Release 1.0 Testing for AE-4] INFO  [qa] [Test_AE9_TC17_Verify_Removal_From_Cart] pages.ae.CartPage - 
+---------------------------------------------------
+Product Frozen is Not Visible on Cart
+----------------------------------------------------
+
+
+2026-03-25 09:53:21 [TestNG-test-Release 1.0 Testing for AE-4] INFO  [qa] [Test_AE9_TC17_Verify_Removal_From_Cart] test.ae.AddToCartTests - Running:Step-4
+2026-03-25 09:53:21 [TestNG-test-Release 1.0 Testing for AE-4] INFO  [qa] [Test_AE9_TC17_Verify_Removal_From_Cart] pages.ae.CartPage - Total products in cart before deletion - 4
+2026-03-25 09:53:25 [TestNG-test-Release 1.0 Testing for AE-4] INFO  [qa] [Test_AE9_TC17_Verify_Removal_From_Cart] pages.ae.CartPage - Total products in cart after deletion - 0
+2026-03-25 09:53:27 [TestNG-test-Release 1.0 Testing for AE-4] INFO  [qa] [Test_AE9_TC17_Verify_Removal_From_Cart] framework.listeners.TestListener - {TEST PASSED: Test_AE9_TC17_Verify_Removal_From_Cart
+2026-03-25 09:53:28 [TestNG-test-Release 1.0 Testing for AE-4] ERROR [qa] [Test_AE9_TC17_Verify_Removal_From_Cart] io.qameta.allure.AllureLifecycle - Could not add attachment: no test is running
+2026-03-25 09:53:28 [TestNG-test-Release 1.0 Testing for AE-4] INFO  [qa] [Test_AE9_TC17_Verify_Removal_From_Cart] framework.listeners.TestListener - Screenshot attached: PASSED Screenshot:

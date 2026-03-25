@@ -1,0 +1,15 @@
+2026-03-25 09:50:56 [TestNG-test-Release 1.0 Testing for AE-2] INFO  [qa] [Test_AE5_TC09_Verify_Product_Search_Lists_All_Relevant_Products] framework.listeners.TestListener - -----------------  STARTING TEST : Test_AE5_TC09_Verify_Product_Search_Lists_All_Relevant_Products  -----------------
+2026-03-25 09:50:56 [TestNG-test-Release 1.0 Testing for AE-2] INFO  [qa] [Test_AE5_TC09_Verify_Product_Search_Lists_All_Relevant_Products] test.ae.ProductsTests - Running:Step-1
+2026-03-25 09:51:03 [TestNG-test-Release 1.0 Testing for AE-2] INFO  [qa] [Test_AE5_TC09_Verify_Product_Search_Lists_All_Relevant_Products] test.ae.ProductsTests - Running:Step-2
+2026-03-25 09:51:05 [TestNG-test-Release 1.0 Testing for AE-2] INFO  [qa] [Test_AE5_TC09_Verify_Product_Search_Lists_All_Relevant_Products] pages.ae.HomePage - Navigating to Products
+2026-03-25 09:51:14 [TestNG-test-Release 1.0 Testing for AE-2] INFO  [qa] [Test_AE5_TC09_Verify_Product_Search_Lists_All_Relevant_Products] test.ae.ProductsTests - Running:Step-3
+2026-03-25 09:51:23 [TestNG-test-Release 1.0 Testing for AE-2] INFO  [qa] [Test_AE5_TC09_Verify_Product_Search_Lists_All_Relevant_Products] pages.ae.ProductsPage - The searched product - Green has found 3 matching products.
+2026-03-25 09:51:24 [TestNG-test-Release 1.0 Testing for AE-2] INFO  [qa] [Test_AE5_TC09_Verify_Product_Search_Lists_All_Relevant_Products] pages.ae.ProductsPage - 
+   Search List of Products
+------------------------------
+Fancy Green Top, Green Side Placket Detail T-Shirt, Pure Cotton Neon Green Tshirt
+------------------------------
+
+2026-03-25 09:51:24 [TestNG-test-Release 1.0 Testing for AE-2] INFO  [qa] [Test_AE5_TC09_Verify_Product_Search_Lists_All_Relevant_Products] framework.listeners.TestListener - {TEST PASSED: Test_AE5_TC09_Verify_Product_Search_Lists_All_Relevant_Products
+2026-03-25 09:51:26 [TestNG-test-Release 1.0 Testing for AE-2] ERROR [qa] [Test_AE5_TC09_Verify_Product_Search_Lists_All_Relevant_Products] io.qameta.allure.AllureLifecycle - Could not add attachment: no test is running
+2026-03-25 09:51:26 [TestNG-test-Release 1.0 Testing for AE-2] INFO  [qa] [Test_AE5_TC09_Verify_Product_Search_Lists_All_Relevant_Products] framework.listeners.TestListener - Screenshot attached: PASSED Screenshot:

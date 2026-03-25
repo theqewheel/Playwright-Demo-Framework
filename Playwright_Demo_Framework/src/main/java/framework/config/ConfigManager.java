@@ -110,5 +110,76 @@ public class ConfigManager {
 		return environment.toLowerCase();
 	}
 		
+	
+	//Called from Test Driver
+	public static boolean getHeadlessmode() {
+		switch(getExecutionMode().toLowerCase()) {
+			case "github" : 
+			case "native" :
+				return true;
+			case "browserstack": 
+			case "local":
+			default:
+				return Boolean.parseBoolean(getProperty("headless"));
+			
+		}
+				
+	}
+	
+	// ══════════════════════════════════════════════════════════════════════════
+	// EXECUTION MODE
+	// Priority: System property → config.properties → default "local"
+	// ══════════════════════════════════════════════════════════════════════════
+
+	public static String getExecutionMode() {
+		
+		// System property - set by GitHub Actions via -Dexecution.mode
+		String mode = System.getProperty("execution.mode");
+		
+		// Fallback to mode in config.properties
+		if (mode==null || mode.isEmpty()) {
+			mode = getProperty("execution.mode");
+			logger.info("Execution mode falls back to Config.properties");
+		}
+		
+		// Fallback to local - default
+		if (mode==null || mode.isEmpty()) {
+			mode = "local";
+			logger.info("Execution mode falls back to default - 'Local'");
+		}
+		
+		return mode.toLowerCase().trim();
+	}
+	
+	
+	// ══════════════════════════════════════════════════════════════════════════
+	// BROWSERSTACK CREDENTIALS
+	// Passed via -Dbs.username and -Dbs.accesskey from GitHub Actions secrets
+	// Never hardcoded — always from system properties
+	// ══════════════════════════════════════════════════════════════════════════
+
+	public static String getBSUsername() {
+		String val = System.getProperty("bs.username");
+		//if(val==null || val.isEmpty()) val = getProperty("bs.username");
+		return val;
+	}
+	
+	public static String getBSAccessKey() {
+		String val = System.getProperty("bs.accesskey");
+		//if(val==null || val.isEmpty()) val = getProperty("bs.accesskey");
+		return val;
+	}
+	
+	// ══════════════════════════════════════════════════════════════════════════
+	// BROWSERSTACK CAPABILITIES
+	// ══════════════════════════════════════════════════════════════════════════
+
+	public static String getBSProjectName() {
+	    return getProperty("bs.project.name");
+	}
+
+	public static String getBSBuildName() {
+	    return getProperty("bs.build.name");
+	}
 
 }

@@ -1,9 +1,0 @@
-2026-03-25 09:50:26 [TestNG-test-Release 1.0 Testing for AE-1] INFO  [qa] [Test_AE6_TC21_Verify_Adding_Product_Review] framework.listeners.TestListener - -----------------  STARTING TEST : Test_AE6_TC21_Verify_Adding_Product_Review  -----------------
-2026-03-25 09:50:26 [TestNG-test-Release 1.0 Testing for AE-1] INFO  [qa] [Test_AE6_TC21_Verify_Adding_Product_Review] test.ae.ProductReviewTests - Running:Step-1
-2026-03-25 09:50:26 [TestNG-test-Release 1.0 Testing for AE-1] INFO  [qa] [Test_AE6_TC21_Verify_Adding_Product_Review] test.ae.ProductReviewTests - Running:Step-2
-2026-03-25 09:50:28 [TestNG-test-Release 1.0 Testing for AE-1] INFO  [qa] [Test_AE6_TC21_Verify_Adding_Product_Review] pages.ae.HomePage - Navigating to Products
-2026-03-25 09:50:34 [TestNG-test-Release 1.0 Testing for AE-1] INFO  [qa] [Test_AE6_TC21_Verify_Adding_Product_Review] test.ae.ProductReviewTests - Running:Step-3
-2026-03-25 09:50:36 [TestNG-test-Release 1.0 Testing for AE-1] ERROR [qa] [Test_AE6_TC21_Verify_Adding_Product_Review] io.qameta.allure.util.NamingUtils - Could not process empty pattern
-2026-03-25 09:50:38 [TestNG-test-Release 1.0 Testing for AE-1] INFO  [qa] [Test_AE6_TC21_Verify_Adding_Product_Review] framework.listeners.TestListener - {TEST PASSED: Test_AE6_TC21_Verify_Adding_Product_Review
-2026-03-25 09:50:39 [TestNG-test-Release 1.0 Testing for AE-1] ERROR [qa] [Test_AE6_TC21_Verify_Adding_Product_Review] io.qameta.allure.AllureLifecycle - Could not add attachment: no test is running
-2026-03-25 09:50:39 [TestNG-test-Release 1.0 Testing for AE-1] INFO  [qa] [Test_AE6_TC21_Verify_Adding_Product_Review] framework.listeners.TestListener - Screenshot attached: PASSED Screenshot:

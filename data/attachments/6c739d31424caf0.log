@@ -1,0 +1,16 @@
+2026-03-25 11:05:38 [TestNG-test-Release 1.0 Testing for AE-1] INFO  [qa] [Test_AE1_TC01_Verify_New_User_SignUp] framework.listeners.TestListener - -----------------  STARTING TEST : Test_AE1_TC01_Verify_New_User_SignUp  -----------------
+2026-03-25 11:05:38 [TestNG-test-Release 1.0 Testing for AE-1] INFO  [qa] [Test_AE1_TC01_Verify_New_User_SignUp] test.ae.SignupTests - Running:Step-1
+2026-03-25 11:05:42 [TestNG-test-Release 1.0 Testing for AE-1] INFO  [qa] [Test_AE1_TC01_Verify_New_User_SignUp] test.ae.SignupTests - Running:Step-2
+2026-03-25 11:05:44 [TestNG-test-Release 1.0 Testing for AE-1] INFO  [qa] [Test_AE1_TC01_Verify_New_User_SignUp] test.ae.SignupTests - Running:Step-3
+2026-03-25 11:05:46 [TestNG-test-Release 1.0 Testing for AE-1] INFO  [qa] [Test_AE1_TC01_Verify_New_User_SignUp] test.ae.SignupTests - Running:Step-4
+2026-03-25 11:05:46 [TestNG-test-Release 1.0 Testing for AE-1] INFO  [qa] [Test_AE1_TC01_Verify_New_User_SignUp] pages.ae.SignupDetailPage - Checkbox: 'Newsletter' is set to: true
+2026-03-25 11:05:47 [TestNG-test-Release 1.0 Testing for AE-1] INFO  [qa] [Test_AE1_TC01_Verify_New_User_SignUp] pages.ae.SignupDetailPage - Checkbox: 'Special Offers' is set to: false
+2026-03-25 11:05:47 [TestNG-test-Release 1.0 Testing for AE-1] INFO  [qa] [Test_AE1_TC01_Verify_New_User_SignUp] test.ae.SignupTests - Running:Step-5
+2026-03-25 11:05:47 [TestNG-test-Release 1.0 Testing for AE-1] ERROR [qa] [Test_AE1_TC01_Verify_New_User_SignUp] io.qameta.allure.util.NamingUtils - Could not process empty pattern
+2026-03-25 11:05:47 [TestNG-test-Release 1.0 Testing for AE-1] ERROR [qa] [Test_AE1_TC01_Verify_New_User_SignUp] io.qameta.allure.util.NamingUtils - Could not process empty pattern
+2026-03-25 11:05:48 [TestNG-test-Release 1.0 Testing for AE-1] ERROR [qa] [Test_AE1_TC01_Verify_New_User_SignUp] io.qameta.allure.util.NamingUtils - Could not find parameter zipcpde
+2026-03-25 11:05:49 [TestNG-test-Release 1.0 Testing for AE-1] INFO  [qa] [Test_AE1_TC01_Verify_New_User_SignUp] pages.ae.SignupDetailPage - Checkbox: 'Special Offers' is set to: false
+2026-03-25 11:05:50 [TestNG-test-Release 1.0 Testing for AE-1] INFO  [qa] [Test_AE1_TC01_Verify_New_User_SignUp] test.ae.SignupTests - Running:Step-6
+2026-03-25 11:05:55 [TestNG-test-Release 1.0 Testing for AE-1] INFO  [qa] [Test_AE1_TC01_Verify_New_User_SignUp] framework.listeners.TestListener - {TEST PASSED: Test_AE1_TC01_Verify_New_User_SignUp
+2026-03-25 11:05:58 [TestNG-test-Release 1.0 Testing for AE-1] ERROR [qa] [Test_AE1_TC01_Verify_New_User_SignUp] io.qameta.allure.AllureLifecycle - Could not add attachment: no test is running
+2026-03-25 11:05:58 [TestNG-test-Release 1.0 Testing for AE-1] INFO  [qa] [Test_AE1_TC01_Verify_New_User_SignUp] framework.listeners.TestListener - Screenshot attached: PASSED Screenshot:

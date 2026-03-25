@@ -1,0 +1,6 @@
+2026-03-25 11:05:38 [TestNG-test-Release 1.0 Testing for AE-3] INFO  [qa] [Test_AE8_TC25_Verify_Home_Page_Scroll_With_Arrow] framework.listeners.TestListener - -----------------  STARTING TEST : Test_AE8_TC25_Verify_Home_Page_Scroll_With_Arrow  -----------------
+2026-03-25 11:05:38 [TestNG-test-Release 1.0 Testing for AE-3] INFO  [qa] [Test_AE8_TC25_Verify_Home_Page_Scroll_With_Arrow] test.ae.HomeTests - Running:Step-1
+2026-03-25 11:05:41 [TestNG-test-Release 1.0 Testing for AE-3] INFO  [qa] [Test_AE8_TC25_Verify_Home_Page_Scroll_With_Arrow] test.ae.HomeTests - Running:Step-2
+2026-03-25 11:05:45 [TestNG-test-Release 1.0 Testing for AE-3] INFO  [qa] [Test_AE8_TC25_Verify_Home_Page_Scroll_With_Arrow] framework.listeners.TestListener - {TEST PASSED: Test_AE8_TC25_Verify_Home_Page_Scroll_With_Arrow
+2026-03-25 11:05:47 [TestNG-test-Release 1.0 Testing for AE-3] ERROR [qa] [Test_AE8_TC25_Verify_Home_Page_Scroll_With_Arrow] io.qameta.allure.AllureLifecycle - Could not add attachment: no test is running
+2026-03-25 11:05:47 [TestNG-test-Release 1.0 Testing for AE-3] INFO  [qa] [Test_AE8_TC25_Verify_Home_Page_Scroll_With_Arrow] framework.listeners.TestListener - Screenshot attached: PASSED Screenshot:

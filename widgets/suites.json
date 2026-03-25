@@ -1,1 +1,1 @@
-{"total":1,"items":[{"uid":"0087a0d8af02c9f743c8b11a56c23d5d","name":"Playwright Demo Framework Tests - TA1 [BrowserStack]","statistic":{"failed":0,"broken":0,"skipped":0,"passed":6,"unknown":0,"total":6}}]}
+{"total":1,"items":[{"uid":"280668f49ae1729be829f77142704418","name":"Playwright Demo Framework Tests - TA1 ","statistic":{"failed":0,"broken":10,"skipped":26,"passed":0,"unknown":0,"total":36}}]}

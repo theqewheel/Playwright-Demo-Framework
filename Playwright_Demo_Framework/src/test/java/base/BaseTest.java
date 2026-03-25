@@ -5,6 +5,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 
 import org.slf4j.Logger;
+import org.testng.ITestContext;
 import org.testng.ITestResult;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
@@ -56,19 +57,26 @@ public class BaseTest {
 	 */
 
 	@BeforeMethod
-	@Parameters({ "bs.browser" })
-	public void setup(@Optional("chrome") String bsBrowser) {
-
-		// ✅ Set bs.browser as system property for DriverManager
-		// Only matters for BrowserStack runs — ignored in local/github mode
-		if ("browserstack".equals(ConfigManager.getExecutionMode())) {
-			System.setProperty("bs.browser", bsBrowser);
-			logger.info("BrowserStack browser set: {}", bsBrowser);
-		}
+	public void setup(ITestContext context) {
 
 		logger = LogManager.getLogger(this.getClass());
 		driver = new DriverManager();
 		softAssert = new SoftAssert();
+		
+	    // ✅ Read bs.browser from TestNG context — works for all modes
+	    // For BS runs: comes from <parameter name="bs.browser" value="chrome"/>
+	    // For local/github: returns null → ignored safely
+		if ("browserstack".equals(ConfigManager.getExecutionMode())) {
+		    String bsBrowser = context.getCurrentXmlTest()
+		                              .getParameter("bs.browser");
+		    if (bsBrowser == null || bsBrowser.isEmpty()) {
+		        bsBrowser = "chrome";
+		    }
+		    // ✅ Store in DriverManager ThreadLocal — thread safe!
+		    DriverManager.setBsBrowser(bsBrowser);
+		    logger.info("BrowserStack browser set to: {}", bsBrowser);
+		}
+		
 
 		driver.initDriver();
 

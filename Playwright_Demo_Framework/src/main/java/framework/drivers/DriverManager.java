@@ -38,6 +38,7 @@ public class DriverManager {
 	private static final ThreadLocal<BrowserContext> context = new ThreadLocal<>();
 	private static final ThreadLocal<Page> page = new ThreadLocal<>();
 	private static final ThreadLocal<Path> videoDir = new ThreadLocal<>();
+	private static final ThreadLocal<String> bsBrowserName = new ThreadLocal<>();
 
 	private Logger logger = LogManager.getLogger(DriverManager.class);
 	private boolean headlessMode;
@@ -153,11 +154,11 @@ public class DriverManager {
 
 			String username = ConfigManager.getBSUsername();
 			String accessKey = ConfigManager.getBSAccessKey();
-			String bsBrowser = System.getProperty("bs.browser");
 
-			// fallback to config browser if not set per thread
+			// ✅ Read from ThreadLocal — guaranteed correct per thread
+			String bsBrowser = bsBrowserName.get();
 			if (bsBrowser == null || bsBrowser.isEmpty()) {
-				bsBrowser = ConfigManager.getBrowser();
+				bsBrowser = "chrome"; // safe default
 			}
 
 			logger.info("Connecting to BrowserStack. Browser: {}", bsBrowser);
@@ -215,7 +216,7 @@ public class DriverManager {
 	 * TRACING
 	 * ══════════════════════════════════════════════════════════════════════════
 	 */
-	
+
 	private void startTrace() {
 		try {
 			context.get().tracing()
@@ -251,6 +252,7 @@ public class DriverManager {
 			browser.remove();
 			playwright.remove();
 			videoDir.remove();
+			bsBrowserName.remove();
 		}
 	}
 
@@ -313,5 +315,16 @@ public class DriverManager {
 	// without needing a DriverManager instance
 	public static Page getCurrentPage() {
 		return page.get();
+	}
+
+	/**
+	 * ══════════════════════════════════════════════════════════════════════════
+	 * SETTERS
+	 * ══════════════════════════════════════════════════════════════════════════
+	 */
+
+	// ✅ Setter — called from BaseTest before initDriver()
+	public static void setBsBrowser(String browser) {
+		bsBrowserName.set(browser);
 	}
 }

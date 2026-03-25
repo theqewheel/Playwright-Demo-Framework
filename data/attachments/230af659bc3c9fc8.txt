@@ -1,0 +1,12 @@
+
+-------------------------------------------------------------------------
+               DELIVERY ADDRESS ON CHECKOUT
+-------------------------------------------------------------------------
+Title Fullname  : Mr. Jolyn Koepp
+Company Name    : Kemmer, Kohler and O'Kon
+Address Line1   : 3422 Cummings Valley
+Address Line2   : Apt. 428
+Address Line3   : South Eugene Ohio 544670
+Country         : Singapore
+Phone           : 1937664766
+-------------------------------------------------------------------------

@@ -1,0 +1,12 @@
+
+-------------------------------------------------------------------------
+               INVOICE ADDRESS ON CHECKOUT
+-------------------------------------------------------------------------
+Title Fullname  : Mrs. Marvin Zboncak
+Company Name    : Runte and Sons
+Address Line1   : 471 Wolff Causeway
+Address Line2   : Apt. 758
+Address Line3   : Scottietown Hawaii 377204
+Country         : Israel
+Phone           : 4244660922
+-------------------------------------------------------------------------

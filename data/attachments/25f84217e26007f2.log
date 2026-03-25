@@ -1,0 +1,105 @@
+2026-03-25 15:10:31 [TestNG-test-Release 1.0 Testing for AE-4] INFO  [qa] [Test_AE10_TC24_Verify_Purchase_Order_Invoice_Download] framework.listeners.TestListener - -----------------  STARTING TEST : Test_AE10_TC24_Verify_Purchase_Order_Invoice_Download  -----------------
+2026-03-25 15:10:31 [TestNG-test-Release 1.0 Testing for AE-4] INFO  [qa] [Test_AE10_TC24_Verify_Purchase_Order_Invoice_Download] test.ae.PlaceOrderTests - Running:Step-1
+2026-03-25 15:10:33 [TestNG-test-Release 1.0 Testing for AE-4] INFO  [qa] [Test_AE10_TC24_Verify_Purchase_Order_Invoice_Download] test.ae.PlaceOrderTests - Running:Step-2
+2026-03-25 15:10:34 [TestNG-test-Release 1.0 Testing for AE-4] INFO  [qa] [Test_AE10_TC24_Verify_Purchase_Order_Invoice_Download] pages.ae.HomePage - Navigating to Products
+2026-03-25 15:10:37 [TestNG-test-Release 1.0 Testing for AE-4] INFO  [qa] [Test_AE10_TC24_Verify_Purchase_Order_Invoice_Download] pages.ae.ProductsPage - 
+---------------------------------------------------
+Product 1 Added To Cart
+Name  : Blue Top
+Price : 500
+------------------------xxxx-----------------------
+
+2026-03-25 15:10:41 [TestNG-test-Release 1.0 Testing for AE-4] INFO  [qa] [Test_AE10_TC24_Verify_Purchase_Order_Invoice_Download] pages.ae.ProductsPage - 
+---------------------------------------------------
+Product 2 Added To Cart
+Name  : Men Tshirt
+Price : 400
+------------------------xxxx-----------------------
+
+2026-03-25 15:10:41 [TestNG-test-Release 1.0 Testing for AE-4] INFO  [qa] [Test_AE10_TC24_Verify_Purchase_Order_Invoice_Download] test.ae.PlaceOrderTests - Running:Step-3
+2026-03-25 15:10:42 [TestNG-test-Release 1.0 Testing for AE-4] INFO  [qa] [Test_AE10_TC24_Verify_Purchase_Order_Invoice_Download] pages.ae.HomePage - Navigating to Cart
+2026-03-25 15:10:43 [TestNG-test-Release 1.0 Testing for AE-4] INFO  [qa] [Test_AE10_TC24_Verify_Purchase_Order_Invoice_Download] test.ae.PlaceOrderTests - Running:Step-4
+2026-03-25 15:10:53 [TestNG-test-Release 1.0 Testing for AE-4] INFO  [qa] [Test_AE10_TC24_Verify_Purchase_Order_Invoice_Download] pages.ae.SignupDetailPage - Checkbox: 'Newsletter' is set to: false
+2026-03-25 15:10:53 [TestNG-test-Release 1.0 Testing for AE-4] INFO  [qa] [Test_AE10_TC24_Verify_Purchase_Order_Invoice_Download] pages.ae.SignupDetailPage - Checkbox: 'Special Offers' is set to: false
+2026-03-25 15:10:53 [TestNG-test-Release 1.0 Testing for AE-4] ERROR [qa] [Test_AE10_TC24_Verify_Purchase_Order_Invoice_Download] io.qameta.allure.util.NamingUtils - Could not process empty pattern
+2026-03-25 15:10:53 [TestNG-test-Release 1.0 Testing for AE-4] ERROR [qa] [Test_AE10_TC24_Verify_Purchase_Order_Invoice_Download] io.qameta.allure.util.NamingUtils - Could not process empty pattern
+2026-03-25 15:11:01 [TestNG-test-Release 1.0 Testing for AE-4] ERROR [qa] [Test_AE10_TC24_Verify_Purchase_Order_Invoice_Download] io.qameta.allure.util.NamingUtils - Could not find parameter zipcpde
+2026-03-25 15:11:06 [TestNG-test-Release 1.0 Testing for AE-4] INFO  [qa] [Test_AE10_TC24_Verify_Purchase_Order_Invoice_Download] test.ae.PlaceOrderTests - Running:Step-5
+2026-03-25 15:11:07 [TestNG-test-Release 1.0 Testing for AE-4] INFO  [qa] [Test_AE10_TC24_Verify_Purchase_Order_Invoice_Download] pages.ae.HomePage - Navigating to Cart
+2026-03-25 15:11:09 [TestNG-test-Release 1.0 Testing for AE-4] INFO  [qa] [Test_AE10_TC24_Verify_Purchase_Order_Invoice_Download] test.ae.PlaceOrderTests - Running:Step-6.1
+2026-03-25 15:11:09 [TestNG-test-Release 1.0 Testing for AE-4] INFO  [qa] [Test_AE10_TC24_Verify_Purchase_Order_Invoice_Download] pages.ae.CheckOutPage - 
+-------------------------------------------------------------------------
+               DELIVERY ADDRESS ON CHECKOUT
+-------------------------------------------------------------------------
+Title Fullname  : Mrs. Valentin Jacobs
+Company Name    : Gerlach LLC
+Address Line1   : 01168 Bryon Ranch
+Address Line2   : Suite 642
+Address Line3   : Gerardview Mississippi 920446
+Country         : New Zealand
+Phone           : 2504304274
+-------------------------------------------------------------------------
+
+2026-03-25 15:11:09 [TestNG-test-Release 1.0 Testing for AE-4] INFO  [qa] [Test_AE10_TC24_Verify_Purchase_Order_Invoice_Download] pages.ae.CheckOutPage - 
+-------------------------------------------------------------------------
+               INVOICE ADDRESS ON CHECKOUT
+-------------------------------------------------------------------------
+Title Fullname  : Mrs. Valentin Jacobs
+Company Name    : Gerlach LLC
+Address Line1   : 01168 Bryon Ranch
+Address Line2   : Suite 642
+Address Line3   : Gerardview Mississippi 920446
+Country         : New Zealand
+Phone           : 2504304274
+--------------------------------------------------------------------------
+
+2026-03-25 15:11:09 [TestNG-test-Release 1.0 Testing for AE-4] INFO  [qa] [Test_AE10_TC24_Verify_Purchase_Order_Invoice_Download] test.ae.PlaceOrderTests - Running:Step-6.2
+2026-03-25 15:11:09 [TestNG-test-Release 1.0 Testing for AE-4] INFO  [qa] [Test_AE10_TC24_Verify_Purchase_Order_Invoice_Download] pages.ae.CheckOutPage - 
+				PRODUCT-1 DETAILS FROM CART
+---------------------------------------------------
+Name        : Blue Top
+Category    : Women
+SubCategory : Tops
+Price       : 500
+Quantity    : 1
+Total       : 500
+----------------------------------------------------
+
+
+2026-03-25 15:11:09 [TestNG-test-Release 1.0 Testing for AE-4] INFO  [qa] [Test_AE10_TC24_Verify_Purchase_Order_Invoice_Download] pages.ae.CheckOutPage - 
+				PRODUCT-2 DETAILS FROM CART
+---------------------------------------------------
+Name        : Men Tshirt
+Category    : Men
+SubCategory : Tshirts
+Price       : 400
+Quantity    : 1
+Total       : 400
+----------------------------------------------------
+
+
+2026-03-25 15:11:09 [TestNG-test-Release 1.0 Testing for AE-4] INFO  [qa] [Test_AE10_TC24_Verify_Purchase_Order_Invoice_Download] pages.ae.CheckOutPage - 
+				CART SUMMARY
+---------------------------------------------------
+Total of <2> Product/s are Added To Cart
+Cart Total Price is '900'
+----------------------------------------------------
+
+
+2026-03-25 15:11:09 [TestNG-test-Release 1.0 Testing for AE-4] INFO  [qa] [Test_AE10_TC24_Verify_Purchase_Order_Invoice_Download] test.ae.PlaceOrderTests - The expected cart total: 900
+2026-03-25 15:11:09 [TestNG-test-Release 1.0 Testing for AE-4] INFO  [qa] [Test_AE10_TC24_Verify_Purchase_Order_Invoice_Download] test.ae.PlaceOrderTests - Running:Step-7
+2026-03-25 15:11:12 [TestNG-test-Release 1.0 Testing for AE-4] INFO  [qa] [Test_AE10_TC24_Verify_Purchase_Order_Invoice_Download] test.ae.PlaceOrderTests - Running:Step-8
+2026-03-25 15:11:17 [TestNG-test-Release 1.0 Testing for AE-4] INFO  [qa] [Test_AE10_TC24_Verify_Purchase_Order_Invoice_Download] test.ae.PlaceOrderTests - Running:Step-9
+2026-03-25 15:11:19 [TestNG-test-Release 1.0 Testing for AE-4] INFO  [qa] [Test_AE10_TC24_Verify_Purchase_Order_Invoice_Download] test.ae.PlaceOrderTests - Running:Step-10
+2026-03-25 15:11:19 [TestNG-test-Release 1.0 Testing for AE-4] INFO  [qa] [Test_AE10_TC24_Verify_Purchase_Order_Invoice_Download] test.ae.PlaceOrderTests - Running:Step-11
+2026-03-25 15:11:20 [TestNG-test-Release 1.0 Testing for AE-4] INFO  [qa] [Test_AE10_TC24_Verify_Purchase_Order_Invoice_Download] pages.ae.CheckOutPage - ✅ Invoice downloaded!
+2026-03-25 15:11:20 [TestNG-test-Release 1.0 Testing for AE-4] INFO  [qa] [Test_AE10_TC24_Verify_Purchase_Order_Invoice_Download] pages.ae.CheckOutPage -    Name : invoice.txt
+2026-03-25 15:11:20 [TestNG-test-Release 1.0 Testing for AE-4] INFO  [qa] [Test_AE10_TC24_Verify_Purchase_Order_Invoice_Download] pages.ae.CheckOutPage -    Size : 64 bytes
+2026-03-25 15:11:20 [TestNG-test-Release 1.0 Testing for AE-4] INFO  [qa] [Test_AE10_TC24_Verify_Purchase_Order_Invoice_Download] pages.ae.CheckOutPage -    Path : /home/runner/work/Playwright-Demo-Framework/Playwright-Demo-Framework/Playwright_Demo_Framework/downloads/invoice.txt
+2026-03-25 15:11:20 [TestNG-test-Release 1.0 Testing for AE-4] INFO  [qa] [Test_AE10_TC24_Verify_Purchase_Order_Invoice_Download] reporting.ReportManager - ✅ Attachment added to Allure: invoice.txt
+2026-03-25 15:11:20 [TestNG-test-Release 1.0 Testing for AE-4] INFO  [qa] [Test_AE10_TC24_Verify_Purchase_Order_Invoice_Download] pages.ae.CheckOutPage - Invoice Content: Hi Valentin Jacobs, Your total purchase amount is 900. Thank you
+2026-03-25 15:11:20 [TestNG-test-Release 1.0 Testing for AE-4] INFO  [qa] [Test_AE10_TC24_Verify_Purchase_Order_Invoice_Download] pages.ae.CheckOutPage - Expected Message: Hi Valentin Jacobs, Your total purchase amount is 900. Thank you
+2026-03-25 15:11:20 [TestNG-test-Release 1.0 Testing for AE-4] INFO  [qa] [Test_AE10_TC24_Verify_Purchase_Order_Invoice_Download] pages.ae.CheckOutPage - ✅ Invoice content verified!
+2026-03-25 15:11:20 [TestNG-test-Release 1.0 Testing for AE-4] INFO  [qa] [Test_AE10_TC24_Verify_Purchase_Order_Invoice_Download] framework.listeners.TestListener - {TEST PASSED: Test_AE10_TC24_Verify_Purchase_Order_Invoice_Download
+2026-03-25 15:11:20 [TestNG-test-Release 1.0 Testing for AE-4] ERROR [qa] [Test_AE10_TC24_Verify_Purchase_Order_Invoice_Download] io.qameta.allure.AllureLifecycle - Could not add attachment: no test is running
+2026-03-25 15:11:20 [TestNG-test-Release 1.0 Testing for AE-4] INFO  [qa] [Test_AE10_TC24_Verify_Purchase_Order_Invoice_Download] framework.listeners.TestListener - Screenshot attached: PASSED Screenshot:

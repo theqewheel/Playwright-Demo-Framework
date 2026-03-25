@@ -1,0 +1,415 @@
+name: Playwright TestNG Demo Tests for AE
+
+on:
+  push:
+    branches:
+      - develop
+  workflow_dispatch:
+    inputs:
+      execution_mode:
+        description: 'Execution Mode'
+        required: true
+        default: 'native'
+        type: choice
+        options:
+          - native
+          - browserstack
+      email_to:
+        description: 'Send report to (comma separated emails)'
+        required: false
+        default: ''
+
+  schedule:
+    - cron: '0 9 * * 1'
+
+jobs:
+  run-tests:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: Playwright_Demo_Framework
+
+    steps:
+
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Java 17
+        uses: actions/setup-java@v4
+        with:
+          java-version: '17'
+          distribution: 'temurin'
+          cache: maven
+
+      - name: Install Playwright browsers
+        run: mvn exec:java -e -D exec.mainClass=com.microsoft.playwright.CLI -D exec.args="install --with-deps chromium"
+
+      - name: Run tests
+        continue-on-error: true
+        run: |
+          if [ "${{ github.event.inputs.execution_mode }}" == "browserstack" ]; then
+            echo "Running on BrowserStack..."
+            mvn test \
+              -Dexecution.mode=browserstack \
+              -Dbs.username=${{ secrets.BROWSERSTACK_USERNAME }} \
+              -Dbs.accesskey=${{ secrets.BROWSERSTACK_ACCESS_KEY }} \
+              -DsuiteXmlFile=testng-browserstack.xml
+          else
+            echo "Running natively on GitHub Actions..."
+            mvn test \
+              -Dexecution.mode=github
+          fi
+
+      - name: Generate Allure report
+        if: always()
+        run: |
+          mvn allure:report
+          echo "=== target/site contents ==="
+          ls -la target/site/ || echo "no site folder"
+          ls -la target/site/allure-maven-plugin/ || echo "no allure-maven-plugin folder"
+
+      - name: Get test summary
+        if: always()
+        id: summary
+        run: |
+          echo "=== Reading from allure-results ==="
+          TOTAL=0; PASSED=0; FAILED=0; SKIPPED=0; BROKEN=0
+
+          RESULTS_DIR="target/allure-results"
+
+          if [ ! -d "$RESULTS_DIR" ]; then
+            echo "⚠️ No allure-results directory found!"
+          else
+            for f in "$RESULTS_DIR"/*-result.json; do
+              [ -f "$f" ] || continue
+              STATUS_VAL=$(grep -oP '"status"\s*:\s*"\K[^"]+' "$f" | head -1)
+              case "$STATUS_VAL" in
+                passed)  PASSED=$((PASSED + 1))  ;;
+                failed)  FAILED=$((FAILED + 1))  ;;
+                broken)  BROKEN=$((BROKEN + 1))  ;;
+                skipped) SKIPPED=$((SKIPPED + 1)) ;;
+              esac
+              TOTAL=$((TOTAL + 1))
+            done
+          fi
+
+          echo "=== Final counts ==="
+          echo "  TOTAL=$TOTAL PASSED=$PASSED FAILED=$FAILED SKIPPED=$SKIPPED BROKEN=$BROKEN"
+          echo "===================="
+
+          if [ "$FAILED" -eq 0 ] && [ "$BROKEN" -eq 0 ]; then
+            STATUS="✅ PASSED"
+          else
+            STATUS="❌ FAILED"
+          fi
+
+          echo "total=$TOTAL"     >> $GITHUB_OUTPUT
+          echo "passed=$PASSED"   >> $GITHUB_OUTPUT
+          echo "failed=$FAILED"   >> $GITHUB_OUTPUT
+          echo "skipped=$SKIPPED" >> $GITHUB_OUTPUT
+          echo "broken=$BROKEN"   >> $GITHUB_OUTPUT
+          echo "status=$STATUS"   >> $GITHUB_OUTPUT
+          echo "date=$(date +'%d %b %Y %H:%M UTC')"      >> $GITHUB_OUTPUT
+          echo "safe_date=$(date +'%d-%b-%Y_%H%M-UTC')"  >> $GITHUB_OUTPUT
+          echo "ist=$(TZ='Asia/Kolkata'     date +'%d %b %Y %H:%M IST')" >> $GITHUB_OUTPUT
+          echo "est=$(TZ='America/New_York' date +'%d %b %Y %H:%M EST')" >> $GITHUB_OUTPUT
+
+      - name: Publish report to GitHub Pages
+        if: always()
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: Playwright_Demo_Framework/target/site/allure-maven-plugin
+          publish_branch: gh-pages
+
+      - name: Upload Allure report as artifact
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: allure-report-${{ steps.summary.outputs.safe_date }}
+          path: Playwright_Demo_Framework/target/site/allure-maven-plugin/
+          retention-days: 14
+
+      - name: Build HTML email report
+        if: always()
+        run: |
+          P=${{ steps.summary.outputs.passed }}
+          F=${{ steps.summary.outputs.failed }}
+          S=${{ steps.summary.outputs.skipped }}
+          B=${{ steps.summary.outputs.broken }}
+          T=${{ steps.summary.outputs.total }}
+
+          SUITE_NAME="Playwright Demo Framework Tests - TA1"
+          TEST_BLOCK="Release 1.0 Testing for AE"
+
+          CLASS_ROWS=""
+          declare -A C_TOTAL C_PASS C_FAIL C_SKIP C_BROKEN
+
+          for f in target/allure-results/*-result.json; do
+            [ -f "$f" ] || continue
+
+            FULL=$(grep -oP '"fullName"\s*:\s*"\K[^"]+' "$f" | head -1)
+            CLASS=$(echo "$FULL" | awk -F'#' '{print $1}' | awk -F'.' '{print $NF}')
+            [ -z "$CLASS" ] && continue
+
+            STATUS_VAL=$(grep -oP '"status"\s*:\s*"\K[^"]+' "$f" | head -1)
+
+            C_TOTAL[$CLASS]=$(( ${C_TOTAL[$CLASS]:-0} + 1 ))
+            case "$STATUS_VAL" in
+              passed)  C_PASS[$CLASS]=$(( ${C_PASS[$CLASS]:-0} + 1 ))    ;;
+              failed)  C_FAIL[$CLASS]=$(( ${C_FAIL[$CLASS]:-0} + 1 ))    ;;
+              broken)  C_BROKEN[$CLASS]=$(( ${C_BROKEN[$CLASS]:-0} + 1 )) ;;
+              skipped) C_SKIP[$CLASS]=$(( ${C_SKIP[$CLASS]:-0} + 1 ))    ;;
+            esac
+          done
+
+          for CLASS in $(echo "${!C_TOTAL[@]}" | tr ' ' '\n' | sort); do
+            CT=${C_TOTAL[$CLASS]:-0}
+            CP=${C_PASS[$CLASS]:-0}
+            CF=${C_FAIL[$CLASS]:-0}
+            CS=${C_SKIP[$CLASS]:-0}
+            CE=${C_BROKEN[$CLASS]:-0}
+
+            CLASS_ROWS="${CLASS_ROWS}
+            <tr>
+              <td style='padding:9px 14px;border-bottom:1px solid #f0f0f0;font-size:13px;color:#24292f;font-weight:500;'>${CLASS}</td>
+              <td style='padding:9px 14px;border-bottom:1px solid #f0f0f0;font-size:13px;text-align:center;color:#24292f;'>${CT}</td>
+              <td style='padding:9px 14px;border-bottom:1px solid #f0f0f0;font-size:13px;text-align:center;color:#2da44e;font-weight:bold;'>${CP}</td>
+              <td style='padding:9px 14px;border-bottom:1px solid #f0f0f0;font-size:13px;text-align:center;color:#cf222e;font-weight:bold;'>${CF}</td>
+              <td style='padding:9px 14px;border-bottom:1px solid #f0f0f0;font-size:13px;text-align:center;color:#6e7781;'>${CS}</td>
+              <td style='padding:9px 14px;border-bottom:1px solid #f0f0f0;font-size:13px;text-align:center;color:#bf8700;'>${CE}</td>
+            </tr>"
+          done
+
+          if [ "$T" -gt 0 ]; then
+            PIE_PCT_P=$(echo "$P * 100 / $T" | bc)
+            PIE_PCT_F=$(echo "$F * 100 / $T" | bc)
+            PIE_PCT_S=$(echo "$S * 100 / $T" | bc)
+            PIE_PCT_B=$(echo "$B * 100 / $T" | bc)
+          else
+            PIE_PCT_P=0; PIE_PCT_F=0; PIE_PCT_S=0; PIE_PCT_B=0
+          fi
+
+          [ "$P" -gt 0 ] && [ "$PIE_PCT_P" -eq 0 ] && PIE_PCT_P=2
+          [ "$F" -gt 0 ] && [ "$PIE_PCT_F" -eq 0 ] && PIE_PCT_F=2
+          [ "$S" -gt 0 ] && [ "$PIE_PCT_S" -eq 0 ] && PIE_PCT_S=2
+          [ "$B" -gt 0 ] && [ "$PIE_PCT_B" -eq 0 ] && PIE_PCT_B=2
+
+          if [ "$F" -eq 0 ] && [ "$B" -eq 0 ]; then
+            STATUS_COLOR="#2da44e"
+          else
+            STATUS_COLOR="#cf222e"
+          fi
+
+          cat > /tmp/email_report.html << HTMLEOF
+          <!DOCTYPE html>
+          <html>
+          <body style="margin:0;padding:20px 0;background:#f6f8fa;font-family:Arial,Helvetica,sans-serif;">
+          <div style="max-width:700px;margin:0 auto;background:#ffffff;border-radius:12px;overflow:hidden;box-shadow:0 4px 16px rgba(0,0,0,0.10);">
+
+            <!-- ═══════════════ HEADER ═══════════════ -->
+            <div style="background:#0d1117;padding:32px;text-align:center;">
+              <div style="font-size:22px;font-weight:bold;color:#ffffff;letter-spacing:0.5px;">
+                🤖 Test Automation Report
+              </div>
+              <div style="margin-top:10px;font-size:12px;color:#8b949e;line-height:2.0;">
+                ${{ steps.summary.outputs.ist }}
+                &nbsp;|&nbsp;
+                ${{ steps.summary.outputs.date }}
+                &nbsp;|&nbsp;
+                ${{ steps.summary.outputs.est }}
+                <br/>
+                <span style="color:#58a6ff;">Branch: <b>main</b></span>
+                &nbsp;&nbsp;·&nbsp;&nbsp;
+                <span style="color:${STATUS_COLOR};font-weight:bold;">${{ steps.summary.outputs.status }}</span>
+              </div>
+            </div>
+
+            <!-- ═══════════════ SECTION 1: SUITE DETAILS ═══════════════ -->
+            <div style="padding:28px 32px 20px;">
+              <div style="font-size:13px;font-weight:bold;color:#0d1117;margin-bottom:14px;text-transform:uppercase;letter-spacing:0.8px;border-bottom:2px solid #f0f0f0;padding-bottom:8px;">
+                Section 1 — Suite Details
+              </div>
+              <table width="100%" cellpadding="0" cellspacing="0"
+                style="border-collapse:collapse;border:1px solid #e8eaed;border-radius:8px;overflow:hidden;font-size:13px;">
+                <tr style="background:#f8f9fa;">
+                  <td style="padding:11px 16px;border-bottom:1px solid #e8eaed;border-right:1px solid #e8eaed;color:#6e7781;width:38%;font-weight:bold;">
+                    Test Suite Name
+                  </td>
+                  <td style="padding:11px 16px;border-bottom:1px solid #e8eaed;color:#24292f;">
+                    ${SUITE_NAME}
+                  </td>
+                </tr>
+                <tr>
+                  <td style="padding:11px 16px;border-bottom:1px solid #e8eaed;border-right:1px solid #e8eaed;color:#6e7781;font-weight:bold;">
+                    Test Block
+                  </td>
+                  <td style="padding:11px 16px;border-bottom:1px solid #e8eaed;color:#24292f;">
+                    ${TEST_BLOCK}
+                  </td>
+                </tr>
+                <tr style="background:#f8f9fa;">
+                  <td style="padding:11px 16px;border-right:1px solid #e8eaed;color:#6e7781;font-weight:bold;">
+                    Total Tests
+                  </td>
+                  <td style="padding:11px 16px;color:#24292f;font-weight:bold;">
+                    ${T}
+                  </td>
+                </tr>
+              </table>
+
+              <div style="margin-top:24px;">
+                <table width="100%" cellpadding="0" cellspacing="0" style="margin-bottom:24px;">
+                  <tr>
+                    <td width="25%" style="padding:4px;">
+                      <div style="background:#f0fff4;border:1px solid #2da44e;border-radius:8px;padding:14px 8px;text-align:center;">
+                        <div style="font-size:28px;font-weight:bold;color:#2da44e;">${P}</div>
+                        <div style="font-size:11px;color:#555;margin-top:3px;">✅ Passed</div>
+                      </div>
+                    </td>
+                    <td width="25%" style="padding:4px;">
+                      <div style="background:#fff5f5;border:1px solid #cf222e;border-radius:8px;padding:14px 8px;text-align:center;">
+                        <div style="font-size:28px;font-weight:bold;color:#cf222e;">${F}</div>
+                        <div style="font-size:11px;color:#555;margin-top:3px;">❌ Failed</div>
+                      </div>
+                    </td>
+                    <td width="25%" style="padding:4px;">
+                      <div style="background:#f6f8fa;border:1px solid #6e7781;border-radius:8px;padding:14px 8px;text-align:center;">
+                        <div style="font-size:28px;font-weight:bold;color:#6e7781;">${S}</div>
+                        <div style="font-size:11px;color:#555;margin-top:3px;">⏭ Skipped</div>
+                      </div>
+                    </td>
+                    <td width="25%" style="padding:4px;">
+                      <div style="background:#fffbf0;border:1px solid #bf8700;border-radius:8px;padding:14px 8px;text-align:center;">
+                        <div style="font-size:28px;font-weight:bold;color:#bf8700;">${B}</div>
+                        <div style="font-size:11px;color:#555;margin-top:3px;">🔧 Broken</div>
+                      </div>
+                    </td>
+                  </tr>
+                </table>
+
+                <!-- Bar Chart -->
+                <div style="font-size:12px;color:#6e7781;margin-bottom:12px;font-weight:bold;text-transform:uppercase;letter-spacing:0.5px;">
+                  Test Distribution
+                </div>
+                <table width="100%" cellpadding="0" cellspacing="0" style="margin-bottom:10px;">
+                  <tr>
+                    <td width="68" style="font-size:12px;color:#555;padding-right:10px;white-space:nowrap;">Passed</td>
+                    <td>
+                      <table width="100%" cellpadding="0" cellspacing="0" style="background:#f0f0f0;border-radius:4px;overflow:hidden;height:18px;">
+                        <tr>
+                          <td width="${PIE_PCT_P}%" style="background:#2da44e;height:18px;border-radius:4px 0 0 4px;"></td>
+                          <td style="font-size:11px;color:#555;padding-left:8px;">${P} &nbsp;<span style="color:#aaa;">(${PIE_PCT_P}%)</span></td>
+                        </tr>
+                      </table>
+                    </td>
+                  </tr>
+                </table>
+                <table width="100%" cellpadding="0" cellspacing="0" style="margin-bottom:10px;">
+                  <tr>
+                    <td width="68" style="font-size:12px;color:#555;padding-right:10px;white-space:nowrap;">Failed</td>
+                    <td>
+                      <table width="100%" cellpadding="0" cellspacing="0" style="background:#f0f0f0;border-radius:4px;overflow:hidden;height:18px;">
+                        <tr>
+                          <td width="${PIE_PCT_F}%" style="background:#cf222e;height:18px;border-radius:4px 0 0 4px;"></td>
+                          <td style="font-size:11px;color:#555;padding-left:8px;">${F} &nbsp;<span style="color:#aaa;">(${PIE_PCT_F}%)</span></td>
+                        </tr>
+                      </table>
+                    </td>
+                  </tr>
+                </table>
+                <table width="100%" cellpadding="0" cellspacing="0" style="margin-bottom:10px;">
+                  <tr>
+                    <td width="68" style="font-size:12px;color:#555;padding-right:10px;white-space:nowrap;">Skipped</td>
+                    <td>
+                      <table width="100%" cellpadding="0" cellspacing="0" style="background:#f0f0f0;border-radius:4px;overflow:hidden;height:18px;">
+                        <tr>
+                          <td width="${PIE_PCT_S}%" style="background:#6e7781;height:18px;border-radius:4px 0 0 4px;"></td>
+                          <td style="font-size:11px;color:#555;padding-left:8px;">${S} &nbsp;<span style="color:#aaa;">(${PIE_PCT_S}%)</span></td>
+                        </tr>
+                      </table>
+                    </td>
+                  </tr>
+                </table>
+                <table width="100%" cellpadding="0" cellspacing="0" style="margin-bottom:4px;">
+                  <tr>
+                    <td width="68" style="font-size:12px;color:#555;padding-right:10px;white-space:nowrap;">Broken</td>
+                    <td>
+                      <table width="100%" cellpadding="0" cellspacing="0" style="background:#f0f0f0;border-radius:4px;overflow:hidden;height:18px;">
+                        <tr>
+                          <td width="${PIE_PCT_B}%" style="background:#bf8700;height:18px;border-radius:4px 0 0 4px;"></td>
+                          <td style="font-size:11px;color:#555;padding-left:8px;">${B} &nbsp;<span style="color:#aaa;">(${PIE_PCT_B}%)</span></td>
+                        </tr>
+                      </table>
+                    </td>
+                  </tr>
+                </table>
+              </div>
+            </div>
+
+            <!-- ═══════════════ SECTION 2: PER-CLASS BREAKDOWN ═══════════════ -->
+            <div style="padding:8px 32px 28px;">
+              <div style="font-size:13px;font-weight:bold;color:#0d1117;margin-bottom:14px;text-transform:uppercase;letter-spacing:0.8px;border-bottom:2px solid #f0f0f0;padding-bottom:8px;">
+                Section 2 — Test Class Breakdown
+              </div>
+              <table width="100%" cellpadding="0" cellspacing="0"
+                style="border-collapse:collapse;border:1px solid #e8eaed;border-radius:8px;overflow:hidden;">
+                <thead>
+                  <tr style="background:#f8f9fa;">
+                    <th style="padding:10px 14px;text-align:left;font-size:11px;color:#6e7781;border-bottom:2px solid #e8eaed;text-transform:uppercase;letter-spacing:0.5px;">Test Class</th>
+                    <th style="padding:10px 14px;text-align:center;font-size:11px;color:#6e7781;border-bottom:2px solid #e8eaed;text-transform:uppercase;letter-spacing:0.5px;">Total</th>
+                    <th style="padding:10px 14px;text-align:center;font-size:11px;color:#2da44e;border-bottom:2px solid #e8eaed;text-transform:uppercase;letter-spacing:0.5px;">Passed</th>
+                    <th style="padding:10px 14px;text-align:center;font-size:11px;color:#cf222e;border-bottom:2px solid #e8eaed;text-transform:uppercase;letter-spacing:0.5px;">Failed</th>
+                    <th style="padding:10px 14px;text-align:center;font-size:11px;color:#6e7781;border-bottom:2px solid #e8eaed;text-transform:uppercase;letter-spacing:0.5px;">Skipped</th>
+                    <th style="padding:10px 14px;text-align:center;font-size:11px;color:#bf8700;border-bottom:2px solid #e8eaed;text-transform:uppercase;letter-spacing:0.5px;">Broken</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  ${CLASS_ROWS}
+                </tbody>
+              </table>
+            </div>
+
+            <!-- ═══════════════ FOOTER ═══════════════ -->
+            <div style="background:#f6f8fa;padding:24px 32px;border-top:1px solid #e8eaed;text-align:center;">
+              <div style="margin-bottom:16px;font-size:12px;color:#6e7781;">
+                💾 Past reports retained as workflow artifacts for <b>14 days</b>
+              </div>
+              <table align="center" cellpadding="0" cellspacing="0">
+                <tr>
+                  <td style="padding-right:12px;">
+                    <a href="https://theqewheel.github.io/Playwright-Demo-Framework/"
+                      style="background:#0d1117;color:#ffffff;padding:11px 22px;border-radius:6px;text-decoration:none;font-size:13px;font-weight:bold;display:inline-block;">
+                      🔗 Latest Allure Report
+                    </a>
+                  </td>
+                  <td>
+                    <a href="https://github.com/theqewheel/Playwright-Demo-Framework/actions/workflows/test-and-report.yml"
+                      style="background:#ffffff;color:#0d1117;padding:11px 22px;border-radius:6px;text-decoration:none;font-size:13px;font-weight:bold;display:inline-block;border:1px solid #d0d7de;">
+                      📂 All Runs — 14 Day History
+                    </a>
+                  </td>
+                </tr>
+              </table>
+              <div style="font-size:11px;color:#8b949e;margin-top:16px;">
+                TheQEWheel Automation Pipeline · Powered by GitHub Actions
+              </div>
+            </div>
+
+          </div>
+          </body>
+          </html>
+          HTMLEOF
+
+      - name: Send email to team
+        if: always()
+        uses: dawidd6/action-send-mail@v3
+        with:
+          server_address: smtp.gmail.com
+          server_port: 587
+          username: ${{ secrets.MAIL_USERNAME }}
+          password: ${{ secrets.MAIL_PASSWORD }}
+          to: ${{ github.event.inputs.email_to != '' && github.event.inputs.email_to || secrets.MAIL_TO }}
+          from: QE Automation <${{ secrets.MAIL_USERNAME }}>
+          subject: "[${{ steps.summary.outputs.status }}] AE Regression Demo Test Report - ${{ steps.summary.outputs.date }}"
+          html_body: file:///tmp/email_report.html

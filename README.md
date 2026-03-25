@@ -14,3 +14,9 @@ Automation Exericse (AE) referenced at https://automationexercise.com/
 4. Test Classes for 26 User Scenarios avaialble on https://automationexercise.com/test_cases
 5. Continous Testing enablement with GitHub Actions
 6. Allure report generation and email triggers for continous run
+7. Workflow Configuration - for running via GitHub Actions workflow and Browser Stack
+8. Parallel Testing enabled
+9. Cross browser test enabled
+10. Allure report published as GitHub Artifact
+11. Secrets in GitHub
+12. Console and file appender logs with Logback

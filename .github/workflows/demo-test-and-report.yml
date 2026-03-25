@@ -50,7 +50,7 @@ jobs:
               -Dexecution.mode=browserstack \
               -Dbs.username=${{ secrets.BROWSERSTACK_USERNAME }} \
               -Dbs.accesskey=${{ secrets.BROWSERSTACK_ACCESS_KEY }} \
-              -DsuiteXmlFile=testng-browserstack.xml
+              -Dtestng.suite.file=testng-browserstack.xml
           else
             echo "Running natively on GitHub Actions..."
             mvn test \

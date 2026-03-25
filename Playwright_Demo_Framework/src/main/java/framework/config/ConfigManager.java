@@ -116,7 +116,7 @@ public class ConfigManager {
 		switch(getProperty("execution.mode").toLowerCase()) {
 			case "github" : 
 			case "native" :
-				return false;
+				return true;
 			case "browserstack": 
 			case "local":
 			default:

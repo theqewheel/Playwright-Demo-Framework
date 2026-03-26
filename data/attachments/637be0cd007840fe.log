@@ -1,0 +1,23 @@
+2026-03-26 11:32:06 [TestNG-tests-1] INFO  [qa] [Test_AE1_TC01_Verify_New_User_SignUp_chrome_29] framework.listeners.TestListener - --- STARTING TEST : SignupTests#Test_AE1_TC01_Verify_New_User_SignUp on chrome [thread-29] ---
+2026-03-26 11:32:06 [TestNG-tests-1] INFO  [qa] [Test_AE1_TC01_Verify_New_User_SignUp_chrome_29] test.ae.SignupTests - Running:Step-1
+2026-03-26 11:32:10 [TestNG-tests-1] INFO  [qa] [Test_AE1_TC01_Verify_New_User_SignUp_chrome_29] test.ae.SignupTests - Running:Step-2
+2026-03-26 11:32:14 [TestNG-tests-1] INFO  [qa] [Test_AE1_TC01_Verify_New_User_SignUp_chrome_29] test.ae.SignupTests - Running:Step-3
+2026-03-26 11:32:17 [TestNG-tests-1] INFO  [qa] [Test_AE1_TC01_Verify_New_User_SignUp_chrome_29] test.ae.SignupTests - Running:Step-4
+2026-03-26 11:32:19 [TestNG-tests-1] INFO  [qa] [Test_AE1_TC01_Verify_New_User_SignUp_chrome_29] pages.ae.SignupDetailPage - Checkbox: 'Newsletter' is set to: true
+2026-03-26 11:32:19 [TestNG-tests-1] INFO  [qa] [Test_AE1_TC01_Verify_New_User_SignUp_chrome_29] pages.ae.SignupDetailPage - Checkbox: 'Special Offers' is set to: false
+2026-03-26 11:32:19 [TestNG-tests-1] INFO  [qa] [Test_AE1_TC01_Verify_New_User_SignUp_chrome_29] test.ae.SignupTests - Running:Step-5
+2026-03-26 11:32:20 [TestNG-tests-1] ERROR [qa] [Test_AE1_TC01_Verify_New_User_SignUp_chrome_29] io.qameta.allure.util.NamingUtils - Could not process empty pattern
+2026-03-26 11:32:20 [TestNG-tests-1] ERROR [qa] [Test_AE1_TC01_Verify_New_User_SignUp_chrome_29] io.qameta.allure.util.NamingUtils - Could not process empty pattern
+2026-03-26 11:32:22 [TestNG-tests-1] ERROR [qa] [Test_AE1_TC01_Verify_New_User_SignUp_chrome_29] io.qameta.allure.util.NamingUtils - Could not find parameter zipcpde
+2026-03-26 11:32:23 [TestNG-tests-1] INFO  [qa] [Test_AE1_TC01_Verify_New_User_SignUp_chrome_29] pages.ae.SignupDetailPage - Checkbox: 'Special Offers' is set to: false
+2026-03-26 11:32:23 [TestNG-tests-1] INFO  [qa] [Test_AE1_TC01_Verify_New_User_SignUp_chrome_29] test.ae.SignupTests - Running:Step-6
+2026-03-26 11:32:35 [TestNG-tests-1] INFO  [qa] [Test_AE1_TC01_Verify_New_User_SignUp_chrome_29] framework.listeners.TestListener - TEST PASSED: Test_AE1_TC01_Verify_New_User_SignUp
+2026-03-26 11:32:43 [TestNG-tests-1] ERROR [qa] [Test_AE1_TC01_Verify_New_User_SignUp_chrome_29] io.qameta.allure.AllureLifecycle - Could not add attachment: no test is running
+2026-03-26 11:32:43 [TestNG-tests-1] INFO  [qa] [Test_AE1_TC01_Verify_New_User_SignUp_chrome_29] framework.listeners.TestListener - Screenshot attached: PASSED Screenshot:
+2026-03-26 11:32:50 [TestNG-tests-1] INFO  [qa] [Test_AE1_TC01_Verify_New_User_SignUp_chrome_29] test.ae.SignupTests - Trace stopped for: Test_AE1_TC01_Verify_New_User_SignUp
+2026-03-26 11:32:51 [TestNG-tests-1] INFO  [qa] [Test_AE1_TC01_Verify_New_User_SignUp_chrome_29] framework.drivers.DriverManager - Browser closed successfully.
+2026-03-26 11:32:51 [TestNG-tests-1] WARN  [qa] [Test_AE1_TC01_Verify_New_User_SignUp_chrome_29] framework.drivers.DriverManager - Could not annotate BrowserStack session: Browser has been closed
+2026-03-26 11:32:51 [TestNG-tests-1] INFO  [qa] [Test_AE1_TC01_Verify_New_User_SignUp_chrome_29] test.ae.SignupTests - Driver shutdown successful.
+2026-03-26 11:32:51 [TestNG-tests-1] INFO  [qa] [Test_AE1_TC01_Verify_New_User_SignUp_chrome_29] reporting.ReportManager - ✅ Attachment added to Allure: 🎭 Playwright Trace — Test_AE1_TC01_Verify_New_User_SignUp
+2026-03-26 11:32:51 [TestNG-tests-1] INFO  [qa] [Test_AE1_TC01_Verify_New_User_SignUp_chrome_29] test.ae.SignupTests - Trace attached for: Test_AE1_TC01_Verify_New_User_SignUp
+2026-03-26 11:32:51 [TestNG-tests-1] INFO  [qa] [Test_AE1_TC01_Verify_New_User_SignUp_chrome_29] test.ae.SignupTests - trace temp file deleted from disk.

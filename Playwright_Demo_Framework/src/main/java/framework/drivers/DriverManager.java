@@ -295,7 +295,6 @@ public class DriverManager {
 			playwright.remove();
 			videoDir.remove();
 			bsBrowserName.remove();
-			bsSessionId.remove();
 		}
 	}
 
@@ -396,7 +395,9 @@ public class DriverManager {
 
 		} catch (Exception e) {
 			logger.warn("Could not upload terminal logs to BS: {}", e.getMessage());
-		}
+		}finally {
+	        bsSessionId.remove();  // ✅ clean up AFTER upload
+	    }
 	}
 
 	private byte[] concatBytes(byte[]... arrays) {

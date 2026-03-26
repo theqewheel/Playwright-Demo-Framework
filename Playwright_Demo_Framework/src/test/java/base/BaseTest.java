@@ -4,14 +4,11 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 
-import org.slf4j.Logger;
 import org.testng.ITestContext;
 import org.testng.ITestResult;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Listeners;
-import org.testng.annotations.Optional;
-import org.testng.annotations.Parameters;
 import org.testng.asserts.SoftAssert;
 
 import com.microsoft.playwright.Page;
@@ -21,7 +18,7 @@ import framework.config.ConfigManager;
 import framework.drivers.DriverManager;
 import framework.listeners.TestListener;
 import framework.logging.LogManager;
-import io.qameta.allure.Step;
+import framework.logging.UniversalLogger;
 import pages.ae.CartPage;
 import pages.ae.CheckOutPage;
 import pages.ae.ContactUsPage;
@@ -37,7 +34,7 @@ import reporting.ReportManager;
 public class BaseTest {
 
 	protected Page page;
-	protected Logger logger;
+	protected UniversalLogger logger;
 	protected SoftAssert softAssert;
 	protected DriverManager driver;
 	protected HomePage homePage;

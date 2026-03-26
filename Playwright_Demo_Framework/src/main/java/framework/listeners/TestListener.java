@@ -17,12 +17,13 @@ import com.microsoft.playwright.Page;
 import framework.config.ConfigManager;
 import framework.drivers.DriverManager;
 import framework.logging.LogManager;
+import framework.logging.UniversalLogger;
 import io.qameta.allure.Allure;
 import reporting.ReportManager;
 
 public class TestListener implements ITestListener, ISuiteListener, IInvokedMethodListener  {
 
-	private static final Logger logger = LogManager.getLogger(TestListener.class);
+	private static final UniversalLogger logger = LogManager.getLogger(TestListener.class);
 
 	/**
 	 * ======================= SUITE LEVEL LISTENERS ======================
@@ -70,13 +71,16 @@ public class TestListener implements ITestListener, ISuiteListener, IInvokedMeth
 
 	public void onTestStart(ITestResult result) {
 
-		String testName = result.getMethod().getMethodName();
+		String className  = result.getTestClass().getRealClass().getSimpleName();
+	    String methodName = result.getMethod().getMethodName();
+	    String fullName   = className + "#" + methodName;   // e.g. LoginTests#Test_AE2_TC02
 
 		// Set MDC value for the logging pattern
 		MDC.put("env", ConfigManager.getEnvironment());
-		MDC.put("testname", testName);
+		MDC.put("testname", fullName);
+		MDC.put("methodname", methodName);  // keep log files clean with short names of tests
 
-		logger.info("-----------------  STARTING TEST : {}  -----------------", testName);
+		logger.info("-----------------  STARTING TEST : {}  -----------------", fullName);
 	}
 
 	/*

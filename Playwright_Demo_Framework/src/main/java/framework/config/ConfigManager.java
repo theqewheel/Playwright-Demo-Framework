@@ -3,16 +3,16 @@ package framework.config;
 import java.io.InputStream;
 import java.util.Properties;
 
-import org.slf4j.Logger;
 import org.testng.ISuite;
 
 import framework.logging.LogManager;
+import framework.logging.UniversalLogger;
 
 
 public class ConfigManager {
 	
 	private static Properties properties = new Properties();
-	protected static final Logger logger = LogManager.getLogger(ConfigManager.class);
+	protected static final UniversalLogger logger = LogManager.getLogger(ConfigManager.class);
 	private static String environment;
 	
 	static {
@@ -113,8 +113,11 @@ public class ConfigManager {
 	
 	//Called from Test Driver
 	public static boolean getHeadlessmode() {
-		switch(getProperty("execution.mode").toLowerCase()) {
-			case "github" : return false;
+		
+		switch(getExecutionMode().toLowerCase()) {
+			case "github" : 
+			case "native" :
+				return true;
 			case "browserstack": 
 			case "local":
 			default:

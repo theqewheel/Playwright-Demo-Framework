@@ -10,8 +10,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import org.slf4j.Logger;
-
 import com.google.gson.Gson;
 import com.microsoft.playwright.Browser;
 import com.microsoft.playwright.BrowserContext;
@@ -22,6 +20,7 @@ import com.microsoft.playwright.Tracing;
 
 import framework.config.ConfigManager;
 import framework.logging.LogManager;
+import framework.logging.UniversalLogger;
 import io.qameta.allure.Step;
 
 public class DriverManager {
@@ -39,7 +38,7 @@ public class DriverManager {
 	private static final ThreadLocal<Path> videoDir = new ThreadLocal<>();
 	private static final ThreadLocal<String> bsBrowserName = new ThreadLocal<>();
 
-	private Logger logger = LogManager.getLogger(DriverManager.class);
+	private UniversalLogger logger = LogManager.getLogger(DriverManager.class);
 	private boolean headlessMode;
 
 	/**
@@ -178,7 +177,6 @@ public class DriverManager {
 		}
 	}
 
-	
 	/**
 	 * ══════════════════════════════════════════════════════════════════════════
 	 * BROWSERSTACK BROWSER SELECTION
@@ -189,10 +187,11 @@ public class DriverManager {
 
 		String username = ConfigManager.getBSUsername();
 		String accessKey = ConfigManager.getBSAccessKey();
-		
+
 		// Step 1 — determine BS browser name and Playwright type first
 		String bsBrowser = bsBrowserName.get();
-		if (bsBrowser == null || bsBrowser.isEmpty()) bsBrowser = "chrome";
+		if (bsBrowser == null || bsBrowser.isEmpty())
+			bsBrowser = "chrome";
 
 		// Step 2 — build caps with correct BS browser name
 		Map<String, Object> caps = new HashMap<>();
@@ -202,6 +201,7 @@ public class DriverManager {
 		caps.put("name", Thread.currentThread().getName());
 		caps.put("build", ConfigManager.getBSBuildName());
 		caps.put("project", ConfigManager.getBSProjectName());
+		caps.put("sessionName", getBrowserStackSessionName());
 		caps.put("browserstack.username", username);
 		caps.put("browserstack.accessKey", accessKey);
 		caps.put("browserstack.debug", "true");
@@ -209,22 +209,22 @@ public class DriverManager {
 
 		// Step 3 — set correct browser in caps + build endpoint
 		switch (bsBrowser.toLowerCase()) {
-		    case "firefox":
-		        caps.put("browser", "playwright-firefox");
-		        break;
-		    case "webkit":
-		        caps.put("browser", "playwright-webkit");
-		        break;
-		    case "edge":
-		        caps.put("browser", "edge");
-		        break;
-		    default:
-		        caps.put("browser", "chrome");
-		        break;
+		case "firefox":
+			caps.put("browser", "playwright-firefox");
+			break;
+		case "webkit":
+			caps.put("browser", "playwright-webkit");
+			break;
+		case "edge":
+			caps.put("browser", "edge");
+			break;
+		default:
+			caps.put("browser", "chrome");
+			break;
 		}
 
 		logger.info("Connecting to BrowserStack. Browser: {}", bsBrowser);
-		
+
 		// Step 4 — encode caps and build WS URL
 		String capsJson = new Gson().toJson(caps);
 		String capsEncoded = URLEncoder.encode(capsJson, StandardCharsets.UTF_8);
@@ -232,15 +232,15 @@ public class DriverManager {
 
 		// Step 5 — connect with correct Playwright browser type
 		switch (bsBrowser.toLowerCase()) {
-		    case "firefox":
-		        return playwright.get().firefox().connect(wsEndpoint);
-		    case "webkit":
-		    	return playwright.get().webkit().connect(wsEndpoint);
-		    default: // chrome, edge, chromium
-		    	return playwright.get().chromium().connect(wsEndpoint);
+		case "firefox":
+			return playwright.get().firefox().connect(wsEndpoint);
+		case "webkit":
+			return playwright.get().webkit().connect(wsEndpoint);
+		default: // chrome, edge, chromium
+			return playwright.get().chromium().connect(wsEndpoint);
 		}
 	}
-	
+
 	/**
 	 * ══════════════════════════════════════════════════════════════════════════
 	 * TRACING
@@ -326,6 +326,19 @@ public class DriverManager {
 	private void navigateToAppBaseURL(String baseURL) {
 		page.get().navigate(baseURL);
 		logger.info("Navigated to Base URL: {}", baseURL);
+	}
+
+	/**
+	 * ══════════════════════════════════════════════════════════════════════════
+	 * HELPER METHODS
+	 * ══════════════════════════════════════════════════════════════════════════
+	 */
+
+	private String getBrowserStackSessionName() {
+		// Gets the current test name from TestNG thread context
+		// This is set by your TestListener via MDC already
+		String testName = org.slf4j.MDC.get("testname");
+		return testName != null ? testName : "Unknown_Test";
 	}
 
 	/**

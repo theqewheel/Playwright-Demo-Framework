@@ -1,12 +1,9 @@
 package framework.logging;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
 public class LogManager {
 	
-	public static Logger getLogger(Class<?> clazz) {
-		return LoggerFactory.getLogger(clazz);
+	public static UniversalLogger getLogger(Class<?> clazz) {
+		return new UniversalLogger(clazz);
 	}
 
 }

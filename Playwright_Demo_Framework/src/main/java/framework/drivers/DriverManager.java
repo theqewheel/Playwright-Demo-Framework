@@ -357,66 +357,77 @@ public class DriverManager {
 		return testName != null ? testName : "Unknown_Test";
 	}
 
-	//upload logs to BS
+	// upload logs to BS
 	public void uploadTerminalLogsToBrowserStack(String testName) {
-	    try {
-	        String sessionId = bsSessionId.get();
-	        if (sessionId == null || sessionId.isEmpty()) {
-	            logger.warn("No BS session ID — skipping terminal log upload");
-	            return;
-	        }
+		try {
+			String sessionId = bsSessionId.get();
+			if (sessionId == null || sessionId.isEmpty()) {
+				logger.warn("No BS session ID — skipping terminal log upload");
+				return;
+			}
 
-	        // ✅ Flush Logback before reading — ensures all lines are written to disk
-	        flushTestLogFile();
+			// ✅ Flush Logback before reading — ensures all lines are written to disk
+			flushTestLogFile();
 
-	        // Small buffer after flush — gives OS time to complete file write
-	        Thread.sleep(500);
+			// Small buffer after flush — gives OS time to complete file write
+			Thread.sleep(500);
 
-	        Path logFile = Path.of("logs/tests/" + testName + ".log");
-	        if (!Files.exists(logFile)) {
-	            logger.warn("Log file not found for BS upload: {}", testName);
-	            return;
-	        }
+			Path logFile = Path.of("logs/tests/" + testName + ".log");
+			if (!Files.exists(logFile)) {
+				logger.warn("Log file not found for BS upload: {}", testName);
+				return;
+			}
 
-	        String username = ConfigManager.getBSUsername();
-	        String accessKey = ConfigManager.getBSAccessKey();
-	        String credentials = Base64.getEncoder()
-	            .encodeToString((username + ":" + accessKey).getBytes());
+			// ✅ Size check — BrowserStack has upload size limits
+			long fileSizeKB = Files.size(logFile) / 1024;
+			logger.info("Log file size: {} KB", fileSizeKB);
 
-	        String boundary = "----Boundary" + System.currentTimeMillis();
-	        byte[] fileBytes = Files.readAllBytes(logFile);
+			if (fileSizeKB > 5120) {
+				logger.warn("Log file too large for BS upload: {} KB — skipping", fileSizeKB);
+				return;
+			}
 
-	        String header = "--" + boundary + "\r\n"
-	            + "Content-Disposition: form-data; name=\"file\"; "
-	            + "filename=\"" + testName + ".log\"\r\n"
-	            + "Content-Type: text/plain\r\n\r\n";
-	        String footer = "\r\n--" + boundary + "--\r\n";
+			String username = ConfigManager.getBSUsername();
+			String accessKey = ConfigManager.getBSAccessKey();
+			String credentials = Base64.getEncoder().encodeToString((username + ":" + accessKey).getBytes());
 
-	        byte[] body = concatBytes(
-	            header.getBytes(), fileBytes, footer.getBytes());
+			String boundary = "----Boundary" + System.currentTimeMillis();
+			byte[] fileBytes = Files.readAllBytes(logFile);
 
-	        HttpClient client = HttpClient.newHttpClient();
-	        HttpRequest request = HttpRequest.newBuilder()
-	            .uri(URI.create(
-	                "https://api-cloud.browserstack.com/automate/sessions/"
-	                + sessionId + "/terminallogs"))
-	            .header("Authorization", "Basic " + credentials)
-	            .header("Content-Type",
-	                "multipart/form-data; boundary=" + boundary)
-	            .POST(HttpRequest.BodyPublishers.ofByteArray(body))
-	            .build();
+			String header = "--" + boundary + "\r\n" + "Content-Disposition: form-data; name=\"file\"; " + "filename=\""
+					+ testName + ".log\"\r\n" + "Content-Type: text/plain\r\n\r\n";
+			String footer = "\r\n--" + boundary + "--\r\n";
 
-	        HttpResponse<String> response = client.send(
-	            request, HttpResponse.BodyHandlers.ofString());
+			byte[] body = concatBytes(header.getBytes(), fileBytes, footer.getBytes());
 
-	        logger.info("BS terminal log upload: {} — {}",
-	            response.statusCode(), response.body());
+			HttpClient client = HttpClient.newHttpClient();
+			HttpRequest request = HttpRequest.newBuilder()
+					.uri(URI.create(
+							"https://api-cloud.browserstack.com/automate/sessions/" + sessionId + "/terminallogs"))
+					.header("Authorization", "Basic " + credentials)
+					.header("Content-Type", "multipart/form-data; boundary=" + boundary)
+					.POST(HttpRequest.BodyPublishers.ofByteArray(body)).build();
 
-	    } catch (Exception e) {
-	        logger.warn("Could not upload terminal logs to BS: {}", e.getMessage());
-	    } finally {
-	        bsSessionId.remove(); // ✅ always clean up session ID
-	    }
+			HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
+
+			logger.info("BS terminal log upload: {} — {}", response.statusCode(), response.body());
+
+			if (response.statusCode() == 200) {
+				logger.info("✅ Terminal logs uploaded to BrowserStack successfully.");
+			} else if (response.statusCode() == 404) {
+				logger.warn("⚠️ BS session not found — session may have expired. "
+						+ "Consider uploading before quitDriver().");
+			} else if (response.statusCode() == 401) {
+				logger.error("❌ BS credentials invalid — check bs.username and bs.accesskey.");
+			} else {
+				logger.warn("⚠️ Unexpected BS response: {} — {}", response.statusCode(), response.body());
+			}
+
+		} catch (Exception e) {
+			logger.warn("Could not upload terminal logs to BS: {}", e.getMessage());
+		} finally {
+			bsSessionId.remove(); // ✅ always clean up session ID
+		}
 	}
 
 	private byte[] concatBytes(byte[]... arrays) {
@@ -433,81 +444,78 @@ public class DriverManager {
 	}
 
 	private void extractBSSessionId() {
-	    try {
-	        if (page.get() == null) {
-	            logger.warn("Page is null — cannot fetch BrowserStack session");
-	            return;
-	        }
+		try {
+			if (page.get() == null) {
+				logger.warn("Page is null — cannot fetch BrowserStack session");
+				return;
+			}
 
-	        int attempts = 0;
+			int attempts = 0;
 
-	        while (attempts < 3) {
-	            try {
-	                String sessionDetails = (String) page.get().evaluate(
-	                    "browserstack_executor: {\"action\": \"getSessionDetails\"}"
-	                );
+			while (attempts < 3) {
+				try {
+					String sessionDetails = (String) page.get()
+							.evaluate("browserstack_executor: {\"action\": \"getSessionDetails\"}");
 
-	                if (sessionDetails != null && !sessionDetails.isEmpty()) {
-	                    ObjectMapper mapper = new ObjectMapper();
-	                    JsonNode node = mapper.readTree(sessionDetails);
+					if (sessionDetails != null && !sessionDetails.isEmpty()) {
+						ObjectMapper mapper = new ObjectMapper();
+						JsonNode node = mapper.readTree(sessionDetails);
 
-	                    String sessionId = null;
+						String sessionId = null;
 
-	                    if (node.has("sessionId")) {
-	                        sessionId = node.get("sessionId").asText();
-	                    } else if (node.has("hashed_id")) {
-	                        sessionId = node.get("hashed_id").asText();
-	                    }
+						if (node.has("sessionId")) {
+							sessionId = node.get("sessionId").asText();
+						} else if (node.has("hashed_id")) {
+							sessionId = node.get("hashed_id").asText();
+						}
 
-	                    if (sessionId != null && !sessionId.isEmpty()) {
-	                        bsSessionId.set(sessionId);
-	                        logger.info("BS Session ID captured: {}", sessionId);
-	                        return;
-	                    }
-	                }
+						if (sessionId != null && !sessionId.isEmpty()) {
+							bsSessionId.set(sessionId);
+							logger.info("BS Session ID captured: {}", sessionId);
+							return;
+						}
+					}
 
-	            } catch (Exception e) {
-	                logger.debug("Retry {} failed: {}", attempts, e.getMessage());
-	            }
+				} catch (Exception e) {
+					logger.debug("Retry {} failed: {}", attempts, e.getMessage());
+				}
 
-	            attempts++;
-	            Thread.sleep(1000);
-	        }
+				attempts++;
+				Thread.sleep(1000);
+			}
 
-	        logger.warn("Failed to capture BrowserStack session ID after retries");
+			logger.warn("Failed to capture BrowserStack session ID after retries");
 
-	    } catch (Exception e) {
-	        logger.warn("BS session ID extraction failed: {}", e.getMessage());
-	    }
+		} catch (Exception e) {
+			logger.warn("BS session ID extraction failed: {}", e.getMessage());
+		}
 	}
 
 	// Forces Logback SiftingAppender to flush the current test's log file
 	// Must be called BEFORE reading the file for upload
 	private void flushTestLogFile() {
-	    try {
-	        ch.qos.logback.classic.LoggerContext loggerContext =
-	            (ch.qos.logback.classic.LoggerContext)
-	            org.slf4j.LoggerFactory.getILoggerFactory();
+		try {
+			ch.qos.logback.classic.LoggerContext loggerContext = (ch.qos.logback.classic.LoggerContext) org.slf4j.LoggerFactory
+					.getILoggerFactory();
 
-	        for (ch.qos.logback.classic.Logger logbackLogger : loggerContext.getLoggerList()) {
-	            for (java.util.Iterator<ch.qos.logback.core.Appender<ch.qos.logback.classic.spi.ILoggingEvent>>
-	                    it = logbackLogger.iteratorForAppenders(); it.hasNext(); ) {
+			for (ch.qos.logback.classic.Logger logbackLogger : loggerContext.getLoggerList()) {
+				for (java.util.Iterator<ch.qos.logback.core.Appender<ch.qos.logback.classic.spi.ILoggingEvent>> it = logbackLogger
+						.iteratorForAppenders(); it.hasNext();) {
 
-	                ch.qos.logback.core.Appender<ch.qos.logback.classic.spi.ILoggingEvent>
-	                    appender = it.next();
+					ch.qos.logback.core.Appender<ch.qos.logback.classic.spi.ILoggingEvent> appender = it.next();
 
-	                if (appender instanceof ch.qos.logback.core.FileAppender) {
-	                    ((ch.qos.logback.core.FileAppender<?>) appender).stop();
-	                    ((ch.qos.logback.core.FileAppender<?>) appender).start();
-	                }
-	            }
-	        }
-	        logger.debug("Logback file appenders flushed.");
-	    } catch (Exception e) {
-	        logger.warn("Could not flush Logback appenders: {}", e.getMessage());
-	    }
+					if (appender instanceof ch.qos.logback.core.FileAppender) {
+						((ch.qos.logback.core.FileAppender<?>) appender).stop();
+						((ch.qos.logback.core.FileAppender<?>) appender).start();
+					}
+				}
+			}
+			logger.debug("Logback file appenders flushed.");
+		} catch (Exception e) {
+			logger.warn("Could not flush Logback appenders: {}", e.getMessage());
+		}
 	}
-	
+
 	/**
 	 * ══════════════════════════════════════════════════════════════════════════
 	 * GETTERS

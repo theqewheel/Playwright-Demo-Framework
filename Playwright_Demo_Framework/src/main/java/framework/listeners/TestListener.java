@@ -73,14 +73,14 @@ public class TestListener implements ITestListener, ISuiteListener, IInvokedMeth
 
 		String className  = result.getTestClass().getRealClass().getSimpleName();
 	    String methodName = MDC.get("methodname") != null ? MDC.get("methodname") : result.getMethod().getMethodName();
-	    String fullName   = className + "#" + methodName;   // e.g. LoginTests#Test_AE2_TC02
-
-		// Set MDC value for the logging pattern
+	    String testName   = MDC.get("testname") != null ? MDC.get("testname") : className + "#" + methodName;   // e.g. LoginTests#Test_AE2_TC02
+		
+	    // Set MDC value for the logging pattern
 		MDC.put("env", ConfigManager.getEnvironment());
-		MDC.put("testname", fullName);
+		MDC.put("testname", testName);
 		MDC.put("methodname", methodName);  // keep log files clean with short names of tests
 
-		logger.info("-----------------  STARTING TEST : {}  -----------------", fullName);
+		logger.info("-----------------  STARTING TEST : {}  -----------------", methodName);
 	}
 
 	/*
@@ -97,9 +97,6 @@ public class TestListener implements ITestListener, ISuiteListener, IInvokedMeth
 
 			attachScreenshot("PASSED Screenshot:", result);
 		}
-
-		MDC.clear();
-
 	}
 
 	/*
@@ -120,9 +117,6 @@ public class TestListener implements ITestListener, ISuiteListener, IInvokedMeth
 
 			attachScreenshot("FAILURE Screenshot:", result);
 		}
-
-		MDC.clear();
-
 	}
 
 	/*
@@ -143,9 +137,6 @@ public class TestListener implements ITestListener, ISuiteListener, IInvokedMeth
 
 			// capture screenshot
 		}
-
-		MDC.clear();
-
 	}
 
 	/*

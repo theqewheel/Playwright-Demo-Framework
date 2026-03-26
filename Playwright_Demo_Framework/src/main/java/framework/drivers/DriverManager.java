@@ -29,6 +29,8 @@ import framework.config.ConfigManager;
 import framework.logging.LogManager;
 import framework.logging.UniversalLogger;
 import io.qameta.allure.Step;
+import io.qameta.allure.internal.shadowed.jackson.databind.JsonNode;
+import io.qameta.allure.internal.shadowed.jackson.databind.ObjectMapper;
 
 public class DriverManager {
 
@@ -45,6 +47,7 @@ public class DriverManager {
 	private static final ThreadLocal<Path> videoDir = new ThreadLocal<>();
 	private static final ThreadLocal<String> bsBrowserName = new ThreadLocal<>();
 	private static final ThreadLocal<String> bsSessionId = new ThreadLocal<>();
+	private static final ThreadLocal<Path> testLogFilePath = new ThreadLocal<>();
 
 	private UniversalLogger logger = LogManager.getLogger(DriverManager.class);
 	private boolean headlessMode;
@@ -176,7 +179,7 @@ public class DriverManager {
 
 			page.set(context.get().newPage());
 			logger.info("BrowserStack page opened.");
-			
+
 			extractBSSessionId();
 
 			navigateToAppBaseURL(baseURL);
@@ -363,6 +366,7 @@ public class DriverManager {
 			}
 
 			Path logFile = Path.of("logs/tests/" + testName + ".log");
+			testLogFilePath.set(logFile);
 			if (!Files.exists(logFile)) {
 				logger.warn("Log file not found for: {}", testName);
 				return;
@@ -395,9 +399,9 @@ public class DriverManager {
 
 		} catch (Exception e) {
 			logger.warn("Could not upload terminal logs to BS: {}", e.getMessage());
-		}finally {
-	        bsSessionId.remove();  // ✅ clean up AFTER upload
-	    }
+		} finally {
+			bsSessionId.remove(); // ✅ clean up AFTER upload
+		}
 	}
 
 	private byte[] concatBytes(byte[]... arrays) {
@@ -415,85 +419,53 @@ public class DriverManager {
 
 	private void extractBSSessionId() {
 	    try {
-	    	
-	    	// ✅ Wait for BS to register the session
-	        Thread.sleep(3000);
-	        
-	        String username = ConfigManager.getBSUsername();
-	        String accessKey = ConfigManager.getBSAccessKey();
-	        String credentials = Base64.getEncoder()
-	            .encodeToString((username + ":" + accessKey).getBytes());
+	        if (page.get() == null) {
+	            logger.warn("Page is null — cannot fetch BrowserStack session");
+	            return;
+	        }
 
-	        HttpClient client = HttpClient.newHttpClient();
+	        int attempts = 0;
 
-	        // ── Get latest build ID ───────────────────────────────────────
-	        HttpRequest buildReq = HttpRequest.newBuilder()
-	            .uri(URI.create(
-	                "https://api.browserstack.com/automate/builds.json?limit=1"))
-	            .header("Authorization", "Basic " + credentials)
-	            .GET().build();
+	        while (attempts < 3) {
+	            try {
+	                String sessionDetails = (String) page.get().evaluate(
+	                    "browserstack_executor: {\"action\": \"getSessionDetails\"}"
+	                );
 
-	        HttpResponse<String> buildResp = client.send(buildReq,
-	            HttpResponse.BodyHandlers.ofString());
+	                if (sessionDetails != null && !sessionDetails.isEmpty()) {
+	                    ObjectMapper mapper = new ObjectMapper();
+	                    JsonNode node = mapper.readTree(sessionDetails);
 
-	        String buildId = buildResp.body()
-	            .split("\"hashed_id\"\\s*:\\s*\"")[1]
-	            .split("\"")[0];
+	                    String sessionId = null;
 
-	        // ── Get running session for this thread ───────────────────────
-	        HttpRequest sessReq = HttpRequest.newBuilder()
-	            .uri(URI.create(
-	                "https://api.browserstack.com/automate/builds/"
-	                + buildId + "/sessions.json?status=running&limit=10"))
-	            .header("Authorization", "Basic " + credentials)
-	            .GET().build();
+	                    if (node.has("sessionId")) {
+	                        sessionId = node.get("sessionId").asText();
+	                    } else if (node.has("hashed_id")) {
+	                        sessionId = node.get("hashed_id").asText();
+	                    }
 
-	        HttpResponse<String> sessResp = client.send(sessReq,
-	            HttpResponse.BodyHandlers.ofString());
+	                    if (sessionId != null && !sessionId.isEmpty()) {
+	                        bsSessionId.set(sessionId);
+	                        logger.info("BS Session ID captured: {}", sessionId);
+	                        return;
+	                    }
+	                }
 
-	        // ── Match session by test name ────────────────────────────────
-	        String testName = MDC.get("testname");
-	        String sessionId = null;
-	        String responseBody = sessResp.body();
-
-	        // Try to match by name first
-	        if (testName != null && responseBody.contains(testName)) {
-	            // Find the hashed_id that appears NEAR this testName
-	            int nameIdx = responseBody.indexOf(testName);
-	            // Look backwards for nearest hashed_id
-	            String beforeName = responseBody.substring(0, nameIdx);
-	            if (beforeName.contains("\"hashed_id\"")) {
-	                sessionId = beforeName
-	                    .substring(beforeName.lastIndexOf("\"hashed_id\""))
-	                    .split(":\\s*\"")[1]
-	                    .split("\"")[0];
+	            } catch (Exception e) {
+	                logger.debug("Retry {} failed: {}", attempts, e.getMessage());
 	            }
+
+	            attempts++;
+	            Thread.sleep(1000);
 	        }
 
-	        // Fallback — take first running session
-	        if (sessionId == null && sessResp.body().contains("\"hashed_id\"")) {
-	            sessionId = sessResp.body()
-	                .split("\"hashed_id\"\\s*:\\s*\"")[1]
-	                .split("\"")[0];
-	        }
-
-	        if (sessionId != null) {
-	            bsSessionId.set(sessionId);
-	            logger.info("BS Session ID captured: {}", sessionId);
-	        } else {
-	            logger.warn("Could not extract BS session ID");
-	        }
+	        logger.warn("Failed to capture BrowserStack session ID after retries");
 
 	    } catch (Exception e) {
 	        logger.warn("BS session ID extraction failed: {}", e.getMessage());
 	    }
 	}
 
-	public static String getBsSessionId() {
-	    return bsSessionId.get();
-	}
-	
-	
 	/**
 	 * ══════════════════════════════════════════════════════════════════════════
 	 * GETTERS
@@ -511,6 +483,17 @@ public class DriverManager {
 	// without needing a DriverManager instance
 	public static Page getCurrentPage() {
 		return page.get();
+	}
+
+	// Getter for bs session id
+
+	public static String getBsSessionId() {
+		return bsSessionId.get();
+	}
+
+	// Getter for log path
+	public Path getTestLogFilePath() {
+		return testLogFilePath.get();
 	}
 
 	/**

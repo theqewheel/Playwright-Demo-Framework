@@ -61,25 +61,26 @@ public class BaseTest {
 		logger = LogManager.getLogger(this.getClass());
 		driver = new DriverManager();
 		softAssert = new SoftAssert();
+		
+		// ✅ Add browser to the method name to make log file unique per browsers run across threads if exists
+		String browser = context.getCurrentXmlTest().getParameter("bs.browser");
+		browser = (browser == null || browser.isEmpty())? (ConfigManager.getBrowser() != null ? ConfigManager.getBrowser() : "unknown"):browser;
 
-		String fullName = this.getClass().getSimpleName() + "#" + method.getName();
-		MDC.put("testname", fullName); // ✅ early set — for BS caps
-		MDC.put("methodname", method.getName()); // already set in Test Listener but can be used for BS here early
+		String testname = this.getClass().getSimpleName() + "#" + method.getName();
+		MDC.put("testname", testname); // ✅ early set — for BS caps
+		MDC.put("methodname", method.getName()+ "_" + browser); // already set in Test Listener but can be used for BS here early
 
 		// ✅ Read bs.browser from TestNG context — works for all modes
 		// For BS runs: comes from <parameter name="bs.browser" value="chrome"/>
 		// For local/github: returns null → ignored safely
 		if ("browserstack".equals(ConfigManager.getExecutionMode())) {
-			String bsBrowser = context.getCurrentXmlTest().getParameter("bs.browser");
+			String bsBrowser = browser;
 			if (bsBrowser == null || bsBrowser.isEmpty()) {
 				bsBrowser = "chrome";
 			}
 			// ✅ Store in DriverManager ThreadLocal — thread safe!
 			DriverManager.setBsBrowser(bsBrowser);
 			logger.info("BrowserStack browser set to: {}", bsBrowser);
-			
-			// ✅ Add browser to the method name to make log file unique per thread in parallel BS runs
-			MDC.put("methodname", method.getName() + "_" + (bsBrowser != null ? bsBrowser : "unknown"));
 		}
 
 		driver.initDriver();
@@ -198,11 +199,11 @@ public class BaseTest {
 
 			// ── Attach log file ───────────────────────────────────────────────
 			try {
-				Path logPath = getLogFilePath(result.getName());
+				Path logPath = getLogFilePath(MDC.get("methodname"));
 				if (logPath != null && Files.exists(logPath)) {
-					ReportManager.addFileAttachement("📋 Test Log — " + result.getName(), "text/plain", logPath,
+					ReportManager.addFileAttachement("📋 Test Log — " + MDC.get("methodname"), "text/plain", logPath,
 							".log");
-					logger.info("Log file attached for: {}", result.getName());
+					logger.info("Log file attached for: {}", MDC.get("methodname"));
 				}
 			} catch (Exception e) {
 				logger.error("Failed to attach log file: {}", e.getMessage());

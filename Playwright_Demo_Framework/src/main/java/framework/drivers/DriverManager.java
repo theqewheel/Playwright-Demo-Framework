@@ -454,39 +454,40 @@ public class DriverManager {
 
 	private void extractBSSessionId() {
 	    try {
-	        // ✅ Use BrowserStack REST API — more reliable than page.evaluate
-	        // Gets the most recent session for this build
 	        String username  = ConfigManager.getBSUsername();
 	        String accessKey = ConfigManager.getBSAccessKey();
 	        String buildName = ConfigManager.getBSBuildName();
+	        
+	        // ✅ This thread's browser — used to match the correct session
+	        String thisBrowser = bsBrowserName.get();
+	        if (thisBrowser == null) thisBrowser = "chrome";
 
 	        String credentials = Base64.getEncoder()
 	            .encodeToString((username + ":" + accessKey).getBytes());
 
 	        HttpClient client = HttpClient.newHttpClient();
 
-	        // Step 1 — get build ID by name
+	        // Step 1 — get build ID
 	        HttpRequest buildRequest = HttpRequest.newBuilder()
 	            .uri(URI.create(
 	                "https://api.browserstack.com/automate/builds.json"))
 	            .header("Authorization", "Basic " + credentials)
-	            .GET()
-	            .build();
+	            .GET().build();
 
 	        HttpResponse<String> buildResponse = client.send(
 	            buildRequest, HttpResponse.BodyHandlers.ofString());
 
 	        if (buildResponse.statusCode() != 200) {
-	            logger.warn("Could not fetch BS builds: {}", 
+	            logger.warn("Could not fetch BS builds: {}",
 	                buildResponse.statusCode());
 	            return;
 	        }
 
-	        // Parse build ID
 	        ObjectMapper mapper = new ObjectMapper();
 	        JsonNode builds = mapper.readTree(buildResponse.body());
 	        String buildId = null;
 
+	        // Match build by name first, fallback to most recent
 	        for (JsonNode build : builds) {
 	            JsonNode automation = build.get("automation_build");
 	            if (automation != null && buildName.equals(
@@ -496,13 +497,10 @@ public class DriverManager {
 	            }
 	        }
 
-	        if (buildId == null) {
-	            // Fallback — just take the most recent build
-	            JsonNode firstBuild = builds.get(0);
-	            if (firstBuild != null) {
-	                buildId = firstBuild.get("automation_build")
-	                                    .get("hashed_id").asText();
-	            }
+	        if (buildId == null && builds.size() > 0) {
+	            buildId = builds.get(0)
+	                           .get("automation_build")
+	                           .get("hashed_id").asText();
 	        }
 
 	        if (buildId == null) {
@@ -510,32 +508,60 @@ public class DriverManager {
 	            return;
 	        }
 
-	        // Step 2 — get most recent session from this build
+	        // Step 2 — get ALL running sessions for this build
+	        // ✅ No limit=1 — fetch all running and match by browser
 	        HttpRequest sessionRequest = HttpRequest.newBuilder()
 	            .uri(URI.create(
 	                "https://api.browserstack.com/automate/builds/"
-	                + buildId + "/sessions.json?limit=1&status=running"))
+	                + buildId + "/sessions.json?status=running"))
 	            .header("Authorization", "Basic " + credentials)
-	            .GET()
-	            .build();
+	            .GET().build();
 
 	        HttpResponse<String> sessionResponse = client.send(
 	            sessionRequest, HttpResponse.BodyHandlers.ofString());
 
 	        if (sessionResponse.statusCode() != 200) {
-	            logger.warn("Could not fetch BS sessions: {}", 
+	            logger.warn("Could not fetch BS sessions: {}",
 	                sessionResponse.statusCode());
 	            return;
 	        }
 
 	        JsonNode sessions = mapper.readTree(sessionResponse.body());
+
+	        // ✅ Match session by browser name — each thread finds its OWN session
+	        for (JsonNode sessionNode : sessions) {
+	            JsonNode session = sessionNode.get("automation_session");
+	            if (session == null) continue;
+
+	            String sessionBrowser = session.has("browser") 
+	                ? session.get("browser").asText("").toLowerCase() 
+	                : "";
+
+	            // ✅ Normalize browser names for comparison
+	            // BS returns "chrome", "firefox", "edge" 
+	            // your caps use "chrome", "playwright-firefox", "edge"
+	            String normalizedCap = thisBrowser.toLowerCase()
+	                .replace("playwright-", ""); // strip playwright- prefix
+
+	            if (sessionBrowser.contains(normalizedCap) 
+	                    || normalizedCap.contains(sessionBrowser)) {
+	                String sessionId = session.get("hashed_id").asText();
+	                bsSessionId.set(sessionId);
+	                logger.info("✅ BS Session ID matched for browser {}: {}",
+	                    thisBrowser, sessionId);
+	                return;
+	            }
+	        }
+
+	        // ✅ Fallback — if browser match fails, take most recent unmatched session
+	        // This handles edge cases like webkit or unknown browser names
 	        if (sessions.size() > 0) {
 	            String sessionId = sessions.get(0)
 	                .get("automation_session")
 	                .get("hashed_id").asText();
-
 	            bsSessionId.set(sessionId);
-	            logger.info("✅ BS Session ID captured via API: {}", sessionId);
+	            logger.warn("⚠️ Browser match failed for {} — using most recent session: {}",
+	                thisBrowser, sessionId);
 	        }
 
 	    } catch (Exception e) {

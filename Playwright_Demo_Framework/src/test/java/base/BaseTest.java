@@ -149,7 +149,15 @@ public class BaseTest {
 
 		// ── 3. Attach after driver closes — finally guarantees driver always closes
 		try {
-			// Nothing here — attachments happen in finally AFTER driver closes
+			// ✅ Capture pass/fail screenshot BEFORE teardown closes Allure context
+			if (result.getStatus() == ITestResult.SUCCESS 
+			        && ConfigManager.isScreenhotonPass()) {
+			    captureScreenshot("✅ PASSED - Final Screen");
+			}
+			if (result.getStatus() == ITestResult.FAILURE 
+			        && ConfigManager.isScreenhotonFail()) {
+			    captureScreenshot("❌ FAILED - Final Screen");
+			}
 		} finally {
 
 			// ── Step 1: Mark BS status FIRST — page must still be open ──────────

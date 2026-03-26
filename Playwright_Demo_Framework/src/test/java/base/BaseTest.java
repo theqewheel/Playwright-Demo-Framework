@@ -1,9 +1,11 @@
 package base;
 
 import java.io.IOException;
+import java.lang.reflect.Method;
 import java.nio.file.Files;
 import java.nio.file.Path;
 
+import org.slf4j.MDC;
 import org.testng.ITestContext;
 import org.testng.ITestResult;
 import org.testng.annotations.AfterMethod;
@@ -54,15 +56,18 @@ public class BaseTest {
 	 */
 
 	@BeforeMethod
-	public void setup(ITestContext context) {
+	public void setup(Method method,ITestContext context) {
 
 		logger = LogManager.getLogger(this.getClass());
 		driver = new DriverManager();
 		softAssert = new SoftAssert();
 		
+		String fullName = this.getClass().getSimpleName() + "#" + method.getName();
+		MDC.put("testname", fullName); // ✅ early set — for BS caps
+		
 	    // ✅ Read bs.browser from TestNG context — works for all modes
 	    // For BS runs: comes from <parameter name="bs.browser" value="chrome"/>
-	    // For local/github: returns null → ignored safely
+	    // For local/github: returns null →  ignored safely
 		if ("browserstack".equals(ConfigManager.getExecutionMode())) {
 		    String bsBrowser = context.getCurrentXmlTest()
 		                              .getParameter("bs.browser");

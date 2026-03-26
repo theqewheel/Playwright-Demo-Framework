@@ -10,6 +10,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.slf4j.MDC;
+
 import com.google.gson.Gson;
 import com.microsoft.playwright.Browser;
 import com.microsoft.playwright.BrowserContext;
@@ -198,14 +200,16 @@ public class DriverManager {
 		caps.put("browser_version", "latest");
 		caps.put("os", "Windows");
 		caps.put("os_version", "11");
-		caps.put("name", Thread.currentThread().getName());
+		caps.put("name", getBrowserStackTestName());
 		caps.put("build", ConfigManager.getBSBuildName());
 		caps.put("project", ConfigManager.getBSProjectName());
-		caps.put("sessionName", getBrowserStackSessionName());
+		caps.put("sessionName", getBrowserStackTestName());
 		caps.put("browserstack.username", username);
 		caps.put("browserstack.accessKey", accessKey);
 		caps.put("browserstack.debug", "true");
 		caps.put("browserstack.networkLogs", "true");
+		caps.put("browserstack.console", "verbose"); // enables Console tab on browser stack
+		caps.put("browserstack.playwrightLogs", "true"); // enables Playwright tab on browser stack
 
 		// Step 3 — set correct browser in caps + build endpoint
 		switch (bsBrowser.toLowerCase()) {
@@ -334,10 +338,10 @@ public class DriverManager {
 	 * ══════════════════════════════════════════════════════════════════════════
 	 */
 
-	private String getBrowserStackSessionName() {
+	private String getBrowserStackTestName() {
 		// Gets the current test name from TestNG thread context
 		// This is set by your TestListener via MDC already
-		String testName = org.slf4j.MDC.get("testname");
+		String testName = MDC.get("testname");
 		return testName != null ? testName : "Unknown_Test";
 	}
 

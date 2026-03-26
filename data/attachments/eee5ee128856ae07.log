@@ -1,0 +1,92 @@
+2026-03-26 04:00:21 [TestNG-tests-1] INFO  [qa] [Test_AE1_TC01_Verify_New_User_SignUp] framework.listeners.TestListener - -----------------  STARTING TEST : SignupTests#Test_AE1_TC01_Verify_New_User_SignUp  -----------------
+2026-03-26 04:00:21 [TestNG-tests-1] INFO  [qa] [Test_AE1_TC01_Verify_New_User_SignUp] test.ae.SignupTests - Running:Step-1
+2026-03-26 04:00:22 [TestNG-tests-3] INFO  [qa] [Test_AE1_TC01_Verify_New_User_SignUp] framework.listeners.TestListener - -----------------  STARTING TEST : SignupTests#Test_AE1_TC01_Verify_New_User_SignUp  -----------------
+2026-03-26 04:00:22 [TestNG-tests-3] INFO  [qa] [Test_AE1_TC01_Verify_New_User_SignUp] test.ae.SignupTests - Running:Step-1
+2026-03-26 04:00:25 [TestNG-tests-3] INFO  [qa] [Test_AE1_TC01_Verify_New_User_SignUp] test.ae.SignupTests - Running:Step-2
+2026-03-26 04:00:26 [TestNG-tests-1] INFO  [qa] [Test_AE1_TC01_Verify_New_User_SignUp] test.ae.SignupTests - Running:Step-2
+2026-03-26 04:00:27 [TestNG-tests-3] INFO  [qa] [Test_AE1_TC01_Verify_New_User_SignUp] test.ae.SignupTests - Running:Step-3
+2026-03-26 04:00:28 [TestNG-tests-3] INFO  [qa] [Test_AE1_TC01_Verify_New_User_SignUp] test.ae.SignupTests - Running:Step-4
+2026-03-26 04:00:29 [TestNG-tests-3] INFO  [qa] [Test_AE1_TC01_Verify_New_User_SignUp] pages.ae.SignupDetailPage - Checkbox: 'Newsletter' is set to: true
+2026-03-26 04:00:29 [TestNG-tests-3] INFO  [qa] [Test_AE1_TC01_Verify_New_User_SignUp] pages.ae.SignupDetailPage - Checkbox: 'Special Offers' is set to: false
+2026-03-26 04:00:29 [TestNG-tests-3] INFO  [qa] [Test_AE1_TC01_Verify_New_User_SignUp] test.ae.SignupTests - Running:Step-5
+2026-03-26 04:00:29 [TestNG-tests-3] ERROR [qa] [Test_AE1_TC01_Verify_New_User_SignUp] io.qameta.allure.util.NamingUtils - Could not process empty pattern
+2026-03-26 04:00:29 [TestNG-tests-3] ERROR [qa] [Test_AE1_TC01_Verify_New_User_SignUp] io.qameta.allure.util.NamingUtils - Could not process empty pattern
+2026-03-26 04:00:29 [TestNG-tests-1] INFO  [qa] [Test_AE1_TC01_Verify_New_User_SignUp] test.ae.SignupTests - Running:Step-3
+2026-03-26 04:00:30 [TestNG-tests-3] ERROR [qa] [Test_AE1_TC01_Verify_New_User_SignUp] io.qameta.allure.util.NamingUtils - Could not find parameter zipcpde
+2026-03-26 04:00:30 [TestNG-tests-3] INFO  [qa] [Test_AE1_TC01_Verify_New_User_SignUp] pages.ae.SignupDetailPage - Checkbox: 'Special Offers' is set to: false
+2026-03-26 04:00:30 [TestNG-tests-3] INFO  [qa] [Test_AE1_TC01_Verify_New_User_SignUp] test.ae.SignupTests - Running:Step-6
+2026-03-26 04:00:31 [TestNG-tests-1] INFO  [qa] [Test_AE1_TC01_Verify_New_User_SignUp] test.ae.SignupTests - Running:Step-4
+2026-03-26 04:00:32 [TestNG-tests-1] INFO  [qa] [Test_AE1_TC01_Verify_New_User_SignUp] pages.ae.SignupDetailPage - Checkbox: 'Newsletter' is set to: true
+2026-03-26 04:00:32 [TestNG-tests-1] INFO  [qa] [Test_AE1_TC01_Verify_New_User_SignUp] pages.ae.SignupDetailPage - Checkbox: 'Special Offers' is set to: false
+2026-03-26 04:00:32 [TestNG-tests-1] INFO  [qa] [Test_AE1_TC01_Verify_New_User_SignUp] test.ae.SignupTests - Running:Step-5
+2026-03-26 04:00:32 [TestNG-tests-1] ERROR [qa] [Test_AE1_TC01_Verify_New_User_SignUp] io.qameta.allure.util.NamingUtils - Could not process empty pattern
+2026-03-26 04:00:32 [TestNG-tests-1] ERROR [qa] [Test_AE1_TC01_Verify_New_User_SignUp] io.qameta.allure.util.NamingUtils - Could not process empty pattern
+2026-03-26 04:00:33 [TestNG-tests-1] ERROR [qa] [Test_AE1_TC01_Verify_New_User_SignUp] io.qameta.allure.util.NamingUtils - Could not find parameter zipcpde
+2026-03-26 04:00:33 [TestNG-tests-1] INFO  [qa] [Test_AE1_TC01_Verify_New_User_SignUp] pages.ae.SignupDetailPage - Checkbox: 'Special Offers' is set to: false
+2026-03-26 04:00:34 [TestNG-tests-1] INFO  [qa] [Test_AE1_TC01_Verify_New_User_SignUp] test.ae.SignupTests - Running:Step-6
+2026-03-26 04:00:35 [TestNG-tests-3] INFO  [qa] [Test_AE1_TC01_Verify_New_User_SignUp] framework.listeners.TestListener - {TEST PASSED: Test_AE1_TC01_Verify_New_User_SignUp
+2026-03-26 04:00:35 [TestNG-tests-2] INFO  [qa] [Test_AE1_TC01_Verify_New_User_SignUp] framework.listeners.TestListener - -----------------  STARTING TEST : SignupTests#Test_AE1_TC01_Verify_New_User_SignUp  -----------------
+2026-03-26 04:00:35 [TestNG-tests-2] INFO  [qa] [Test_AE1_TC01_Verify_New_User_SignUp] test.ae.SignupTests - Running:Step-1
+2026-03-26 04:00:37 [TestNG-tests-3] ERROR [qa] [Test_AE1_TC01_Verify_New_User_SignUp] io.qameta.allure.AllureLifecycle - Could not add attachment: no test is running
+2026-03-26 04:00:37 [TestNG-tests-3] INFO  [qa] [Test_AE1_TC01_Verify_New_User_SignUp] framework.listeners.TestListener - Screenshot attached: PASSED Screenshot:
+2026-03-26 04:00:38 [TestNG-tests-1] INFO  [qa] [Test_AE1_TC01_Verify_New_User_SignUp] framework.listeners.TestListener - {TEST PASSED: Test_AE1_TC01_Verify_New_User_SignUp
+2026-03-26 04:00:39 [TestNG-tests-1] ERROR [qa] [Test_AE1_TC01_Verify_New_User_SignUp] io.qameta.allure.AllureLifecycle - Could not add attachment: no test is running
+2026-03-26 04:00:39 [TestNG-tests-1] INFO  [qa] [Test_AE1_TC01_Verify_New_User_SignUp] framework.listeners.TestListener - Screenshot attached: PASSED Screenshot:
+2026-03-26 04:00:39 [TestNG-tests-2] INFO  [qa] [Test_AE1_TC01_Verify_New_User_SignUp] test.ae.SignupTests - Running:Step-2
+2026-03-26 04:00:56 [TestNG-tests-2] INFO  [qa] [Test_AE1_TC01_Verify_New_User_SignUp] test.ae.SignupTests - Running:Step-3
+2026-03-26 04:02:28 [TestNG-tests-2] ERROR [qa] [Test_AE1_TC01_Verify_New_User_SignUp] pages.ae.SignupDetailPage - Manual screenshot failed: Socket idle from a long time
+2026-03-26 04:02:28 [TestNG-tests-2] WARN  [qa] [Test_AE1_TC01_Verify_New_User_SignUp] pages.ae.SignupDetailPage - Could not annotate BrowserStack session: Socket idle from a long time
+2026-03-26 04:02:28 [TestNG-tests-2] INFO  [qa] [Test_AE1_TC01_Verify_New_User_SignUp] test.ae.SignupTests - Running:Step-4
+2026-03-26 04:02:28 [TestNG-tests-2] WARN  [qa] [Test_AE1_TC01_Verify_New_User_SignUp] test.ae.SignupTests - Could not annotate BrowserStack session: Socket idle from a long time
+2026-03-26 04:02:28 [TestNG-tests-2] ERROR [qa] [Test_AE1_TC01_Verify_New_User_SignUp] framework.listeners.TestListener - ========================================
+2026-03-26 04:02:28 [TestNG-tests-2] WARN  [qa] [Test_AE1_TC01_Verify_New_User_SignUp] framework.listeners.TestListener - Could not annotate BrowserStack session: Socket idle from a long time
+2026-03-26 04:02:28 [TestNG-tests-2] ERROR [qa] [Test_AE1_TC01_Verify_New_User_SignUp] framework.listeners.TestListener -          ACTUAL TEST FAILURE            
+2026-03-26 04:02:28 [TestNG-tests-2] WARN  [qa] [Test_AE1_TC01_Verify_New_User_SignUp] framework.listeners.TestListener - Could not annotate BrowserStack session: Socket idle from a long time
+2026-03-26 04:02:28 [TestNG-tests-2] ERROR [qa] [Test_AE1_TC01_Verify_New_User_SignUp] framework.listeners.TestListener - ========================================
+2026-03-26 04:02:28 [TestNG-tests-2] WARN  [qa] [Test_AE1_TC01_Verify_New_User_SignUp] framework.listeners.TestListener - Could not annotate BrowserStack session: Socket idle from a long time
+2026-03-26 04:02:28 [TestNG-tests-2] ERROR [qa] [Test_AE1_TC01_Verify_New_User_SignUp] framework.listeners.TestListener - Test    : Test_AE1_TC01_Verify_New_User_SignUp
+2026-03-26 04:02:28 [TestNG-tests-2] WARN  [qa] [Test_AE1_TC01_Verify_New_User_SignUp] framework.listeners.TestListener - Could not annotate BrowserStack session: Socket idle from a long time
+2026-03-26 04:02:28 [TestNG-tests-2] ERROR [qa] [Test_AE1_TC01_Verify_New_User_SignUp] framework.listeners.TestListener - Cause   : PlaywrightException
+2026-03-26 04:02:28 [TestNG-tests-2] WARN  [qa] [Test_AE1_TC01_Verify_New_User_SignUp] framework.listeners.TestListener - Could not annotate BrowserStack session: Socket idle from a long time
+2026-03-26 04:02:28 [TestNG-tests-2] ERROR [qa] [Test_AE1_TC01_Verify_New_User_SignUp] framework.listeners.TestListener - Details : 
+com.microsoft.playwright.PlaywrightException: Socket idle from a long time
+	at com.microsoft.playwright.impl.JsonPipe.checkIfClosed(JsonPipe.java:113)
+	at com.microsoft.playwright.impl.JsonPipe.send(JsonPipe.java:44)
+	at com.microsoft.playwright.impl.Connection.internalSendMessage(Connection.java:171)
+	at com.microsoft.playwright.impl.Connection.sendMessageAsync(Connection.java:135)
+	at com.microsoft.playwright.impl.Connection.sendMessage(Connection.java:131)
+	at com.microsoft.playwright.impl.ChannelOwner.sendMessage(ChannelOwner.java:124)
+	at com.microsoft.playwright.impl.FrameImpl.clickImpl(FrameImpl.java:244)
+	at com.microsoft.playwright.impl.LocatorImpl.click(LocatorImpl.java:164)
+	at com.microsoft.playwright.Locator.click(Locator.java:2543)
+	at pages.ae.SignupDetailPage.selectGender(SignupDetailPage.java:75)
+	at test.ae.SignupTests.Test_AE1_TC01_Verify_New_User_SignUp(SignupTests.java:58)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
+	at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:697)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
+	at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
+	at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:1005)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
+	at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
+	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+	at org.testng.TestRunner.privateRun(TestRunner.java:744)
+	at org.testng.TestRunner.run(TestRunner.java:616)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:421)
+	at org.testng.SuiteRunner$SuiteWorker.run(SuiteRunner.java:463)
+	at org.testng.internal.thread.ThreadUtil.lambda$execute$0(ThreadUtil.java:64)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+2026-03-26 04:02:28 [TestNG-tests-2] WARN  [qa] [Test_AE1_TC01_Verify_New_User_SignUp] framework.listeners.TestListener - Could not annotate BrowserStack session: Socket idle from a long time
+2026-03-26 04:02:28 [TestNG-tests-2] ERROR [qa] [Test_AE1_TC01_Verify_New_User_SignUp] framework.listeners.TestListener - ==================XXXXX=================
+2026-03-26 04:02:28 [TestNG-tests-2] WARN  [qa] [Test_AE1_TC01_Verify_New_User_SignUp] framework.listeners.TestListener - Could not annotate BrowserStack session: Socket idle from a long time
+2026-03-26 04:02:28 [TestNG-tests-2] INFO  [qa] [Test_AE1_TC01_Verify_New_User_SignUp] framework.listeners.TestListener - {TEST FAILED: Test_AE1_TC01_Verify_New_User_SignUp
+2026-03-26 04:02:28 [TestNG-tests-2] WARN  [qa] [Test_AE1_TC01_Verify_New_User_SignUp] framework.listeners.TestListener - Could not annotate BrowserStack session: Socket idle from a long time
+2026-03-26 04:02:28 [TestNG-tests-2] ERROR [qa] [Test_AE1_TC01_Verify_New_User_SignUp] framework.listeners.TestListener - Failure Reason: com.microsoft.playwright.PlaywrightException: Socket idle from a long time
+2026-03-26 04:02:28 [TestNG-tests-2] WARN  [qa] [Test_AE1_TC01_Verify_New_User_SignUp] framework.listeners.TestListener - Could not annotate BrowserStack session: Socket idle from a long time
+2026-03-26 04:02:28 [TestNG-tests-2] ERROR [qa] [Test_AE1_TC01_Verify_New_User_SignUp] framework.listeners.TestListener - Failed to attach screenshot in listener: Socket idle from a long time
+2026-03-26 04:02:28 [TestNG-tests-2] WARN  [qa] [Test_AE1_TC01_Verify_New_User_SignUp] framework.listeners.TestListener - Could not annotate BrowserStack session: Socket idle from a long time

@@ -1,0 +1,35 @@
+2026-03-26 04:00:21 [TestNG-tests-1] INFO  [qa] [Test_AE1_TC01_Verify_New_User_SignUp] framework.listeners.TestListener - -----------------  STARTING TEST : SignupTests#Test_AE1_TC01_Verify_New_User_SignUp  -----------------
+2026-03-26 04:00:21 [TestNG-tests-1] INFO  [qa] [Test_AE1_TC01_Verify_New_User_SignUp] test.ae.SignupTests - Running:Step-1
+2026-03-26 04:00:22 [TestNG-tests-3] INFO  [qa] [Test_AE1_TC01_Verify_New_User_SignUp] framework.listeners.TestListener - -----------------  STARTING TEST : SignupTests#Test_AE1_TC01_Verify_New_User_SignUp  -----------------
+2026-03-26 04:00:22 [TestNG-tests-3] INFO  [qa] [Test_AE1_TC01_Verify_New_User_SignUp] test.ae.SignupTests - Running:Step-1
+2026-03-26 04:00:25 [TestNG-tests-3] INFO  [qa] [Test_AE1_TC01_Verify_New_User_SignUp] test.ae.SignupTests - Running:Step-2
+2026-03-26 04:00:26 [TestNG-tests-1] INFO  [qa] [Test_AE1_TC01_Verify_New_User_SignUp] test.ae.SignupTests - Running:Step-2
+2026-03-26 04:00:27 [TestNG-tests-3] INFO  [qa] [Test_AE1_TC01_Verify_New_User_SignUp] test.ae.SignupTests - Running:Step-3
+2026-03-26 04:00:28 [TestNG-tests-3] INFO  [qa] [Test_AE1_TC01_Verify_New_User_SignUp] test.ae.SignupTests - Running:Step-4
+2026-03-26 04:00:29 [TestNG-tests-3] INFO  [qa] [Test_AE1_TC01_Verify_New_User_SignUp] pages.ae.SignupDetailPage - Checkbox: 'Newsletter' is set to: true
+2026-03-26 04:00:29 [TestNG-tests-3] INFO  [qa] [Test_AE1_TC01_Verify_New_User_SignUp] pages.ae.SignupDetailPage - Checkbox: 'Special Offers' is set to: false
+2026-03-26 04:00:29 [TestNG-tests-3] INFO  [qa] [Test_AE1_TC01_Verify_New_User_SignUp] test.ae.SignupTests - Running:Step-5
+2026-03-26 04:00:29 [TestNG-tests-3] ERROR [qa] [Test_AE1_TC01_Verify_New_User_SignUp] io.qameta.allure.util.NamingUtils - Could not process empty pattern
+2026-03-26 04:00:29 [TestNG-tests-3] ERROR [qa] [Test_AE1_TC01_Verify_New_User_SignUp] io.qameta.allure.util.NamingUtils - Could not process empty pattern
+2026-03-26 04:00:29 [TestNG-tests-1] INFO  [qa] [Test_AE1_TC01_Verify_New_User_SignUp] test.ae.SignupTests - Running:Step-3
+2026-03-26 04:00:30 [TestNG-tests-3] ERROR [qa] [Test_AE1_TC01_Verify_New_User_SignUp] io.qameta.allure.util.NamingUtils - Could not find parameter zipcpde
+2026-03-26 04:00:30 [TestNG-tests-3] INFO  [qa] [Test_AE1_TC01_Verify_New_User_SignUp] pages.ae.SignupDetailPage - Checkbox: 'Special Offers' is set to: false
+2026-03-26 04:00:30 [TestNG-tests-3] INFO  [qa] [Test_AE1_TC01_Verify_New_User_SignUp] test.ae.SignupTests - Running:Step-6
+2026-03-26 04:00:31 [TestNG-tests-1] INFO  [qa] [Test_AE1_TC01_Verify_New_User_SignUp] test.ae.SignupTests - Running:Step-4
+2026-03-26 04:00:32 [TestNG-tests-1] INFO  [qa] [Test_AE1_TC01_Verify_New_User_SignUp] pages.ae.SignupDetailPage - Checkbox: 'Newsletter' is set to: true
+2026-03-26 04:00:32 [TestNG-tests-1] INFO  [qa] [Test_AE1_TC01_Verify_New_User_SignUp] pages.ae.SignupDetailPage - Checkbox: 'Special Offers' is set to: false
+2026-03-26 04:00:32 [TestNG-tests-1] INFO  [qa] [Test_AE1_TC01_Verify_New_User_SignUp] test.ae.SignupTests - Running:Step-5
+2026-03-26 04:00:32 [TestNG-tests-1] ERROR [qa] [Test_AE1_TC01_Verify_New_User_SignUp] io.qameta.allure.util.NamingUtils - Could not process empty pattern
+2026-03-26 04:00:32 [TestNG-tests-1] ERROR [qa] [Test_AE1_TC01_Verify_New_User_SignUp] io.qameta.allure.util.NamingUtils - Could not process empty pattern
+2026-03-26 04:00:33 [TestNG-tests-1] ERROR [qa] [Test_AE1_TC01_Verify_New_User_SignUp] io.qameta.allure.util.NamingUtils - Could not find parameter zipcpde
+2026-03-26 04:00:33 [TestNG-tests-1] INFO  [qa] [Test_AE1_TC01_Verify_New_User_SignUp] pages.ae.SignupDetailPage - Checkbox: 'Special Offers' is set to: false
+2026-03-26 04:00:34 [TestNG-tests-1] INFO  [qa] [Test_AE1_TC01_Verify_New_User_SignUp] test.ae.SignupTests - Running:Step-6
+2026-03-26 04:00:35 [TestNG-tests-3] INFO  [qa] [Test_AE1_TC01_Verify_New_User_SignUp] framework.listeners.TestListener - {TEST PASSED: Test_AE1_TC01_Verify_New_User_SignUp
+2026-03-26 04:00:35 [TestNG-tests-2] INFO  [qa] [Test_AE1_TC01_Verify_New_User_SignUp] framework.listeners.TestListener - -----------------  STARTING TEST : SignupTests#Test_AE1_TC01_Verify_New_User_SignUp  -----------------
+2026-03-26 04:00:35 [TestNG-tests-2] INFO  [qa] [Test_AE1_TC01_Verify_New_User_SignUp] test.ae.SignupTests - Running:Step-1
+2026-03-26 04:00:37 [TestNG-tests-3] ERROR [qa] [Test_AE1_TC01_Verify_New_User_SignUp] io.qameta.allure.AllureLifecycle - Could not add attachment: no test is running
+2026-03-26 04:00:37 [TestNG-tests-3] INFO  [qa] [Test_AE1_TC01_Verify_New_User_SignUp] framework.listeners.TestListener - Screenshot attached: PASSED Screenshot:
+2026-03-26 04:00:38 [TestNG-tests-1] INFO  [qa] [Test_AE1_TC01_Verify_New_User_SignUp] framework.listeners.TestListener - {TEST PASSED: Test_AE1_TC01_Verify_New_User_SignUp
+2026-03-26 04:00:39 [TestNG-tests-1] ERROR [qa] [Test_AE1_TC01_Verify_New_User_SignUp] io.qameta.allure.AllureLifecycle - Could not add attachment: no test is running
+2026-03-26 04:00:39 [TestNG-tests-1] INFO  [qa] [Test_AE1_TC01_Verify_New_User_SignUp] framework.listeners.TestListener - Screenshot attached: PASSED Screenshot:
+2026-03-26 04:00:39 [TestNG-tests-2] INFO  [qa] [Test_AE1_TC01_Verify_New_User_SignUp] test.ae.SignupTests - Running:Step-2

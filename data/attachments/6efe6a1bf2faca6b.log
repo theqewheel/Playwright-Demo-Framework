@@ -1,0 +1,78 @@
+2026-03-26 04:01:02 [TestNG-tests-3] INFO  [qa] [Test_AE1_TC05_Verify_Existing_Email_SignUp] framework.listeners.TestListener - -----------------  STARTING TEST : SignupTests#Test_AE1_TC05_Verify_Existing_Email_SignUp  -----------------
+2026-03-26 04:01:02 [TestNG-tests-3] INFO  [qa] [Test_AE1_TC05_Verify_Existing_Email_SignUp] test.ae.SignupTests - Running:Step-1
+2026-03-26 04:01:02 [TestNG-tests-1] INFO  [qa] [Test_AE1_TC05_Verify_Existing_Email_SignUp] framework.listeners.TestListener - -----------------  STARTING TEST : SignupTests#Test_AE1_TC05_Verify_Existing_Email_SignUp  -----------------
+2026-03-26 04:01:03 [TestNG-tests-1] INFO  [qa] [Test_AE1_TC05_Verify_Existing_Email_SignUp] test.ae.SignupTests - Running:Step-1
+2026-03-26 04:01:06 [TestNG-tests-3] INFO  [qa] [Test_AE1_TC05_Verify_Existing_Email_SignUp] test.ae.SignupTests - Running:Step-2
+2026-03-26 04:01:06 [TestNG-tests-1] INFO  [qa] [Test_AE1_TC05_Verify_Existing_Email_SignUp] test.ae.SignupTests - Running:Step-2
+2026-03-26 04:01:09 [TestNG-tests-1] INFO  [qa] [Test_AE1_TC05_Verify_Existing_Email_SignUp] test.ae.SignupTests - Running:Step-3
+2026-03-26 04:01:10 [TestNG-tests-1] INFO  [qa] [Test_AE1_TC05_Verify_Existing_Email_SignUp] framework.listeners.TestListener - {TEST PASSED: Test_AE1_TC05_Verify_Existing_Email_SignUp
+2026-03-26 04:01:10 [TestNG-tests-1] ERROR [qa] [Test_AE1_TC05_Verify_Existing_Email_SignUp] io.qameta.allure.AllureLifecycle - Could not add attachment: no test is running
+2026-03-26 04:01:10 [TestNG-tests-1] INFO  [qa] [Test_AE1_TC05_Verify_Existing_Email_SignUp] framework.listeners.TestListener - Screenshot attached: PASSED Screenshot:
+2026-03-26 04:02:38 [TestNG-tests-3] ERROR [qa] [Test_AE1_TC05_Verify_Existing_Email_SignUp] pages.ae.HomePage - Manual screenshot failed: Socket idle from a long time
+2026-03-26 04:02:38 [TestNG-tests-3] WARN  [qa] [Test_AE1_TC05_Verify_Existing_Email_SignUp] pages.ae.HomePage - Could not annotate BrowserStack session: Socket idle from a long time
+2026-03-26 04:02:38 [TestNG-tests-3] ERROR [qa] [Test_AE1_TC05_Verify_Existing_Email_SignUp] framework.listeners.TestListener - ========================================
+2026-03-26 04:02:38 [TestNG-tests-3] WARN  [qa] [Test_AE1_TC05_Verify_Existing_Email_SignUp] framework.listeners.TestListener - Could not annotate BrowserStack session: Socket idle from a long time
+2026-03-26 04:02:38 [TestNG-tests-3] ERROR [qa] [Test_AE1_TC05_Verify_Existing_Email_SignUp] framework.listeners.TestListener -          ACTUAL TEST FAILURE            
+2026-03-26 04:02:38 [TestNG-tests-3] WARN  [qa] [Test_AE1_TC05_Verify_Existing_Email_SignUp] framework.listeners.TestListener - Could not annotate BrowserStack session: Socket idle from a long time
+2026-03-26 04:02:38 [TestNG-tests-3] ERROR [qa] [Test_AE1_TC05_Verify_Existing_Email_SignUp] framework.listeners.TestListener - ========================================
+2026-03-26 04:02:38 [TestNG-tests-3] WARN  [qa] [Test_AE1_TC05_Verify_Existing_Email_SignUp] framework.listeners.TestListener - Could not annotate BrowserStack session: Socket idle from a long time
+2026-03-26 04:02:38 [TestNG-tests-3] ERROR [qa] [Test_AE1_TC05_Verify_Existing_Email_SignUp] framework.listeners.TestListener - Test    : Test_AE1_TC05_Verify_Existing_Email_SignUp
+2026-03-26 04:02:38 [TestNG-tests-3] WARN  [qa] [Test_AE1_TC05_Verify_Existing_Email_SignUp] framework.listeners.TestListener - Could not annotate BrowserStack session: Socket idle from a long time
+2026-03-26 04:02:38 [TestNG-tests-3] ERROR [qa] [Test_AE1_TC05_Verify_Existing_Email_SignUp] framework.listeners.TestListener - Cause   : PlaywrightException
+2026-03-26 04:02:38 [TestNG-tests-3] WARN  [qa] [Test_AE1_TC05_Verify_Existing_Email_SignUp] framework.listeners.TestListener - Could not annotate BrowserStack session: Socket idle from a long time
+2026-03-26 04:02:38 [TestNG-tests-3] ERROR [qa] [Test_AE1_TC05_Verify_Existing_Email_SignUp] framework.listeners.TestListener - Details : 
+com.microsoft.playwright.PlaywrightException: Socket idle from a long time
+	at com.microsoft.playwright.impl.JsonPipe.checkIfClosed(JsonPipe.java:113)
+	at com.microsoft.playwright.impl.JsonPipe.send(JsonPipe.java:44)
+	at com.microsoft.playwright.impl.Connection.internalSendMessage(Connection.java:171)
+	at com.microsoft.playwright.impl.Connection.sendMessageAsync(Connection.java:135)
+	at com.microsoft.playwright.impl.Connection.sendMessage(Connection.java:131)
+	at com.microsoft.playwright.impl.ChannelOwner.sendMessage(ChannelOwner.java:124)
+	at com.microsoft.playwright.impl.FrameImpl.expect(FrameImpl.java:1110)
+	at com.microsoft.playwright.impl.FrameImpl.lambda$expect$5(FrameImpl.java:1104)
+	at com.microsoft.playwright.impl.ChannelOwner.withTitle(ChannelOwner.java:98)
+	at com.microsoft.playwright.impl.FrameImpl.expect(FrameImpl.java:1104)
+	at com.microsoft.playwright.impl.PageAssertionsImpl.doExpect(PageAssertionsImpl.java:42)
+	at com.microsoft.playwright.impl.AssertionsBase.expectImpl(AssertionsBase.java:58)
+	at com.microsoft.playwright.impl.AssertionsBase.expectImpl(AssertionsBase.java:47)
+	at com.microsoft.playwright.impl.AssertionsBase.expectImpl(AssertionsBase.java:39)
+	at com.microsoft.playwright.impl.PageAssertionsImpl.hasURL(PageAssertionsImpl.java:73)
+	at com.microsoft.playwright.assertions.PageAssertions.hasURL(PageAssertions.java:181)
+	at framework.base.BasePage.verifyPageLoaded(BasePage.java:44)
+	at test.ae.SignupTests.Test_AE1_TC05_Verify_Existing_Email_SignUp(SignupTests.java:115)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
+	at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:697)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
+	at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
+	at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:1005)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
+	at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
+	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+	at org.testng.TestRunner.privateRun(TestRunner.java:744)
+	at org.testng.TestRunner.run(TestRunner.java:616)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:421)
+	at org.testng.SuiteRunner$SuiteWorker.run(SuiteRunner.java:463)
+	at org.testng.internal.thread.ThreadUtil.lambda$execute$0(ThreadUtil.java:64)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+2026-03-26 04:02:38 [TestNG-tests-3] WARN  [qa] [Test_AE1_TC05_Verify_Existing_Email_SignUp] framework.listeners.TestListener - Could not annotate BrowserStack session: Socket idle from a long time
+2026-03-26 04:02:38 [TestNG-tests-3] ERROR [qa] [Test_AE1_TC05_Verify_Existing_Email_SignUp] framework.listeners.TestListener - ==================XXXXX=================
+2026-03-26 04:02:38 [TestNG-tests-3] WARN  [qa] [Test_AE1_TC05_Verify_Existing_Email_SignUp] framework.listeners.TestListener - Could not annotate BrowserStack session: Socket idle from a long time
+2026-03-26 04:02:38 [TestNG-tests-3] INFO  [qa] [Test_AE1_TC05_Verify_Existing_Email_SignUp] framework.listeners.TestListener - {TEST FAILED: Test_AE1_TC05_Verify_Existing_Email_SignUp
+2026-03-26 04:02:38 [TestNG-tests-3] WARN  [qa] [Test_AE1_TC05_Verify_Existing_Email_SignUp] framework.listeners.TestListener - Could not annotate BrowserStack session: Socket idle from a long time
+2026-03-26 04:02:38 [TestNG-tests-3] ERROR [qa] [Test_AE1_TC05_Verify_Existing_Email_SignUp] framework.listeners.TestListener - Failure Reason: com.microsoft.playwright.PlaywrightException: Socket idle from a long time
+2026-03-26 04:02:38 [TestNG-tests-3] WARN  [qa] [Test_AE1_TC05_Verify_Existing_Email_SignUp] framework.listeners.TestListener - Could not annotate BrowserStack session: Socket idle from a long time
+2026-03-26 04:02:38 [TestNG-tests-3] ERROR [qa] [Test_AE1_TC05_Verify_Existing_Email_SignUp] framework.listeners.TestListener - Failed to attach screenshot in listener: Socket idle from a long time
+2026-03-26 04:02:38 [TestNG-tests-3] WARN  [qa] [Test_AE1_TC05_Verify_Existing_Email_SignUp] framework.listeners.TestListener - Could not annotate BrowserStack session: Socket idle from a long time
+2026-03-26 04:02:55 [TestNG-tests-2] INFO  [qa] [Test_AE1_TC05_Verify_Existing_Email_SignUp] framework.listeners.TestListener - -----------------  STARTING TEST : SignupTests#Test_AE1_TC05_Verify_Existing_Email_SignUp  -----------------
+2026-03-26 04:02:55 [TestNG-tests-2] INFO  [qa] [Test_AE1_TC05_Verify_Existing_Email_SignUp] test.ae.SignupTests - Running:Step-1
+2026-03-26 04:02:59 [TestNG-tests-2] INFO  [qa] [Test_AE1_TC05_Verify_Existing_Email_SignUp] test.ae.SignupTests - Running:Step-2
+2026-03-26 04:03:03 [TestNG-tests-2] INFO  [qa] [Test_AE1_TC05_Verify_Existing_Email_SignUp] test.ae.SignupTests - Running:Step-3
+2026-03-26 04:03:05 [TestNG-tests-2] INFO  [qa] [Test_AE1_TC05_Verify_Existing_Email_SignUp] framework.listeners.TestListener - {TEST PASSED: Test_AE1_TC05_Verify_Existing_Email_SignUp
+2026-03-26 04:03:05 [TestNG-tests-2] ERROR [qa] [Test_AE1_TC05_Verify_Existing_Email_SignUp] io.qameta.allure.AllureLifecycle - Could not add attachment: no test is running
+2026-03-26 04:03:05 [TestNG-tests-2] INFO  [qa] [Test_AE1_TC05_Verify_Existing_Email_SignUp] framework.listeners.TestListener - Screenshot attached: PASSED Screenshot:

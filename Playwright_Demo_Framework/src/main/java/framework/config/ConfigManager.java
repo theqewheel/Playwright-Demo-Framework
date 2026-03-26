@@ -113,7 +113,7 @@ public class ConfigManager {
 	
 	//Called from Test Driver
 	public static boolean getHeadlessmode() {
-		
+
 		switch(getExecutionMode().toLowerCase()) {
 			case "github" : 
 			case "native" :

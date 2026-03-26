@@ -1,0 +1,15 @@
+2026-03-26 08:00:46 [TestNG-tests-1] INFO  [] [Test_AE1_TC05_Verify_Existing_Email_SignUp] test.ae.SignupTests - BrowserStack browser set to: chrome
+2026-03-26 08:00:55 [TestNG-tests-2] INFO  [] [Test_AE1_TC05_Verify_Existing_Email_SignUp] test.ae.SignupTests - BrowserStack browser set to: firefox
+2026-03-26 08:00:57 [TestNG-tests-3] INFO  [] [Test_AE1_TC05_Verify_Existing_Email_SignUp] test.ae.SignupTests - BrowserStack browser set to: edge
+2026-03-26 08:01:05 [TestNG-tests-1] INFO  [qa] [Test_AE1_TC05_Verify_Existing_Email_SignUp] framework.listeners.TestListener - -----------------  STARTING TEST : SignupTests#Test_AE1_TC05_Verify_Existing_Email_SignUp  -----------------
+2026-03-26 08:01:05 [TestNG-tests-1] INFO  [qa] [Test_AE1_TC05_Verify_Existing_Email_SignUp] test.ae.SignupTests - Running:Step-1
+2026-03-26 08:01:08 [TestNG-tests-1] INFO  [qa] [Test_AE1_TC05_Verify_Existing_Email_SignUp] test.ae.SignupTests - Running:Step-2
+2026-03-26 08:01:21 [TestNG-tests-3] INFO  [qa] [Test_AE1_TC05_Verify_Existing_Email_SignUp] framework.listeners.TestListener - -----------------  STARTING TEST : SignupTests#Test_AE1_TC05_Verify_Existing_Email_SignUp  -----------------
+2026-03-26 08:01:21 [TestNG-tests-3] INFO  [qa] [Test_AE1_TC05_Verify_Existing_Email_SignUp] test.ae.SignupTests - Running:Step-1
+2026-03-26 08:01:26 [TestNG-tests-3] INFO  [qa] [Test_AE1_TC05_Verify_Existing_Email_SignUp] test.ae.SignupTests - Running:Step-2
+2026-03-26 08:01:28 [TestNG-tests-2] INFO  [qa] [Test_AE1_TC05_Verify_Existing_Email_SignUp] framework.listeners.TestListener - -----------------  STARTING TEST : SignupTests#Test_AE1_TC05_Verify_Existing_Email_SignUp  -----------------
+2026-03-26 08:01:28 [TestNG-tests-2] INFO  [qa] [Test_AE1_TC05_Verify_Existing_Email_SignUp] test.ae.SignupTests - Running:Step-1
+2026-03-26 08:01:29 [TestNG-tests-3] INFO  [qa] [Test_AE1_TC05_Verify_Existing_Email_SignUp] test.ae.SignupTests - Running:Step-3
+2026-03-26 08:01:30 [TestNG-tests-1] INFO  [qa] [Test_AE1_TC05_Verify_Existing_Email_SignUp] test.ae.SignupTests - Running:Step-3
+2026-03-26 08:01:31 [TestNG-tests-2] INFO  [qa] [Test_AE1_TC05_Verify_Existing_Email_SignUp] test.ae.SignupTests - Running:Step-2
+2026-03-26 08:01:34 [TestNG-tests-2] INFO  [qa] [Test_AE1_TC05_Verify_Existing_Email_SignUp] test.ae.SignupTests - Running:Step-3

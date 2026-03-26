@@ -1,0 +1,42 @@
+2026-03-26 07:59:53 [TestNG-tests-3] INFO  [] [Test_AE1_TC01_Verify_New_User_SignUp] test.ae.SignupTests - BrowserStack browser set to: edge
+2026-03-26 07:59:53 [TestNG-tests-1] INFO  [] [Test_AE1_TC01_Verify_New_User_SignUp] test.ae.SignupTests - BrowserStack browser set to: chrome
+2026-03-26 07:59:53 [TestNG-tests-2] INFO  [] [Test_AE1_TC01_Verify_New_User_SignUp] test.ae.SignupTests - BrowserStack browser set to: firefox
+2026-03-26 08:00:22 [TestNG-tests-1] INFO  [qa] [Test_AE1_TC01_Verify_New_User_SignUp] framework.listeners.TestListener - -----------------  STARTING TEST : SignupTests#Test_AE1_TC01_Verify_New_User_SignUp  -----------------
+2026-03-26 08:00:22 [TestNG-tests-1] INFO  [qa] [Test_AE1_TC01_Verify_New_User_SignUp] test.ae.SignupTests - Running:Step-1
+2026-03-26 08:00:24 [TestNG-tests-2] INFO  [qa] [Test_AE1_TC01_Verify_New_User_SignUp] framework.listeners.TestListener - -----------------  STARTING TEST : SignupTests#Test_AE1_TC01_Verify_New_User_SignUp  -----------------
+2026-03-26 08:00:24 [TestNG-tests-2] INFO  [qa] [Test_AE1_TC01_Verify_New_User_SignUp] test.ae.SignupTests - Running:Step-1
+2026-03-26 08:00:25 [TestNG-tests-1] INFO  [qa] [Test_AE1_TC01_Verify_New_User_SignUp] test.ae.SignupTests - Running:Step-2
+2026-03-26 08:00:27 [TestNG-tests-2] INFO  [qa] [Test_AE1_TC01_Verify_New_User_SignUp] test.ae.SignupTests - Running:Step-2
+2026-03-26 08:00:27 [TestNG-tests-1] INFO  [qa] [Test_AE1_TC01_Verify_New_User_SignUp] test.ae.SignupTests - Running:Step-3
+2026-03-26 08:00:29 [TestNG-tests-3] INFO  [qa] [Test_AE1_TC01_Verify_New_User_SignUp] framework.listeners.TestListener - -----------------  STARTING TEST : SignupTests#Test_AE1_TC01_Verify_New_User_SignUp  -----------------
+2026-03-26 08:00:29 [TestNG-tests-3] INFO  [qa] [Test_AE1_TC01_Verify_New_User_SignUp] test.ae.SignupTests - Running:Step-1
+2026-03-26 08:00:29 [TestNG-tests-1] INFO  [qa] [Test_AE1_TC01_Verify_New_User_SignUp] test.ae.SignupTests - Running:Step-4
+2026-03-26 08:00:30 [TestNG-tests-1] INFO  [qa] [Test_AE1_TC01_Verify_New_User_SignUp] pages.ae.SignupDetailPage - Checkbox: 'Newsletter' is set to: true
+2026-03-26 08:00:30 [TestNG-tests-1] INFO  [qa] [Test_AE1_TC01_Verify_New_User_SignUp] pages.ae.SignupDetailPage - Checkbox: 'Special Offers' is set to: false
+2026-03-26 08:00:30 [TestNG-tests-1] INFO  [qa] [Test_AE1_TC01_Verify_New_User_SignUp] test.ae.SignupTests - Running:Step-5
+2026-03-26 08:00:30 [TestNG-tests-1] ERROR [qa] [Test_AE1_TC01_Verify_New_User_SignUp] io.qameta.allure.util.NamingUtils - Could not process empty pattern
+2026-03-26 08:00:30 [TestNG-tests-1] ERROR [qa] [Test_AE1_TC01_Verify_New_User_SignUp] io.qameta.allure.util.NamingUtils - Could not process empty pattern
+2026-03-26 08:00:31 [TestNG-tests-1] ERROR [qa] [Test_AE1_TC01_Verify_New_User_SignUp] io.qameta.allure.util.NamingUtils - Could not find parameter zipcpde
+2026-03-26 08:00:32 [TestNG-tests-1] INFO  [qa] [Test_AE1_TC01_Verify_New_User_SignUp] pages.ae.SignupDetailPage - Checkbox: 'Special Offers' is set to: false
+2026-03-26 08:00:32 [TestNG-tests-1] INFO  [qa] [Test_AE1_TC01_Verify_New_User_SignUp] test.ae.SignupTests - Running:Step-6
+2026-03-26 08:00:33 [TestNG-tests-3] INFO  [qa] [Test_AE1_TC01_Verify_New_User_SignUp] test.ae.SignupTests - Running:Step-2
+2026-03-26 08:00:35 [TestNG-tests-2] INFO  [qa] [Test_AE1_TC01_Verify_New_User_SignUp] test.ae.SignupTests - Running:Step-3
+2026-03-26 08:00:35 [TestNG-tests-3] INFO  [qa] [Test_AE1_TC01_Verify_New_User_SignUp] test.ae.SignupTests - Running:Step-3
+2026-03-26 08:00:37 [TestNG-tests-3] INFO  [qa] [Test_AE1_TC01_Verify_New_User_SignUp] test.ae.SignupTests - Running:Step-4
+2026-03-26 08:00:37 [TestNG-tests-2] INFO  [qa] [Test_AE1_TC01_Verify_New_User_SignUp] test.ae.SignupTests - Running:Step-4
+2026-03-26 08:00:38 [TestNG-tests-3] INFO  [qa] [Test_AE1_TC01_Verify_New_User_SignUp] pages.ae.SignupDetailPage - Checkbox: 'Newsletter' is set to: true
+2026-03-26 08:00:38 [TestNG-tests-3] INFO  [qa] [Test_AE1_TC01_Verify_New_User_SignUp] pages.ae.SignupDetailPage - Checkbox: 'Special Offers' is set to: false
+2026-03-26 08:00:38 [TestNG-tests-2] INFO  [qa] [Test_AE1_TC01_Verify_New_User_SignUp] pages.ae.SignupDetailPage - Checkbox: 'Newsletter' is set to: true
+2026-03-26 08:00:38 [TestNG-tests-3] INFO  [qa] [Test_AE1_TC01_Verify_New_User_SignUp] test.ae.SignupTests - Running:Step-5
+2026-03-26 08:00:38 [TestNG-tests-3] ERROR [qa] [Test_AE1_TC01_Verify_New_User_SignUp] io.qameta.allure.util.NamingUtils - Could not process empty pattern
+2026-03-26 08:00:38 [TestNG-tests-3] ERROR [qa] [Test_AE1_TC01_Verify_New_User_SignUp] io.qameta.allure.util.NamingUtils - Could not process empty pattern
+2026-03-26 08:00:38 [TestNG-tests-2] INFO  [qa] [Test_AE1_TC01_Verify_New_User_SignUp] pages.ae.SignupDetailPage - Checkbox: 'Special Offers' is set to: false
+2026-03-26 08:00:38 [TestNG-tests-2] INFO  [qa] [Test_AE1_TC01_Verify_New_User_SignUp] test.ae.SignupTests - Running:Step-5
+2026-03-26 08:00:38 [TestNG-tests-2] ERROR [qa] [Test_AE1_TC01_Verify_New_User_SignUp] io.qameta.allure.util.NamingUtils - Could not process empty pattern
+2026-03-26 08:00:38 [TestNG-tests-2] ERROR [qa] [Test_AE1_TC01_Verify_New_User_SignUp] io.qameta.allure.util.NamingUtils - Could not process empty pattern
+2026-03-26 08:00:39 [TestNG-tests-2] ERROR [qa] [Test_AE1_TC01_Verify_New_User_SignUp] io.qameta.allure.util.NamingUtils - Could not find parameter zipcpde
+2026-03-26 08:00:39 [TestNG-tests-2] INFO  [qa] [Test_AE1_TC01_Verify_New_User_SignUp] pages.ae.SignupDetailPage - Checkbox: 'Special Offers' is set to: false
+2026-03-26 08:00:40 [TestNG-tests-2] INFO  [qa] [Test_AE1_TC01_Verify_New_User_SignUp] test.ae.SignupTests - Running:Step-6
+2026-03-26 08:00:40 [TestNG-tests-3] ERROR [qa] [Test_AE1_TC01_Verify_New_User_SignUp] io.qameta.allure.util.NamingUtils - Could not find parameter zipcpde
+2026-03-26 08:00:40 [TestNG-tests-3] INFO  [qa] [Test_AE1_TC01_Verify_New_User_SignUp] pages.ae.SignupDetailPage - Checkbox: 'Special Offers' is set to: false
+2026-03-26 08:00:41 [TestNG-tests-3] INFO  [qa] [Test_AE1_TC01_Verify_New_User_SignUp] test.ae.SignupTests - Running:Step-6

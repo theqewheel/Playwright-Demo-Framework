@@ -48,6 +48,7 @@ public class DriverManager {
 	private static final ThreadLocal<String> bsBrowserName = new ThreadLocal<>();
 	private static final ThreadLocal<String> bsSessionId = new ThreadLocal<>();
 	private static final ThreadLocal<Path> testLogFilePath = new ThreadLocal<>();
+	private static final ThreadLocal<String> bsTestName = new ThreadLocal<>();
 
 	private UniversalLogger logger = LogManager.getLogger(DriverManager.class);
 	private boolean headlessMode;
@@ -298,6 +299,7 @@ public class DriverManager {
 			playwright.remove();
 			videoDir.remove();
 			bsBrowserName.remove();
+			bsTestName.remove(); 
 		}
 	}
 
@@ -351,10 +353,17 @@ public class DriverManager {
 
 	// get the testname for the browser stack display
 	private String getBrowserStackTestName() {
-		// Gets the current test name from TestNG thread context
-		// This is set by your TestListener via MDC already
-		String testName = MDC.get("testname");
-		return testName != null ? testName : "Unknown_Test";
+		// ✅ Primary — set directly from BaseTest.setup() before initDriver()
+		String name = bsTestName.get();
+		if (name != null && !name.isEmpty())
+			return name;
+
+		// Fallback — MDC (may not be set yet at cap-build time)
+		name = MDC.get("testname");
+		if (name != null && !name.isEmpty())
+			return name;
+
+		return "Unknown_Test";
 	}
 
 	// upload logs to BS
@@ -444,51 +453,94 @@ public class DriverManager {
 	}
 
 	private void extractBSSessionId() {
-		try {
-			if (page.get() == null) {
-				logger.warn("Page is null — cannot fetch BrowserStack session");
-				return;
-			}
+	    try {
+	        // ✅ Use BrowserStack REST API — more reliable than page.evaluate
+	        // Gets the most recent session for this build
+	        String username  = ConfigManager.getBSUsername();
+	        String accessKey = ConfigManager.getBSAccessKey();
+	        String buildName = ConfigManager.getBSBuildName();
 
-			int attempts = 0;
+	        String credentials = Base64.getEncoder()
+	            .encodeToString((username + ":" + accessKey).getBytes());
 
-			while (attempts < 3) {
-				try {
-					String sessionDetails = (String) page.get()
-							.evaluate("browserstack_executor: {\"action\": \"getSessionDetails\"}");
+	        HttpClient client = HttpClient.newHttpClient();
 
-					if (sessionDetails != null && !sessionDetails.isEmpty()) {
-						ObjectMapper mapper = new ObjectMapper();
-						JsonNode node = mapper.readTree(sessionDetails);
+	        // Step 1 — get build ID by name
+	        HttpRequest buildRequest = HttpRequest.newBuilder()
+	            .uri(URI.create(
+	                "https://api.browserstack.com/automate/builds.json"))
+	            .header("Authorization", "Basic " + credentials)
+	            .GET()
+	            .build();
 
-						String sessionId = null;
+	        HttpResponse<String> buildResponse = client.send(
+	            buildRequest, HttpResponse.BodyHandlers.ofString());
 
-						if (node.has("sessionId")) {
-							sessionId = node.get("sessionId").asText();
-						} else if (node.has("hashed_id")) {
-							sessionId = node.get("hashed_id").asText();
-						}
+	        if (buildResponse.statusCode() != 200) {
+	            logger.warn("Could not fetch BS builds: {}", 
+	                buildResponse.statusCode());
+	            return;
+	        }
 
-						if (sessionId != null && !sessionId.isEmpty()) {
-							bsSessionId.set(sessionId);
-							logger.info("BS Session ID captured: {}", sessionId);
-							return;
-						}
-					}
+	        // Parse build ID
+	        ObjectMapper mapper = new ObjectMapper();
+	        JsonNode builds = mapper.readTree(buildResponse.body());
+	        String buildId = null;
 
-				} catch (Exception e) {
-					logger.debug("Retry {} failed: {}", attempts, e.getMessage());
-				}
+	        for (JsonNode build : builds) {
+	            JsonNode automation = build.get("automation_build");
+	            if (automation != null && buildName.equals(
+	                    automation.get("name").asText())) {
+	                buildId = automation.get("hashed_id").asText();
+	                break;
+	            }
+	        }
 
-				attempts++;
-				Thread.sleep(1000);
-			}
+	        if (buildId == null) {
+	            // Fallback — just take the most recent build
+	            JsonNode firstBuild = builds.get(0);
+	            if (firstBuild != null) {
+	                buildId = firstBuild.get("automation_build")
+	                                    .get("hashed_id").asText();
+	            }
+	        }
 
-			logger.warn("Failed to capture BrowserStack session ID after retries");
+	        if (buildId == null) {
+	            logger.warn("No BS build found — cannot extract session ID");
+	            return;
+	        }
 
-		} catch (Exception e) {
-			logger.warn("BS session ID extraction failed: {}", e.getMessage());
-		}
+	        // Step 2 — get most recent session from this build
+	        HttpRequest sessionRequest = HttpRequest.newBuilder()
+	            .uri(URI.create(
+	                "https://api.browserstack.com/automate/builds/"
+	                + buildId + "/sessions.json?limit=1&status=running"))
+	            .header("Authorization", "Basic " + credentials)
+	            .GET()
+	            .build();
+
+	        HttpResponse<String> sessionResponse = client.send(
+	            sessionRequest, HttpResponse.BodyHandlers.ofString());
+
+	        if (sessionResponse.statusCode() != 200) {
+	            logger.warn("Could not fetch BS sessions: {}", 
+	                sessionResponse.statusCode());
+	            return;
+	        }
+
+	        JsonNode sessions = mapper.readTree(sessionResponse.body());
+	        if (sessions.size() > 0) {
+	            String sessionId = sessions.get(0)
+	                .get("automation_session")
+	                .get("hashed_id").asText();
+
+	            bsSessionId.set(sessionId);
+	            logger.info("✅ BS Session ID captured via API: {}", sessionId);
+	        }
+
+	    } catch (Exception e) {
+	        logger.warn("BS session ID extraction failed: {}", e.getMessage());
+	    }
 	}
 
 	// Forces Logback SiftingAppender to flush the current test's log file
@@ -555,5 +607,9 @@ public class DriverManager {
 	// ✅ Setter — called from BaseTest before initDriver()
 	public static void setBsBrowser(String browser) {
 		bsBrowserName.set(browser);
+	}
+
+	public static void setBsTestName(String testName) {
+		bsTestName.set(testName);
 	}
 }

@@ -2,8 +2,13 @@ package base;
 
 import java.io.IOException;
 import java.lang.reflect.Method;
+import java.net.URI;
+import java.net.http.HttpClient;
+import java.net.http.HttpRequest;
+import java.net.http.HttpResponse;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.util.Base64;
 
 import org.slf4j.MDC;
 import org.testng.ITestContext;
@@ -65,21 +70,21 @@ public class BaseTest {
 		// ✅ Add browser to the method name to make log file unique per browsers run
 		// across threads if exists
 		String browser = context.getCurrentXmlTest().getParameter("bs.browser");
-		browser = (browser == null || browser.isEmpty())
-				? (ConfigManager.getBrowser() != null ? ConfigManager.getBrowser() : "unknown")
-				: browser;
+		if (browser == null || browser.isEmpty()) {
+			browser = ConfigManager.getBrowser() != null ? ConfigManager.getBrowser() : "chrome";
+		}
+
+		// ✅ Build test name here — available immediately from Method parameter
+		// This is the SAME value onTestStart will set in MDC shortly after
+		String testName = this.getClass().getSimpleName() + "#" + method.getName();
 
 		// ✅ Read bs.browser from TestNG context — works for all modes
 		// For BS runs: comes from <parameter name="bs.browser" value="chrome"/>
 		// For local/github: returns null → ignored safely
 		if ("browserstack".equals(ConfigManager.getExecutionMode())) {
-			String bsBrowser = browser;
-			if (bsBrowser == null || bsBrowser.isEmpty()) {
-				bsBrowser = "chrome";
-			}
-			// ✅ Store in DriverManager ThreadLocal — thread safe!
-			DriverManager.setBsBrowser(bsBrowser);
-			logger.info("BrowserStack browser set to: {}", bsBrowser);
+			DriverManager.setBsBrowser(browser);
+			DriverManager.setBsTestName(testName); // ✅ NEW — pass name before init
+			logger.info("BrowserStack browser: {}, test: {}", browser, testName);
 		}
 
 		driver.initDriver();
@@ -271,50 +276,48 @@ public class BaseTest {
 			return;
 
 		try {
-			Page page = DriverManager.getCurrentPage();
-			if (page == null)
+			String sessionId = DriverManager.getBsSessionId();
+			if (sessionId == null || sessionId.isEmpty()) {
+				logger.warn("No BS session ID — cannot mark status");
 				return;
-
-			String status;
-			String reason;
-
-			switch (result.getStatus()) {
-			case ITestResult.SUCCESS:
-				status = "passed";
-				reason = "Test passed";
-				break;
-
-			case ITestResult.SKIP:
-				status = "failed";
-				reason = "Test was skipped — likely a dependency failure or @BeforeMethod error";
-				break;
-
-			case ITestResult.FAILURE:
-				status = "failed";
-				reason = result.getThrowable() != null ? result.getThrowable().getMessage() : "Test failed";
-				break;
-
-			default:
-				status = "failed";
-				reason = "Unknown test status: " + result.getStatus();
-				break;
 			}
 
-			// ✅ Sanitize reason — only once, cleanly
+			String status = switch (result.getStatus()) {
+			case ITestResult.SUCCESS -> "passed";
+			case ITestResult.FAILURE -> "failed";
+			case ITestResult.SKIP -> "failed";
+			default -> "failed";
+			};
+
+			String reason = result.getThrowable() != null ? result.getThrowable().getMessage() : "Test " + status;
+
 			if (reason != null) {
 				reason = reason.replace("\"", "'").replace("\n", " ").replace("\r", " ");
-				if (reason.length() > 200) {
+				if (reason.length() > 200)
 					reason = reason.substring(0, 200) + "...";
-				}
 			} else {
 				reason = "No reason available";
 			}
 
-			page.evaluate("_ => {}", "browserstack_executor: {\"action\": \"setSessionStatus\", "
-					+ "\"arguments\": {\"status\": \"" + status + "\", " + "\"reason\": \"" + reason + "\"}}");
+			String username = ConfigManager.getBSUsername();
+			String accessKey = ConfigManager.getBSAccessKey();
+			String credentials = Base64.getEncoder().encodeToString((username + ":" + accessKey).getBytes());
+
+			String body = "{\"status\":\"" + status + "\"," + "\"reason\":\"" + reason + "\"}";
+
+			HttpClient client = HttpClient.newHttpClient();
+			HttpRequest request = HttpRequest.newBuilder()
+					.uri(URI.create("https://api.browserstack.com/automate/sessions/" + sessionId + ".json"))
+					.header("Authorization", "Basic " + credentials).header("Content-Type", "application/json")
+					.PUT(HttpRequest.BodyPublishers.ofString(body)).build();
+
+			HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
+
+			logger.info("BS status marked: {} — response: {}", status, response.statusCode());
 
 		} catch (Exception e) {
-			// silent fail — never let BS marking break teardown
+			logger.warn("Could not mark BS session status: {}", e.getMessage());
 		}
 	}
+
 }

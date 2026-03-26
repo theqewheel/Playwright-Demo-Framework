@@ -72,7 +72,7 @@ public class TestListener implements ITestListener, ISuiteListener, IInvokedMeth
 	public void onTestStart(ITestResult result) {
 
 		String className  = result.getTestClass().getRealClass().getSimpleName();
-	    String methodName = result.getMethod().getMethodName();
+	    String methodName = MDC.get("methodname") != null ? MDC.get("methodname") : result.getMethod().getMethodName();
 	    String fullName   = className + "#" + methodName;   // e.g. LoginTests#Test_AE2_TC02
 
 		// Set MDC value for the logging pattern
@@ -91,7 +91,7 @@ public class TestListener implements ITestListener, ISuiteListener, IInvokedMeth
 
 		String testName = result.getMethod().getMethodName();
 
-		logger.info("{TEST PASSED: {}", testName);
+		logger.info("TEST PASSED: {}", testName);
 
 		if (ConfigManager.isScreenhotonPass()) {
 
@@ -110,7 +110,7 @@ public class TestListener implements ITestListener, ISuiteListener, IInvokedMeth
 
 		String testName = result.getMethod().getMethodName();
 
-		logger.info("{TEST FAILED: {}", testName);
+		logger.info("TEST FAILED: {}", testName);
 
 		if (result.getThrowable() != null) {
 			logger.error("Failure Reason: " + result.getThrowable());
@@ -133,7 +133,7 @@ public class TestListener implements ITestListener, ISuiteListener, IInvokedMeth
 
 		String testName = result.getMethod().getMethodName();
 
-		logger.info("{TEST SKIPPED: {}", testName);
+		logger.info("TEST SKIPPED: {}", testName);
 
 		if (result.getThrowable() != null) {
 			logger.error("Skip Reason: " + result.getThrowable());
@@ -194,8 +194,9 @@ public class TestListener implements ITestListener, ISuiteListener, IInvokedMeth
 	            result.setThrowable(throwable);
 	        }
 		    
-			MDC.clear();
 		}
+	    
+	    MDC.clear();
 	}
 
 	/**

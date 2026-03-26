@@ -64,6 +64,7 @@ public class BaseTest {
 
 		String fullName = this.getClass().getSimpleName() + "#" + method.getName();
 		MDC.put("testname", fullName); // ✅ early set — for BS caps
+		MDC.put("methodname", method.getName()); // already set in Test Listener but can be used for BS here early
 
 		// ✅ Read bs.browser from TestNG context — works for all modes
 		// For BS runs: comes from <parameter name="bs.browser" value="chrome"/>
@@ -76,6 +77,9 @@ public class BaseTest {
 			// ✅ Store in DriverManager ThreadLocal — thread safe!
 			DriverManager.setBsBrowser(bsBrowser);
 			logger.info("BrowserStack browser set to: {}", bsBrowser);
+			
+			// ✅ Add browser to the method name to make log file unique per thread in parallel BS runs
+			MDC.put("methodname", method.getName() + "_" + (bsBrowser != null ? bsBrowser : "unknown"));
 		}
 
 		driver.initDriver();
@@ -145,6 +149,16 @@ public class BaseTest {
 
 			// Update status on Browser Stack if applicable
 			markTestStatusBrowserStack(result);
+			
+			// Upload terminal logs to BrowserStack ─────────────────────────
+			try {
+			    if ("browserstack".equalsIgnoreCase(ConfigManager.getExecutionMode())) {
+			        driver.uploadTerminalLogsToBrowserStack(MDC.get("methodname"));
+			        logger.info("Terminal logs uploaded to BrowserStack.");
+			    }
+			} catch (Exception e) {
+			    logger.error("Failed to upload terminal logs to BS: {}", e.getMessage());
+			}
 
 			// ✅ ALWAYS runs — driver closes here no matter what failed above
 			try {
@@ -201,6 +215,7 @@ public class BaseTest {
 			result.setStatus(ITestResult.FAILURE);
 			result.setThrowable(softAssertError);
 		}
+		
 	}
 
 	/**

@@ -56,29 +56,27 @@ public class BaseTest {
 	 */
 
 	@BeforeMethod
-	public void setup(Method method,ITestContext context) {
+	public void setup(Method method, ITestContext context) {
 
 		logger = LogManager.getLogger(this.getClass());
 		driver = new DriverManager();
 		softAssert = new SoftAssert();
-		
+
 		String fullName = this.getClass().getSimpleName() + "#" + method.getName();
 		MDC.put("testname", fullName); // ✅ early set — for BS caps
-		
-	    // ✅ Read bs.browser from TestNG context — works for all modes
-	    // For BS runs: comes from <parameter name="bs.browser" value="chrome"/>
-	    // For local/github: returns null →  ignored safely
+
+		// ✅ Read bs.browser from TestNG context — works for all modes
+		// For BS runs: comes from <parameter name="bs.browser" value="chrome"/>
+		// For local/github: returns null → ignored safely
 		if ("browserstack".equals(ConfigManager.getExecutionMode())) {
-		    String bsBrowser = context.getCurrentXmlTest()
-		                              .getParameter("bs.browser");
-		    if (bsBrowser == null || bsBrowser.isEmpty()) {
-		        bsBrowser = "chrome";
-		    }
-		    // ✅ Store in DriverManager ThreadLocal — thread safe!
-		    DriverManager.setBsBrowser(bsBrowser);
-		    logger.info("BrowserStack browser set to: {}", bsBrowser);
+			String bsBrowser = context.getCurrentXmlTest().getParameter("bs.browser");
+			if (bsBrowser == null || bsBrowser.isEmpty()) {
+				bsBrowser = "chrome";
+			}
+			// ✅ Store in DriverManager ThreadLocal — thread safe!
+			DriverManager.setBsBrowser(bsBrowser);
+			logger.info("BrowserStack browser set to: {}", bsBrowser);
 		}
-		
 
 		driver.initDriver();
 
@@ -144,6 +142,9 @@ public class BaseTest {
 		try {
 			// Nothing here — attachments happen in finally AFTER driver closes
 		} finally {
+
+			// Update status on Browser Stack if applicable
+			markTestStatusBrowserStack(result);
 
 			// ✅ ALWAYS runs — driver closes here no matter what failed above
 			try {
@@ -243,6 +244,59 @@ public class BaseTest {
 			} catch (IOException e) {
 				logger.warn("Could not delete {} temp file: {}", type, e.getMessage());
 			}
+		}
+	}
+
+	// Mark browser stack session with correct status of test
+	private void markTestStatusBrowserStack(ITestResult result) {
+		if (!"browserstack".equalsIgnoreCase(ConfigManager.getExecutionMode()))
+			return;
+
+		try {
+			Page page = DriverManager.getCurrentPage();
+			if (page == null)
+				return;
+
+			String status;
+			String reason;
+
+			switch (result.getStatus()) {
+			case ITestResult.SUCCESS:
+				status = "passed";
+				reason = "Test passed";
+				break;
+
+			case ITestResult.SKIP:
+				status = "failed";
+				reason = "Test was skipped — likely a dependency failure or @BeforeMethod error";
+				break;
+
+			case ITestResult.FAILURE:
+				status = "failed";
+				reason = result.getThrowable() != null ? result.getThrowable().getMessage() : "Test failed";
+				break;
+
+			default:
+				status = "failed";
+				reason = "Unknown test status: " + result.getStatus();
+				break;
+			}
+
+			// ✅ Sanitize reason — only once, cleanly
+			if (reason != null) {
+				reason = reason.replace("\"", "'").replace("\n", " ").replace("\r", " ");
+				if (reason.length() > 200) {
+					reason = reason.substring(0, 200) + "...";
+				}
+			} else {
+				reason = "No reason available";
+			}
+
+			page.evaluate("_ => {}", "browserstack_executor: {\"action\": \"setSessionStatus\", "
+					+ "\"arguments\": {\"status\": \"" + status + "\", " + "\"reason\": \"" + reason + "\"}}");
+
+		} catch (Exception e) {
+			// silent fail — never let BS marking break teardown
 		}
 	}
 }

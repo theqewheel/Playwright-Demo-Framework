@@ -61,14 +61,13 @@ public class BaseTest {
 		logger = LogManager.getLogger(this.getClass());
 		driver = new DriverManager();
 		softAssert = new SoftAssert();
-		
-		// ✅ Add browser to the method name to make log file unique per browsers run across threads if exists
-		String browser = context.getCurrentXmlTest().getParameter("bs.browser");
-		browser = (browser == null || browser.isEmpty())? (ConfigManager.getBrowser() != null ? ConfigManager.getBrowser() : "unknown"):browser;
 
-		String testname = this.getClass().getSimpleName() + "#" + method.getName();
-		MDC.put("testname", testname); // ✅ early set — for BS caps
-		MDC.put("methodname", method.getName()+ "_" + browser); // already set in Test Listener but can be used for BS here early
+		// ✅ Add browser to the method name to make log file unique per browsers run
+		// across threads if exists
+		String browser = context.getCurrentXmlTest().getParameter("bs.browser");
+		browser = (browser == null || browser.isEmpty())
+				? (ConfigManager.getBrowser() != null ? ConfigManager.getBrowser() : "unknown")
+				: browser;
 
 		// ✅ Read bs.browser from TestNG context — works for all modes
 		// For BS runs: comes from <parameter name="bs.browser" value="chrome"/>
@@ -148,20 +147,10 @@ public class BaseTest {
 			// Nothing here — attachments happen in finally AFTER driver closes
 		} finally {
 
-			// Update status on Browser Stack if applicable
+			// ── Step 1: Mark BS status FIRST — page must still be open ──────────
 			markTestStatusBrowserStack(result);
-			
-			// Upload terminal logs to BrowserStack ─────────────────────────
-			try {
-			    if ("browserstack".equalsIgnoreCase(ConfigManager.getExecutionMode())) {
-			        driver.uploadTerminalLogsToBrowserStack(MDC.get("methodname"));
-			        logger.info("Terminal logs uploaded to BrowserStack.");
-			    }
-			} catch (Exception e) {
-			    logger.error("Failed to upload terminal logs to BS: {}", e.getMessage());
-			}
 
-			// ✅ ALWAYS runs — driver closes here no matter what failed above
+			// ── Step 2: Close driver ─────────────────────────────────────────────
 			try {
 				driver.quitDriver();
 				logger.info("Driver shutdown successful.");
@@ -169,7 +158,7 @@ public class BaseTest {
 				logger.error("Error during driver shutdown: {}", e.getMessage());
 			}
 
-			// ── Attach trace ──────────────────────────────────────────────────
+			// ── Step 3: Attach trace ─────────────────────────────────────────────
 			try {
 				if (tracePath != null && Files.exists(tracePath)) {
 					ReportManager.addFileAttachement("🎭 Playwright Trace — " + result.getName(), "application/zip",
@@ -183,7 +172,7 @@ public class BaseTest {
 				deleteTempFile(tracePath, "trace");
 			}
 
-			// ── Attach video ──────────────────────────────────────────────────
+			// ── Step 4: Attach video ─────────────────────────────────────────────
 			try {
 				if (videoPath != null && Files.exists(videoPath)) {
 					ReportManager.addFileAttachement("🎬 Test Video — " + result.getName(), "video/webm", videoPath,
@@ -197,7 +186,7 @@ public class BaseTest {
 				driver.cleanVideoDir();
 			}
 
-			// ── Attach log file ───────────────────────────────────────────────
+			// ── Step 5: Attach log to Allure ─────────────────────────────────────
 			try {
 				Path logPath = getLogFilePath(MDC.get("methodname"));
 				if (logPath != null && Files.exists(logPath)) {
@@ -208,6 +197,19 @@ public class BaseTest {
 			} catch (Exception e) {
 				logger.error("Failed to attach log file: {}", e.getMessage());
 			}
+
+			// ── Step 6: Upload terminal logs to BrowserStack ─────────────────────
+			// ✅ LAST step — all log lines are now written, driver is closed
+			// This gives Logback time to flush all pending writes before we read the file
+			try {
+				if ("browserstack".equalsIgnoreCase(ConfigManager.getExecutionMode())) {
+					driver.uploadTerminalLogsToBrowserStack(MDC.get("methodname"));
+					logger.info("Terminal logs uploaded to BrowserStack.");
+				}
+			} catch (Exception e) {
+				logger.error("Failed to upload terminal logs to BS: {}", e.getMessage());
+			}
+
 		}
 
 		// ── 4. Mark failures on Soft Assertions so TestNG marks test correctly
@@ -216,7 +218,7 @@ public class BaseTest {
 			result.setStatus(ITestResult.FAILURE);
 			result.setThrowable(softAssertError);
 		}
-		
+
 	}
 
 	/**

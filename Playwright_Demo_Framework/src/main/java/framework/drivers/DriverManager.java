@@ -357,51 +357,66 @@ public class DriverManager {
 		return testName != null ? testName : "Unknown_Test";
 	}
 
+	//upload logs to BS
 	public void uploadTerminalLogsToBrowserStack(String testName) {
-		try {
-			String sessionId = bsSessionId.get();
-			if (sessionId == null || sessionId.isEmpty()) {
-				logger.warn("No BS session ID — skipping terminal log upload");
-				return;
-			}
+	    try {
+	        String sessionId = bsSessionId.get();
+	        if (sessionId == null || sessionId.isEmpty()) {
+	            logger.warn("No BS session ID — skipping terminal log upload");
+	            return;
+	        }
 
-			Path logFile = Path.of("logs/tests/" + testName + ".log");
-			testLogFilePath.set(logFile);
-			if (!Files.exists(logFile)) {
-				logger.warn("Log file not found for: {}", testName);
-				return;
-			}
+	        // ✅ Flush Logback before reading — ensures all lines are written to disk
+	        flushTestLogFile();
 
-			String username = ConfigManager.getBSUsername();
-			String accessKey = ConfigManager.getBSAccessKey();
-			String credentials = Base64.getEncoder().encodeToString((username + ":" + accessKey).getBytes());
+	        // Small buffer after flush — gives OS time to complete file write
+	        Thread.sleep(500);
 
-			String boundary = "----Boundary" + System.currentTimeMillis();
-			byte[] fileBytes = Files.readAllBytes(logFile);
+	        Path logFile = Path.of("logs/tests/" + testName + ".log");
+	        if (!Files.exists(logFile)) {
+	            logger.warn("Log file not found for BS upload: {}", testName);
+	            return;
+	        }
 
-			String header = "--" + boundary + "\r\n" + "Content-Disposition: form-data; name=\"file\"; " + "filename=\""
-					+ testName + ".log\"\r\n" + "Content-Type: text/plain\r\n\r\n";
-			String footer = "\r\n--" + boundary + "--\r\n";
+	        String username = ConfigManager.getBSUsername();
+	        String accessKey = ConfigManager.getBSAccessKey();
+	        String credentials = Base64.getEncoder()
+	            .encodeToString((username + ":" + accessKey).getBytes());
 
-			byte[] body = concatBytes(header.getBytes(), fileBytes, footer.getBytes());
+	        String boundary = "----Boundary" + System.currentTimeMillis();
+	        byte[] fileBytes = Files.readAllBytes(logFile);
 
-			HttpClient client = HttpClient.newHttpClient();
-			HttpRequest request = HttpRequest.newBuilder()
-					.uri(URI.create(
-							"https://api-cloud.browserstack.com/automate/sessions/" + sessionId + "/terminallogs"))
-					.header("Authorization", "Basic " + credentials)
-					.header("Content-Type", "multipart/form-data; boundary=" + boundary)
-					.POST(HttpRequest.BodyPublishers.ofByteArray(body)).build();
+	        String header = "--" + boundary + "\r\n"
+	            + "Content-Disposition: form-data; name=\"file\"; "
+	            + "filename=\"" + testName + ".log\"\r\n"
+	            + "Content-Type: text/plain\r\n\r\n";
+	        String footer = "\r\n--" + boundary + "--\r\n";
 
-			HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
+	        byte[] body = concatBytes(
+	            header.getBytes(), fileBytes, footer.getBytes());
 
-			logger.info("BS terminal log upload: {} — {}", response.statusCode(), response.body());
+	        HttpClient client = HttpClient.newHttpClient();
+	        HttpRequest request = HttpRequest.newBuilder()
+	            .uri(URI.create(
+	                "https://api-cloud.browserstack.com/automate/sessions/"
+	                + sessionId + "/terminallogs"))
+	            .header("Authorization", "Basic " + credentials)
+	            .header("Content-Type",
+	                "multipart/form-data; boundary=" + boundary)
+	            .POST(HttpRequest.BodyPublishers.ofByteArray(body))
+	            .build();
 
-		} catch (Exception e) {
-			logger.warn("Could not upload terminal logs to BS: {}", e.getMessage());
-		} finally {
-			bsSessionId.remove(); // ✅ clean up AFTER upload
-		}
+	        HttpResponse<String> response = client.send(
+	            request, HttpResponse.BodyHandlers.ofString());
+
+	        logger.info("BS terminal log upload: {} — {}",
+	            response.statusCode(), response.body());
+
+	    } catch (Exception e) {
+	        logger.warn("Could not upload terminal logs to BS: {}", e.getMessage());
+	    } finally {
+	        bsSessionId.remove(); // ✅ always clean up session ID
+	    }
 	}
 
 	private byte[] concatBytes(byte[]... arrays) {
@@ -466,6 +481,33 @@ public class DriverManager {
 	    }
 	}
 
+	// Forces Logback SiftingAppender to flush the current test's log file
+	// Must be called BEFORE reading the file for upload
+	private void flushTestLogFile() {
+	    try {
+	        ch.qos.logback.classic.LoggerContext loggerContext =
+	            (ch.qos.logback.classic.LoggerContext)
+	            org.slf4j.LoggerFactory.getILoggerFactory();
+
+	        for (ch.qos.logback.classic.Logger logbackLogger : loggerContext.getLoggerList()) {
+	            for (java.util.Iterator<ch.qos.logback.core.Appender<ch.qos.logback.classic.spi.ILoggingEvent>>
+	                    it = logbackLogger.iteratorForAppenders(); it.hasNext(); ) {
+
+	                ch.qos.logback.core.Appender<ch.qos.logback.classic.spi.ILoggingEvent>
+	                    appender = it.next();
+
+	                if (appender instanceof ch.qos.logback.core.FileAppender) {
+	                    ((ch.qos.logback.core.FileAppender<?>) appender).stop();
+	                    ((ch.qos.logback.core.FileAppender<?>) appender).start();
+	                }
+	            }
+	        }
+	        logger.debug("Logback file appenders flushed.");
+	    } catch (Exception e) {
+	        logger.warn("Could not flush Logback appenders: {}", e.getMessage());
+	    }
+	}
+	
 	/**
 	 * ══════════════════════════════════════════════════════════════════════════
 	 * GETTERS

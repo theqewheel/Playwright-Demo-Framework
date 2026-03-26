@@ -31,7 +31,7 @@
                       class="ch.qos.logback.core.FileAppender">
                 <!-- one file per test in logs/tests/ folder -->
                 <file>logs/tests/${methodname}.log</file>
-                <append>false</append> <!-- fresh file each run -->
+                <append>true</append> <!-- fresh file each run make false -->
                 <encoder>
                     <pattern>%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level [%X{env}] [%X{methodname}] %logger{36} - %msg%n</pattern>
                 </encoder>

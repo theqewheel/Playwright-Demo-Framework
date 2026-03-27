@@ -1,0 +1,15 @@
+2026-03-27 05:49:12 [TestNG-tests-3] INFO  [qa] [Test_AE1_TC05_Verify_Existing_Email_SignUp_edge_30] framework.listeners.TestListener - --- STARTING TEST : SignupTests#Test_AE1_TC05_Verify_Existing_Email_SignUp on edge [thread-30] ---
+2026-03-27 05:49:12 [TestNG-tests-3] INFO  [qa] [Test_AE1_TC05_Verify_Existing_Email_SignUp_edge_30] test.ae.SignupTests - Running:Step-1
+2026-03-27 05:49:17 [TestNG-tests-3] INFO  [qa] [Test_AE1_TC05_Verify_Existing_Email_SignUp_edge_30] test.ae.SignupTests - Running:Step-2
+2026-03-27 05:49:19 [TestNG-tests-3] INFO  [qa] [Test_AE1_TC05_Verify_Existing_Email_SignUp_edge_30] test.ae.SignupTests - Running:Step-3
+2026-03-27 05:49:20 [TestNG-tests-3] INFO  [qa] [Test_AE1_TC05_Verify_Existing_Email_SignUp_edge_30] framework.listeners.TestListener - TEST PASSED: Test_AE1_TC05_Verify_Existing_Email_SignUp
+2026-03-27 05:49:21 [TestNG-tests-3] ERROR [qa] [Test_AE1_TC05_Verify_Existing_Email_SignUp_edge_30] io.qameta.allure.AllureLifecycle - Could not add attachment: no test is running
+2026-03-27 05:49:21 [TestNG-tests-3] INFO  [qa] [Test_AE1_TC05_Verify_Existing_Email_SignUp_edge_30] framework.listeners.TestListener - Screenshot attached: PASSED Screenshot:
+2026-03-27 05:49:25 [TestNG-tests-3] INFO  [qa] [Test_AE1_TC05_Verify_Existing_Email_SignUp_edge_30] test.ae.SignupTests - Trace stopped for: Test_AE1_TC05_Verify_Existing_Email_SignUp
+2026-03-27 05:49:26 [TestNG-tests-3] INFO  [qa] [Test_AE1_TC05_Verify_Existing_Email_SignUp_edge_30] test.ae.SignupTests - BS status marked: passed — response: 200
+2026-03-27 05:49:26 [TestNG-tests-3] INFO  [qa] [Test_AE1_TC05_Verify_Existing_Email_SignUp_edge_30] framework.drivers.DriverManager - Browser closed successfully.
+2026-03-27 05:49:26 [TestNG-tests-3] WARN  [qa] [Test_AE1_TC05_Verify_Existing_Email_SignUp_edge_30] framework.drivers.DriverManager - Could not annotate BrowserStack session: Browser has been closed
+2026-03-27 05:49:26 [TestNG-tests-3] INFO  [qa] [Test_AE1_TC05_Verify_Existing_Email_SignUp_edge_30] test.ae.SignupTests - Driver shutdown successful.
+2026-03-27 05:49:26 [TestNG-tests-3] INFO  [qa] [Test_AE1_TC05_Verify_Existing_Email_SignUp_edge_30] reporting.ReportManager - ✅ Attachment added to Allure: 🎭 Playwright Trace — Test_AE1_TC05_Verify_Existing_Email_SignUp
+2026-03-27 05:49:26 [TestNG-tests-3] INFO  [qa] [Test_AE1_TC05_Verify_Existing_Email_SignUp_edge_30] test.ae.SignupTests - Trace attached for: Test_AE1_TC05_Verify_Existing_Email_SignUp
+2026-03-27 05:49:26 [TestNG-tests-3] INFO  [qa] [Test_AE1_TC05_Verify_Existing_Email_SignUp_edge_30] test.ae.SignupTests - trace temp file deleted from disk.

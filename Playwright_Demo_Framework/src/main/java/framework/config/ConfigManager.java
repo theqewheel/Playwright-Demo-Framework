@@ -11,7 +11,7 @@ import framework.logging.UniversalLogger;
 public class ConfigManager {
 
 	private static Properties properties = new Properties();
-	protected static final UniversalLogger logger = LogManager.getLogger(ConfigManager.class);
+	protected static UniversalLogger logger = LogManager.getLogger(ConfigManager.class);
 	private static String environment;
 
 	static {
@@ -19,8 +19,7 @@ public class ConfigManager {
 			InputStream input = ConfigManager.class.getClassLoader().getResourceAsStream("config.properties");
 
 			if (input == null) {
-				logger.error("Runtime Exception: ",
-						new RuntimeException("config.properties file not found in classpath"));
+				throw new RuntimeException("config.properties file not found in classpath");
 			}
 
 			properties.load(input);
@@ -136,13 +135,11 @@ public class ConfigManager {
 		// Fallback to mode in config.properties
 		if (mode == null || mode.isEmpty()) {
 			mode = getProperty("execution.mode");
-			logger.info("Execution mode falls back to Config.properties");
 		}
 
 		// Fallback to local - default
 		if (mode == null || mode.isEmpty()) {
 			mode = "local";
-			logger.info("Execution mode falls back to default - 'Local'");
 		}
 
 		return mode.toLowerCase().trim();

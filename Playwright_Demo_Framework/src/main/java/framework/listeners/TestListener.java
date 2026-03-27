@@ -42,6 +42,7 @@ public class TestListener implements ITestListener, ISuiteListener, IInvokedMeth
 		logger.info("================XXXXXXXXXXXXXX================");
 		logger.info("Starting Suite: {}", suite.getName());
 		logger.info("Execution Environment: {}", ConfigManager.getEnvironment());
+		logger.info("Execution Mode: {}", ConfigManager.getExecutionMode());
 		logger.info("==============================================");
 	}
 

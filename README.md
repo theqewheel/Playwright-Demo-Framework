@@ -20,3 +20,5 @@ Automation Exericse (AE) referenced at https://automationexercise.com/
 10. Allure report published as GitHub Artifact
 11. Secrets in GitHub
 12. Console and file appender logs with Logback
+13. Execution via Cloud - Browser Stack
+14. Execution Logs on Cloud  - Browser Stack

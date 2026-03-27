@@ -5,14 +5,13 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 
-import org.slf4j.Logger;
-
 import framework.logging.LogManager;
+import framework.logging.UniversalLogger;
 import io.qameta.allure.Allure;
 
 public class ReportManager {
 	
-	protected static Logger logger = LogManager.getLogger(ReportManager.class);
+	protected static UniversalLogger logger = LogManager.getLogger(ReportManager.class);
 	
 	public static void attachScreenshot(String name, byte[] screenshot) {
 		Allure.addAttachment(name,new ByteArrayInputStream(screenshot));

@@ -4,21 +4,20 @@ import static com.microsoft.playwright.assertions.PlaywrightAssertions.assertTha
 
 import java.util.regex.Pattern;
 
-import org.slf4j.Logger;
 import org.testng.asserts.SoftAssert;
 
 import com.microsoft.playwright.Locator;
 import com.microsoft.playwright.Page;
 import com.microsoft.playwright.options.AriaRole;
-
 import framework.logging.LogManager;
+import framework.logging.UniversalLogger;
 import io.qameta.allure.Step;
 import reporting.ReportManager;;
 
 public abstract class BasePage {
 
 	protected final Page page;
-	protected Logger logger;
+	protected UniversalLogger logger;
 	private final Locator ContinueButton;
 	protected SoftAssert softAssert;
 	private final Locator subscriptionHeader;

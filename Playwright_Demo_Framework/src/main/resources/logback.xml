@@ -15,25 +15,25 @@
             <maxHistory>7</maxHistory>
         </rollingPolicy>
         <encoder>
-            <pattern>%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level [%X{env}] [%X{testname}] %logger{36} - %msg%n</pattern>
+            <pattern>%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level [%X{env}] [%X{methodname}] %logger{36} - %msg%n</pattern>
         </encoder>
     </appender>
 
-    <!-- ══ Sifting appender — one log file per test (uses MDC testname) ════ -->
+    <!-- ══ Sifting appender — one log file per test (uses MDC methodname) ════ -->
     <appender name="SiftingFile" class="ch.qos.logback.classic.sift.SiftingAppender">
-        <!-- discriminator reads MDC key "testname" set in TestListener -->
+        <!-- discriminator reads MDC key "methodname" set in TestListener -->
         <discriminator>
-            <key>testname</key>
+            <key>methodname</key>
             <defaultValue>suite-execution</defaultValue>
         </discriminator>
         <sift>
-            <appender name="PerTest-${testname}"
+            <appender name="PerTest-${methodname}"
                       class="ch.qos.logback.core.FileAppender">
                 <!-- one file per test in logs/tests/ folder -->
-                <file>logs/tests/${testname}.log</file>
-                <append>false</append> <!-- fresh file each run -->
+                <file>logs/tests/${methodname}.log</file>
+                <append>true</append> <!-- fresh file each run make false -->
                 <encoder>
-                    <pattern>%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level [%X{env}] [%X{testname}] %logger{36} - %msg%n</pattern>
+                    <pattern>%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level [%X{env}] [%X{methodname}] %logger{36} - %msg%n</pattern>
                 </encoder>
             </appender>
         </sift>

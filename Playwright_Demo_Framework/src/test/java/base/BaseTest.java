@@ -1,17 +1,21 @@
 package base;
 
 import java.io.IOException;
+import java.lang.reflect.Method;
+import java.net.URI;
+import java.net.http.HttpClient;
+import java.net.http.HttpRequest;
+import java.net.http.HttpResponse;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.util.Base64;
 
-import org.slf4j.Logger;
+import org.slf4j.MDC;
 import org.testng.ITestContext;
 import org.testng.ITestResult;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Listeners;
-import org.testng.annotations.Optional;
-import org.testng.annotations.Parameters;
 import org.testng.asserts.SoftAssert;
 
 import com.microsoft.playwright.Page;
@@ -21,7 +25,7 @@ import framework.config.ConfigManager;
 import framework.drivers.DriverManager;
 import framework.listeners.TestListener;
 import framework.logging.LogManager;
-import io.qameta.allure.Step;
+import framework.logging.UniversalLogger;
 import pages.ae.CartPage;
 import pages.ae.CheckOutPage;
 import pages.ae.ContactUsPage;
@@ -37,7 +41,7 @@ import reporting.ReportManager;
 public class BaseTest {
 
 	protected Page page;
-	protected Logger logger;
+	protected UniversalLogger logger;
 	protected SoftAssert softAssert;
 	protected DriverManager driver;
 	protected HomePage homePage;
@@ -57,26 +61,31 @@ public class BaseTest {
 	 */
 
 	@BeforeMethod
-	public void setup(ITestContext context) {
+	public void setup(Method method, ITestContext context) {
 
 		logger = LogManager.getLogger(this.getClass());
 		driver = new DriverManager();
 		softAssert = new SoftAssert();
-		
-	    // ✅ Read bs.browser from TestNG context — works for all modes
-	    // For BS runs: comes from <parameter name="bs.browser" value="chrome"/>
-	    // For local/github: returns null → ignored safely
-		if ("browserstack".equals(ConfigManager.getExecutionMode())) {
-		    String bsBrowser = context.getCurrentXmlTest()
-		                              .getParameter("bs.browser");
-		    if (bsBrowser == null || bsBrowser.isEmpty()) {
-		        bsBrowser = "chrome";
-		    }
-		    // ✅ Store in DriverManager ThreadLocal — thread safe!
-		    DriverManager.setBsBrowser(bsBrowser);
-		    logger.info("BrowserStack browser set to: {}", bsBrowser);
+
+		// ✅ Add browser to the method name to make log file unique per browsers run
+		// across threads if exists
+		String browser = context.getCurrentXmlTest().getParameter("bs.browser");
+		if (browser == null || browser.isEmpty()) {
+			browser = ConfigManager.getBrowser() != null ? ConfigManager.getBrowser() : "chrome";
 		}
-		
+
+		// ✅ Build test name here — available immediately from Method parameter
+		// This is the SAME value onTestStart will set in MDC shortly after
+		String testName = this.getClass().getSimpleName() + "#" + method.getName();
+
+		// ✅ Read bs.browser from TestNG context — works for all modes
+		// For BS runs: comes from <parameter name="bs.browser" value="chrome"/>
+		// For local/github: returns null → ignored safely
+		if ("browserstack".equals(ConfigManager.getExecutionMode())) {
+			DriverManager.setBsBrowser(browser);
+			DriverManager.setBsTestName(testName); // ✅ NEW — pass name before init
+			logger.info("BrowserStack browser: {}, test: {}", browser, testName);
+		}
 
 		driver.initDriver();
 
@@ -140,10 +149,21 @@ public class BaseTest {
 
 		// ── 3. Attach after driver closes — finally guarantees driver always closes
 		try {
-			// Nothing here — attachments happen in finally AFTER driver closes
+			// ✅ Capture pass/fail screenshot BEFORE teardown closes Allure context
+			if (result.getStatus() == ITestResult.SUCCESS 
+			        && ConfigManager.isScreenhotonPass()) {
+			    captureScreenshot("✅ PASSED - Final Screen");
+			}
+			if (result.getStatus() == ITestResult.FAILURE 
+			        && ConfigManager.isScreenhotonFail()) {
+			    captureScreenshot("❌ FAILED - Final Screen");
+			}
 		} finally {
 
-			// ✅ ALWAYS runs — driver closes here no matter what failed above
+			// ── Step 1: Mark BS status FIRST — page must still be open ──────────
+			markTestStatusBrowserStack(result);
+
+			// ── Step 2: Close driver ─────────────────────────────────────────────
 			try {
 				driver.quitDriver();
 				logger.info("Driver shutdown successful.");
@@ -151,7 +171,7 @@ public class BaseTest {
 				logger.error("Error during driver shutdown: {}", e.getMessage());
 			}
 
-			// ── Attach trace ──────────────────────────────────────────────────
+			// ── Step 3: Attach trace ─────────────────────────────────────────────
 			try {
 				if (tracePath != null && Files.exists(tracePath)) {
 					ReportManager.addFileAttachement("🎭 Playwright Trace — " + result.getName(), "application/zip",
@@ -165,7 +185,7 @@ public class BaseTest {
 				deleteTempFile(tracePath, "trace");
 			}
 
-			// ── Attach video ──────────────────────────────────────────────────
+			// ── Step 4: Attach video ─────────────────────────────────────────────
 			try {
 				if (videoPath != null && Files.exists(videoPath)) {
 					ReportManager.addFileAttachement("🎬 Test Video — " + result.getName(), "video/webm", videoPath,
@@ -179,17 +199,30 @@ public class BaseTest {
 				driver.cleanVideoDir();
 			}
 
-			// ── Attach log file ───────────────────────────────────────────────
+			// ── Step 5: Attach log to Allure ─────────────────────────────────────
 			try {
-				Path logPath = getLogFilePath(result.getName());
+				Path logPath = getLogFilePath(MDC.get("methodname"));
 				if (logPath != null && Files.exists(logPath)) {
-					ReportManager.addFileAttachement("📋 Test Log — " + result.getName(), "text/plain", logPath,
+					ReportManager.addFileAttachement("📋 Test Log — " + MDC.get("methodname"), "text/plain", logPath,
 							".log");
-					logger.info("Log file attached for: {}", result.getName());
+					logger.info("Log file attached for: {}", MDC.get("methodname"));
 				}
 			} catch (Exception e) {
 				logger.error("Failed to attach log file: {}", e.getMessage());
 			}
+
+			// ── Step 6: Upload terminal logs to BrowserStack ─────────────────────
+			// ✅ LAST step — all log lines are now written, driver is closed
+			// This gives Logback time to flush all pending writes before we read the file
+			try {
+				if ("browserstack".equalsIgnoreCase(ConfigManager.getExecutionMode())) {
+					driver.uploadTerminalLogsToBrowserStack(MDC.get("methodname"));
+					logger.info("Terminal logs uploaded to BrowserStack.");
+				}
+			} catch (Exception e) {
+				logger.error("Failed to upload terminal logs to BS: {}", e.getMessage());
+			}
+
 		}
 
 		// ── 4. Mark failures on Soft Assertions so TestNG marks test correctly
@@ -198,6 +231,7 @@ public class BaseTest {
 			result.setStatus(ITestResult.FAILURE);
 			result.setThrowable(softAssertError);
 		}
+
 	}
 
 	/**
@@ -243,4 +277,55 @@ public class BaseTest {
 			}
 		}
 	}
+
+	// Mark browser stack session with correct status of test
+	private void markTestStatusBrowserStack(ITestResult result) {
+		if (!"browserstack".equalsIgnoreCase(ConfigManager.getExecutionMode()))
+			return;
+
+		try {
+			String sessionId = DriverManager.getBsSessionId();
+			if (sessionId == null || sessionId.isEmpty()) {
+				logger.warn("No BS session ID — cannot mark status");
+				return;
+			}
+
+			String status = switch (result.getStatus()) {
+			case ITestResult.SUCCESS -> "passed";
+			case ITestResult.FAILURE -> "failed";
+			case ITestResult.SKIP -> "failed";
+			default -> "failed";
+			};
+
+			String reason = result.getThrowable() != null ? result.getThrowable().getMessage() : "Test " + status;
+
+			if (reason != null) {
+				reason = reason.replace("\"", "'").replace("\n", " ").replace("\r", " ");
+				if (reason.length() > 200)
+					reason = reason.substring(0, 200) + "...";
+			} else {
+				reason = "No reason available";
+			}
+
+			String username = ConfigManager.getBSUsername();
+			String accessKey = ConfigManager.getBSAccessKey();
+			String credentials = Base64.getEncoder().encodeToString((username + ":" + accessKey).getBytes());
+
+			String body = "{\"status\":\"" + status + "\"," + "\"reason\":\"" + reason + "\"}";
+
+			HttpClient client = HttpClient.newHttpClient();
+			HttpRequest request = HttpRequest.newBuilder()
+					.uri(URI.create("https://api.browserstack.com/automate/sessions/" + sessionId + ".json"))
+					.header("Authorization", "Basic " + credentials).header("Content-Type", "application/json")
+					.PUT(HttpRequest.BodyPublishers.ofString(body)).build();
+
+			HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
+
+			logger.info("BS status marked: {} — response: {}", status, response.statusCode());
+
+		} catch (Exception e) {
+			logger.warn("Could not mark BS session status: {}", e.getMessage());
+		}
+	}
+
 }

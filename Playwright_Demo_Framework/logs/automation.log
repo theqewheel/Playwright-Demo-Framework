@@ -1,242 +1,196 @@
-2026-03-09 00:40:34 [main] DEBUG [] [] org.testng.TestNG - suiteXmlPath: "C:\Users\theqe\AppData\Local\Temp\testng-eclipse--443464771\testng-customsuite.xml"
-2026-03-09 00:40:34 [main] INFO  [] [] org.testng.internal.Utils - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
-2026-03-09 00:40:34 [main] INFO  [] [] org.testng.internal.Utils - [Utils] MethodGroupsHelper.sortMethods() took 1 ms.
-2026-03-09 00:40:34 [main] INFO  [] [] org.testng.internal.Utils - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
-2026-03-09 00:40:34 [main] INFO  [] [] org.testng.internal.Utils - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
-2026-03-09 00:40:34 [main] INFO  [] [] org.testng.internal.Utils - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
-2026-03-09 00:40:34 [main] INFO  [] [] org.testng.internal.Utils - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
-2026-03-09 00:40:34 [main] INFO  [] [] org.testng.internal.Utils - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
-2026-03-09 00:40:34 [main] INFO  [] [] org.testng.internal.Utils - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
-2026-03-09 00:40:34 [main] INFO  [] [] org.testng.internal.Utils - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
-2026-03-09 00:40:34 [main] INFO  [] [] org.testng.internal.Utils - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
-2026-03-09 00:40:34 [main] INFO  [] [] org.testng.internal.Utils - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
-2026-03-09 00:40:34 [main] INFO  [] [] org.testng.internal.Utils - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
-2026-03-09 00:40:34 [main] INFO  [] [] org.testng.internal.Utils - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
-2026-03-09 00:40:34 [main] INFO  [] [] org.testng.internal.Utils - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
-2026-03-09 00:40:34 [main] INFO  [] [] org.testng.internal.Utils - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
-2026-03-09 00:40:34 [main] INFO  [] [] org.testng.internal.Utils - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
-2026-03-09 00:40:34 [main] INFO  [] [] org.testng.internal.Utils - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 2 ms.
-2026-03-09 00:40:34 [main] INFO  [] [] org.testng.internal.Utils - [Utils] MethodGroupsHelper.sortMethods() took 6 ms.
-2026-03-09 00:40:34 [main] INFO  [] [] org.testng.internal.Utils - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
-2026-03-09 00:40:34 [main] INFO  [] [] org.testng.internal.Utils - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
-2026-03-09 00:40:34 [main] INFO  [] [] org.testng.internal.Utils - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
-2026-03-09 00:40:34 [main] INFO  [] [] org.testng.internal.Utils - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
-2026-03-09 00:40:34 [main] INFO  [] [] org.testng.internal.Utils - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
-2026-03-09 00:40:34 [main] INFO  [] [] org.testng.internal.Utils - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
-2026-03-09 00:40:34 [main] INFO  [] [] org.testng.internal.Utils - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
-2026-03-09 00:40:34 [main] INFO  [] [] org.testng.internal.Utils - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
-2026-03-09 00:40:34 [main] INFO  [] [] org.testng.internal.Utils - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
-2026-03-09 00:40:34 [main] INFO  [] [] org.testng.internal.Utils - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
-2026-03-09 00:40:34 [main] INFO  [] [] org.testng.internal.Utils - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
-2026-03-09 00:40:34 [main] INFO  [] [] org.testng.internal.Utils - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
-2026-03-09 00:40:34 [main] INFO  [] [] org.testng.internal.Utils - [TestNG] Running:
-  C:\Users\theqe\AppData\Local\Temp\testng-eclipse--443464771\testng-customsuite.xml
+2026-03-20 00:00:11 [TestNG-test-Release 1.0 Testing for AE-1] INFO  [qa] [Test_AE10_TC23_Verify_Address_On_Checkout] pages.ae.SignupDetailPage - Checkbox: 'Newsletter' is set to: true
+2026-03-20 00:00:12 [TestNG-test-Release 1.0 Testing for AE-1] INFO  [qa] [Test_AE10_TC23_Verify_Address_On_Checkout] pages.ae.SignupDetailPage - Checkbox: 'Special Offers' is set to: true
+2026-03-20 00:00:12 [TestNG-test-Release 1.0 Testing for AE-1] ERROR [qa] [Test_AE10_TC23_Verify_Address_On_Checkout] io.qameta.allure.util.NamingUtils - Could not process empty pattern
+2026-03-20 00:00:12 [TestNG-test-Release 1.0 Testing for AE-1] ERROR [qa] [Test_AE10_TC23_Verify_Address_On_Checkout] io.qameta.allure.util.NamingUtils - Could not process empty pattern
+2026-03-20 00:00:21 [TestNG-test-Release 1.0 Testing for AE-1] ERROR [qa] [Test_AE10_TC23_Verify_Address_On_Checkout] io.qameta.allure.util.NamingUtils - Could not find parameter zipcpde
+2026-03-20 00:00:27 [TestNG-test-Release 1.0 Testing for AE-1] INFO  [qa] [Test_AE10_TC23_Verify_Address_On_Checkout] test.ae.PlaceOrderTests - Running:Step-3
+2026-03-20 00:00:28 [TestNG-test-Release 1.0 Testing for AE-1] INFO  [qa] [Test_AE10_TC23_Verify_Address_On_Checkout] pages.ae.HomePage - Navigating to Products
+2026-03-20 00:00:31 [TestNG-test-Release 1.0 Testing for AE-1] INFO  [qa] [Test_AE10_TC23_Verify_Address_On_Checkout] pages.ae.ProductsPage - 
+---------------------------------------------------
+Product 1 Added To Cart
+Name  : Blue Top
+Price : 500
+------------------------xxxx-----------------------
 
-2026-03-09 00:40:34 [main] INFO  [] [] org.testng.internal.Utils - [Utils] DynamicGraphHelper.createDynamicGraph() took 3 ms.
-2026-03-09 00:40:34 [main] DEBUG [] [] framework.config.ConfigManager - headless = false
-2026-03-09 00:40:34 [main] DEBUG [] [] framework.config.ConfigManager - screenshot.on.pass = true
-2026-03-09 00:40:34 [main] DEBUG [] [] framework.config.ConfigManager - test-id = "data-qa"
-2026-03-09 00:40:34 [main] DEBUG [] [] framework.config.ConfigManager - dev.base.url = https://automationexercise-dev.com
-2026-03-09 00:40:34 [main] DEBUG [] [] framework.config.ConfigManager - qa.base.url = https://automationexercise.com
-2026-03-09 00:40:34 [main] DEBUG [] [] framework.config.ConfigManager - screenshot.on.fail = true
-2026-03-09 00:40:34 [main] DEBUG [] [] framework.config.ConfigManager - browser = chrome
-2026-03-09 00:40:34 [main] DEBUG [] [] framework.config.ConfigManager - env = QA
-2026-03-09 00:40:34 [main] DEBUG [] [] framework.config.ConfigManager - prod.base.url = https://automationexercise-prod.com
-2026-03-09 00:40:34 [main] WARN  [] [] framework.config.ConfigManager - Environment not initialized. Defaulting to 'qa'
-2026-03-09 00:40:34 [main] INFO  [] [] framework.drivers.DriverManager - Initiating Driver . . . . . 
-2026-03-09 00:40:38 [main] INFO  [] [] framework.drivers.DriverManager - Launching Browser. HeadlessMode: false
-2026-03-09 00:40:38 [main] INFO  [] [] framework.drivers.DriverManager - Browser Context Launched
-2026-03-09 00:40:38 [main] INFO  [] [] framework.drivers.DriverManager - Browser Page opened.
-2026-03-09 00:40:42 [main] INFO  [] [] framework.drivers.DriverManager - Navigated to Base URL: https://automationexercise.com
-2026-03-09 00:40:42 [main] INFO  [] [] test.TestCasesTests - Initial SETUP is completed.
-2026-03-09 00:40:43 [main] INFO  [] [] test.TestCasesTests - Running:Step-1
-2026-03-09 00:40:43 [main] INFO  [] [] test.TestCasesTests - Running:Step-2
-2026-03-09 00:40:44 [main] INFO  [] [] pages.ae.HomePage - Navigating to Test Cases
-2026-03-09 00:40:44 [main] INFO  [] [] framework.drivers.DriverManager - Closed Browser !!
-2026-03-09 00:40:44 [main] INFO  [] [] test.TestCasesTests - Driver SHUTDOWN is successfull !
-2026-03-09 00:40:44 [main] INFO  [] [] org.testng.internal.Utils - [TestNG] Time taken by org.testng.reporters.jq.Main@682c1e93: 30 ms
-2026-03-09 00:40:44 [main] INFO  [] [] org.testng.internal.Utils - [TestNG] Time taken by org.testng.reporters.FailedReporter@5328a9c1: 1 ms
-2026-03-09 00:40:44 [main] INFO  [] [] org.testng.internal.Utils - [TestNG] Time taken by org.testng.reporters.XMLReporter@6d91790b: 5 ms
-2026-03-09 00:40:44 [main] INFO  [] [] org.testng.internal.Utils - [TestNG] Time taken by org.testng.reporters.EmailableReporter2@7c28c1: 2 ms
-2026-03-09 00:40:44 [main] INFO  [] [] org.testng.internal.Utils - [TestNG] Time taken by org.testng.reporters.JUnitReportReporter@5b3f3ba0: 2 ms
-2026-03-09 00:40:44 [main] INFO  [] [] org.testng.internal.Utils - [TestNG] Time taken by org.testng.internal.ExitCodeListener@ddf20fd: 0 ms
-2026-03-09 00:41:00 [main] DEBUG [] [] org.testng.TestNG - suiteXmlPath: "C:\Users\theqe\AppData\Local\Temp\testng-eclipse-866048630\testng-customsuite.xml"
-2026-03-09 00:41:00 [main] INFO  [] [] org.testng.internal.Utils - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
-2026-03-09 00:41:00 [main] INFO  [] [] org.testng.internal.Utils - [Utils] MethodGroupsHelper.sortMethods() took 1 ms.
-2026-03-09 00:41:00 [main] INFO  [] [] org.testng.internal.Utils - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
-2026-03-09 00:41:00 [main] INFO  [] [] org.testng.internal.Utils - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
-2026-03-09 00:41:00 [main] INFO  [] [] org.testng.internal.Utils - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
-2026-03-09 00:41:00 [main] INFO  [] [] org.testng.internal.Utils - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
-2026-03-09 00:41:00 [main] INFO  [] [] org.testng.internal.Utils - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
-2026-03-09 00:41:00 [main] INFO  [] [] org.testng.internal.Utils - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
-2026-03-09 00:41:00 [main] INFO  [] [] org.testng.internal.Utils - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
-2026-03-09 00:41:00 [main] INFO  [] [] org.testng.internal.Utils - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
-2026-03-09 00:41:00 [main] INFO  [] [] org.testng.internal.Utils - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
-2026-03-09 00:41:00 [main] INFO  [] [] org.testng.internal.Utils - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
-2026-03-09 00:41:00 [main] INFO  [] [] org.testng.internal.Utils - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
-2026-03-09 00:41:00 [main] INFO  [] [] org.testng.internal.Utils - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
-2026-03-09 00:41:00 [main] INFO  [] [] org.testng.internal.Utils - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
-2026-03-09 00:41:00 [main] INFO  [] [] org.testng.internal.Utils - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
-2026-03-09 00:41:00 [main] INFO  [] [] org.testng.internal.Utils - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 1 ms.
-2026-03-09 00:41:00 [main] INFO  [] [] org.testng.internal.Utils - [Utils] MethodGroupsHelper.sortMethods() took 5 ms.
-2026-03-09 00:41:00 [main] INFO  [] [] org.testng.internal.Utils - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
-2026-03-09 00:41:00 [main] INFO  [] [] org.testng.internal.Utils - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
-2026-03-09 00:41:00 [main] INFO  [] [] org.testng.internal.Utils - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
-2026-03-09 00:41:00 [main] INFO  [] [] org.testng.internal.Utils - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
-2026-03-09 00:41:00 [main] INFO  [] [] org.testng.internal.Utils - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
-2026-03-09 00:41:00 [main] INFO  [] [] org.testng.internal.Utils - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
-2026-03-09 00:41:00 [main] INFO  [] [] org.testng.internal.Utils - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
-2026-03-09 00:41:00 [main] INFO  [] [] org.testng.internal.Utils - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
-2026-03-09 00:41:00 [main] INFO  [] [] org.testng.internal.Utils - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
-2026-03-09 00:41:00 [main] INFO  [] [] org.testng.internal.Utils - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
-2026-03-09 00:41:00 [main] INFO  [] [] org.testng.internal.Utils - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
-2026-03-09 00:41:00 [main] INFO  [] [] org.testng.internal.Utils - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
-2026-03-09 00:41:00 [main] INFO  [] [] org.testng.internal.Utils - [TestNG] Running:
-  C:\Users\theqe\AppData\Local\Temp\testng-eclipse-866048630\testng-customsuite.xml
+2026-03-20 00:00:35 [TestNG-test-Release 1.0 Testing for AE-1] INFO  [qa] [Test_AE10_TC23_Verify_Address_On_Checkout] pages.ae.ProductsPage - 
+---------------------------------------------------
+Product 2 Added To Cart
+Name  : Men Tshirt
+Price : 400
+------------------------xxxx-----------------------
 
-2026-03-09 00:41:00 [main] INFO  [] [] org.testng.internal.Utils - [Utils] DynamicGraphHelper.createDynamicGraph() took 2 ms.
-2026-03-09 00:41:00 [main] DEBUG [] [] framework.config.ConfigManager - headless = false
-2026-03-09 00:41:00 [main] DEBUG [] [] framework.config.ConfigManager - screenshot.on.pass = true
-2026-03-09 00:41:00 [main] DEBUG [] [] framework.config.ConfigManager - test-id = "data-qa"
-2026-03-09 00:41:00 [main] DEBUG [] [] framework.config.ConfigManager - dev.base.url = https://automationexercise-dev.com
-2026-03-09 00:41:00 [main] DEBUG [] [] framework.config.ConfigManager - qa.base.url = https://automationexercise.com
-2026-03-09 00:41:00 [main] DEBUG [] [] framework.config.ConfigManager - screenshot.on.fail = true
-2026-03-09 00:41:00 [main] DEBUG [] [] framework.config.ConfigManager - browser = chrome
-2026-03-09 00:41:00 [main] DEBUG [] [] framework.config.ConfigManager - env = QA
-2026-03-09 00:41:00 [main] DEBUG [] [] framework.config.ConfigManager - prod.base.url = https://automationexercise-prod.com
-2026-03-09 00:41:00 [main] WARN  [] [] framework.config.ConfigManager - Environment not initialized. Defaulting to 'qa'
-2026-03-09 00:41:00 [main] INFO  [] [] framework.drivers.DriverManager - Initiating Driver . . . . . 
-2026-03-09 00:41:03 [main] INFO  [] [] framework.drivers.DriverManager - Launching Browser. HeadlessMode: false
-2026-03-09 00:41:03 [main] INFO  [] [] framework.drivers.DriverManager - Browser Context Launched
-2026-03-09 00:41:03 [main] INFO  [] [] framework.drivers.DriverManager - Browser Page opened.
-2026-03-09 00:41:07 [main] INFO  [] [] framework.drivers.DriverManager - Navigated to Base URL: https://automationexercise.com
-2026-03-09 00:41:07 [main] INFO  [] [] test.TestCasesTests - Initial SETUP is completed.
-2026-03-09 00:41:07 [main] INFO  [] [] test.TestCasesTests - Running:Step-1
-2026-03-09 00:41:13 [main] INFO  [] [] framework.drivers.DriverManager - Closed Browser !!
-2026-03-09 00:41:13 [main] INFO  [] [] test.TestCasesTests - Driver SHUTDOWN is successfull !
-2026-03-09 00:41:13 [main] INFO  [] [] org.testng.internal.Utils - [TestNG] Time taken by org.testng.reporters.jq.Main@2c779e5: 28 ms
-2026-03-09 00:41:13 [main] INFO  [] [] org.testng.internal.Utils - [TestNG] Time taken by org.testng.reporters.FailedReporter@71a3a190: 6 ms
-2026-03-09 00:41:13 [main] INFO  [] [] org.testng.internal.Utils - [TestNG] Time taken by org.testng.reporters.XMLReporter@4bdcaf36: 5 ms
-2026-03-09 00:41:13 [main] INFO  [] [] org.testng.internal.Utils - [TestNG] Time taken by org.testng.reporters.EmailableReporter2@1dab9dd6: 3 ms
-2026-03-09 00:41:13 [main] INFO  [] [] org.testng.internal.Utils - [TestNG] Time taken by org.testng.reporters.JUnitReportReporter@1d4664d7: 4 ms
-2026-03-09 00:41:13 [main] INFO  [] [] org.testng.internal.Utils - [TestNG] Time taken by org.testng.internal.ExitCodeListener@46c00568: 0 ms
-2026-03-09 01:19:47 [main] DEBUG [] [] org.testng.TestNG - suiteXmlPath: "C:\Users\theqe\AppData\Local\Temp\testng-eclipse-25714872\testng-customsuite.xml"
-2026-03-09 01:19:47 [main] INFO  [] [] org.testng.internal.Utils - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
-2026-03-09 01:19:47 [main] INFO  [] [] org.testng.internal.Utils - [Utils] MethodGroupsHelper.sortMethods() took 2 ms.
-2026-03-09 01:19:47 [main] INFO  [] [] org.testng.internal.Utils - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
-2026-03-09 01:19:47 [main] INFO  [] [] org.testng.internal.Utils - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
-2026-03-09 01:19:47 [main] INFO  [] [] org.testng.internal.Utils - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
-2026-03-09 01:19:47 [main] INFO  [] [] org.testng.internal.Utils - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
-2026-03-09 01:19:47 [main] INFO  [] [] org.testng.internal.Utils - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
-2026-03-09 01:19:47 [main] INFO  [] [] org.testng.internal.Utils - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
-2026-03-09 01:19:47 [main] INFO  [] [] org.testng.internal.Utils - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
-2026-03-09 01:19:47 [main] INFO  [] [] org.testng.internal.Utils - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
-2026-03-09 01:19:47 [main] INFO  [] [] org.testng.internal.Utils - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
-2026-03-09 01:19:47 [main] INFO  [] [] org.testng.internal.Utils - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
-2026-03-09 01:19:47 [main] INFO  [] [] org.testng.internal.Utils - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
-2026-03-09 01:19:47 [main] INFO  [] [] org.testng.internal.Utils - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
-2026-03-09 01:19:47 [main] INFO  [] [] org.testng.internal.Utils - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
-2026-03-09 01:19:47 [main] INFO  [] [] org.testng.internal.Utils - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
-2026-03-09 01:19:47 [main] INFO  [] [] org.testng.internal.Utils - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 3 ms.
-2026-03-09 01:19:47 [main] INFO  [] [] org.testng.internal.Utils - [Utils] MethodGroupsHelper.sortMethods() took 6 ms.
-2026-03-09 01:19:47 [main] INFO  [] [] org.testng.internal.Utils - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
-2026-03-09 01:19:47 [main] INFO  [] [] org.testng.internal.Utils - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
-2026-03-09 01:19:47 [main] INFO  [] [] org.testng.internal.Utils - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
-2026-03-09 01:19:47 [main] INFO  [] [] org.testng.internal.Utils - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
-2026-03-09 01:19:47 [main] INFO  [] [] org.testng.internal.Utils - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
-2026-03-09 01:19:47 [main] INFO  [] [] org.testng.internal.Utils - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
-2026-03-09 01:19:47 [main] INFO  [] [] org.testng.internal.Utils - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
-2026-03-09 01:19:47 [main] INFO  [] [] org.testng.internal.Utils - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
-2026-03-09 01:19:47 [main] INFO  [] [] org.testng.internal.Utils - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
-2026-03-09 01:19:47 [main] INFO  [] [] org.testng.internal.Utils - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
-2026-03-09 01:19:47 [main] INFO  [] [] org.testng.internal.Utils - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
-2026-03-09 01:19:47 [main] INFO  [] [] org.testng.internal.Utils - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
-2026-03-09 01:19:47 [main] INFO  [] [] org.testng.internal.Utils - [TestNG] Running:
-  C:\Users\theqe\AppData\Local\Temp\testng-eclipse-25714872\testng-customsuite.xml
+2026-03-20 00:00:35 [TestNG-test-Release 1.0 Testing for AE-1] INFO  [qa] [Test_AE10_TC23_Verify_Address_On_Checkout] test.ae.PlaceOrderTests - Running:Step-4
+2026-03-20 00:00:36 [TestNG-test-Release 1.0 Testing for AE-1] INFO  [qa] [Test_AE10_TC23_Verify_Address_On_Checkout] pages.ae.HomePage - Navigating to Cart
+2026-03-20 00:00:38 [TestNG-test-Release 1.0 Testing for AE-1] INFO  [qa] [Test_AE10_TC23_Verify_Address_On_Checkout] test.ae.PlaceOrderTests - Running:Step-5
+2026-03-20 00:00:38 [TestNG-test-Release 1.0 Testing for AE-1] INFO  [qa] [Test_AE10_TC23_Verify_Address_On_Checkout] pages.ae.CheckOutPage - 
+-------------------------------------------------------------------------
+               DELIVERY ADDRESS ON CHECKOUT
+-------------------------------------------------------------------------
+Title Fullname  : Mr. Ciera Kunde
+Company Name    : Bashirian, Homenick and Kuphal
+Address Line1   : 6795 Mertz Summit
+Address Line2   : Suite 322
+Address Line3   : Deshawnside Wisconsin 037686
+Country         : Australia
+Phone           : 5338026343
+-------------------------------------------------------------------------
 
-2026-03-09 01:19:47 [main] INFO  [] [] org.testng.internal.Utils - [Utils] DynamicGraphHelper.createDynamicGraph() took 1 ms.
-2026-03-09 01:19:47 [main] DEBUG [] [] framework.config.ConfigManager - headless = false
-2026-03-09 01:19:47 [main] DEBUG [] [] framework.config.ConfigManager - screenshot.on.pass = true
-2026-03-09 01:19:47 [main] DEBUG [] [] framework.config.ConfigManager - test-id = "data-qa"
-2026-03-09 01:19:47 [main] DEBUG [] [] framework.config.ConfigManager - dev.base.url = https://automationexercise-dev.com
-2026-03-09 01:19:47 [main] DEBUG [] [] framework.config.ConfigManager - qa.base.url = https://automationexercise.com
-2026-03-09 01:19:47 [main] DEBUG [] [] framework.config.ConfigManager - screenshot.on.fail = true
-2026-03-09 01:19:47 [main] DEBUG [] [] framework.config.ConfigManager - browser = chrome
-2026-03-09 01:19:47 [main] DEBUG [] [] framework.config.ConfigManager - env = QA
-2026-03-09 01:19:47 [main] DEBUG [] [] framework.config.ConfigManager - prod.base.url = https://automationexercise-prod.com
-2026-03-09 01:19:47 [main] WARN  [] [] framework.config.ConfigManager - Environment not initialized. Defaulting to 'qa'
-2026-03-09 01:19:47 [main] INFO  [] [] framework.drivers.DriverManager - Initiating Driver . . . . . 
-2026-03-09 01:19:50 [main] INFO  [] [] framework.drivers.DriverManager - Launching Browser. HeadlessMode: false
-2026-03-09 01:19:50 [main] INFO  [] [] framework.drivers.DriverManager - Browser Context Launched
-2026-03-09 01:19:50 [main] INFO  [] [] framework.drivers.DriverManager - Browser Page opened.
-2026-03-09 01:19:54 [main] INFO  [] [] framework.drivers.DriverManager - Navigated to Base URL: https://automationexercise.com
-2026-03-09 01:19:54 [main] INFO  [] [] test.ProductsTests - Initial SETUP is completed.
-2026-03-09 01:19:55 [main] INFO  [] [] test.ProductsTests - Running:Step-1
-2026-03-09 01:19:55 [main] INFO  [] [] test.ProductsTests - Running:Step-2
-2026-03-09 01:19:57 [main] INFO  [] [] pages.ae.HomePage - Navigating to Products
-2026-03-09 01:19:57 [main] INFO  [] [] test.ProductsTests - Running:Step-3
-2026-03-09 01:19:58 [main] INFO  [] [] test.ProductsTests - Running:Step-4
-2026-03-09 01:20:28 [main] INFO  [] [] framework.drivers.DriverManager - Closed Browser !!
-2026-03-09 01:20:28 [main] INFO  [] [] test.ProductsTests - Driver SHUTDOWN is successfull !
-2026-03-09 01:20:28 [main] INFO  [] [] org.testng.internal.Utils - [TestNG] Time taken by org.testng.reporters.jq.Main@48bfb884: 31 ms
-2026-03-09 01:20:28 [main] INFO  [] [] org.testng.internal.Utils - [TestNG] Time taken by org.testng.reporters.FailedReporter@5b3f3ba0: 7 ms
-2026-03-09 01:20:28 [main] INFO  [] [] org.testng.internal.Utils - [TestNG] Time taken by org.testng.reporters.XMLReporter@55ea2d70: 5 ms
-2026-03-09 01:20:28 [main] INFO  [] [] org.testng.internal.Utils - [TestNG] Time taken by org.testng.reporters.EmailableReporter2@46c00568: 3 ms
-2026-03-09 01:20:28 [main] INFO  [] [] org.testng.internal.Utils - [TestNG] Time taken by org.testng.reporters.JUnitReportReporter@4690f583: 3 ms
-2026-03-09 01:20:28 [main] INFO  [] [] org.testng.internal.Utils - [TestNG] Time taken by org.testng.internal.ExitCodeListener@59712875: 0 ms
-2026-03-09 01:23:04 [main] DEBUG [] [] org.testng.TestNG - suiteXmlPath: "C:\Users\theqe\AppData\Local\Temp\testng-eclipse--228251401\testng-customsuite.xml"
-2026-03-09 01:23:04 [main] INFO  [] [] org.testng.internal.Utils - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 1 ms.
-2026-03-09 01:23:04 [main] INFO  [] [] org.testng.internal.Utils - [Utils] MethodGroupsHelper.sortMethods() took 1 ms.
-2026-03-09 01:23:04 [main] INFO  [] [] org.testng.internal.Utils - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
-2026-03-09 01:23:04 [main] INFO  [] [] org.testng.internal.Utils - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
-2026-03-09 01:23:04 [main] INFO  [] [] org.testng.internal.Utils - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
-2026-03-09 01:23:04 [main] INFO  [] [] org.testng.internal.Utils - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
-2026-03-09 01:23:04 [main] INFO  [] [] org.testng.internal.Utils - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
-2026-03-09 01:23:04 [main] INFO  [] [] org.testng.internal.Utils - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
-2026-03-09 01:23:04 [main] INFO  [] [] org.testng.internal.Utils - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
-2026-03-09 01:23:04 [main] INFO  [] [] org.testng.internal.Utils - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
-2026-03-09 01:23:04 [main] INFO  [] [] org.testng.internal.Utils - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
-2026-03-09 01:23:04 [main] INFO  [] [] org.testng.internal.Utils - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
-2026-03-09 01:23:04 [main] INFO  [] [] org.testng.internal.Utils - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
-2026-03-09 01:23:04 [main] INFO  [] [] org.testng.internal.Utils - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
-2026-03-09 01:23:04 [main] INFO  [] [] org.testng.internal.Utils - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
-2026-03-09 01:23:04 [main] INFO  [] [] org.testng.internal.Utils - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
-2026-03-09 01:23:04 [main] INFO  [] [] org.testng.internal.Utils - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 2 ms.
-2026-03-09 01:23:04 [main] INFO  [] [] org.testng.internal.Utils - [Utils] MethodGroupsHelper.sortMethods() took 5 ms.
-2026-03-09 01:23:04 [main] INFO  [] [] org.testng.internal.Utils - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
-2026-03-09 01:23:04 [main] INFO  [] [] org.testng.internal.Utils - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
-2026-03-09 01:23:04 [main] INFO  [] [] org.testng.internal.Utils - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
-2026-03-09 01:23:04 [main] INFO  [] [] org.testng.internal.Utils - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
-2026-03-09 01:23:04 [main] INFO  [] [] org.testng.internal.Utils - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
-2026-03-09 01:23:04 [main] INFO  [] [] org.testng.internal.Utils - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
-2026-03-09 01:23:04 [main] INFO  [] [] org.testng.internal.Utils - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
-2026-03-09 01:23:04 [main] INFO  [] [] org.testng.internal.Utils - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
-2026-03-09 01:23:04 [main] INFO  [] [] org.testng.internal.Utils - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
-2026-03-09 01:23:04 [main] INFO  [] [] org.testng.internal.Utils - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
-2026-03-09 01:23:04 [main] INFO  [] [] org.testng.internal.Utils - [Utils] MethodGroupsHelper.collectMethodsByGroup() took 0 ms.
-2026-03-09 01:23:04 [main] INFO  [] [] org.testng.internal.Utils - [Utils] MethodGroupsHelper.sortMethods() took 0 ms.
-2026-03-09 01:23:04 [main] INFO  [] [] org.testng.internal.Utils - [TestNG] Running:
-  C:\Users\theqe\AppData\Local\Temp\testng-eclipse--228251401\testng-customsuite.xml
+2026-03-20 00:00:38 [TestNG-test-Release 1.0 Testing for AE-1] INFO  [qa] [Test_AE10_TC23_Verify_Address_On_Checkout] pages.ae.CheckOutPage - 
+-------------------------------------------------------------------------
+               INVOICE ADDRESS ON CHECKOUT
+-------------------------------------------------------------------------
+Title Fullname  : Mr. Ciera Kunde
+Company Name    : Bashirian, Homenick and Kuphal
+Address Line1   : 6795 Mertz Summit
+Address Line2   : Suite 322
+Address Line3   : Deshawnside Wisconsin 037686
+Country         : Australia
+Phone           : 5338026343
+--------------------------------------------------------------------------
 
-2026-03-09 01:23:04 [main] INFO  [] [] org.testng.internal.Utils - [Utils] DynamicGraphHelper.createDynamicGraph() took 2 ms.
-2026-03-09 01:23:04 [main] DEBUG [] [] framework.config.ConfigManager - headless = false
-2026-03-09 01:23:04 [main] DEBUG [] [] framework.config.ConfigManager - screenshot.on.pass = true
-2026-03-09 01:23:04 [main] DEBUG [] [] framework.config.ConfigManager - test-id = "data-qa"
-2026-03-09 01:23:04 [main] DEBUG [] [] framework.config.ConfigManager - dev.base.url = https://automationexercise-dev.com
-2026-03-09 01:23:04 [main] DEBUG [] [] framework.config.ConfigManager - qa.base.url = https://automationexercise.com
-2026-03-09 01:23:04 [main] DEBUG [] [] framework.config.ConfigManager - screenshot.on.fail = true
-2026-03-09 01:23:04 [main] DEBUG [] [] framework.config.ConfigManager - browser = chrome
-2026-03-09 01:23:04 [main] DEBUG [] [] framework.config.ConfigManager - env = QA
-2026-03-09 01:23:04 [main] DEBUG [] [] framework.config.ConfigManager - prod.base.url = https://automationexercise-prod.com
-2026-03-09 01:23:04 [main] WARN  [] [] framework.config.ConfigManager - Environment not initialized. Defaulting to 'qa'
-2026-03-09 01:23:04 [main] INFO  [] [] framework.drivers.DriverManager - Initiating Driver . . . . . 
-2026-03-09 01:23:07 [main] INFO  [] [] framework.drivers.DriverManager - Launching Browser. HeadlessMode: false
-2026-03-09 01:23:07 [main] INFO  [] [] framework.drivers.DriverManager - Browser Context Launched
-2026-03-09 01:23:07 [main] INFO  [] [] framework.drivers.DriverManager - Browser Page opened.
-2026-03-09 01:23:11 [main] INFO  [] [] framework.drivers.DriverManager - Navigated to Base URL: https://automationexercise.com
-2026-03-09 01:23:11 [main] INFO  [] [] test.ProductsTests - Initial SETUP is completed.
-2026-03-09 01:23:11 [main] INFO  [] [] test.ProductsTests - Running:Step-1
-2026-03-09 01:23:11 [main] INFO  [] [] test.ProductsTests - Running:Step-2
-2026-03-09 01:23:13 [main] INFO  [] [] pages.ae.HomePage - Navigating to Products
-2026-03-09 01:23:13 [main] INFO  [] [] test.ProductsTests - Running:Step-3
-2026-03-09 01:23:14 [main] INFO  [] [] test.ProductsTests - Running:Step-4
+2026-03-20 00:00:38 [TestNG-test-Release 1.0 Testing for AE-1] INFO  [qa] [Test_AE10_TC23_Verify_Address_On_Checkout] test.ae.PlaceOrderTests - Running:Step-7
+2026-03-20 00:00:38 [TestNG-test-Release 1.0 Testing for AE-1] INFO  [qa] [Test_AE10_TC23_Verify_Address_On_Checkout] test.ae.PlaceOrderTests - Running:Step-8 >>>> Cleanup
+2026-03-20 00:00:41 [TestNG-test-Release 1.0 Testing for AE-1] INFO  [qa] [Test_AE10_TC23_Verify_Address_On_Checkout] framework.listeners.TestListener - {TEST PASSED: Test_AE10_TC23_Verify_Address_On_Checkout
+2026-03-20 00:00:42 [TestNG-test-Release 1.0 Testing for AE-1] ERROR [qa] [Test_AE10_TC23_Verify_Address_On_Checkout] io.qameta.allure.AllureLifecycle - Could not add attachment: no test is running
+2026-03-20 00:00:42 [TestNG-test-Release 1.0 Testing for AE-1] INFO  [qa] [Test_AE10_TC23_Verify_Address_On_Checkout] framework.listeners.TestListener - Screenshot attached: PASSED Screenshot:
+2026-03-20 00:00:44 [TestNG-test-Release 1.0 Testing for AE-1] INFO  [] [] test.ae.PlaceOrderTests - Trace stopped for: Test_AE10_TC23_Verify_Address_On_Checkout
+2026-03-20 00:00:45 [TestNG-test-Release 1.0 Testing for AE-1] INFO  [] [] framework.drivers.DriverManager - Browser closed successfully.
+2026-03-20 00:00:45 [TestNG-test-Release 1.0 Testing for AE-1] INFO  [] [] test.ae.PlaceOrderTests - Driver shutdown successful.
+2026-03-20 00:00:45 [TestNG-test-Release 1.0 Testing for AE-1] INFO  [] [] reporting.ReportManager - ✅ Attachment added to Allure: 🎭 Playwright Trace — Test_AE10_TC23_Verify_Address_On_Checkout
+2026-03-20 00:00:45 [TestNG-test-Release 1.0 Testing for AE-1] INFO  [] [] test.ae.PlaceOrderTests - Trace attached for: Test_AE10_TC23_Verify_Address_On_Checkout
+2026-03-20 00:00:45 [TestNG-test-Release 1.0 Testing for AE-1] INFO  [] [] test.ae.PlaceOrderTests - trace temp file deleted from disk.
+2026-03-20 00:00:45 [TestNG-test-Release 1.0 Testing for AE-1] INFO  [] [] reporting.ReportManager - ✅ Attachment added to Allure: 🎬 Test Video — Test_AE10_TC23_Verify_Address_On_Checkout
+2026-03-20 00:00:45 [TestNG-test-Release 1.0 Testing for AE-1] INFO  [] [] test.ae.PlaceOrderTests - Video attached for: Test_AE10_TC23_Verify_Address_On_Checkout
+2026-03-20 00:00:45 [TestNG-test-Release 1.0 Testing for AE-1] INFO  [] [] test.ae.PlaceOrderTests - video temp file deleted from disk.
+2026-03-20 00:00:45 [TestNG-test-Release 1.0 Testing for AE-1] INFO  [] [] reporting.ReportManager - ✅ Attachment added to Allure: 📋 Test Log — Test_AE10_TC23_Verify_Address_On_Checkout
+2026-03-20 00:00:45 [TestNG-test-Release 1.0 Testing for AE-1] INFO  [] [] test.ae.PlaceOrderTests - Log file attached for: Test_AE10_TC23_Verify_Address_On_Checkout
+2026-03-20 00:00:45 [TestNG-test-Release 1.0 Testing for AE-1] INFO  [] [] framework.drivers.DriverManager - Initiating Driver . . .
+2026-03-20 00:00:45 [TestNG-test-Release 1.0 Testing for AE-1] INFO  [] [] framework.drivers.DriverManager - Browser launched. HeadlessMode: false
+2026-03-20 00:00:45 [TestNG-test-Release 1.0 Testing for AE-1] INFO  [] [] framework.drivers.DriverManager - Playwright tracing started.
+2026-03-20 00:00:45 [TestNG-test-Release 1.0 Testing for AE-1] INFO  [] [] framework.drivers.DriverManager - Browser Context launched.
+2026-03-20 00:00:45 [TestNG-test-Release 1.0 Testing for AE-1] INFO  [] [] framework.drivers.DriverManager - Browser Page opened.
+2026-03-20 00:00:49 [TestNG-test-Release 1.0 Testing for AE-1] INFO  [] [] framework.drivers.DriverManager - Navigated to Base URL: https://automationexercise.com
+2026-03-20 00:00:49 [TestNG-test-Release 1.0 Testing for AE-1] INFO  [] [] test.ae.PlaceOrderTests - Initial SETUP completed.
+2026-03-20 00:00:49 [TestNG-test-Release 1.0 Testing for AE-1] INFO  [qa] [Test_AE10_TC24_Verify_Purchase_Order_Invoice_Download] framework.listeners.TestListener - -----------------  STARTING TEST : Test_AE10_TC24_Verify_Purchase_Order_Invoice_Download  -----------------
+2026-03-20 00:00:49 [TestNG-test-Release 1.0 Testing for AE-1] INFO  [qa] [Test_AE10_TC24_Verify_Purchase_Order_Invoice_Download] test.ae.PlaceOrderTests - Running:Step-1
+2026-03-20 00:00:50 [TestNG-test-Release 1.0 Testing for AE-1] INFO  [qa] [Test_AE10_TC24_Verify_Purchase_Order_Invoice_Download] test.ae.PlaceOrderTests - Running:Step-2
+2026-03-20 00:00:52 [TestNG-test-Release 1.0 Testing for AE-1] INFO  [qa] [Test_AE10_TC24_Verify_Purchase_Order_Invoice_Download] pages.ae.HomePage - Navigating to Products
+2026-03-20 00:00:55 [TestNG-test-Release 1.0 Testing for AE-1] INFO  [qa] [Test_AE10_TC24_Verify_Purchase_Order_Invoice_Download] pages.ae.ProductsPage - 
+---------------------------------------------------
+Product 1 Added To Cart
+Name  : Blue Top
+Price : 500
+------------------------xxxx-----------------------
+
+2026-03-20 00:00:58 [TestNG-test-Release 1.0 Testing for AE-1] INFO  [qa] [Test_AE10_TC24_Verify_Purchase_Order_Invoice_Download] pages.ae.ProductsPage - 
+---------------------------------------------------
+Product 2 Added To Cart
+Name  : Men Tshirt
+Price : 400
+------------------------xxxx-----------------------
+
+2026-03-20 00:00:58 [TestNG-test-Release 1.0 Testing for AE-1] INFO  [qa] [Test_AE10_TC24_Verify_Purchase_Order_Invoice_Download] test.ae.PlaceOrderTests - Running:Step-3
+2026-03-20 00:01:00 [TestNG-test-Release 1.0 Testing for AE-1] INFO  [qa] [Test_AE10_TC24_Verify_Purchase_Order_Invoice_Download] pages.ae.HomePage - Navigating to Cart
+2026-03-20 00:01:01 [TestNG-test-Release 1.0 Testing for AE-1] INFO  [qa] [Test_AE10_TC24_Verify_Purchase_Order_Invoice_Download] test.ae.PlaceOrderTests - Running:Step-4
+2026-03-20 00:01:12 [TestNG-test-Release 1.0 Testing for AE-1] INFO  [qa] [Test_AE10_TC24_Verify_Purchase_Order_Invoice_Download] pages.ae.SignupDetailPage - Checkbox: 'Newsletter' is set to: true
+2026-03-20 00:01:13 [TestNG-test-Release 1.0 Testing for AE-1] INFO  [qa] [Test_AE10_TC24_Verify_Purchase_Order_Invoice_Download] pages.ae.SignupDetailPage - Checkbox: 'Special Offers' is set to: true
+2026-03-20 00:01:13 [TestNG-test-Release 1.0 Testing for AE-1] ERROR [qa] [Test_AE10_TC24_Verify_Purchase_Order_Invoice_Download] io.qameta.allure.util.NamingUtils - Could not process empty pattern
+2026-03-20 00:01:13 [TestNG-test-Release 1.0 Testing for AE-1] ERROR [qa] [Test_AE10_TC24_Verify_Purchase_Order_Invoice_Download] io.qameta.allure.util.NamingUtils - Could not process empty pattern
+2026-03-20 00:01:22 [TestNG-test-Release 1.0 Testing for AE-1] ERROR [qa] [Test_AE10_TC24_Verify_Purchase_Order_Invoice_Download] io.qameta.allure.util.NamingUtils - Could not find parameter zipcpde
+2026-03-20 00:01:28 [TestNG-test-Release 1.0 Testing for AE-1] INFO  [qa] [Test_AE10_TC24_Verify_Purchase_Order_Invoice_Download] test.ae.PlaceOrderTests - Running:Step-5
+2026-03-20 00:01:29 [TestNG-test-Release 1.0 Testing for AE-1] INFO  [qa] [Test_AE10_TC24_Verify_Purchase_Order_Invoice_Download] pages.ae.HomePage - Navigating to Cart
+2026-03-20 00:01:31 [TestNG-test-Release 1.0 Testing for AE-1] INFO  [qa] [Test_AE10_TC24_Verify_Purchase_Order_Invoice_Download] test.ae.PlaceOrderTests - Running:Step-6.1
+2026-03-20 00:01:31 [TestNG-test-Release 1.0 Testing for AE-1] INFO  [qa] [Test_AE10_TC24_Verify_Purchase_Order_Invoice_Download] pages.ae.CheckOutPage - 
+-------------------------------------------------------------------------
+               DELIVERY ADDRESS ON CHECKOUT
+-------------------------------------------------------------------------
+Title Fullname  : Mrs. Jessica Boyer
+Company Name    : Kovacek Inc
+Address Line1   : 326 Bruen Glen
+Address Line2   : Apt. 679
+Address Line3   : East Katerine Utah 826763
+Country         : India
+Phone           : 6338633847
+-------------------------------------------------------------------------
+
+2026-03-20 00:01:31 [TestNG-test-Release 1.0 Testing for AE-1] INFO  [qa] [Test_AE10_TC24_Verify_Purchase_Order_Invoice_Download] pages.ae.CheckOutPage - 
+-------------------------------------------------------------------------
+               INVOICE ADDRESS ON CHECKOUT
+-------------------------------------------------------------------------
+Title Fullname  : Mrs. Jessica Boyer
+Company Name    : Kovacek Inc
+Address Line1   : 326 Bruen Glen
+Address Line2   : Apt. 679
+Address Line3   : East Katerine Utah 826763
+Country         : India
+Phone           : 6338633847
+--------------------------------------------------------------------------
+
+2026-03-20 00:01:31 [TestNG-test-Release 1.0 Testing for AE-1] INFO  [qa] [Test_AE10_TC24_Verify_Purchase_Order_Invoice_Download] test.ae.PlaceOrderTests - Running:Step-6.2
+2026-03-20 00:01:31 [TestNG-test-Release 1.0 Testing for AE-1] INFO  [qa] [Test_AE10_TC24_Verify_Purchase_Order_Invoice_Download] pages.ae.CheckOutPage - 
+				PRODUCT-1 DETAILS FROM CART
+---------------------------------------------------
+Name        : Blue Top
+Category    : Women
+SubCategory : Tops
+Price       : 500
+Quantity    : 1
+Total       : 500
+----------------------------------------------------
+
+
+2026-03-20 00:01:32 [TestNG-test-Release 1.0 Testing for AE-1] INFO  [qa] [Test_AE10_TC24_Verify_Purchase_Order_Invoice_Download] pages.ae.CheckOutPage - 
+				PRODUCT-2 DETAILS FROM CART
+---------------------------------------------------
+Name        : Men Tshirt
+Category    : Men
+SubCategory : Tshirts
+Price       : 400
+Quantity    : 1
+Total       : 400
+----------------------------------------------------
+
+
+2026-03-20 00:01:32 [TestNG-test-Release 1.0 Testing for AE-1] INFO  [qa] [Test_AE10_TC24_Verify_Purchase_Order_Invoice_Download] pages.ae.CheckOutPage - 
+				CART SUMMARY
+---------------------------------------------------
+Total of <2> Product/s are Added To Cart
+Cart Total Price is '900'
+----------------------------------------------------
+
+
+2026-03-20 00:01:32 [TestNG-test-Release 1.0 Testing for AE-1] INFO  [qa] [Test_AE10_TC24_Verify_Purchase_Order_Invoice_Download] test.ae.PlaceOrderTests - The expected cart total: 900
+2026-03-20 00:01:32 [TestNG-test-Release 1.0 Testing for AE-1] INFO  [qa] [Test_AE10_TC24_Verify_Purchase_Order_Invoice_Download] test.ae.PlaceOrderTests - Running:Step-7
+2026-03-20 00:01:34 [TestNG-test-Release 1.0 Testing for AE-1] INFO  [qa] [Test_AE10_TC24_Verify_Purchase_Order_Invoice_Download] test.ae.PlaceOrderTests - Running:Step-8
+2026-03-20 00:01:39 [TestNG-test-Release 1.0 Testing for AE-1] INFO  [qa] [Test_AE10_TC24_Verify_Purchase_Order_Invoice_Download] test.ae.PlaceOrderTests - Running:Step-9
+2026-03-20 00:01:43 [TestNG-test-Release 1.0 Testing for AE-1] INFO  [qa] [Test_AE10_TC24_Verify_Purchase_Order_Invoice_Download] test.ae.PlaceOrderTests - Running:Step-10
+2026-03-20 00:01:43 [TestNG-test-Release 1.0 Testing for AE-1] INFO  [qa] [Test_AE10_TC24_Verify_Purchase_Order_Invoice_Download] test.ae.PlaceOrderTests - Running:Step-11
+2026-03-20 00:01:44 [TestNG-test-Release 1.0 Testing for AE-1] INFO  [qa] [Test_AE10_TC24_Verify_Purchase_Order_Invoice_Download] pages.ae.CheckOutPage - ✅ Invoice downloaded!
+2026-03-20 00:01:44 [TestNG-test-Release 1.0 Testing for AE-1] INFO  [qa] [Test_AE10_TC24_Verify_Purchase_Order_Invoice_Download] pages.ae.CheckOutPage -    Name : invoice.txt
+2026-03-20 00:01:44 [TestNG-test-Release 1.0 Testing for AE-1] INFO  [qa] [Test_AE10_TC24_Verify_Purchase_Order_Invoice_Download] pages.ae.CheckOutPage -    Size : 62 bytes
+2026-03-20 00:01:44 [TestNG-test-Release 1.0 Testing for AE-1] INFO  [qa] [Test_AE10_TC24_Verify_Purchase_Order_Invoice_Download] pages.ae.CheckOutPage -    Path : C:\Users\theqe\git\Playwright-Demo-Framework\Playwright_Demo_Framework\downloads\invoice.txt
+2026-03-20 00:01:44 [TestNG-test-Release 1.0 Testing for AE-1] INFO  [qa] [Test_AE10_TC24_Verify_Purchase_Order_Invoice_Download] reporting.ReportManager - ✅ Attachment added to Allure: invoice.txt
+2026-03-20 00:01:44 [TestNG-test-Release 1.0 Testing for AE-1] INFO  [qa] [Test_AE10_TC24_Verify_Purchase_Order_Invoice_Download] pages.ae.CheckOutPage - Invoice Content: Hi Jessica Boyer, Your total purchase amount is 900. Thank you
+2026-03-20 00:01:44 [TestNG-test-Release 1.0 Testing for AE-1] INFO  [qa] [Test_AE10_TC24_Verify_Purchase_Order_Invoice_Download] pages.ae.CheckOutPage - Expected Message: Hi Jessica Boyer, Your total purchase amount is 900. Thank you
+2026-03-20 00:01:44 [TestNG-test-Release 1.0 Testing for AE-1] INFO  [qa] [Test_AE10_TC24_Verify_Purchase_Order_Invoice_Download] pages.ae.CheckOutPage - ✅ Invoice content verified!
+2026-03-20 00:01:44 [TestNG-test-Release 1.0 Testing for AE-1] INFO  [qa] [Test_AE10_TC24_Verify_Purchase_Order_Invoice_Download] framework.listeners.TestListener - {TEST PASSED: Test_AE10_TC24_Verify_Purchase_Order_Invoice_Download
+2026-03-20 00:01:44 [TestNG-test-Release 1.0 Testing for AE-1] ERROR [qa] [Test_AE10_TC24_Verify_Purchase_Order_Invoice_Download] io.qameta.allure.AllureLifecycle - Could not add attachment: no test is running
+2026-03-20 00:01:44 [TestNG-test-Release 1.0 Testing for AE-1] INFO  [qa] [Test_AE10_TC24_Verify_Purchase_Order_Invoice_Download] framework.listeners.TestListener - Screenshot attached: PASSED Screenshot:
+2026-03-20 00:01:46 [TestNG-test-Release 1.0 Testing for AE-1] INFO  [] [] test.ae.PlaceOrderTests - Trace stopped for: Test_AE10_TC24_Verify_Purchase_Order_Invoice_Download
+2026-03-20 00:01:47 [TestNG-test-Release 1.0 Testing for AE-1] INFO  [] [] framework.drivers.DriverManager - Browser closed successfully.
+2026-03-20 00:01:47 [TestNG-test-Release 1.0 Testing for AE-1] INFO  [] [] test.ae.PlaceOrderTests - Driver shutdown successful.
+2026-03-20 00:01:47 [TestNG-test-Release 1.0 Testing for AE-1] INFO  [] [] reporting.ReportManager - ✅ Attachment added to Allure: 🎭 Playwright Trace — Test_AE10_TC24_Verify_Purchase_Order_Invoice_Download
+2026-03-20 00:01:47 [TestNG-test-Release 1.0 Testing for AE-1] INFO  [] [] test.ae.PlaceOrderTests - Trace attached for: Test_AE10_TC24_Verify_Purchase_Order_Invoice_Download
+2026-03-20 00:01:47 [TestNG-test-Release 1.0 Testing for AE-1] INFO  [] [] test.ae.PlaceOrderTests - trace temp file deleted from disk.
+2026-03-20 00:01:47 [TestNG-test-Release 1.0 Testing for AE-1] INFO  [] [] reporting.ReportManager - ✅ Attachment added to Allure: 🎬 Test Video — Test_AE10_TC24_Verify_Purchase_Order_Invoice_Download
+2026-03-20 00:01:47 [TestNG-test-Release 1.0 Testing for AE-1] INFO  [] [] test.ae.PlaceOrderTests - Video attached for: Test_AE10_TC24_Verify_Purchase_Order_Invoice_Download
+2026-03-20 00:01:47 [TestNG-test-Release 1.0 Testing for AE-1] INFO  [] [] test.ae.PlaceOrderTests - video temp file deleted from disk.
+2026-03-20 00:01:47 [TestNG-test-Release 1.0 Testing for AE-1] INFO  [] [] reporting.ReportManager - ✅ Attachment added to Allure: 📋 Test Log — Test_AE10_TC24_Verify_Purchase_Order_Invoice_Download
+2026-03-20 00:01:47 [TestNG-test-Release 1.0 Testing for AE-1] INFO  [] [] test.ae.PlaceOrderTests - Log file attached for: Test_AE10_TC24_Verify_Purchase_Order_Invoice_Download
+2026-03-20 00:01:47 [main] INFO  [] [] o.testng.reporters.TestHTMLReporter - [TestHTMLReporter] Invalid file path
+2026-03-20 00:01:47 [main] INFO  [] [] framework.listeners.TestListener - ==============================================
+2026-03-20 00:01:47 [main] INFO  [] [] framework.listeners.TestListener - Finished Suite: Playwright Demo Framework Tests - TA1 
+2026-03-20 00:01:47 [main] INFO  [] [] framework.listeners.TestListener - ================XXXXXXXXXXXXXX================
+2026-03-20 00:01:47 [main] ERROR [] [] io.qameta.allure.AllureLifecycle - Could not add attachment: no test is running
+2026-03-20 00:01:47 [main] INFO  [] [] reporting.ReportManager - ✅ Attachment added to Allure: 📋 Suite Execution Log
+2026-03-20 00:01:47 [main] INFO  [] [] framework.listeners.TestListener - Suite log attached to Allure.

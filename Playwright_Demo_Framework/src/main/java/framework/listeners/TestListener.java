@@ -17,12 +17,13 @@ import com.microsoft.playwright.Page;
 import framework.config.ConfigManager;
 import framework.drivers.DriverManager;
 import framework.logging.LogManager;
+import framework.logging.UniversalLogger;
 import io.qameta.allure.Allure;
 import reporting.ReportManager;
 
-public class TestListener implements ITestListener, ISuiteListener, IInvokedMethodListener  {
+public class TestListener implements ITestListener, ISuiteListener, IInvokedMethodListener {
 
-	private static final Logger logger = LogManager.getLogger(TestListener.class);
+	private static final UniversalLogger logger = LogManager.getLogger(TestListener.class);
 
 	/**
 	 * ======================= SUITE LEVEL LISTENERS ======================
@@ -55,9 +56,9 @@ public class TestListener implements ITestListener, ISuiteListener, IInvokedMeth
 		logger.info("==============================================");
 		logger.info("Finished Suite: {}", suite.getName());
 		logger.info("================XXXXXXXXXXXXXX================");
-		
-	    // ✅ Attach suite-level log to Allure
-	    attachSuiteLog();
+
+		// ✅ Attach suite-level log to Allure
+		attachSuiteLog();
 	}
 
 	/**
@@ -70,13 +71,34 @@ public class TestListener implements ITestListener, ISuiteListener, IInvokedMeth
 
 	public void onTestStart(ITestResult result) {
 
-		String testName = result.getMethod().getMethodName();
+		String className = result.getTestClass().getRealClass().getSimpleName();
+		String methodName = result.getMethod().getMethodName();
 
-		// Set MDC value for the logging pattern
+		String browser = result.getTestContext().getCurrentXmlTest().getParameter("bs.browser");
+
+		if (browser == null || browser.isEmpty()) {
+			browser = ConfigManager.getBrowser();
+		}
+		if (browser == null || browser.isEmpty()) {
+			browser = "unknown";
+		}
+
+		// ✅ Add thread ID — makes log filename unique per thread
+		// Prevents SiftingAppender collision when same test runs
+		// on different threads (retries, multi-browser, reuse)
+		String threadId = String.valueOf(Thread.currentThread().getId());
+
+		// Format: MethodName_browser_threadId
+		// e.g. Test_AE2_TC02_chrome_42
+		String methodNameWithBrowser = methodName + "_" + browser + "_" + threadId;
+
+		String testName = className + "#" + methodName;
+
 		MDC.put("env", ConfigManager.getEnvironment());
 		MDC.put("testname", testName);
+		MDC.put("methodname", methodNameWithBrowser);
 
-		logger.info("-----------------  STARTING TEST : {}  -----------------", testName);
+		logger.info("--- STARTING TEST : {} on {} [thread-{}] ---", testName, browser, threadId);
 	}
 
 	/*
@@ -85,17 +107,18 @@ public class TestListener implements ITestListener, ISuiteListener, IInvokedMeth
 
 	public void onTestSuccess(ITestResult result) {
 
+		// ✅ Re-establish MDC in case this fires on a different thread
+		// In parallel runs, listener callbacks may not inherit the test thread's MDC
+		ensureMDC(result);
+
 		String testName = result.getMethod().getMethodName();
 
-		logger.info("{TEST PASSED: {}", testName);
+		logger.info("TEST PASSED: {}", testName);
 
 		if (ConfigManager.isScreenhotonPass()) {
 
 			attachScreenshot("PASSED Screenshot:", result);
 		}
-
-		MDC.clear();
-
 	}
 
 	/*
@@ -104,9 +127,13 @@ public class TestListener implements ITestListener, ISuiteListener, IInvokedMeth
 
 	public void onTestFailure(ITestResult result) {
 
+		// ✅ Re-establish MDC in case this fires on a different thread
+		// In parallel runs, listener callbacks may not inherit the test thread's MDC
+		ensureMDC(result);
+
 		String testName = result.getMethod().getMethodName();
 
-		logger.info("{TEST FAILED: {}", testName);
+		logger.info("TEST FAILED: {}", testName);
 
 		if (result.getThrowable() != null) {
 			logger.error("Failure Reason: " + result.getThrowable());
@@ -116,9 +143,6 @@ public class TestListener implements ITestListener, ISuiteListener, IInvokedMeth
 
 			attachScreenshot("FAILURE Screenshot:", result);
 		}
-
-		MDC.clear();
-
 	}
 
 	/*
@@ -127,9 +151,13 @@ public class TestListener implements ITestListener, ISuiteListener, IInvokedMeth
 
 	public void onTestSkipped(ITestResult result) {
 
+		// ✅ Re-establish MDC in case this fires on a different thread
+		// In parallel runs, listener callbacks may not inherit the test thread's MDC
+		ensureMDC(result);
+
 		String testName = result.getMethod().getMethodName();
 
-		logger.info("{TEST SKIPPED: {}", testName);
+		logger.info("TEST SKIPPED: {}", testName);
 
 		if (result.getThrowable() != null) {
 			logger.error("Skip Reason: " + result.getThrowable());
@@ -139,9 +167,6 @@ public class TestListener implements ITestListener, ISuiteListener, IInvokedMeth
 
 			// capture screenshot
 		}
-
-		MDC.clear();
-
 	}
 
 	/*
@@ -151,45 +176,47 @@ public class TestListener implements ITestListener, ISuiteListener, IInvokedMeth
 	public void afterInvocation(IInvokedMethod method, ITestResult result) {
 
 		// ✅ Block 1 — Actual test failure
-	    if (method.isTestMethod() && result.getStatus() == ITestResult.FAILURE) {
-	        Throwable cause = result.getThrowable();
+		if (method.isTestMethod() && result.getStatus() == ITestResult.FAILURE) {
+			Throwable cause = result.getThrowable();
 
-	        if (cause != null && !(cause instanceof AssertionError)) {
-	            logger.error("========================================");
-	            logger.error("         ACTUAL TEST FAILURE            ");
-	            logger.error("========================================");
-	            logger.error("Test    : {}", result.getMethod().getMethodName());
-	            logger.error("Cause   : {}", cause.getClass().getSimpleName());
-	            
-	            // ✅ Pass cause as throwable - makes stack trace clickable in IDE!
-	            logger.error("Details : ", cause);
-	            logger.error("==================XXXXX=================");
-	        }
-	    }
+			if (cause != null && !(cause instanceof AssertionError)) {
+				logger.error("========================================");
+				logger.error("         ACTUAL TEST FAILURE            ");
+				logger.error("========================================");
+				logger.error("Test    : {}", result.getMethod().getMethodName());
+				logger.error("Cause   : {}", cause.getClass().getSimpleName());
 
-	    // ✅ Block 2 — Soft assertion failures
-	    if (method.getTestMethod().isAfterMethodConfiguration()) {
-	        Throwable throwable = result.getThrowable();
+				// ✅ Pass cause as throwable - makes stack trace clickable in IDE!
+				logger.error("Details : ", cause);
+				logger.error("==================XXXXX=================");
+			}
+		}
 
-	        if (throwable instanceof AssertionError) {
-	            logger.error("========================================");
-	            logger.error("       SOFT ASSERTION FAILURES          ");
-	            logger.error("========================================");
-	            
-	            // Split failures on separate lines
-	            String[] failures = throwable.getMessage().split(",\n\t");
-	            for (int i = 0; i < failures.length; i++) {
-	                logger.error("  Failure {}: {}", i + 1, failures[i].trim());
-	            }
-	            
-	            // ✅ Pass throwable - makes it clickable too!
-	            logger.error("Stacktrace : ", throwable);
-	            logger.error("==================XXXXX=================");
+		// ✅ Block 2 — Soft assertion failures
+		if (method.getTestMethod().isAfterMethodConfiguration()) {
+			Throwable throwable = result.getThrowable();
 
-	            result.setStatus(ITestResult.FAILURE);
-	            result.setThrowable(throwable);
-	        }
-		    
+			if (throwable instanceof AssertionError) {
+				logger.error("========================================");
+				logger.error("       SOFT ASSERTION FAILURES          ");
+				logger.error("========================================");
+
+				// Split failures on separate lines
+				String[] failures = throwable.getMessage().split(",\n\t");
+				for (int i = 0; i < failures.length; i++) {
+					logger.error("  Failure {}: {}", i + 1, failures[i].trim());
+				}
+
+				// ✅ Pass throwable - makes it clickable too!
+				logger.error("Stacktrace : ", throwable);
+				logger.error("==================XXXXX=================");
+
+				result.setStatus(ITestResult.FAILURE);
+				result.setThrowable(throwable);
+			}
+
+			// ✅ ONLY clear MDC after @AfterMethod completes
+			// NOT after @BeforeMethod or @Test — those still need MDC for logging
 			MDC.clear();
 		}
 	}
@@ -199,50 +226,68 @@ public class TestListener implements ITestListener, ISuiteListener, IInvokedMeth
 	 */
 
 	private void attachScreenshot(String name, ITestResult result) {
-        try {
-            // ✅ Static getter — gets THIS thread's page from ThreadLocal
-            // Never use new DriverManager().getPage() — always returns null!
-            Page page = DriverManager.getCurrentPage();
+		try {
+			// ✅ Static getter — gets THIS thread's page from ThreadLocal
+			// Never use new DriverManager().getPage() — always returns null!
+			Page page = DriverManager.getCurrentPage();
 
-            if (page != null) {
-                byte[] screenshot = page.screenshot(
-                    new Page.ScreenshotOptions().setFullPage(true)
-                );
-                ReportManager.attachScreenshot(name, screenshot);
+			if (page != null) {
+				byte[] screenshot = page.screenshot(new Page.ScreenshotOptions().setFullPage(true));
+				ReportManager.attachScreenshot(name, screenshot);
 
-                if (result.getStatus() == ITestResult.FAILURE
-                        && result.getThrowable() != null) {
-                    ReportManager.logStep(
-                        "Test failed: " + result.getThrowable().getMessage()
-                    );
-                }
-                logger.info("Screenshot attached: {}", name);
-            } else {
-                logger.warn("Page is null — screenshot skipped for: {}", name);
-            }
-        } catch (Exception e) {
-            logger.error("Failed to attach screenshot in listener: {}",
-                    e.getMessage());
-        }
-    }
-	
+				if (result.getStatus() == ITestResult.FAILURE && result.getThrowable() != null) {
+					ReportManager.logStep("Test failed: " + result.getThrowable().getMessage());
+				}
+				logger.info("Screenshot attached: {}", name);
+			} else {
+				logger.warn("Page is null — screenshot skipped for: {}", name);
+			}
+		} catch (Exception e) {
+			logger.error("Failed to attach screenshot in listener: {}", e.getMessage());
+		}
+	}
+
 	private void attachSuiteLog() {
-	    try {
-	        Path suiteLog = Path.of("logs/tests/suite-execution.log");
-	        if (Files.exists(suiteLog)) {
-	            ReportManager.addFileAttachement(
-	                "📋 Suite Execution Log",
-	                "text/plain",
-	                suiteLog,
-	                ".log"
-	            );
-	            logger.info("Suite log attached to Allure.");
-	        } else {
-	            logger.warn("Suite log not found: {}", suiteLog);
-	        }
-	    } catch (Exception e) {
-	        logger.error("Failed to attach suite log: {}", e.getMessage());
-	    }
+		try {
+			Path suiteLog = Path.of("logs/tests/suite-execution.log");
+			if (Files.exists(suiteLog)) {
+				ReportManager.addFileAttachement("📋 Suite Execution Log", "text/plain", suiteLog, ".log");
+				logger.info("Suite log attached to Allure.");
+			} else {
+				logger.warn("Suite log not found: {}", suiteLog);
+			}
+		} catch (Exception e) {
+			logger.error("Failed to attach suite log: {}", e.getMessage());
+		}
+	}
+
+	// ── Re-establish MDC if missing — safe for parallel/reporter threads ──────
+	private void ensureMDC(ITestResult result) {
+
+		if (MDC.get("methodname") == null || MDC.get("methodname").isEmpty()) {
+
+			String methodName = result.getMethod().getMethodName();
+
+			String browser = result.getTestContext().getCurrentXmlTest().getParameter("bs.browser");
+
+			if (browser == null || browser.isEmpty()) {
+				browser = ConfigManager.getBrowser();
+			}
+			if (browser == null || browser.isEmpty()) {
+				browser = "unknown";
+			}
+
+			// ✅ Same format as onTestStart — thread ID included
+			String threadId = String.valueOf(Thread.currentThread().getId());
+			String methodNameWithBrowser = methodName + "_" + browser + "_" + threadId;
+			String className = result.getTestClass().getRealClass().getSimpleName();
+			String testName = className + "#" + methodName;
+
+			MDC.put("env", ConfigManager.getEnvironment());
+			MDC.put("testname", testName);
+			MDC.put("methodname", methodNameWithBrowser);
+
+			logger.debug("MDC re-established on listener thread for: {}", methodNameWithBrowser);
+		}
 	}
 }
-

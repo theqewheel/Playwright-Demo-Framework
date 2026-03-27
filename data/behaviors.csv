@@ -1,4 +1,3 @@
 "BROKEN","EPIC","FAILED","FEATURE","PASSED","SKIPPED","STORY","UNKNOWN"
-"0","Signup","0","User Registration","0","3","Signup using Valid Credentials","0"
-"3","","0","","0","0","","0"
-"0","Signup","0","User Invalid Registration","0","3","Signup using existing email","0"
+"0","Signup","0","User Registration","3","0","Signup using Valid Credentials","0"
+"0","Signup","0","User Invalid Registration","3","0","Signup using existing email","0"

@@ -1,0 +1,16 @@
+2026-03-30 10:19:18 [TestNG-test-Release 1.0 Testing for AE-4] INFO  [qa] [Test_AE4_TC07_Verify_TestCases_Page_chrome_23] framework.listeners.TestListener - --- STARTING TEST : TestCasesTests#Test_AE4_TC07_Verify_TestCases_Page on chrome [thread-23] ---
+2026-03-30 10:19:18 [TestNG-test-Release 1.0 Testing for AE-4] INFO  [qa] [Test_AE4_TC07_Verify_TestCases_Page_chrome_23] test.ae.TestCasesTests - Running:Step-1
+2026-03-30 10:19:20 [TestNG-test-Release 1.0 Testing for AE-4] INFO  [qa] [Test_AE4_TC07_Verify_TestCases_Page_chrome_23] test.ae.TestCasesTests - Running:Step-2
+2026-03-30 10:19:22 [TestNG-test-Release 1.0 Testing for AE-4] INFO  [qa] [Test_AE4_TC07_Verify_TestCases_Page_chrome_23] pages.ae.HomePage - Navigating to Test Cases
+2026-03-30 10:19:22 [TestNG-test-Release 1.0 Testing for AE-4] INFO  [qa] [Test_AE4_TC07_Verify_TestCases_Page_chrome_23] framework.listeners.TestListener - TEST PASSED: Test_AE4_TC07_Verify_TestCases_Page
+2026-03-30 10:19:22 [TestNG-test-Release 1.0 Testing for AE-4] ERROR [qa] [Test_AE4_TC07_Verify_TestCases_Page_chrome_23] io.qameta.allure.AllureLifecycle - Could not add attachment: no test is running
+2026-03-30 10:19:22 [TestNG-test-Release 1.0 Testing for AE-4] INFO  [qa] [Test_AE4_TC07_Verify_TestCases_Page_chrome_23] framework.listeners.TestListener - Screenshot attached: PASSED Screenshot:
+2026-03-30 10:19:23 [TestNG-test-Release 1.0 Testing for AE-4] INFO  [qa] [Test_AE4_TC07_Verify_TestCases_Page_chrome_23] test.ae.TestCasesTests - Trace stopped for: Test_AE4_TC07_Verify_TestCases_Page
+2026-03-30 10:19:23 [TestNG-test-Release 1.0 Testing for AE-4] INFO  [qa] [Test_AE4_TC07_Verify_TestCases_Page_chrome_23] framework.drivers.DriverManager - Browser closed successfully.
+2026-03-30 10:19:23 [TestNG-test-Release 1.0 Testing for AE-4] INFO  [qa] [Test_AE4_TC07_Verify_TestCases_Page_chrome_23] test.ae.TestCasesTests - Driver shutdown successful.
+2026-03-30 10:19:23 [TestNG-test-Release 1.0 Testing for AE-4] INFO  [qa] [Test_AE4_TC07_Verify_TestCases_Page_chrome_23] reporting.ReportManager - ✅ Attachment added to Allure: 🎭 Playwright Trace — Test_AE4_TC07_Verify_TestCases_Page
+2026-03-30 10:19:23 [TestNG-test-Release 1.0 Testing for AE-4] INFO  [qa] [Test_AE4_TC07_Verify_TestCases_Page_chrome_23] test.ae.TestCasesTests - Trace attached for: Test_AE4_TC07_Verify_TestCases_Page
+2026-03-30 10:19:23 [TestNG-test-Release 1.0 Testing for AE-4] INFO  [qa] [Test_AE4_TC07_Verify_TestCases_Page_chrome_23] test.ae.TestCasesTests - trace temp file deleted from disk.
+2026-03-30 10:19:23 [TestNG-test-Release 1.0 Testing for AE-4] INFO  [qa] [Test_AE4_TC07_Verify_TestCases_Page_chrome_23] reporting.ReportManager - ✅ Attachment added to Allure: 🎬 Test Video — Test_AE4_TC07_Verify_TestCases_Page
+2026-03-30 10:19:23 [TestNG-test-Release 1.0 Testing for AE-4] INFO  [qa] [Test_AE4_TC07_Verify_TestCases_Page_chrome_23] test.ae.TestCasesTests - Video attached for: Test_AE4_TC07_Verify_TestCases_Page
+2026-03-30 10:19:23 [TestNG-test-Release 1.0 Testing for AE-4] INFO  [qa] [Test_AE4_TC07_Verify_TestCases_Page_chrome_23] test.ae.TestCasesTests - video temp file deleted from disk.

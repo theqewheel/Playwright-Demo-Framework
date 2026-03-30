@@ -1,0 +1,12 @@
+
+-------------------------------------------------------------------------
+               INVOICE ADDRESS ON CHECKOUT
+-------------------------------------------------------------------------
+Title Fullname  : Mr. Taryn Lemke
+Company Name    : Schneider-Strosin
+Address Line1   : 978 Thomasina Crescent
+Address Line2   : Suite 422
+Address Line3   : New Pricillaberg Oregon 512645
+Country         : United States
+Phone           : 4245495143
+-------------------------------------------------------------------------

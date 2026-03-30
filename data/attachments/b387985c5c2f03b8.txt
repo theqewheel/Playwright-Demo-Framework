@@ -1,0 +1,12 @@
+
+-------------------------------------------------------------------------
+               DELIVERY ADDRESS ON CHECKOUT
+-------------------------------------------------------------------------
+Title Fullname  : Mrs. Luigi Hudson
+Company Name    : Huels-Cremin
+Address Line1   : 247 Lila Village
+Address Line2   : Suite 784
+Address Line3   : South Clarence New Mexico 272721
+Country         : Australia
+Phone           : 6724635480
+-------------------------------------------------------------------------

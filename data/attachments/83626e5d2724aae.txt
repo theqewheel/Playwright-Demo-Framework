@@ -1,0 +1,12 @@
+
+-------------------------------------------------------------------------
+               DELIVERY ADDRESS ON CHECKOUT
+-------------------------------------------------------------------------
+Title Fullname  : Mrs. Shasta Goldner
+Company Name    : Harris-Denesik
+Address Line1   : 84884 Dion Causeway
+Address Line2   : Apt. 473
+Address Line3   : West Bradymouth Alabama 867687
+Country         : India
+Phone           : 0632843047
+-------------------------------------------------------------------------

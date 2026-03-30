@@ -1,0 +1,12 @@
+
+-------------------------------------------------------------------------
+               INVOICE ADDRESS ON CHECKOUT
+-------------------------------------------------------------------------
+Title Fullname  : Mr. Morton Hyatt
+Company Name    : Cummerata, Keeling and Schamberger
+Address Line1   : 19198 Joyce Fort
+Address Line2   : Suite 989
+Address Line3   : Namside Texas 181348
+Country         : Singapore
+Phone           : 8622212874
+-------------------------------------------------------------------------

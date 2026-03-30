@@ -1,0 +1,12 @@
+
+-------------------------------------------------------------------------
+               DELIVERY ADDRESS ON CHECKOUT
+-------------------------------------------------------------------------
+Title Fullname  : Mr. Margeret Kemmer
+Company Name    : Wisoky-Breitenberg
+Address Line1   : 1286 Haley Mill
+Address Line2   : Suite 110
+Address Line3   : South Tracey Idaho 806143
+Country         : India
+Phone           : 1626857679
+-------------------------------------------------------------------------

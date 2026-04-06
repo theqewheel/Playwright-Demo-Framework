@@ -1,0 +1,12 @@
+
+-------------------------------------------------------------------------
+               DELIVERY ADDRESS ON CHECKOUT
+-------------------------------------------------------------------------
+Title Fullname  : Mr. Daron Torphy
+Company Name    : Kassulke Group
+Address Line1   : 2701 Strosin Isle
+Address Line2   : Suite 858
+Address Line3   : Leomouth Illinois 582868
+Country         : Canada
+Phone           : 1296853545
+-------------------------------------------------------------------------

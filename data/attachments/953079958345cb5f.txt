@@ -1,0 +1,12 @@
+
+-------------------------------------------------------------------------
+               DELIVERY ADDRESS ON CHECKOUT
+-------------------------------------------------------------------------
+Title Fullname  : Mrs. Robby Wilderman
+Company Name    : Osinski Group
+Address Line1   : 8856 Michel Prairie
+Address Line2   : Apt. 065
+Address Line3   : Gutkowskiview Rhode Island 685477
+Country         : Canada
+Phone           : 3667214793
+-------------------------------------------------------------------------

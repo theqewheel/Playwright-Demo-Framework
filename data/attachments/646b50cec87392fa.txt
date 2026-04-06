@@ -1,0 +1,12 @@
+
+-------------------------------------------------------------------------
+               DELIVERY ADDRESS ON CHECKOUT
+-------------------------------------------------------------------------
+Title Fullname  : Mrs. Lucienne Sanford
+Company Name    : Bruen-Schmidt
+Address Line1   : 17246 Sherryl Estate
+Address Line2   : Suite 350
+Address Line3   : Port Rocco Ohio 047302
+Country         : New Zealand
+Phone           : 3815540824
+-------------------------------------------------------------------------

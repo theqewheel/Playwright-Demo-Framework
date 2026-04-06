@@ -1,0 +1,12 @@
+
+-------------------------------------------------------------------------
+               DELIVERY ADDRESS ON CHECKOUT
+-------------------------------------------------------------------------
+Title Fullname  : Mr. Earleen Tremblay
+Company Name    : Bednar LLC
+Address Line1   : 862 Wilmer Extension
+Address Line2   : Suite 113
+Address Line3   : Waterstown Rhode Island 053577
+Country         : Israel
+Phone           : 5486761267
+-------------------------------------------------------------------------

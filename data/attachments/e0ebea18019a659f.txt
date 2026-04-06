@@ -1,0 +1,12 @@
+
+-------------------------------------------------------------------------
+               DELIVERY ADDRESS ON CHECKOUT
+-------------------------------------------------------------------------
+Title Fullname  : Mrs. Kelly Thompson
+Company Name    : Toy-Mitchell
+Address Line1   : 28477 Eric Lane
+Address Line2   : Suite 557
+Address Line3   : West Vincenzoburgh Michigan 825071
+Country         : Singapore
+Phone           : 6066694165
+-------------------------------------------------------------------------

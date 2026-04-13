@@ -1,0 +1,12 @@
+
+-------------------------------------------------------------------------
+               INVOICE ADDRESS ON CHECKOUT
+-------------------------------------------------------------------------
+Title Fullname  : Mrs. Penney Kuhic
+Company Name    : Jenkins-Vandervort
+Address Line1   : 51755 Blick Creek
+Address Line2   : Suite 219
+Address Line3   : Lake Ashlie Alabama 294429
+Country         : New Zealand
+Phone           : 7072130574
+-------------------------------------------------------------------------

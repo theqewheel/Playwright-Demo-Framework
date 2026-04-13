@@ -1,0 +1,12 @@
+
+-------------------------------------------------------------------------
+               DELIVERY ADDRESS ON CHECKOUT
+-------------------------------------------------------------------------
+Title Fullname  : Mr. Del Jaskolski
+Company Name    : Will-Monahan
+Address Line1   : 01065 Runte Prairie
+Address Line2   : Suite 413
+Address Line3   : Predovichaven Louisiana 665466
+Country         : Israel
+Phone           : 5348264260
+-------------------------------------------------------------------------

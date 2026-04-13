@@ -1,0 +1,18 @@
+2026-04-13 10:48:18 [TestNG-test-Release 1.0 Testing for AE-2] INFO  [qa] [Test_AE6_TC21_Verify_Adding_Product_Review_chrome_21] framework.listeners.TestListener - --- STARTING TEST : ProductReviewTests#Test_AE6_TC21_Verify_Adding_Product_Review on chrome [thread-21] ---
+2026-04-13 10:48:18 [TestNG-test-Release 1.0 Testing for AE-2] INFO  [qa] [Test_AE6_TC21_Verify_Adding_Product_Review_chrome_21] test.ae.ProductReviewTests - Running:Step-1
+2026-04-13 10:48:18 [TestNG-test-Release 1.0 Testing for AE-2] INFO  [qa] [Test_AE6_TC21_Verify_Adding_Product_Review_chrome_21] test.ae.ProductReviewTests - Running:Step-2
+2026-04-13 10:48:20 [TestNG-test-Release 1.0 Testing for AE-2] INFO  [qa] [Test_AE6_TC21_Verify_Adding_Product_Review_chrome_21] pages.ae.HomePage - Navigating to Products
+2026-04-13 10:48:23 [TestNG-test-Release 1.0 Testing for AE-2] INFO  [qa] [Test_AE6_TC21_Verify_Adding_Product_Review_chrome_21] test.ae.ProductReviewTests - Running:Step-3
+2026-04-13 10:48:24 [TestNG-test-Release 1.0 Testing for AE-2] ERROR [qa] [Test_AE6_TC21_Verify_Adding_Product_Review_chrome_21] io.qameta.allure.util.NamingUtils - Could not process empty pattern
+2026-04-13 10:48:29 [TestNG-test-Release 1.0 Testing for AE-2] INFO  [qa] [Test_AE6_TC21_Verify_Adding_Product_Review_chrome_21] framework.listeners.TestListener - TEST PASSED: Test_AE6_TC21_Verify_Adding_Product_Review
+2026-04-13 10:48:30 [TestNG-test-Release 1.0 Testing for AE-2] ERROR [qa] [Test_AE6_TC21_Verify_Adding_Product_Review_chrome_21] io.qameta.allure.AllureLifecycle - Could not add attachment: no test is running
+2026-04-13 10:48:30 [TestNG-test-Release 1.0 Testing for AE-2] INFO  [qa] [Test_AE6_TC21_Verify_Adding_Product_Review_chrome_21] framework.listeners.TestListener - Screenshot attached: PASSED Screenshot:
+2026-04-13 10:48:31 [TestNG-test-Release 1.0 Testing for AE-2] INFO  [qa] [Test_AE6_TC21_Verify_Adding_Product_Review_chrome_21] test.ae.ProductReviewTests - Trace stopped for: Test_AE6_TC21_Verify_Adding_Product_Review
+2026-04-13 10:48:32 [TestNG-test-Release 1.0 Testing for AE-2] INFO  [qa] [Test_AE6_TC21_Verify_Adding_Product_Review_chrome_21] framework.drivers.DriverManager - Browser closed successfully.
+2026-04-13 10:48:32 [TestNG-test-Release 1.0 Testing for AE-2] INFO  [qa] [Test_AE6_TC21_Verify_Adding_Product_Review_chrome_21] test.ae.ProductReviewTests - Driver shutdown successful.
+2026-04-13 10:48:32 [TestNG-test-Release 1.0 Testing for AE-2] INFO  [qa] [Test_AE6_TC21_Verify_Adding_Product_Review_chrome_21] reporting.ReportManager - ✅ Attachment added to Allure: 🎭 Playwright Trace — Test_AE6_TC21_Verify_Adding_Product_Review
+2026-04-13 10:48:32 [TestNG-test-Release 1.0 Testing for AE-2] INFO  [qa] [Test_AE6_TC21_Verify_Adding_Product_Review_chrome_21] test.ae.ProductReviewTests - Trace attached for: Test_AE6_TC21_Verify_Adding_Product_Review
+2026-04-13 10:48:32 [TestNG-test-Release 1.0 Testing for AE-2] INFO  [qa] [Test_AE6_TC21_Verify_Adding_Product_Review_chrome_21] test.ae.ProductReviewTests - trace temp file deleted from disk.
+2026-04-13 10:48:32 [TestNG-test-Release 1.0 Testing for AE-2] INFO  [qa] [Test_AE6_TC21_Verify_Adding_Product_Review_chrome_21] reporting.ReportManager - ✅ Attachment added to Allure: 🎬 Test Video — Test_AE6_TC21_Verify_Adding_Product_Review
+2026-04-13 10:48:32 [TestNG-test-Release 1.0 Testing for AE-2] INFO  [qa] [Test_AE6_TC21_Verify_Adding_Product_Review_chrome_21] test.ae.ProductReviewTests - Video attached for: Test_AE6_TC21_Verify_Adding_Product_Review
+2026-04-13 10:48:32 [TestNG-test-Release 1.0 Testing for AE-2] INFO  [qa] [Test_AE6_TC21_Verify_Adding_Product_Review_chrome_21] test.ae.ProductReviewTests - video temp file deleted from disk.

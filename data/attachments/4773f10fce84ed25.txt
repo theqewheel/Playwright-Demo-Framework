@@ -1,0 +1,12 @@
+
+-------------------------------------------------------------------------
+               INVOICE ADDRESS ON CHECKOUT
+-------------------------------------------------------------------------
+Title Fullname  : Mr. Mee Beer
+Company Name    : Hand-Adams
+Address Line1   : 005 Janice Mews
+Address Line2   : Suite 289
+Address Line3   : North Nevadafurt Pennsylvania 862626
+Country         : United States
+Phone           : 4854220913
+-------------------------------------------------------------------------

@@ -1,0 +1,12 @@
+
+-------------------------------------------------------------------------
+               DELIVERY ADDRESS ON CHECKOUT
+-------------------------------------------------------------------------
+Title Fullname  : Mrs. Willia Witting
+Company Name    : Morissette, Ward and Corkery
+Address Line1   : 87746 Merrie Ridge
+Address Line2   : Suite 420
+Address Line3   : Ratkeburgh Oklahoma 711732
+Country         : United States
+Phone           : 3663460068
+-------------------------------------------------------------------------

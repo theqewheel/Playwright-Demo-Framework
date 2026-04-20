@@ -1,0 +1,12 @@
+
+-------------------------------------------------------------------------
+               DELIVERY ADDRESS ON CHECKOUT
+-------------------------------------------------------------------------
+Title Fullname  : Mr. Kurtis Hodkiewicz
+Company Name    : Trantow-Rippin
+Address Line1   : 70951 Yasuko Glens
+Address Line2   : Apt. 763
+Address Line3   : Domenicfort Virginia 730133
+Country         : Canada
+Phone           : 3545909891
+-------------------------------------------------------------------------

@@ -1,0 +1,12 @@
+
+-------------------------------------------------------------------------
+               INVOICE ADDRESS ON CHECKOUT
+-------------------------------------------------------------------------
+Title Fullname  : Mrs. Domonique Okuneva
+Company Name    : Mraz-Davis
+Address Line1   : 41754 Jenkins Common
+Address Line2   : Suite 070
+Address Line3   : Jerdeborough Montana 516757
+Country         : United States
+Phone           : 2977377161
+-------------------------------------------------------------------------

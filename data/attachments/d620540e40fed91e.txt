@@ -1,0 +1,12 @@
+
+-------------------------------------------------------------------------
+               INVOICE ADDRESS ON CHECKOUT
+-------------------------------------------------------------------------
+Title Fullname  : Mr. Niki Toy
+Company Name    : Leffler, Runolfsdottir and Kessler
+Address Line1   : 53608 Carmelita Ports
+Address Line2   : Suite 604
+Address Line3   : Turnerside Virginia 252182
+Country         : Singapore
+Phone           : 2591710273
+-------------------------------------------------------------------------

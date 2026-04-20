@@ -1,0 +1,12 @@
+
+-------------------------------------------------------------------------
+               INVOICE ADDRESS ON CHECKOUT
+-------------------------------------------------------------------------
+Title Fullname  : Mrs. Marcellus Corwin
+Company Name    : Batz Group
+Address Line1   : 18308 Lyndia Extension
+Address Line2   : Apt. 768
+Address Line3   : Klockofurt Massachusetts 565594
+Country         : United States
+Phone           : 3688210327
+-------------------------------------------------------------------------

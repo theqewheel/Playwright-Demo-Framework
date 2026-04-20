@@ -1,0 +1,67 @@
+2026-04-20 10:54:23 [TestNG-test-Release 1.0 Testing for AE-4] INFO  [qa] [Test_AE10_TC23_Verify_Address_On_Checkout_chrome_23] framework.listeners.TestListener - --- STARTING TEST : PlaceOrderTests#Test_AE10_TC23_Verify_Address_On_Checkout on chrome [thread-23] ---
+2026-04-20 10:54:23 [TestNG-test-Release 1.0 Testing for AE-4] INFO  [qa] [Test_AE10_TC23_Verify_Address_On_Checkout_chrome_23] test.ae.PlaceOrderTests - Running:Step-1
+2026-04-20 10:54:24 [TestNG-test-Release 1.0 Testing for AE-4] INFO  [qa] [Test_AE10_TC23_Verify_Address_On_Checkout_chrome_23] test.ae.PlaceOrderTests - Running:Step-2
+2026-04-20 10:54:33 [TestNG-test-Release 1.0 Testing for AE-4] INFO  [qa] [Test_AE10_TC23_Verify_Address_On_Checkout_chrome_23] pages.ae.SignupDetailPage - Checkbox: 'Newsletter' is set to: false
+2026-04-20 10:54:33 [TestNG-test-Release 1.0 Testing for AE-4] INFO  [qa] [Test_AE10_TC23_Verify_Address_On_Checkout_chrome_23] pages.ae.SignupDetailPage - Checkbox: 'Special Offers' is set to: false
+2026-04-20 10:54:33 [TestNG-test-Release 1.0 Testing for AE-4] ERROR [qa] [Test_AE10_TC23_Verify_Address_On_Checkout_chrome_23] io.qameta.allure.util.NamingUtils - Could not process empty pattern
+2026-04-20 10:54:33 [TestNG-test-Release 1.0 Testing for AE-4] ERROR [qa] [Test_AE10_TC23_Verify_Address_On_Checkout_chrome_23] io.qameta.allure.util.NamingUtils - Could not process empty pattern
+2026-04-20 10:54:42 [TestNG-test-Release 1.0 Testing for AE-4] ERROR [qa] [Test_AE10_TC23_Verify_Address_On_Checkout_chrome_23] io.qameta.allure.util.NamingUtils - Could not find parameter zipcpde
+2026-04-20 10:54:46 [TestNG-test-Release 1.0 Testing for AE-4] INFO  [qa] [Test_AE10_TC23_Verify_Address_On_Checkout_chrome_23] test.ae.PlaceOrderTests - Running:Step-3
+2026-04-20 10:54:48 [TestNG-test-Release 1.0 Testing for AE-4] INFO  [qa] [Test_AE10_TC23_Verify_Address_On_Checkout_chrome_23] pages.ae.HomePage - Navigating to Products
+2026-04-20 10:54:51 [TestNG-test-Release 1.0 Testing for AE-4] INFO  [qa] [Test_AE10_TC23_Verify_Address_On_Checkout_chrome_23] pages.ae.ProductsPage - 
+---------------------------------------------------
+Product 1 Added To Cart
+Name  : Blue Top
+Price : 500
+------------------------xxxx-----------------------
+
+2026-04-20 10:54:54 [TestNG-test-Release 1.0 Testing for AE-4] INFO  [qa] [Test_AE10_TC23_Verify_Address_On_Checkout_chrome_23] pages.ae.ProductsPage - 
+---------------------------------------------------
+Product 2 Added To Cart
+Name  : Men Tshirt
+Price : 400
+------------------------xxxx-----------------------
+
+2026-04-20 10:54:54 [TestNG-test-Release 1.0 Testing for AE-4] INFO  [qa] [Test_AE10_TC23_Verify_Address_On_Checkout_chrome_23] test.ae.PlaceOrderTests - Running:Step-4
+2026-04-20 10:54:55 [TestNG-test-Release 1.0 Testing for AE-4] INFO  [qa] [Test_AE10_TC23_Verify_Address_On_Checkout_chrome_23] pages.ae.HomePage - Navigating to Cart
+2026-04-20 10:54:57 [TestNG-test-Release 1.0 Testing for AE-4] INFO  [qa] [Test_AE10_TC23_Verify_Address_On_Checkout_chrome_23] test.ae.PlaceOrderTests - Running:Step-5
+2026-04-20 10:54:57 [TestNG-test-Release 1.0 Testing for AE-4] INFO  [qa] [Test_AE10_TC23_Verify_Address_On_Checkout_chrome_23] pages.ae.CheckOutPage - 
+-------------------------------------------------------------------------
+               DELIVERY ADDRESS ON CHECKOUT
+-------------------------------------------------------------------------
+Title Fullname  : Mr. Britta Rodriguez
+Company Name    : Quitzon-Wisozk
+Address Line1   : 13300 Jose Fort
+Address Line2   : Suite 663
+Address Line3   : Kuhictown Texas 509340
+Country         : Israel
+Phone           : 4255227197
+-------------------------------------------------------------------------
+
+2026-04-20 10:54:57 [TestNG-test-Release 1.0 Testing for AE-4] INFO  [qa] [Test_AE10_TC23_Verify_Address_On_Checkout_chrome_23] pages.ae.CheckOutPage - 
+-------------------------------------------------------------------------
+               INVOICE ADDRESS ON CHECKOUT
+-------------------------------------------------------------------------
+Title Fullname  : Mr. Britta Rodriguez
+Company Name    : Quitzon-Wisozk
+Address Line1   : 13300 Jose Fort
+Address Line2   : Suite 663
+Address Line3   : Kuhictown Texas 509340
+Country         : Israel
+Phone           : 4255227197
+--------------------------------------------------------------------------
+
+2026-04-20 10:54:57 [TestNG-test-Release 1.0 Testing for AE-4] INFO  [qa] [Test_AE10_TC23_Verify_Address_On_Checkout_chrome_23] test.ae.PlaceOrderTests - Running:Step-7
+2026-04-20 10:54:57 [TestNG-test-Release 1.0 Testing for AE-4] INFO  [qa] [Test_AE10_TC23_Verify_Address_On_Checkout_chrome_23] test.ae.PlaceOrderTests - Running:Step-8 >>>> Cleanup
+2026-04-20 10:54:59 [TestNG-test-Release 1.0 Testing for AE-4] INFO  [qa] [Test_AE10_TC23_Verify_Address_On_Checkout_chrome_23] framework.listeners.TestListener - TEST PASSED: Test_AE10_TC23_Verify_Address_On_Checkout
+2026-04-20 10:55:00 [TestNG-test-Release 1.0 Testing for AE-4] ERROR [qa] [Test_AE10_TC23_Verify_Address_On_Checkout_chrome_23] io.qameta.allure.AllureLifecycle - Could not add attachment: no test is running
+2026-04-20 10:55:00 [TestNG-test-Release 1.0 Testing for AE-4] INFO  [qa] [Test_AE10_TC23_Verify_Address_On_Checkout_chrome_23] framework.listeners.TestListener - Screenshot attached: PASSED Screenshot:
+2026-04-20 10:55:01 [TestNG-test-Release 1.0 Testing for AE-4] INFO  [qa] [Test_AE10_TC23_Verify_Address_On_Checkout_chrome_23] test.ae.PlaceOrderTests - Trace stopped for: Test_AE10_TC23_Verify_Address_On_Checkout
+2026-04-20 10:55:02 [TestNG-test-Release 1.0 Testing for AE-4] INFO  [qa] [Test_AE10_TC23_Verify_Address_On_Checkout_chrome_23] framework.drivers.DriverManager - Browser closed successfully.
+2026-04-20 10:55:02 [TestNG-test-Release 1.0 Testing for AE-4] INFO  [qa] [Test_AE10_TC23_Verify_Address_On_Checkout_chrome_23] test.ae.PlaceOrderTests - Driver shutdown successful.
+2026-04-20 10:55:02 [TestNG-test-Release 1.0 Testing for AE-4] INFO  [qa] [Test_AE10_TC23_Verify_Address_On_Checkout_chrome_23] reporting.ReportManager - ✅ Attachment added to Allure: 🎭 Playwright Trace — Test_AE10_TC23_Verify_Address_On_Checkout
+2026-04-20 10:55:02 [TestNG-test-Release 1.0 Testing for AE-4] INFO  [qa] [Test_AE10_TC23_Verify_Address_On_Checkout_chrome_23] test.ae.PlaceOrderTests - Trace attached for: Test_AE10_TC23_Verify_Address_On_Checkout
+2026-04-20 10:55:02 [TestNG-test-Release 1.0 Testing for AE-4] INFO  [qa] [Test_AE10_TC23_Verify_Address_On_Checkout_chrome_23] test.ae.PlaceOrderTests - trace temp file deleted from disk.
+2026-04-20 10:55:02 [TestNG-test-Release 1.0 Testing for AE-4] INFO  [qa] [Test_AE10_TC23_Verify_Address_On_Checkout_chrome_23] reporting.ReportManager - ✅ Attachment added to Allure: 🎬 Test Video — Test_AE10_TC23_Verify_Address_On_Checkout
+2026-04-20 10:55:02 [TestNG-test-Release 1.0 Testing for AE-4] INFO  [qa] [Test_AE10_TC23_Verify_Address_On_Checkout_chrome_23] test.ae.PlaceOrderTests - Video attached for: Test_AE10_TC23_Verify_Address_On_Checkout
+2026-04-20 10:55:02 [TestNG-test-Release 1.0 Testing for AE-4] INFO  [qa] [Test_AE10_TC23_Verify_Address_On_Checkout_chrome_23] test.ae.PlaceOrderTests - video temp file deleted from disk.

@@ -1,0 +1,15 @@
+2026-04-27 11:09:54 [TestNG-test-Release 1.0 Testing for AE-2] INFO  [qa] [Test_AE2_TC03_Verify_InValid_User_Login_chrome_30] framework.listeners.TestListener - --- STARTING TEST : LoginTests#Test_AE2_TC03_Verify_InValid_User_Login on chrome [thread-30] ---
+2026-04-27 11:09:54 [TestNG-test-Release 1.0 Testing for AE-2] INFO  [qa] [Test_AE2_TC03_Verify_InValid_User_Login_chrome_30] test.ae.LoginTests - Running:Step-1
+2026-04-27 11:09:57 [TestNG-test-Release 1.0 Testing for AE-2] INFO  [qa] [Test_AE2_TC03_Verify_InValid_User_Login_chrome_30] test.ae.LoginTests - Running:Step-2
+2026-04-27 11:10:02 [TestNG-test-Release 1.0 Testing for AE-2] INFO  [qa] [Test_AE2_TC03_Verify_InValid_User_Login_chrome_30] framework.listeners.TestListener - TEST PASSED: Test_AE2_TC03_Verify_InValid_User_Login
+2026-04-27 11:10:02 [TestNG-test-Release 1.0 Testing for AE-2] ERROR [qa] [Test_AE2_TC03_Verify_InValid_User_Login_chrome_30] io.qameta.allure.AllureLifecycle - Could not add attachment: no test is running
+2026-04-27 11:10:02 [TestNG-test-Release 1.0 Testing for AE-2] INFO  [qa] [Test_AE2_TC03_Verify_InValid_User_Login_chrome_30] framework.listeners.TestListener - Screenshot attached: PASSED Screenshot:
+2026-04-27 11:10:03 [TestNG-test-Release 1.0 Testing for AE-2] INFO  [qa] [Test_AE2_TC03_Verify_InValid_User_Login_chrome_30] test.ae.LoginTests - Trace stopped for: Test_AE2_TC03_Verify_InValid_User_Login
+2026-04-27 11:10:04 [TestNG-test-Release 1.0 Testing for AE-2] INFO  [qa] [Test_AE2_TC03_Verify_InValid_User_Login_chrome_30] framework.drivers.DriverManager - Browser closed successfully.
+2026-04-27 11:10:04 [TestNG-test-Release 1.0 Testing for AE-2] INFO  [qa] [Test_AE2_TC03_Verify_InValid_User_Login_chrome_30] test.ae.LoginTests - Driver shutdown successful.
+2026-04-27 11:10:04 [TestNG-test-Release 1.0 Testing for AE-2] INFO  [qa] [Test_AE2_TC03_Verify_InValid_User_Login_chrome_30] reporting.ReportManager - ✅ Attachment added to Allure: 🎭 Playwright Trace — Test_AE2_TC03_Verify_InValid_User_Login
+2026-04-27 11:10:04 [TestNG-test-Release 1.0 Testing for AE-2] INFO  [qa] [Test_AE2_TC03_Verify_InValid_User_Login_chrome_30] test.ae.LoginTests - Trace attached for: Test_AE2_TC03_Verify_InValid_User_Login
+2026-04-27 11:10:04 [TestNG-test-Release 1.0 Testing for AE-2] INFO  [qa] [Test_AE2_TC03_Verify_InValid_User_Login_chrome_30] test.ae.LoginTests - trace temp file deleted from disk.
+2026-04-27 11:10:04 [TestNG-test-Release 1.0 Testing for AE-2] INFO  [qa] [Test_AE2_TC03_Verify_InValid_User_Login_chrome_30] reporting.ReportManager - ✅ Attachment added to Allure: 🎬 Test Video — Test_AE2_TC03_Verify_InValid_User_Login
+2026-04-27 11:10:04 [TestNG-test-Release 1.0 Testing for AE-2] INFO  [qa] [Test_AE2_TC03_Verify_InValid_User_Login_chrome_30] test.ae.LoginTests - Video attached for: Test_AE2_TC03_Verify_InValid_User_Login
+2026-04-27 11:10:04 [TestNG-test-Release 1.0 Testing for AE-2] INFO  [qa] [Test_AE2_TC03_Verify_InValid_User_Login_chrome_30] test.ae.LoginTests - video temp file deleted from disk.

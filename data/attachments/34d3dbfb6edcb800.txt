@@ -1,0 +1,12 @@
+
+-------------------------------------------------------------------------
+               INVOICE ADDRESS ON CHECKOUT
+-------------------------------------------------------------------------
+Title Fullname  : Mrs. Brett Gibson
+Company Name    : Reilly, Bogisich and Heaney
+Address Line1   : 163 Monroe Prairie
+Address Line2   : Apt. 409
+Address Line3   : Phylissside Louisiana 723587
+Country         : New Zealand
+Phone           : 6463487327
+-------------------------------------------------------------------------

@@ -1,0 +1,12 @@
+
+-------------------------------------------------------------------------
+               DELIVERY ADDRESS ON CHECKOUT
+-------------------------------------------------------------------------
+Title Fullname  : Mrs. Rosalee Carter
+Company Name    : Hilll Inc
+Address Line1   : 9823 Dorsey Road
+Address Line2   : Suite 022
+Address Line3   : Walkerhaven South Dakota 776882
+Country         : Canada
+Phone           : 6538324867
+-------------------------------------------------------------------------

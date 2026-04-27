@@ -1,0 +1,12 @@
+
+-------------------------------------------------------------------------
+               DELIVERY ADDRESS ON CHECKOUT
+-------------------------------------------------------------------------
+Title Fullname  : Mrs. Tenisha Nikolaus
+Company Name    : O'Connell-Schinner
+Address Line1   : 75000 Georgianna Squares
+Address Line2   : Suite 921
+Address Line3   : Pricefort Oklahoma 829596
+Country         : New Zealand
+Phone           : 1231891257
+-------------------------------------------------------------------------

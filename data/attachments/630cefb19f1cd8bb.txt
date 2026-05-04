@@ -1,0 +1,12 @@
+
+-------------------------------------------------------------------------
+               INVOICE ADDRESS ON CHECKOUT
+-------------------------------------------------------------------------
+Title Fullname  : Mrs. Geraldo Harris
+Company Name    : Murazik-Schaden
+Address Line1   : 975 Funk Coves
+Address Line2   : Apt. 755
+Address Line3   : Danikafort Maine 289448
+Country         : New Zealand
+Phone           : 5122537870
+-------------------------------------------------------------------------

@@ -1,0 +1,12 @@
+
+-------------------------------------------------------------------------
+               INVOICE ADDRESS ON CHECKOUT
+-------------------------------------------------------------------------
+Title Fullname  : Mrs. Coy Bartell
+Company Name    : Leuschke, Price and Cole
+Address Line1   : 7287 Nitzsche Point
+Address Line2   : Apt. 534
+Address Line3   : East Ryan Minnesota 835486
+Country         : United States
+Phone           : 8027488637
+-------------------------------------------------------------------------

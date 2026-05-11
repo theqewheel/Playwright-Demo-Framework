@@ -1,0 +1,12 @@
+
+-------------------------------------------------------------------------
+               INVOICE ADDRESS ON CHECKOUT
+-------------------------------------------------------------------------
+Title Fullname  : Mrs. Trang Rolfson
+Company Name    : Kub-Volkman
+Address Line1   : 07041 Gleichner Pine
+Address Line2   : Apt. 085
+Address Line3   : Olsonstad North Carolina 173860
+Country         : Canada
+Phone           : 2626649174
+-------------------------------------------------------------------------

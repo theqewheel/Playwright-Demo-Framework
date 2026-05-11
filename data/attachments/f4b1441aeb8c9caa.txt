@@ -1,0 +1,12 @@
+
+-------------------------------------------------------------------------
+               INVOICE ADDRESS ON CHECKOUT
+-------------------------------------------------------------------------
+Title Fullname  : Mr. Amy Purdy
+Company Name    : Hansen-Wolff
+Address Line1   : 367 Abram Row
+Address Line2   : Suite 257
+Address Line3   : South Izola Alaska 653531
+Country         : United States
+Phone           : 7378733363
+-------------------------------------------------------------------------

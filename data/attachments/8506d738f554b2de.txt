@@ -1,0 +1,12 @@
+
+-------------------------------------------------------------------------
+               DELIVERY ADDRESS ON CHECKOUT
+-------------------------------------------------------------------------
+Title Fullname  : Mr. Jennie Rolfson
+Company Name    : Corkery-Shields
+Address Line1   : 22508 Alisha Route
+Address Line2   : Suite 798
+Address Line3   : Lake Colinmouth Connecticut 120270
+Country         : Australia
+Phone           : 7324890770
+-------------------------------------------------------------------------

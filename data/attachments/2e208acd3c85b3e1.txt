@@ -1,0 +1,12 @@
+
+-------------------------------------------------------------------------
+               INVOICE ADDRESS ON CHECKOUT
+-------------------------------------------------------------------------
+Title Fullname  : Mr. Maude Williamson
+Company Name    : Homenick-Jerde
+Address Line1   : 70413 Runte View
+Address Line2   : Apt. 949
+Address Line3   : East Tysonchester Pennsylvania 149161
+Country         : United States
+Phone           : 6365691487
+-------------------------------------------------------------------------

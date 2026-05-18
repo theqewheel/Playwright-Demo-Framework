@@ -1,0 +1,12 @@
+
+-------------------------------------------------------------------------
+               DELIVERY ADDRESS ON CHECKOUT
+-------------------------------------------------------------------------
+Title Fullname  : Mrs. Virgilio Kirlin
+Company Name    : Runolfsdottir-Bernier
+Address Line1   : 4974 Joel Fall
+Address Line2   : Suite 302
+Address Line3   : Alvarochester Florida 001213
+Country         : New Zealand
+Phone           : 1502523420
+-------------------------------------------------------------------------

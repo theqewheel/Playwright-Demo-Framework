@@ -1,0 +1,12 @@
+
+-------------------------------------------------------------------------
+               INVOICE ADDRESS ON CHECKOUT
+-------------------------------------------------------------------------
+Title Fullname  : Mr. Lyn Langosh
+Company Name    : Trantow-Macejkovic
+Address Line1   : 3426 Schneider Valleys
+Address Line2   : Suite 272
+Address Line3   : Pacochafurt Virginia 427415
+Country         : Canada
+Phone           : 9007430924
+-------------------------------------------------------------------------

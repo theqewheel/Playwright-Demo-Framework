@@ -1,0 +1,12 @@
+
+-------------------------------------------------------------------------
+               INVOICE ADDRESS ON CHECKOUT
+-------------------------------------------------------------------------
+Title Fullname  : Mrs. Ima Farrell
+Company Name    : Runte, Prohaska and Medhurst
+Address Line1   : 1255 Terri Junctions
+Address Line2   : Apt. 288
+Address Line3   : South Pok Kentucky 727080
+Country         : New Zealand
+Phone           : 7171905882
+-------------------------------------------------------------------------

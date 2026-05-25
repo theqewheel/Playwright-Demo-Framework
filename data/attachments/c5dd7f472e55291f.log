@@ -1,0 +1,67 @@
+2026-05-25 12:41:28 [TestNG-test-Release 1.0 Testing for AE-1] INFO  [qa] [Test_AE10_TC23_Verify_Address_On_Checkout_chrome_29] framework.listeners.TestListener - --- STARTING TEST : PlaceOrderTests#Test_AE10_TC23_Verify_Address_On_Checkout on chrome [thread-29] ---
+2026-05-25 12:41:28 [TestNG-test-Release 1.0 Testing for AE-1] INFO  [qa] [Test_AE10_TC23_Verify_Address_On_Checkout_chrome_29] test.ae.PlaceOrderTests - Running:Step-1
+2026-05-25 12:41:30 [TestNG-test-Release 1.0 Testing for AE-1] INFO  [qa] [Test_AE10_TC23_Verify_Address_On_Checkout_chrome_29] test.ae.PlaceOrderTests - Running:Step-2
+2026-05-25 12:41:40 [TestNG-test-Release 1.0 Testing for AE-1] INFO  [qa] [Test_AE10_TC23_Verify_Address_On_Checkout_chrome_29] pages.ae.SignupDetailPage - Checkbox: 'Newsletter' is set to: false
+2026-05-25 12:41:40 [TestNG-test-Release 1.0 Testing for AE-1] INFO  [qa] [Test_AE10_TC23_Verify_Address_On_Checkout_chrome_29] pages.ae.SignupDetailPage - Checkbox: 'Special Offers' is set to: false
+2026-05-25 12:41:40 [TestNG-test-Release 1.0 Testing for AE-1] ERROR [qa] [Test_AE10_TC23_Verify_Address_On_Checkout_chrome_29] io.qameta.allure.util.NamingUtils - Could not process empty pattern
+2026-05-25 12:41:40 [TestNG-test-Release 1.0 Testing for AE-1] ERROR [qa] [Test_AE10_TC23_Verify_Address_On_Checkout_chrome_29] io.qameta.allure.util.NamingUtils - Could not process empty pattern
+2026-05-25 12:41:48 [TestNG-test-Release 1.0 Testing for AE-1] ERROR [qa] [Test_AE10_TC23_Verify_Address_On_Checkout_chrome_29] io.qameta.allure.util.NamingUtils - Could not find parameter zipcpde
+2026-05-25 12:41:55 [TestNG-test-Release 1.0 Testing for AE-1] INFO  [qa] [Test_AE10_TC23_Verify_Address_On_Checkout_chrome_29] test.ae.PlaceOrderTests - Running:Step-3
+2026-05-25 12:41:56 [TestNG-test-Release 1.0 Testing for AE-1] INFO  [qa] [Test_AE10_TC23_Verify_Address_On_Checkout_chrome_29] pages.ae.HomePage - Navigating to Products
+2026-05-25 12:41:59 [TestNG-test-Release 1.0 Testing for AE-1] INFO  [qa] [Test_AE10_TC23_Verify_Address_On_Checkout_chrome_29] pages.ae.ProductsPage - 
+---------------------------------------------------
+Product 1 Added To Cart
+Name  : Blue Top
+Price : 500
+------------------------xxxx-----------------------
+
+2026-05-25 12:42:03 [TestNG-test-Release 1.0 Testing for AE-1] INFO  [qa] [Test_AE10_TC23_Verify_Address_On_Checkout_chrome_29] pages.ae.ProductsPage - 
+---------------------------------------------------
+Product 2 Added To Cart
+Name  : Men Tshirt
+Price : 400
+------------------------xxxx-----------------------
+
+2026-05-25 12:42:03 [TestNG-test-Release 1.0 Testing for AE-1] INFO  [qa] [Test_AE10_TC23_Verify_Address_On_Checkout_chrome_29] test.ae.PlaceOrderTests - Running:Step-4
+2026-05-25 12:42:05 [TestNG-test-Release 1.0 Testing for AE-1] INFO  [qa] [Test_AE10_TC23_Verify_Address_On_Checkout_chrome_29] pages.ae.HomePage - Navigating to Cart
+2026-05-25 12:42:07 [TestNG-test-Release 1.0 Testing for AE-1] INFO  [qa] [Test_AE10_TC23_Verify_Address_On_Checkout_chrome_29] test.ae.PlaceOrderTests - Running:Step-5
+2026-05-25 12:42:07 [TestNG-test-Release 1.0 Testing for AE-1] INFO  [qa] [Test_AE10_TC23_Verify_Address_On_Checkout_chrome_29] pages.ae.CheckOutPage - 
+-------------------------------------------------------------------------
+               DELIVERY ADDRESS ON CHECKOUT
+-------------------------------------------------------------------------
+Title Fullname  : Mrs. Jesse Cartwright
+Company Name    : Botsford-Macejkovic
+Address Line1   : 82390 Forest Common
+Address Line2   : Suite 743
+Address Line3   : Littleland Indiana 933155
+Country         : Israel
+Phone           : 3743243873
+-------------------------------------------------------------------------
+
+2026-05-25 12:42:07 [TestNG-test-Release 1.0 Testing for AE-1] INFO  [qa] [Test_AE10_TC23_Verify_Address_On_Checkout_chrome_29] pages.ae.CheckOutPage - 
+-------------------------------------------------------------------------
+               INVOICE ADDRESS ON CHECKOUT
+-------------------------------------------------------------------------
+Title Fullname  : Mrs. Jesse Cartwright
+Company Name    : Botsford-Macejkovic
+Address Line1   : 82390 Forest Common
+Address Line2   : Suite 743
+Address Line3   : Littleland Indiana 933155
+Country         : Israel
+Phone           : 3743243873
+--------------------------------------------------------------------------
+
+2026-05-25 12:42:07 [TestNG-test-Release 1.0 Testing for AE-1] INFO  [qa] [Test_AE10_TC23_Verify_Address_On_Checkout_chrome_29] test.ae.PlaceOrderTests - Running:Step-7
+2026-05-25 12:42:07 [TestNG-test-Release 1.0 Testing for AE-1] INFO  [qa] [Test_AE10_TC23_Verify_Address_On_Checkout_chrome_29] test.ae.PlaceOrderTests - Running:Step-8 >>>> Cleanup
+2026-05-25 12:42:10 [TestNG-test-Release 1.0 Testing for AE-1] INFO  [qa] [Test_AE10_TC23_Verify_Address_On_Checkout_chrome_29] framework.listeners.TestListener - TEST PASSED: Test_AE10_TC23_Verify_Address_On_Checkout
+2026-05-25 12:42:12 [TestNG-test-Release 1.0 Testing for AE-1] ERROR [qa] [Test_AE10_TC23_Verify_Address_On_Checkout_chrome_29] io.qameta.allure.AllureLifecycle - Could not add attachment: no test is running
+2026-05-25 12:42:12 [TestNG-test-Release 1.0 Testing for AE-1] INFO  [qa] [Test_AE10_TC23_Verify_Address_On_Checkout_chrome_29] framework.listeners.TestListener - Screenshot attached: PASSED Screenshot:
+2026-05-25 12:42:12 [TestNG-test-Release 1.0 Testing for AE-1] INFO  [qa] [Test_AE10_TC23_Verify_Address_On_Checkout_chrome_29] test.ae.PlaceOrderTests - Trace stopped for: Test_AE10_TC23_Verify_Address_On_Checkout
+2026-05-25 12:42:14 [TestNG-test-Release 1.0 Testing for AE-1] INFO  [qa] [Test_AE10_TC23_Verify_Address_On_Checkout_chrome_29] framework.drivers.DriverManager - Browser closed successfully.
+2026-05-25 12:42:14 [TestNG-test-Release 1.0 Testing for AE-1] INFO  [qa] [Test_AE10_TC23_Verify_Address_On_Checkout_chrome_29] test.ae.PlaceOrderTests - Driver shutdown successful.
+2026-05-25 12:42:14 [TestNG-test-Release 1.0 Testing for AE-1] INFO  [qa] [Test_AE10_TC23_Verify_Address_On_Checkout_chrome_29] reporting.ReportManager - ✅ Attachment added to Allure: 🎭 Playwright Trace — Test_AE10_TC23_Verify_Address_On_Checkout
+2026-05-25 12:42:14 [TestNG-test-Release 1.0 Testing for AE-1] INFO  [qa] [Test_AE10_TC23_Verify_Address_On_Checkout_chrome_29] test.ae.PlaceOrderTests - Trace attached for: Test_AE10_TC23_Verify_Address_On_Checkout
+2026-05-25 12:42:14 [TestNG-test-Release 1.0 Testing for AE-1] INFO  [qa] [Test_AE10_TC23_Verify_Address_On_Checkout_chrome_29] test.ae.PlaceOrderTests - trace temp file deleted from disk.
+2026-05-25 12:42:14 [TestNG-test-Release 1.0 Testing for AE-1] INFO  [qa] [Test_AE10_TC23_Verify_Address_On_Checkout_chrome_29] reporting.ReportManager - ✅ Attachment added to Allure: 🎬 Test Video — Test_AE10_TC23_Verify_Address_On_Checkout
+2026-05-25 12:42:14 [TestNG-test-Release 1.0 Testing for AE-1] INFO  [qa] [Test_AE10_TC23_Verify_Address_On_Checkout_chrome_29] test.ae.PlaceOrderTests - Video attached for: Test_AE10_TC23_Verify_Address_On_Checkout
+2026-05-25 12:42:14 [TestNG-test-Release 1.0 Testing for AE-1] INFO  [qa] [Test_AE10_TC23_Verify_Address_On_Checkout_chrome_29] test.ae.PlaceOrderTests - video temp file deleted from disk.

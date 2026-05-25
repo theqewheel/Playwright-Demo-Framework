@@ -1,0 +1,12 @@
+
+-------------------------------------------------------------------------
+               DELIVERY ADDRESS ON CHECKOUT
+-------------------------------------------------------------------------
+Title Fullname  : Mrs. Jesse Cartwright
+Company Name    : Botsford-Macejkovic
+Address Line1   : 82390 Forest Common
+Address Line2   : Suite 743
+Address Line3   : Littleland Indiana 933155
+Country         : Israel
+Phone           : 3743243873
+-------------------------------------------------------------------------

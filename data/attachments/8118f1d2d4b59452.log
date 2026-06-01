@@ -1,0 +1,138 @@
+2026-06-01 15:33:25 [TestNG-test-Release 1.0 Testing for AE-1] INFO  [qa] [Test_AE10_TC16_Verify_Place_Order_LoggedIn_Before_Checkout_chrome_29] framework.listeners.TestListener - --- STARTING TEST : PlaceOrderTests#Test_AE10_TC16_Verify_Place_Order_LoggedIn_Before_Checkout on chrome [thread-29] ---
+2026-06-01 15:33:25 [TestNG-test-Release 1.0 Testing for AE-1] INFO  [qa] [Test_AE10_TC16_Verify_Place_Order_LoggedIn_Before_Checkout_chrome_29] test.ae.PlaceOrderTests - Running:Step-1
+2026-06-01 15:33:26 [TestNG-test-Release 1.0 Testing for AE-1] INFO  [qa] [Test_AE10_TC16_Verify_Place_Order_LoggedIn_Before_Checkout_chrome_29] test.ae.PlaceOrderTests - Running:Step-1.1 >>>> Pre-Data set up for account login
+2026-06-01 15:33:39 [TestNG-test-Release 1.0 Testing for AE-1] INFO  [qa] [Test_AE10_TC16_Verify_Place_Order_LoggedIn_Before_Checkout_chrome_29] pages.ae.SignupDetailPage - Checkbox: 'Newsletter' is set to: false
+2026-06-01 15:33:39 [TestNG-test-Release 1.0 Testing for AE-1] INFO  [qa] [Test_AE10_TC16_Verify_Place_Order_LoggedIn_Before_Checkout_chrome_29] pages.ae.SignupDetailPage - Checkbox: 'Special Offers' is set to: false
+2026-06-01 15:33:39 [TestNG-test-Release 1.0 Testing for AE-1] ERROR [qa] [Test_AE10_TC16_Verify_Place_Order_LoggedIn_Before_Checkout_chrome_29] io.qameta.allure.util.NamingUtils - Could not process empty pattern
+2026-06-01 15:33:39 [TestNG-test-Release 1.0 Testing for AE-1] ERROR [qa] [Test_AE10_TC16_Verify_Place_Order_LoggedIn_Before_Checkout_chrome_29] io.qameta.allure.util.NamingUtils - Could not process empty pattern
+2026-06-01 15:33:48 [TestNG-test-Release 1.0 Testing for AE-1] ERROR [qa] [Test_AE10_TC16_Verify_Place_Order_LoggedIn_Before_Checkout_chrome_29] io.qameta.allure.util.NamingUtils - Could not find parameter zipcpde
+2026-06-01 15:33:58 [TestNG-test-Release 1.0 Testing for AE-1] INFO  [qa] [Test_AE10_TC16_Verify_Place_Order_LoggedIn_Before_Checkout_chrome_29] test.ae.PlaceOrderTests - Running:Step-2
+2026-06-01 15:34:15 [TestNG-test-Release 1.0 Testing for AE-1] INFO  [qa] [Test_AE10_TC16_Verify_Place_Order_LoggedIn_Before_Checkout_chrome_29] test.ae.PlaceOrderTests - Running:Step-3
+2026-06-01 15:34:20 [TestNG-test-Release 1.0 Testing for AE-1] INFO  [qa] [Test_AE10_TC16_Verify_Place_Order_LoggedIn_Before_Checkout_chrome_29] pages.ae.HomePage - Navigating to Products
+2026-06-01 15:34:20 [TestNG-test-Release 1.0 Testing for AE-1] WARN  [qa] [Test_AE10_TC16_Verify_Place_Order_LoggedIn_Before_Checkout_chrome_29] pages.ae.ProductsPage - Multiple matching products found for - Sleeveless, hence choosing the first match found.
+2026-06-01 15:34:53 [TestNG-test-Release 1.0 Testing for AE-1] ERROR [qa] [Test_AE10_TC16_Verify_Place_Order_LoggedIn_Before_Checkout_chrome_29] framework.listeners.TestListener - ========================================
+2026-06-01 15:34:53 [TestNG-test-Release 1.0 Testing for AE-1] ERROR [qa] [Test_AE10_TC16_Verify_Place_Order_LoggedIn_Before_Checkout_chrome_29] framework.listeners.TestListener -          ACTUAL TEST FAILURE            
+2026-06-01 15:34:53 [TestNG-test-Release 1.0 Testing for AE-1] ERROR [qa] [Test_AE10_TC16_Verify_Place_Order_LoggedIn_Before_Checkout_chrome_29] framework.listeners.TestListener - ========================================
+2026-06-01 15:34:53 [TestNG-test-Release 1.0 Testing for AE-1] ERROR [qa] [Test_AE10_TC16_Verify_Place_Order_LoggedIn_Before_Checkout_chrome_29] framework.listeners.TestListener - Test    : Test_AE10_TC16_Verify_Place_Order_LoggedIn_Before_Checkout
+2026-06-01 15:34:53 [TestNG-test-Release 1.0 Testing for AE-1] ERROR [qa] [Test_AE10_TC16_Verify_Place_Order_LoggedIn_Before_Checkout_chrome_29] framework.listeners.TestListener - Cause   : TimeoutError
+2026-06-01 15:34:53 [TestNG-test-Release 1.0 Testing for AE-1] ERROR [qa] [Test_AE10_TC16_Verify_Place_Order_LoggedIn_Before_Checkout_chrome_29] framework.listeners.TestListener - Details : 
+com.microsoft.playwright.TimeoutError: Error {
+  message='Timeout 30000ms exceeded.
+  name='TimeoutError
+  stack='TimeoutError: Timeout 30000ms exceeded.
+    at ProgressController.run (/tmp/playwright-java-14361941212052468974/package/lib/server/progress.js:86:28)
+    at FrameDispatcher._runCommand (/tmp/playwright-java-14361941212052468974/package/lib/server/dispatchers/dispatcher.js:91:31)
+    at DispatcherConnection.dispatch (/tmp/playwright-java-14361941212052468974/package/lib/server/dispatchers/dispatcher.js:325:39)
+}
+Call log:
+-   - waiting for getByText("Continue Shopping")
+-     - locator resolved to <button data-dismiss="modal" class="btn btn-success close-modal btn-block">Continue Shopping</button>
+-   - attempting click action
+-     2 × waiting for element to be visible, enabled and stable
+-       - element is not visible
+-     - retrying click action
+-     - waiting 20ms
+-     2 × waiting for element to be visible, enabled and stable
+-       - element is not visible
+-     - retrying click action
+-       - waiting 100ms
+-     58 × waiting for element to be visible, enabled and stable
+-        - element is not visible
+-      - retrying click action
+-        - waiting 500ms
+
+	at com.microsoft.playwright.impl.WaitableResult.get(WaitableResult.java:52)
+	at com.microsoft.playwright.impl.ChannelOwner.runUntil(ChannelOwner.java:138)
+	at com.microsoft.playwright.impl.Connection.sendMessage(Connection.java:131)
+	at com.microsoft.playwright.impl.ChannelOwner.sendMessage(ChannelOwner.java:124)
+	at com.microsoft.playwright.impl.FrameImpl.clickImpl(FrameImpl.java:244)
+	at com.microsoft.playwright.impl.LocatorImpl.click(LocatorImpl.java:164)
+	at com.microsoft.playwright.Locator.click(Locator.java:2543)
+	at pages.ae.ProductsPage.clickContinueShopping(ProductsPage.java:185)
+	at pages.ae.ProductsPage.addMultipleProductsToCartAndRetreiveProductDetails(ProductsPage.java:480)
+	at test.ae.PlaceOrderTests.Test_AE10_TC16_Verify_Place_Order_LoggedIn_Before_Checkout(PlaceOrderTests.java:337)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
+	at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:697)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
+	at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
+	at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:1005)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
+	at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
+	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:572)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at org.testng.internal.thread.graph.TestNGFutureTask.run(TestNGFutureTask.java:22)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+Caused by: com.microsoft.playwright.TimeoutError: Error {
+  message='Timeout 30000ms exceeded.
+  name='TimeoutError
+  stack='TimeoutError: Timeout 30000ms exceeded.
+    at ProgressController.run (/tmp/playwright-java-14361941212052468974/package/lib/server/progress.js:86:28)
+    at FrameDispatcher._runCommand (/tmp/playwright-java-14361941212052468974/package/lib/server/dispatchers/dispatcher.js:91:31)
+    at DispatcherConnection.dispatch (/tmp/playwright-java-14361941212052468974/package/lib/server/dispatchers/dispatcher.js:325:39)
+}
+Call log:
+-   - waiting for getByText("Continue Shopping")
+-     - locator resolved to <button data-dismiss="modal" class="btn btn-success close-modal btn-block">Continue Shopping</button>
+-   - attempting click action
+-     2 × waiting for element to be visible, enabled and stable
+-       - element is not visible
+-     - retrying click action
+-     - waiting 20ms
+-     2 × waiting for element to be visible, enabled and stable
+-       - element is not visible
+-     - retrying click action
+-       - waiting 100ms
+-     58 × waiting for element to be visible, enabled and stable
+-        - element is not visible
+-      - retrying click action
+-        - waiting 500ms
+
+	at com.microsoft.playwright.impl.Connection.dispatch(Connection.java:257)
+	at com.microsoft.playwright.impl.Connection.processOneMessage(Connection.java:214)
+	at com.microsoft.playwright.impl.ChannelOwner.runUntil(ChannelOwner.java:136)
+	... 24 common frames omitted
+2026-06-01 15:34:53 [TestNG-test-Release 1.0 Testing for AE-1] ERROR [qa] [Test_AE10_TC16_Verify_Place_Order_LoggedIn_Before_Checkout_chrome_29] framework.listeners.TestListener - ==================XXXXX=================
+2026-06-01 15:34:53 [TestNG-test-Release 1.0 Testing for AE-1] INFO  [qa] [Test_AE10_TC16_Verify_Place_Order_LoggedIn_Before_Checkout_chrome_29] framework.listeners.TestListener - TEST FAILED: Test_AE10_TC16_Verify_Place_Order_LoggedIn_Before_Checkout
+2026-06-01 15:34:53 [TestNG-test-Release 1.0 Testing for AE-1] ERROR [qa] [Test_AE10_TC16_Verify_Place_Order_LoggedIn_Before_Checkout_chrome_29] framework.listeners.TestListener - Failure Reason: com.microsoft.playwright.TimeoutError: Error {
+  message='Timeout 30000ms exceeded.
+  name='TimeoutError
+  stack='TimeoutError: Timeout 30000ms exceeded.
+    at ProgressController.run (/tmp/playwright-java-14361941212052468974/package/lib/server/progress.js:86:28)
+    at FrameDispatcher._runCommand (/tmp/playwright-java-14361941212052468974/package/lib/server/dispatchers/dispatcher.js:91:31)
+    at DispatcherConnection.dispatch (/tmp/playwright-java-14361941212052468974/package/lib/server/dispatchers/dispatcher.js:325:39)
+}
+Call log:
+-   - waiting for getByText("Continue Shopping")
+-     - locator resolved to <button data-dismiss="modal" class="btn btn-success close-modal btn-block">Continue Shopping</button>
+-   - attempting click action
+-     2 × waiting for element to be visible, enabled and stable
+-       - element is not visible
+-     - retrying click action
+-     - waiting 20ms
+-     2 × waiting for element to be visible, enabled and stable
+-       - element is not visible
+-     - retrying click action
+-       - waiting 100ms
+-     58 × waiting for element to be visible, enabled and stable
+-        - element is not visible
+-      - retrying click action
+-        - waiting 500ms
+
+2026-06-01 15:34:54 [TestNG-test-Release 1.0 Testing for AE-1] ERROR [qa] [Test_AE10_TC16_Verify_Place_Order_LoggedIn_Before_Checkout_chrome_29] io.qameta.allure.AllureLifecycle - Could not add attachment: no test is running
+2026-06-01 15:34:54 [TestNG-test-Release 1.0 Testing for AE-1] ERROR [qa] [Test_AE10_TC16_Verify_Place_Order_LoggedIn_Before_Checkout_chrome_29] io.qameta.allure.AllureLifecycle - Could not start step: no test case running
+2026-06-01 15:34:54 [TestNG-test-Release 1.0 Testing for AE-1] ERROR [qa] [Test_AE10_TC16_Verify_Place_Order_LoggedIn_Before_Checkout_chrome_29] io.qameta.allure.AllureLifecycle - Could not stop step: step with uuid f07574dc-2e3b-4a69-a9c9-0ee394605f3f not found
+2026-06-01 15:34:54 [TestNG-test-Release 1.0 Testing for AE-1] INFO  [qa] [Test_AE10_TC16_Verify_Place_Order_LoggedIn_Before_Checkout_chrome_29] framework.listeners.TestListener - Screenshot attached: FAILURE Screenshot:
+2026-06-01 15:34:55 [TestNG-test-Release 1.0 Testing for AE-1] INFO  [qa] [Test_AE10_TC16_Verify_Place_Order_LoggedIn_Before_Checkout_chrome_29] test.ae.PlaceOrderTests - Trace stopped for: Test_AE10_TC16_Verify_Place_Order_LoggedIn_Before_Checkout
+2026-06-01 15:34:58 [TestNG-test-Release 1.0 Testing for AE-1] INFO  [qa] [Test_AE10_TC16_Verify_Place_Order_LoggedIn_Before_Checkout_chrome_29] framework.drivers.DriverManager - Browser closed successfully.
+2026-06-01 15:34:58 [TestNG-test-Release 1.0 Testing for AE-1] INFO  [qa] [Test_AE10_TC16_Verify_Place_Order_LoggedIn_Before_Checkout_chrome_29] test.ae.PlaceOrderTests - Driver shutdown successful.
+2026-06-01 15:34:58 [TestNG-test-Release 1.0 Testing for AE-1] INFO  [qa] [Test_AE10_TC16_Verify_Place_Order_LoggedIn_Before_Checkout_chrome_29] reporting.ReportManager - ✅ Attachment added to Allure: 🎭 Playwright Trace — Test_AE10_TC16_Verify_Place_Order_LoggedIn_Before_Checkout
+2026-06-01 15:34:58 [TestNG-test-Release 1.0 Testing for AE-1] INFO  [qa] [Test_AE10_TC16_Verify_Place_Order_LoggedIn_Before_Checkout_chrome_29] test.ae.PlaceOrderTests - Trace attached for: Test_AE10_TC16_Verify_Place_Order_LoggedIn_Before_Checkout
+2026-06-01 15:34:58 [TestNG-test-Release 1.0 Testing for AE-1] INFO  [qa] [Test_AE10_TC16_Verify_Place_Order_LoggedIn_Before_Checkout_chrome_29] test.ae.PlaceOrderTests - trace temp file deleted from disk.
+2026-06-01 15:34:58 [TestNG-test-Release 1.0 Testing for AE-1] INFO  [qa] [Test_AE10_TC16_Verify_Place_Order_LoggedIn_Before_Checkout_chrome_29] reporting.ReportManager - ✅ Attachment added to Allure: 🎬 Test Video — Test_AE10_TC16_Verify_Place_Order_LoggedIn_Before_Checkout
+2026-06-01 15:34:58 [TestNG-test-Release 1.0 Testing for AE-1] INFO  [qa] [Test_AE10_TC16_Verify_Place_Order_LoggedIn_Before_Checkout_chrome_29] test.ae.PlaceOrderTests - Video attached for: Test_AE10_TC16_Verify_Place_Order_LoggedIn_Before_Checkout
+2026-06-01 15:34:58 [TestNG-test-Release 1.0 Testing for AE-1] INFO  [qa] [Test_AE10_TC16_Verify_Place_Order_LoggedIn_Before_Checkout_chrome_29] test.ae.PlaceOrderTests - video temp file deleted from disk.

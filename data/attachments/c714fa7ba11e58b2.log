@@ -1,0 +1,82 @@
+2026-06-01 15:30:54 [TestNG-test-Release 1.0 Testing for AE-2] INFO  [qa] [Test_AE9_TC20_Verify_Cart_On_Login_chrome_30] framework.listeners.TestListener - --- STARTING TEST : AddToCartTests#Test_AE9_TC20_Verify_Cart_On_Login on chrome [thread-30] ---
+2026-06-01 15:30:54 [TestNG-test-Release 1.0 Testing for AE-2] INFO  [qa] [Test_AE9_TC20_Verify_Cart_On_Login_chrome_30] test.ae.AddToCartTests - Running:Step-1
+2026-06-01 15:30:57 [TestNG-test-Release 1.0 Testing for AE-2] INFO  [qa] [Test_AE9_TC20_Verify_Cart_On_Login_chrome_30] test.ae.AddToCartTests - Running:Step-2
+2026-06-01 15:30:58 [TestNG-test-Release 1.0 Testing for AE-2] INFO  [qa] [Test_AE9_TC20_Verify_Cart_On_Login_chrome_30] pages.ae.HomePage - Navigating to Products
+2026-06-01 15:31:38 [TestNG-test-Release 1.0 Testing for AE-2] ERROR [qa] [Test_AE9_TC20_Verify_Cart_On_Login_chrome_30] framework.listeners.TestListener - ========================================
+2026-06-01 15:31:38 [TestNG-test-Release 1.0 Testing for AE-2] ERROR [qa] [Test_AE9_TC20_Verify_Cart_On_Login_chrome_30] framework.listeners.TestListener -          ACTUAL TEST FAILURE            
+2026-06-01 15:31:38 [TestNG-test-Release 1.0 Testing for AE-2] ERROR [qa] [Test_AE9_TC20_Verify_Cart_On_Login_chrome_30] framework.listeners.TestListener - ========================================
+2026-06-01 15:31:38 [TestNG-test-Release 1.0 Testing for AE-2] ERROR [qa] [Test_AE9_TC20_Verify_Cart_On_Login_chrome_30] framework.listeners.TestListener - Test    : Test_AE9_TC20_Verify_Cart_On_Login
+2026-06-01 15:31:38 [TestNG-test-Release 1.0 Testing for AE-2] ERROR [qa] [Test_AE9_TC20_Verify_Cart_On_Login_chrome_30] framework.listeners.TestListener - Cause   : TimeoutError
+2026-06-01 15:31:38 [TestNG-test-Release 1.0 Testing for AE-2] ERROR [qa] [Test_AE9_TC20_Verify_Cart_On_Login_chrome_30] framework.listeners.TestListener - Details : 
+com.microsoft.playwright.TimeoutError: Timeout 30000ms exceeded
+	at com.microsoft.playwright.impl.WaitableTimeout.get(WaitableTimeout.java:41)
+	at com.microsoft.playwright.impl.WaitableRace.get(WaitableRace.java:46)
+	at com.microsoft.playwright.impl.ChannelOwner.runUntil(ChannelOwner.java:138)
+	at com.microsoft.playwright.impl.FrameImpl.waitForLoadStateImpl(FrameImpl.java:848)
+	at com.microsoft.playwright.impl.FrameImpl.waitForLoadStateImpl(FrameImpl.java:833)
+	at com.microsoft.playwright.impl.PageImpl.lambda$waitForLoadState$11(PageImpl.java:1401)
+	at com.microsoft.playwright.impl.WaitForEventLogger.get(WaitForEventLogger.java:49)
+	at com.microsoft.playwright.impl.ChannelOwner.withWaitLogging(ChannelOwner.java:84)
+	at com.microsoft.playwright.impl.PageImpl.lambda$waitForLoadState$12(PageImpl.java:1400)
+	at com.microsoft.playwright.impl.ChannelOwner.lambda$withTitle$0(ChannelOwner.java:90)
+	at com.microsoft.playwright.impl.ChannelOwner.withTitle(ChannelOwner.java:98)
+	at com.microsoft.playwright.impl.ChannelOwner.withTitle(ChannelOwner.java:89)
+	at com.microsoft.playwright.impl.PageImpl.waitForLoadState(PageImpl.java:1399)
+	at com.microsoft.playwright.Page.waitForLoadState(Page.java:7861)
+	at com.microsoft.playwright.Page.waitForLoadState(Page.java:7889)
+	at pages.ae.ProductsPage.searchProduct(ProductsPage.java:65)
+	at test.ae.AddToCartTests.Test_AE9_TC20_Verify_Cart_On_Login(AddToCartTests.java:145)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
+	at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:697)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
+	at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
+	at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:1005)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
+	at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
+	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:572)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at org.testng.internal.thread.graph.TestNGFutureTask.run(TestNGFutureTask.java:22)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+2026-06-01 15:31:38 [TestNG-test-Release 1.0 Testing for AE-2] ERROR [qa] [Test_AE9_TC20_Verify_Cart_On_Login_chrome_30] framework.listeners.TestListener - ==================XXXXX=================
+2026-06-01 15:31:38 [TestNG-test-Release 1.0 Testing for AE-2] INFO  [qa] [Test_AE9_TC20_Verify_Cart_On_Login_chrome_30] framework.listeners.TestListener - TEST FAILED: Test_AE9_TC20_Verify_Cart_On_Login
+2026-06-01 15:31:38 [TestNG-test-Release 1.0 Testing for AE-2] ERROR [qa] [Test_AE9_TC20_Verify_Cart_On_Login_chrome_30] framework.listeners.TestListener - Failure Reason: com.microsoft.playwright.TimeoutError: Timeout 30000ms exceeded
+2026-06-01 15:32:08 [TestNG-test-Release 1.0 Testing for AE-2] ERROR [qa] [Test_AE9_TC20_Verify_Cart_On_Login_chrome_30] framework.listeners.TestListener - Failed to attach screenshot in listener: Error {
+  message='Timeout 30000ms exceeded.
+  name='TimeoutError
+  stack='TimeoutError: Timeout 30000ms exceeded.
+    at ProgressController.run (/tmp/playwright-java-14361941212052468974/package/lib/server/progress.js:86:28)
+    at PageDispatcher._runCommand (/tmp/playwright-java-14361941212052468974/package/lib/server/dispatchers/dispatcher.js:91:31)
+    at DispatcherConnection.dispatch (/tmp/playwright-java-14361941212052468974/package/lib/server/dispatchers/dispatcher.js:325:39)
+}
+Call log:
+-   - taking page screenshot
+-   - waiting for fonts to load...
+-   - fonts loaded
+
+2026-06-01 15:32:08 [TestNG-test-Release 1.0 Testing for AE-2] INFO  [qa] [Test_AE9_TC20_Verify_Cart_On_Login_chrome_30] test.ae.AddToCartTests - Trace stopped for: Test_AE9_TC20_Verify_Cart_On_Login
+2026-06-01 15:32:38 [TestNG-test-Release 1.0 Testing for AE-2] ERROR [qa] [Test_AE9_TC20_Verify_Cart_On_Login_chrome_30] test.ae.AddToCartTests - Manual screenshot failed: Error {
+  message='Timeout 30000ms exceeded.
+  name='TimeoutError
+  stack='TimeoutError: Timeout 30000ms exceeded.
+    at ProgressController.run (/tmp/playwright-java-14361941212052468974/package/lib/server/progress.js:86:28)
+    at PageDispatcher._runCommand (/tmp/playwright-java-14361941212052468974/package/lib/server/dispatchers/dispatcher.js:91:31)
+    at DispatcherConnection.dispatch (/tmp/playwright-java-14361941212052468974/package/lib/server/dispatchers/dispatcher.js:325:39)
+}
+Call log:
+-   - taking page screenshot
+-   - waiting for fonts to load...
+-   - fonts loaded
+
+2026-06-01 15:32:52 [TestNG-test-Release 1.0 Testing for AE-2] INFO  [qa] [Test_AE9_TC20_Verify_Cart_On_Login_chrome_30] framework.drivers.DriverManager - Browser closed successfully.
+2026-06-01 15:32:52 [TestNG-test-Release 1.0 Testing for AE-2] INFO  [qa] [Test_AE9_TC20_Verify_Cart_On_Login_chrome_30] test.ae.AddToCartTests - Driver shutdown successful.
+2026-06-01 15:32:52 [TestNG-test-Release 1.0 Testing for AE-2] INFO  [qa] [Test_AE9_TC20_Verify_Cart_On_Login_chrome_30] reporting.ReportManager - ✅ Attachment added to Allure: 🎭 Playwright Trace — Test_AE9_TC20_Verify_Cart_On_Login
+2026-06-01 15:32:52 [TestNG-test-Release 1.0 Testing for AE-2] INFO  [qa] [Test_AE9_TC20_Verify_Cart_On_Login_chrome_30] test.ae.AddToCartTests - Trace attached for: Test_AE9_TC20_Verify_Cart_On_Login
+2026-06-01 15:32:52 [TestNG-test-Release 1.0 Testing for AE-2] INFO  [qa] [Test_AE9_TC20_Verify_Cart_On_Login_chrome_30] test.ae.AddToCartTests - trace temp file deleted from disk.
+2026-06-01 15:32:52 [TestNG-test-Release 1.0 Testing for AE-2] INFO  [qa] [Test_AE9_TC20_Verify_Cart_On_Login_chrome_30] reporting.ReportManager - ✅ Attachment added to Allure: 🎬 Test Video — Test_AE9_TC20_Verify_Cart_On_Login
+2026-06-01 15:32:52 [TestNG-test-Release 1.0 Testing for AE-2] INFO  [qa] [Test_AE9_TC20_Verify_Cart_On_Login_chrome_30] test.ae.AddToCartTests - Video attached for: Test_AE9_TC20_Verify_Cart_On_Login
+2026-06-01 15:32:52 [TestNG-test-Release 1.0 Testing for AE-2] INFO  [qa] [Test_AE9_TC20_Verify_Cart_On_Login_chrome_30] test.ae.AddToCartTests - video temp file deleted from disk.

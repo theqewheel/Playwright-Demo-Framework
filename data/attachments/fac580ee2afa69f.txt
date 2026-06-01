@@ -1,0 +1,12 @@
+
+-------------------------------------------------------------------------
+               DELIVERY ADDRESS ON CHECKOUT
+-------------------------------------------------------------------------
+Title Fullname  : Mrs. Creola Conn
+Company Name    : Grady Group
+Address Line1   : 3313 Kozey Wall
+Address Line2   : Apt. 168
+Address Line3   : Harlandstad New Jersey 061409
+Country         : New Zealand
+Phone           : 8360571731
+-------------------------------------------------------------------------

@@ -1,0 +1,12 @@
+
+-------------------------------------------------------------------------
+               INVOICE ADDRESS ON CHECKOUT
+-------------------------------------------------------------------------
+Title Fullname  : Mrs. Carmella White
+Company Name    : Herzog-Ortiz
+Address Line1   : 779 Wesley Union
+Address Line2   : Suite 066
+Address Line3   : Blickberg Idaho 071173
+Country         : Singapore
+Phone           : 5483086292
+-------------------------------------------------------------------------

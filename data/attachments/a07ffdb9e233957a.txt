@@ -1,0 +1,12 @@
+
+-------------------------------------------------------------------------
+               DELIVERY ADDRESS ON CHECKOUT
+-------------------------------------------------------------------------
+Title Fullname  : Mrs. Naida Roberts
+Company Name    : Brown Group
+Address Line1   : 46690 Skiles Estates
+Address Line2   : Suite 607
+Address Line3   : Port Jeromeview Kansas 845026
+Country         : Israel
+Phone           : 5432044816
+-------------------------------------------------------------------------

@@ -1,0 +1,12 @@
+
+-------------------------------------------------------------------------
+               INVOICE ADDRESS ON CHECKOUT
+-------------------------------------------------------------------------
+Title Fullname  : Mrs. Agustin Bergstrom
+Company Name    : Price, Quitzon and Erdman
+Address Line1   : 62968 Mindy Rapid
+Address Line2   : Apt. 039
+Address Line3   : Deloisechester Colorado 827053
+Country         : United States
+Phone           : 2736420155
+-------------------------------------------------------------------------

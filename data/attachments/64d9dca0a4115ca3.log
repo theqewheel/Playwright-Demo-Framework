@@ -1,0 +1,31 @@
+2026-06-01 15:22:45 [TestNG-test-Release 1.0 Testing for AE-1] INFO  [qa] [Test_AE9_TC12_Verify_Add_Products_In_Cart_chrome_20] framework.listeners.TestListener - --- STARTING TEST : AddToCartTests#Test_AE9_TC12_Verify_Add_Products_In_Cart on chrome [thread-20] ---
+2026-06-01 15:22:45 [TestNG-test-Release 1.0 Testing for AE-1] INFO  [qa] [Test_AE9_TC12_Verify_Add_Products_In_Cart_chrome_20] test.ae.AddToCartTests - Running:Step-1
+2026-06-01 15:22:48 [TestNG-test-Release 1.0 Testing for AE-1] INFO  [qa] [Test_AE9_TC12_Verify_Add_Products_In_Cart_chrome_20] test.ae.AddToCartTests - Running:Step-2
+2026-06-01 15:22:49 [TestNG-test-Release 1.0 Testing for AE-1] INFO  [qa] [Test_AE9_TC12_Verify_Add_Products_In_Cart_chrome_20] pages.ae.HomePage - Navigating to Products
+2026-06-01 15:22:53 [TestNG-test-Release 1.0 Testing for AE-1] INFO  [qa] [Test_AE9_TC12_Verify_Add_Products_In_Cart_chrome_20] pages.ae.ProductsPage - 
+---------------------------------------------------
+Product 1 Added To Cart
+Name  : Blue Top
+Price : 500
+------------------------xxxx-----------------------
+
+2026-06-01 15:22:56 [TestNG-test-Release 1.0 Testing for AE-1] INFO  [qa] [Test_AE9_TC12_Verify_Add_Products_In_Cart_chrome_20] pages.ae.ProductsPage - 
+---------------------------------------------------
+Product 2 Added To Cart
+Name  : Men Tshirt
+Price : 400
+------------------------xxxx-----------------------
+
+2026-06-01 15:22:56 [TestNG-test-Release 1.0 Testing for AE-1] INFO  [qa] [Test_AE9_TC12_Verify_Add_Products_In_Cart_chrome_20] test.ae.AddToCartTests - Running:Step-3
+2026-06-01 15:22:57 [TestNG-test-Release 1.0 Testing for AE-1] INFO  [qa] [Test_AE9_TC12_Verify_Add_Products_In_Cart_chrome_20] framework.listeners.TestListener - TEST PASSED: Test_AE9_TC12_Verify_Add_Products_In_Cart
+2026-06-01 15:22:57 [TestNG-test-Release 1.0 Testing for AE-1] ERROR [qa] [Test_AE9_TC12_Verify_Add_Products_In_Cart_chrome_20] io.qameta.allure.AllureLifecycle - Could not add attachment: no test is running
+2026-06-01 15:22:57 [TestNG-test-Release 1.0 Testing for AE-1] INFO  [qa] [Test_AE9_TC12_Verify_Add_Products_In_Cart_chrome_20] framework.listeners.TestListener - Screenshot attached: PASSED Screenshot:
+2026-06-01 15:22:59 [TestNG-test-Release 1.0 Testing for AE-1] INFO  [qa] [Test_AE9_TC12_Verify_Add_Products_In_Cart_chrome_20] test.ae.AddToCartTests - Trace stopped for: Test_AE9_TC12_Verify_Add_Products_In_Cart
+2026-06-01 15:23:00 [TestNG-test-Release 1.0 Testing for AE-1] INFO  [qa] [Test_AE9_TC12_Verify_Add_Products_In_Cart_chrome_20] framework.drivers.DriverManager - Browser closed successfully.
+2026-06-01 15:23:00 [TestNG-test-Release 1.0 Testing for AE-1] INFO  [qa] [Test_AE9_TC12_Verify_Add_Products_In_Cart_chrome_20] test.ae.AddToCartTests - Driver shutdown successful.
+2026-06-01 15:23:00 [TestNG-test-Release 1.0 Testing for AE-1] INFO  [qa] [Test_AE9_TC12_Verify_Add_Products_In_Cart_chrome_20] reporting.ReportManager - ✅ Attachment added to Allure: 🎭 Playwright Trace — Test_AE9_TC12_Verify_Add_Products_In_Cart
+2026-06-01 15:23:00 [TestNG-test-Release 1.0 Testing for AE-1] INFO  [qa] [Test_AE9_TC12_Verify_Add_Products_In_Cart_chrome_20] test.ae.AddToCartTests - Trace attached for: Test_AE9_TC12_Verify_Add_Products_In_Cart
+2026-06-01 15:23:00 [TestNG-test-Release 1.0 Testing for AE-1] INFO  [qa] [Test_AE9_TC12_Verify_Add_Products_In_Cart_chrome_20] test.ae.AddToCartTests - trace temp file deleted from disk.
+2026-06-01 15:23:00 [TestNG-test-Release 1.0 Testing for AE-1] INFO  [qa] [Test_AE9_TC12_Verify_Add_Products_In_Cart_chrome_20] reporting.ReportManager - ✅ Attachment added to Allure: 🎬 Test Video — Test_AE9_TC12_Verify_Add_Products_In_Cart
+2026-06-01 15:23:00 [TestNG-test-Release 1.0 Testing for AE-1] INFO  [qa] [Test_AE9_TC12_Verify_Add_Products_In_Cart_chrome_20] test.ae.AddToCartTests - Video attached for: Test_AE9_TC12_Verify_Add_Products_In_Cart
+2026-06-01 15:23:00 [TestNG-test-Release 1.0 Testing for AE-1] INFO  [qa] [Test_AE9_TC12_Verify_Add_Products_In_Cart_chrome_20] test.ae.AddToCartTests - video temp file deleted from disk.

@@ -1,0 +1,12 @@
+
+-------------------------------------------------------------------------
+               INVOICE ADDRESS ON CHECKOUT
+-------------------------------------------------------------------------
+Title Fullname  : Mr. Leonardo Considine
+Company Name    : Larkin-Torphy
+Address Line1   : 024 Louie Branch
+Address Line2   : Suite 416
+Address Line3   : Lake Gigi Nebraska 083406
+Country         : Israel
+Phone           : 1933444289
+-------------------------------------------------------------------------

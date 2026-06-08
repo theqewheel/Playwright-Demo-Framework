@@ -1,0 +1,12 @@
+
+-------------------------------------------------------------------------
+               DELIVERY ADDRESS ON CHECKOUT
+-------------------------------------------------------------------------
+Title Fullname  : Mrs. Garth Nienow
+Company Name    : Mann-Herzog
+Address Line1   : 655 Klein Branch
+Address Line2   : Suite 720
+Address Line3   : New Harlan Michigan 265617
+Country         : Singapore
+Phone           : 6190248797
+-------------------------------------------------------------------------

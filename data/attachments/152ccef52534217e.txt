@@ -1,0 +1,12 @@
+
+-------------------------------------------------------------------------
+               DELIVERY ADDRESS ON CHECKOUT
+-------------------------------------------------------------------------
+Title Fullname  : Mr. Mohamed Zieme
+Company Name    : Morar, Glover and Tillman
+Address Line1   : 6251 Ernser Circles
+Address Line2   : Apt. 230
+Address Line3   : North Brady Rhode Island 522576
+Country         : New Zealand
+Phone           : 3588222652
+-------------------------------------------------------------------------

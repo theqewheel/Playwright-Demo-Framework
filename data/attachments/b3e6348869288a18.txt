@@ -1,0 +1,12 @@
+
+-------------------------------------------------------------------------
+               INVOICE ADDRESS ON CHECKOUT
+-------------------------------------------------------------------------
+Title Fullname  : Mrs. Pamala Pollich
+Company Name    : Torp and Sons
+Address Line1   : 0886 Gertha Coves
+Address Line2   : Suite 915
+Address Line3   : Eddieton Louisiana 846115
+Country         : Singapore
+Phone           : 5101876747
+-------------------------------------------------------------------------

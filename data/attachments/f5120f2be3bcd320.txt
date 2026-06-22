@@ -1,0 +1,12 @@
+
+-------------------------------------------------------------------------
+               DELIVERY ADDRESS ON CHECKOUT
+-------------------------------------------------------------------------
+Title Fullname  : Mrs. Armand Legros
+Company Name    : Crona, Cole and D'Amore
+Address Line1   : 7218 Leroy Gardens
+Address Line2   : Apt. 616
+Address Line3   : West Myrtis New Mexico 446171
+Country         : Australia
+Phone           : 4437273523
+-------------------------------------------------------------------------

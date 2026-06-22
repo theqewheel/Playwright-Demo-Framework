@@ -1,0 +1,12 @@
+
+-------------------------------------------------------------------------
+               INVOICE ADDRESS ON CHECKOUT
+-------------------------------------------------------------------------
+Title Fullname  : Mrs. Chantay Brekke
+Company Name    : Brekke-Bayer
+Address Line1   : 65411 Ceola Glen
+Address Line2   : Suite 281
+Address Line3   : Lake Danielhaven Arizona 708213
+Country         : United States
+Phone           : 3853897132
+-------------------------------------------------------------------------

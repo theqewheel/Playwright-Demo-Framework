@@ -1,0 +1,12 @@
+
+-------------------------------------------------------------------------
+               DELIVERY ADDRESS ON CHECKOUT
+-------------------------------------------------------------------------
+Title Fullname  : Mrs. Laverna Wunsch
+Company Name    : Cruickshank, Bayer and Simonis
+Address Line1   : 59771 Treva Road
+Address Line2   : Apt. 399
+Address Line3   : New Glendorastad South Dakota 248367
+Country         : New Zealand
+Phone           : 0451654082
+-------------------------------------------------------------------------

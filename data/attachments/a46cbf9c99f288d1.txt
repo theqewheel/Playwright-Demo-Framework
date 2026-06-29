@@ -1,0 +1,12 @@
+
+-------------------------------------------------------------------------
+               DELIVERY ADDRESS ON CHECKOUT
+-------------------------------------------------------------------------
+Title Fullname  : Mrs. Lenna Hyatt
+Company Name    : Boehm, Gerlach and Kshlerin
+Address Line1   : 00902 Collins Hill
+Address Line2   : Suite 323
+Address Line3   : Montymouth Arizona 620354
+Country         : Canada
+Phone           : 4324105744
+-------------------------------------------------------------------------

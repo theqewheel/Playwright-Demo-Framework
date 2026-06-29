@@ -1,0 +1,12 @@
+
+-------------------------------------------------------------------------
+               INVOICE ADDRESS ON CHECKOUT
+-------------------------------------------------------------------------
+Title Fullname  : Mr. Zofia Green
+Company Name    : Lueilwitz Inc
+Address Line1   : 83558 Spinka Road
+Address Line2   : Suite 755
+Address Line3   : New Emeryburgh Indiana 295898
+Country         : United States
+Phone           : 1727205195
+-------------------------------------------------------------------------

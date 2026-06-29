@@ -1,0 +1,12 @@
+
+-------------------------------------------------------------------------
+               DELIVERY ADDRESS ON CHECKOUT
+-------------------------------------------------------------------------
+Title Fullname  : Mrs. Octavio Raynor
+Company Name    : Lynch Group
+Address Line1   : 64041 Noah Overpass
+Address Line2   : Suite 863
+Address Line3   : Beerstad Alabama 291251
+Country         : Israel
+Phone           : 7263211394
+-------------------------------------------------------------------------

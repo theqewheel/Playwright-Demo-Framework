@@ -1,0 +1,12 @@
+
+-------------------------------------------------------------------------
+               DELIVERY ADDRESS ON CHECKOUT
+-------------------------------------------------------------------------
+Title Fullname  : Mrs. Erin Feeney
+Company Name    : Stanton, Borer and Ferry
+Address Line1   : 711 Morar Junctions
+Address Line2   : Apt. 964
+Address Line3   : Louisberg Utah 060413
+Country         : United States
+Phone           : 3602808426
+-------------------------------------------------------------------------

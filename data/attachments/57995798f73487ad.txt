@@ -1,0 +1,12 @@
+
+-------------------------------------------------------------------------
+               DELIVERY ADDRESS ON CHECKOUT
+-------------------------------------------------------------------------
+Title Fullname  : Mr. Lita Bartoletti
+Company Name    : Weimann Inc
+Address Line1   : 59557 Lakesha Ferry
+Address Line2   : Suite 476
+Address Line3   : Port Lashawna Oregon 461122
+Country         : New Zealand
+Phone           : 2202826421
+-------------------------------------------------------------------------

@@ -1,0 +1,12 @@
+
+-------------------------------------------------------------------------
+               INVOICE ADDRESS ON CHECKOUT
+-------------------------------------------------------------------------
+Title Fullname  : Mr. Jena Spinka
+Company Name    : Collins-Feil
+Address Line1   : 315 Hodkiewicz Drive
+Address Line2   : Apt. 077
+Address Line3   : Port Bradly Michigan 284327
+Country         : New Zealand
+Phone           : 6118274341
+-------------------------------------------------------------------------

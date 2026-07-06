@@ -1,0 +1,12 @@
+
+-------------------------------------------------------------------------
+               INVOICE ADDRESS ON CHECKOUT
+-------------------------------------------------------------------------
+Title Fullname  : Mr. Robt Cronin
+Company Name    : Deckow, Hirthe and Swaniawski
+Address Line1   : 0929 Mills Forges
+Address Line2   : Apt. 966
+Address Line3   : North Evefort Hawaii 620662
+Country         : New Zealand
+Phone           : 5021754306
+-------------------------------------------------------------------------

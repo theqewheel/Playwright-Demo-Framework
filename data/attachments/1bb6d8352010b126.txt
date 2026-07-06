@@ -1,0 +1,12 @@
+
+-------------------------------------------------------------------------
+               INVOICE ADDRESS ON CHECKOUT
+-------------------------------------------------------------------------
+Title Fullname  : Mr. Leif Borer
+Company Name    : Schmidt Group
+Address Line1   : 688 Renner Track
+Address Line2   : Apt. 386
+Address Line3   : West Royal Pennsylvania 995884
+Country         : United States
+Phone           : 3346321623
+-------------------------------------------------------------------------

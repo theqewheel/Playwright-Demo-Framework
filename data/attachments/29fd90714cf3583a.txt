@@ -1,0 +1,12 @@
+
+-------------------------------------------------------------------------
+               DELIVERY ADDRESS ON CHECKOUT
+-------------------------------------------------------------------------
+Title Fullname  : Mrs. Wilfred McClure
+Company Name    : Maggio-Russel
+Address Line1   : 124 Carlota Road
+Address Line2   : Apt. 381
+Address Line3   : South Vickibury Vermont 155868
+Country         : Israel
+Phone           : 1785119888
+-------------------------------------------------------------------------

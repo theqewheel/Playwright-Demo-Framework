@@ -1,0 +1,12 @@
+
+-------------------------------------------------------------------------
+               INVOICE ADDRESS ON CHECKOUT
+-------------------------------------------------------------------------
+Title Fullname  : Mrs. Justin Spencer
+Company Name    : Mayert and Sons
+Address Line1   : 464 Lehner Forges
+Address Line2   : Apt. 061
+Address Line3   : Lake Janethburgh Tennessee 280720
+Country         : Canada
+Phone           : 3214845393
+-------------------------------------------------------------------------

@@ -1,0 +1,12 @@
+
+-------------------------------------------------------------------------
+               INVOICE ADDRESS ON CHECKOUT
+-------------------------------------------------------------------------
+Title Fullname  : Mrs. Robert Rath
+Company Name    : McClure, Harris and Gibson
+Address Line1   : 95448 Leda Cove
+Address Line2   : Suite 744
+Address Line3   : East Martyfort Illinois 027471
+Country         : United States
+Phone           : 8354152983
+-------------------------------------------------------------------------

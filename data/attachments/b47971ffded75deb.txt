@@ -1,0 +1,12 @@
+
+-------------------------------------------------------------------------
+               INVOICE ADDRESS ON CHECKOUT
+-------------------------------------------------------------------------
+Title Fullname  : Mrs. Efrain Witting
+Company Name    : Dietrich, McKenzie and Boehm
+Address Line1   : 18160 Hirthe Way
+Address Line2   : Suite 170
+Address Line3   : Lake Terry Louisiana 164231
+Country         : Israel
+Phone           : 2618657828
+-------------------------------------------------------------------------

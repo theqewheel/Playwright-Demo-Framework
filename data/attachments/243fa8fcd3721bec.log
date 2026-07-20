@@ -1,0 +1,16 @@
+2026-07-20 11:46:32 [TestNG-test-Release 1.0 Testing for AE-1] INFO  [qa] [Test_AE1_TC05_Verify_Existing_Email_SignUp_chrome_20] framework.listeners.TestListener - --- STARTING TEST : SignupTests#Test_AE1_TC05_Verify_Existing_Email_SignUp on chrome [thread-20] ---
+2026-07-20 11:46:32 [TestNG-test-Release 1.0 Testing for AE-1] INFO  [qa] [Test_AE1_TC05_Verify_Existing_Email_SignUp_chrome_20] test.ae.SignupTests - Running:Step-1
+2026-07-20 11:46:35 [TestNG-test-Release 1.0 Testing for AE-1] INFO  [qa] [Test_AE1_TC05_Verify_Existing_Email_SignUp_chrome_20] test.ae.SignupTests - Running:Step-2
+2026-07-20 11:46:37 [TestNG-test-Release 1.0 Testing for AE-1] INFO  [qa] [Test_AE1_TC05_Verify_Existing_Email_SignUp_chrome_20] test.ae.SignupTests - Running:Step-3
+2026-07-20 11:46:40 [TestNG-test-Release 1.0 Testing for AE-1] INFO  [qa] [Test_AE1_TC05_Verify_Existing_Email_SignUp_chrome_20] framework.listeners.TestListener - TEST PASSED: Test_AE1_TC05_Verify_Existing_Email_SignUp
+2026-07-20 11:46:40 [TestNG-test-Release 1.0 Testing for AE-1] ERROR [qa] [Test_AE1_TC05_Verify_Existing_Email_SignUp_chrome_20] io.qameta.allure.AllureLifecycle - Could not add attachment: no test is running
+2026-07-20 11:46:40 [TestNG-test-Release 1.0 Testing for AE-1] INFO  [qa] [Test_AE1_TC05_Verify_Existing_Email_SignUp_chrome_20] framework.listeners.TestListener - Screenshot attached: PASSED Screenshot:
+2026-07-20 11:46:41 [TestNG-test-Release 1.0 Testing for AE-1] INFO  [qa] [Test_AE1_TC05_Verify_Existing_Email_SignUp_chrome_20] test.ae.SignupTests - Trace stopped for: Test_AE1_TC05_Verify_Existing_Email_SignUp
+2026-07-20 11:46:42 [TestNG-test-Release 1.0 Testing for AE-1] INFO  [qa] [Test_AE1_TC05_Verify_Existing_Email_SignUp_chrome_20] framework.drivers.DriverManager - Browser closed successfully.
+2026-07-20 11:46:42 [TestNG-test-Release 1.0 Testing for AE-1] INFO  [qa] [Test_AE1_TC05_Verify_Existing_Email_SignUp_chrome_20] test.ae.SignupTests - Driver shutdown successful.
+2026-07-20 11:46:42 [TestNG-test-Release 1.0 Testing for AE-1] INFO  [qa] [Test_AE1_TC05_Verify_Existing_Email_SignUp_chrome_20] reporting.ReportManager - ✅ Attachment added to Allure: 🎭 Playwright Trace — Test_AE1_TC05_Verify_Existing_Email_SignUp
+2026-07-20 11:46:42 [TestNG-test-Release 1.0 Testing for AE-1] INFO  [qa] [Test_AE1_TC05_Verify_Existing_Email_SignUp_chrome_20] test.ae.SignupTests - Trace attached for: Test_AE1_TC05_Verify_Existing_Email_SignUp
+2026-07-20 11:46:42 [TestNG-test-Release 1.0 Testing for AE-1] INFO  [qa] [Test_AE1_TC05_Verify_Existing_Email_SignUp_chrome_20] test.ae.SignupTests - trace temp file deleted from disk.
+2026-07-20 11:46:42 [TestNG-test-Release 1.0 Testing for AE-1] INFO  [qa] [Test_AE1_TC05_Verify_Existing_Email_SignUp_chrome_20] reporting.ReportManager - ✅ Attachment added to Allure: 🎬 Test Video — Test_AE1_TC05_Verify_Existing_Email_SignUp
+2026-07-20 11:46:42 [TestNG-test-Release 1.0 Testing for AE-1] INFO  [qa] [Test_AE1_TC05_Verify_Existing_Email_SignUp_chrome_20] test.ae.SignupTests - Video attached for: Test_AE1_TC05_Verify_Existing_Email_SignUp
+2026-07-20 11:46:42 [TestNG-test-Release 1.0 Testing for AE-1] INFO  [qa] [Test_AE1_TC05_Verify_Existing_Email_SignUp_chrome_20] test.ae.SignupTests - video temp file deleted from disk.

@@ -1,0 +1,12 @@
+
+-------------------------------------------------------------------------
+               DELIVERY ADDRESS ON CHECKOUT
+-------------------------------------------------------------------------
+Title Fullname  : Mrs. Carmine Moore
+Company Name    : Davis Inc
+Address Line1   : 7578 Medhurst Unions
+Address Line2   : Apt. 865
+Address Line3   : Priscilaside Ohio 162389
+Country         : Australia
+Phone           : 9921151570
+-------------------------------------------------------------------------

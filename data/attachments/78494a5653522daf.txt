@@ -1,0 +1,12 @@
+
+-------------------------------------------------------------------------
+               DELIVERY ADDRESS ON CHECKOUT
+-------------------------------------------------------------------------
+Title Fullname  : Mr. Tobias Schmitt
+Company Name    : Fadel, Goodwin and Rogahn
+Address Line1   : 1447 Collins Ports
+Address Line2   : Suite 056
+Address Line3   : Shafort Nebraska 067757
+Country         : New Zealand
+Phone           : 0413187261
+-------------------------------------------------------------------------

@@ -1,0 +1,12 @@
+
+-------------------------------------------------------------------------
+               INVOICE ADDRESS ON CHECKOUT
+-------------------------------------------------------------------------
+Title Fullname  : Mrs. Santiago Huel
+Company Name    : Terry-Boyer
+Address Line1   : 186 Adrien Lakes
+Address Line2   : Apt. 514
+Address Line3   : Tamifurt Hawaii 706121
+Country         : New Zealand
+Phone           : 8603646605
+-------------------------------------------------------------------------

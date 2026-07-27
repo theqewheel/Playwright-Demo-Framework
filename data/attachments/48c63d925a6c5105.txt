@@ -1,0 +1,12 @@
+
+-------------------------------------------------------------------------
+               INVOICE ADDRESS ON CHECKOUT
+-------------------------------------------------------------------------
+Title Fullname  : Mr. Tessie Botsford
+Company Name    : Corwin, Jones and Bruen
+Address Line1   : 9049 Veum Brooks
+Address Line2   : Suite 770
+Address Line3   : South Stacybury Connecticut 197657
+Country         : India
+Phone           : 4696731725
+-------------------------------------------------------------------------

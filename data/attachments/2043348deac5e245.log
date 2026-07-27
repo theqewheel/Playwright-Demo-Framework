@@ -1,0 +1,106 @@
+2026-07-27 12:25:16 [TestNG-test-Release 1.0 Testing for AE-4] INFO  [qa] [Test_AE10_TC14_Verify_Place_Order_For_Customer_Registered_On_Checkout_chrome_23] framework.listeners.TestListener - --- STARTING TEST : PlaceOrderTests#Test_AE10_TC14_Verify_Place_Order_For_Customer_Registered_On_Checkout on chrome [thread-23] ---
+2026-07-27 12:25:16 [TestNG-test-Release 1.0 Testing for AE-4] INFO  [qa] [Test_AE10_TC14_Verify_Place_Order_For_Customer_Registered_On_Checkout_chrome_23] test.ae.PlaceOrderTests - Running:Step-1
+2026-07-27 12:25:17 [TestNG-test-Release 1.0 Testing for AE-4] INFO  [qa] [Test_AE10_TC14_Verify_Place_Order_For_Customer_Registered_On_Checkout_chrome_23] test.ae.PlaceOrderTests - Running:Step-2
+2026-07-27 12:25:19 [TestNG-test-Release 1.0 Testing for AE-4] INFO  [qa] [Test_AE10_TC14_Verify_Place_Order_For_Customer_Registered_On_Checkout_chrome_23] pages.ae.HomePage - Navigating to Products
+2026-07-27 12:25:23 [TestNG-test-Release 1.0 Testing for AE-4] INFO  [qa] [Test_AE10_TC14_Verify_Place_Order_For_Customer_Registered_On_Checkout_chrome_23] pages.ae.ProductsPage - 
+---------------------------------------------------
+Product 1 Added To Cart
+Name  : Blue Top
+Price : 500
+------------------------xxxx-----------------------
+
+2026-07-27 12:25:26 [TestNG-test-Release 1.0 Testing for AE-4] INFO  [qa] [Test_AE10_TC14_Verify_Place_Order_For_Customer_Registered_On_Checkout_chrome_23] pages.ae.ProductsPage - 
+---------------------------------------------------
+Product 2 Added To Cart
+Name  : Men Tshirt
+Price : 400
+------------------------xxxx-----------------------
+
+2026-07-27 12:25:26 [TestNG-test-Release 1.0 Testing for AE-4] INFO  [qa] [Test_AE10_TC14_Verify_Place_Order_For_Customer_Registered_On_Checkout_chrome_23] test.ae.PlaceOrderTests - Running:Step-3
+2026-07-27 12:25:28 [TestNG-test-Release 1.0 Testing for AE-4] INFO  [qa] [Test_AE10_TC14_Verify_Place_Order_For_Customer_Registered_On_Checkout_chrome_23] pages.ae.HomePage - Navigating to Cart
+2026-07-27 12:25:29 [TestNG-test-Release 1.0 Testing for AE-4] INFO  [qa] [Test_AE10_TC14_Verify_Place_Order_For_Customer_Registered_On_Checkout_chrome_23] test.ae.PlaceOrderTests - Running:Step-4
+2026-07-27 12:25:39 [TestNG-test-Release 1.0 Testing for AE-4] INFO  [qa] [Test_AE10_TC14_Verify_Place_Order_For_Customer_Registered_On_Checkout_chrome_23] pages.ae.SignupDetailPage - Checkbox: 'Newsletter' is set to: false
+2026-07-27 12:25:40 [TestNG-test-Release 1.0 Testing for AE-4] INFO  [qa] [Test_AE10_TC14_Verify_Place_Order_For_Customer_Registered_On_Checkout_chrome_23] pages.ae.SignupDetailPage - Checkbox: 'Special Offers' is set to: true
+2026-07-27 12:25:40 [TestNG-test-Release 1.0 Testing for AE-4] ERROR [qa] [Test_AE10_TC14_Verify_Place_Order_For_Customer_Registered_On_Checkout_chrome_23] io.qameta.allure.util.NamingUtils - Could not process empty pattern
+2026-07-27 12:25:40 [TestNG-test-Release 1.0 Testing for AE-4] ERROR [qa] [Test_AE10_TC14_Verify_Place_Order_For_Customer_Registered_On_Checkout_chrome_23] io.qameta.allure.util.NamingUtils - Could not process empty pattern
+2026-07-27 12:25:49 [TestNG-test-Release 1.0 Testing for AE-4] ERROR [qa] [Test_AE10_TC14_Verify_Place_Order_For_Customer_Registered_On_Checkout_chrome_23] io.qameta.allure.util.NamingUtils - Could not find parameter zipcpde
+2026-07-27 12:25:54 [TestNG-test-Release 1.0 Testing for AE-4] INFO  [qa] [Test_AE10_TC14_Verify_Place_Order_For_Customer_Registered_On_Checkout_chrome_23] test.ae.PlaceOrderTests - Running:Step-5
+2026-07-27 12:25:55 [TestNG-test-Release 1.0 Testing for AE-4] INFO  [qa] [Test_AE10_TC14_Verify_Place_Order_For_Customer_Registered_On_Checkout_chrome_23] pages.ae.HomePage - Navigating to Cart
+2026-07-27 12:25:57 [TestNG-test-Release 1.0 Testing for AE-4] INFO  [qa] [Test_AE10_TC14_Verify_Place_Order_For_Customer_Registered_On_Checkout_chrome_23] test.ae.PlaceOrderTests - Running:Step-6.1
+2026-07-27 12:25:57 [TestNG-test-Release 1.0 Testing for AE-4] INFO  [qa] [Test_AE10_TC14_Verify_Place_Order_For_Customer_Registered_On_Checkout_chrome_23] pages.ae.CheckOutPage - 
+-------------------------------------------------------------------------
+               DELIVERY ADDRESS ON CHECKOUT
+-------------------------------------------------------------------------
+Title Fullname  : Mrs. Marion Wintheiser
+Company Name    : Dicki, Schneider and Kris
+Address Line1   : 656 Mary Estate
+Address Line2   : Suite 298
+Address Line3   : South Rossanamouth Delaware 883930
+Country         : United States
+Phone           : 4160028089
+-------------------------------------------------------------------------
+
+2026-07-27 12:25:57 [TestNG-test-Release 1.0 Testing for AE-4] INFO  [qa] [Test_AE10_TC14_Verify_Place_Order_For_Customer_Registered_On_Checkout_chrome_23] pages.ae.CheckOutPage - 
+-------------------------------------------------------------------------
+               INVOICE ADDRESS ON CHECKOUT
+-------------------------------------------------------------------------
+Title Fullname  : Mrs. Marion Wintheiser
+Company Name    : Dicki, Schneider and Kris
+Address Line1   : 656 Mary Estate
+Address Line2   : Suite 298
+Address Line3   : South Rossanamouth Delaware 883930
+Country         : United States
+Phone           : 4160028089
+--------------------------------------------------------------------------
+
+2026-07-27 12:25:57 [TestNG-test-Release 1.0 Testing for AE-4] INFO  [qa] [Test_AE10_TC14_Verify_Place_Order_For_Customer_Registered_On_Checkout_chrome_23] test.ae.PlaceOrderTests - Running:Step-6.2
+2026-07-27 12:25:57 [TestNG-test-Release 1.0 Testing for AE-4] INFO  [qa] [Test_AE10_TC14_Verify_Place_Order_For_Customer_Registered_On_Checkout_chrome_23] pages.ae.CheckOutPage - 
+				PRODUCT-1 DETAILS FROM CART
+---------------------------------------------------
+Name        : Blue Top
+Category    : Women
+SubCategory : Tops
+Price       : 500
+Quantity    : 1
+Total       : 500
+----------------------------------------------------
+
+
+2026-07-27 12:25:57 [TestNG-test-Release 1.0 Testing for AE-4] INFO  [qa] [Test_AE10_TC14_Verify_Place_Order_For_Customer_Registered_On_Checkout_chrome_23] pages.ae.CheckOutPage - 
+				PRODUCT-2 DETAILS FROM CART
+---------------------------------------------------
+Name        : Men Tshirt
+Category    : Men
+SubCategory : Tshirts
+Price       : 400
+Quantity    : 1
+Total       : 400
+----------------------------------------------------
+
+
+2026-07-27 12:25:57 [TestNG-test-Release 1.0 Testing for AE-4] INFO  [qa] [Test_AE10_TC14_Verify_Place_Order_For_Customer_Registered_On_Checkout_chrome_23] pages.ae.CheckOutPage - 
+				CART SUMMARY
+---------------------------------------------------
+Total of <2> Product/s are Added To Cart
+Cart Total Price is '900'
+----------------------------------------------------
+
+
+2026-07-27 12:25:57 [TestNG-test-Release 1.0 Testing for AE-4] INFO  [qa] [Test_AE10_TC14_Verify_Place_Order_For_Customer_Registered_On_Checkout_chrome_23] test.ae.PlaceOrderTests - The expected cart total: 900
+2026-07-27 12:25:57 [TestNG-test-Release 1.0 Testing for AE-4] INFO  [qa] [Test_AE10_TC14_Verify_Place_Order_For_Customer_Registered_On_Checkout_chrome_23] test.ae.PlaceOrderTests - Running:Step-7
+2026-07-27 12:25:59 [TestNG-test-Release 1.0 Testing for AE-4] INFO  [qa] [Test_AE10_TC14_Verify_Place_Order_For_Customer_Registered_On_Checkout_chrome_23] test.ae.PlaceOrderTests - Running:Step-8
+2026-07-27 12:26:05 [TestNG-test-Release 1.0 Testing for AE-4] INFO  [qa] [Test_AE10_TC14_Verify_Place_Order_For_Customer_Registered_On_Checkout_chrome_23] test.ae.PlaceOrderTests - Running:Step-9
+2026-07-27 12:26:07 [TestNG-test-Release 1.0 Testing for AE-4] INFO  [qa] [Test_AE10_TC14_Verify_Place_Order_For_Customer_Registered_On_Checkout_chrome_23] test.ae.PlaceOrderTests - Running:Step-10
+2026-07-27 12:26:07 [TestNG-test-Release 1.0 Testing for AE-4] INFO  [qa] [Test_AE10_TC14_Verify_Place_Order_For_Customer_Registered_On_Checkout_chrome_23] test.ae.PlaceOrderTests - Running:Step-11 >>>> Cleanup
+2026-07-27 12:26:09 [TestNG-test-Release 1.0 Testing for AE-4] INFO  [qa] [Test_AE10_TC14_Verify_Place_Order_For_Customer_Registered_On_Checkout_chrome_23] framework.listeners.TestListener - TEST PASSED: Test_AE10_TC14_Verify_Place_Order_For_Customer_Registered_On_Checkout
+2026-07-27 12:26:10 [TestNG-test-Release 1.0 Testing for AE-4] ERROR [qa] [Test_AE10_TC14_Verify_Place_Order_For_Customer_Registered_On_Checkout_chrome_23] io.qameta.allure.AllureLifecycle - Could not add attachment: no test is running
+2026-07-27 12:26:10 [TestNG-test-Release 1.0 Testing for AE-4] INFO  [qa] [Test_AE10_TC14_Verify_Place_Order_For_Customer_Registered_On_Checkout_chrome_23] framework.listeners.TestListener - Screenshot attached: PASSED Screenshot:
+2026-07-27 12:26:12 [TestNG-test-Release 1.0 Testing for AE-4] INFO  [qa] [Test_AE10_TC14_Verify_Place_Order_For_Customer_Registered_On_Checkout_chrome_23] test.ae.PlaceOrderTests - Trace stopped for: Test_AE10_TC14_Verify_Place_Order_For_Customer_Registered_On_Checkout
+2026-07-27 12:26:13 [TestNG-test-Release 1.0 Testing for AE-4] INFO  [qa] [Test_AE10_TC14_Verify_Place_Order_For_Customer_Registered_On_Checkout_chrome_23] framework.drivers.DriverManager - Browser closed successfully.
+2026-07-27 12:26:13 [TestNG-test-Release 1.0 Testing for AE-4] INFO  [qa] [Test_AE10_TC14_Verify_Place_Order_For_Customer_Registered_On_Checkout_chrome_23] test.ae.PlaceOrderTests - Driver shutdown successful.
+2026-07-27 12:26:13 [TestNG-test-Release 1.0 Testing for AE-4] INFO  [qa] [Test_AE10_TC14_Verify_Place_Order_For_Customer_Registered_On_Checkout_chrome_23] reporting.ReportManager - ✅ Attachment added to Allure: 🎭 Playwright Trace — Test_AE10_TC14_Verify_Place_Order_For_Customer_Registered_On_Checkout
+2026-07-27 12:26:13 [TestNG-test-Release 1.0 Testing for AE-4] INFO  [qa] [Test_AE10_TC14_Verify_Place_Order_For_Customer_Registered_On_Checkout_chrome_23] test.ae.PlaceOrderTests - Trace attached for: Test_AE10_TC14_Verify_Place_Order_For_Customer_Registered_On_Checkout
+2026-07-27 12:26:13 [TestNG-test-Release 1.0 Testing for AE-4] INFO  [qa] [Test_AE10_TC14_Verify_Place_Order_For_Customer_Registered_On_Checkout_chrome_23] test.ae.PlaceOrderTests - trace temp file deleted from disk.
+2026-07-27 12:26:13 [TestNG-test-Release 1.0 Testing for AE-4] INFO  [qa] [Test_AE10_TC14_Verify_Place_Order_For_Customer_Registered_On_Checkout_chrome_23] reporting.ReportManager - ✅ Attachment added to Allure: 🎬 Test Video — Test_AE10_TC14_Verify_Place_Order_For_Customer_Registered_On_Checkout
+2026-07-27 12:26:13 [TestNG-test-Release 1.0 Testing for AE-4] INFO  [qa] [Test_AE10_TC14_Verify_Place_Order_For_Customer_Registered_On_Checkout_chrome_23] test.ae.PlaceOrderTests - Video attached for: Test_AE10_TC14_Verify_Place_Order_For_Customer_Registered_On_Checkout
+2026-07-27 12:26:13 [TestNG-test-Release 1.0 Testing for AE-4] INFO  [qa] [Test_AE10_TC14_Verify_Place_Order_For_Customer_Registered_On_Checkout_chrome_23] test.ae.PlaceOrderTests - video temp file deleted from disk.

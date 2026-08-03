@@ -1,0 +1,12 @@
+
+-------------------------------------------------------------------------
+               DELIVERY ADDRESS ON CHECKOUT
+-------------------------------------------------------------------------
+Title Fullname  : Mr. Caron Hintz
+Company Name    : Beer, Hickle and Hodkiewicz
+Address Line1   : 144 Rocco Ports
+Address Line2   : Suite 513
+Address Line3   : Lake Shayla New York 522561
+Country         : Canada
+Phone           : 8660952107
+-------------------------------------------------------------------------

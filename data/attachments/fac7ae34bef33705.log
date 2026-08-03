@@ -1,0 +1,67 @@
+2026-08-03 12:34:51 [TestNG-test-Release 1.0 Testing for AE-4] INFO  [qa] [Test_AE10_TC23_Verify_Address_On_Checkout_chrome_32] framework.listeners.TestListener - --- STARTING TEST : PlaceOrderTests#Test_AE10_TC23_Verify_Address_On_Checkout on chrome [thread-32] ---
+2026-08-03 12:34:51 [TestNG-test-Release 1.0 Testing for AE-4] INFO  [qa] [Test_AE10_TC23_Verify_Address_On_Checkout_chrome_32] test.ae.PlaceOrderTests - Running:Step-1
+2026-08-03 12:34:52 [TestNG-test-Release 1.0 Testing for AE-4] INFO  [qa] [Test_AE10_TC23_Verify_Address_On_Checkout_chrome_32] test.ae.PlaceOrderTests - Running:Step-2
+2026-08-03 12:35:03 [TestNG-test-Release 1.0 Testing for AE-4] INFO  [qa] [Test_AE10_TC23_Verify_Address_On_Checkout_chrome_32] pages.ae.SignupDetailPage - Checkbox: 'Newsletter' is set to: true
+2026-08-03 12:35:03 [TestNG-test-Release 1.0 Testing for AE-4] INFO  [qa] [Test_AE10_TC23_Verify_Address_On_Checkout_chrome_32] pages.ae.SignupDetailPage - Checkbox: 'Special Offers' is set to: false
+2026-08-03 12:35:03 [TestNG-test-Release 1.0 Testing for AE-4] ERROR [qa] [Test_AE10_TC23_Verify_Address_On_Checkout_chrome_32] io.qameta.allure.util.NamingUtils - Could not process empty pattern
+2026-08-03 12:35:03 [TestNG-test-Release 1.0 Testing for AE-4] ERROR [qa] [Test_AE10_TC23_Verify_Address_On_Checkout_chrome_32] io.qameta.allure.util.NamingUtils - Could not process empty pattern
+2026-08-03 12:35:11 [TestNG-test-Release 1.0 Testing for AE-4] ERROR [qa] [Test_AE10_TC23_Verify_Address_On_Checkout_chrome_32] io.qameta.allure.util.NamingUtils - Could not find parameter zipcpde
+2026-08-03 12:35:16 [TestNG-test-Release 1.0 Testing for AE-4] INFO  [qa] [Test_AE10_TC23_Verify_Address_On_Checkout_chrome_32] test.ae.PlaceOrderTests - Running:Step-3
+2026-08-03 12:35:17 [TestNG-test-Release 1.0 Testing for AE-4] INFO  [qa] [Test_AE10_TC23_Verify_Address_On_Checkout_chrome_32] pages.ae.HomePage - Navigating to Products
+2026-08-03 12:35:21 [TestNG-test-Release 1.0 Testing for AE-4] INFO  [qa] [Test_AE10_TC23_Verify_Address_On_Checkout_chrome_32] pages.ae.ProductsPage - 
+---------------------------------------------------
+Product 1 Added To Cart
+Name  : Blue Top
+Price : 500
+------------------------xxxx-----------------------
+
+2026-08-03 12:35:24 [TestNG-test-Release 1.0 Testing for AE-4] INFO  [qa] [Test_AE10_TC23_Verify_Address_On_Checkout_chrome_32] pages.ae.ProductsPage - 
+---------------------------------------------------
+Product 2 Added To Cart
+Name  : Men Tshirt
+Price : 400
+------------------------xxxx-----------------------
+
+2026-08-03 12:35:24 [TestNG-test-Release 1.0 Testing for AE-4] INFO  [qa] [Test_AE10_TC23_Verify_Address_On_Checkout_chrome_32] test.ae.PlaceOrderTests - Running:Step-4
+2026-08-03 12:35:25 [TestNG-test-Release 1.0 Testing for AE-4] INFO  [qa] [Test_AE10_TC23_Verify_Address_On_Checkout_chrome_32] pages.ae.HomePage - Navigating to Cart
+2026-08-03 12:35:27 [TestNG-test-Release 1.0 Testing for AE-4] INFO  [qa] [Test_AE10_TC23_Verify_Address_On_Checkout_chrome_32] test.ae.PlaceOrderTests - Running:Step-5
+2026-08-03 12:35:27 [TestNG-test-Release 1.0 Testing for AE-4] INFO  [qa] [Test_AE10_TC23_Verify_Address_On_Checkout_chrome_32] pages.ae.CheckOutPage - 
+-------------------------------------------------------------------------
+               DELIVERY ADDRESS ON CHECKOUT
+-------------------------------------------------------------------------
+Title Fullname  : Mr. Reinaldo Mayer
+Company Name    : Koepp-Grady
+Address Line1   : 558 Graig Place
+Address Line2   : Apt. 605
+Address Line3   : New Moshe Mississippi 780762
+Country         : New Zealand
+Phone           : 2180913347
+-------------------------------------------------------------------------
+
+2026-08-03 12:35:27 [TestNG-test-Release 1.0 Testing for AE-4] INFO  [qa] [Test_AE10_TC23_Verify_Address_On_Checkout_chrome_32] pages.ae.CheckOutPage - 
+-------------------------------------------------------------------------
+               INVOICE ADDRESS ON CHECKOUT
+-------------------------------------------------------------------------
+Title Fullname  : Mr. Reinaldo Mayer
+Company Name    : Koepp-Grady
+Address Line1   : 558 Graig Place
+Address Line2   : Apt. 605
+Address Line3   : New Moshe Mississippi 780762
+Country         : New Zealand
+Phone           : 2180913347
+--------------------------------------------------------------------------
+
+2026-08-03 12:35:27 [TestNG-test-Release 1.0 Testing for AE-4] INFO  [qa] [Test_AE10_TC23_Verify_Address_On_Checkout_chrome_32] test.ae.PlaceOrderTests - Running:Step-7
+2026-08-03 12:35:27 [TestNG-test-Release 1.0 Testing for AE-4] INFO  [qa] [Test_AE10_TC23_Verify_Address_On_Checkout_chrome_32] test.ae.PlaceOrderTests - Running:Step-8 >>>> Cleanup
+2026-08-03 12:35:29 [TestNG-test-Release 1.0 Testing for AE-4] INFO  [qa] [Test_AE10_TC23_Verify_Address_On_Checkout_chrome_32] framework.listeners.TestListener - TEST PASSED: Test_AE10_TC23_Verify_Address_On_Checkout
+2026-08-03 12:35:30 [TestNG-test-Release 1.0 Testing for AE-4] ERROR [qa] [Test_AE10_TC23_Verify_Address_On_Checkout_chrome_32] io.qameta.allure.AllureLifecycle - Could not add attachment: no test is running
+2026-08-03 12:35:30 [TestNG-test-Release 1.0 Testing for AE-4] INFO  [qa] [Test_AE10_TC23_Verify_Address_On_Checkout_chrome_32] framework.listeners.TestListener - Screenshot attached: PASSED Screenshot:
+2026-08-03 12:35:31 [TestNG-test-Release 1.0 Testing for AE-4] INFO  [qa] [Test_AE10_TC23_Verify_Address_On_Checkout_chrome_32] test.ae.PlaceOrderTests - Trace stopped for: Test_AE10_TC23_Verify_Address_On_Checkout
+2026-08-03 12:35:33 [TestNG-test-Release 1.0 Testing for AE-4] INFO  [qa] [Test_AE10_TC23_Verify_Address_On_Checkout_chrome_32] framework.drivers.DriverManager - Browser closed successfully.
+2026-08-03 12:35:33 [TestNG-test-Release 1.0 Testing for AE-4] INFO  [qa] [Test_AE10_TC23_Verify_Address_On_Checkout_chrome_32] test.ae.PlaceOrderTests - Driver shutdown successful.
+2026-08-03 12:35:33 [TestNG-test-Release 1.0 Testing for AE-4] INFO  [qa] [Test_AE10_TC23_Verify_Address_On_Checkout_chrome_32] reporting.ReportManager - ✅ Attachment added to Allure: 🎭 Playwright Trace — Test_AE10_TC23_Verify_Address_On_Checkout
+2026-08-03 12:35:33 [TestNG-test-Release 1.0 Testing for AE-4] INFO  [qa] [Test_AE10_TC23_Verify_Address_On_Checkout_chrome_32] test.ae.PlaceOrderTests - Trace attached for: Test_AE10_TC23_Verify_Address_On_Checkout
+2026-08-03 12:35:33 [TestNG-test-Release 1.0 Testing for AE-4] INFO  [qa] [Test_AE10_TC23_Verify_Address_On_Checkout_chrome_32] test.ae.PlaceOrderTests - trace temp file deleted from disk.
+2026-08-03 12:35:33 [TestNG-test-Release 1.0 Testing for AE-4] INFO  [qa] [Test_AE10_TC23_Verify_Address_On_Checkout_chrome_32] reporting.ReportManager - ✅ Attachment added to Allure: 🎬 Test Video — Test_AE10_TC23_Verify_Address_On_Checkout
+2026-08-03 12:35:33 [TestNG-test-Release 1.0 Testing for AE-4] INFO  [qa] [Test_AE10_TC23_Verify_Address_On_Checkout_chrome_32] test.ae.PlaceOrderTests - Video attached for: Test_AE10_TC23_Verify_Address_On_Checkout
+2026-08-03 12:35:33 [TestNG-test-Release 1.0 Testing for AE-4] INFO  [qa] [Test_AE10_TC23_Verify_Address_On_Checkout_chrome_32] test.ae.PlaceOrderTests - video temp file deleted from disk.

@@ -1,0 +1,12 @@
+
+-------------------------------------------------------------------------
+               INVOICE ADDRESS ON CHECKOUT
+-------------------------------------------------------------------------
+Title Fullname  : Mr. Stella Muller
+Company Name    : Bosco, Osinski and Schaden
+Address Line1   : 41669 Lind Knoll
+Address Line2   : Apt. 238
+Address Line3   : New Carminemouth Louisiana 340315
+Country         : Singapore
+Phone           : 6631650722
+-------------------------------------------------------------------------

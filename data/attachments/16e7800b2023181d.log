@@ -1,0 +1,24 @@
+2026-08-03 12:31:29 [TestNG-test-Release 1.0 Testing for AE-3] INFO  [qa] [Test_AE5_TC09_Verify_Product_Search_Lists_All_Relevant_Products_chrome_31] framework.listeners.TestListener - --- STARTING TEST : ProductsTests#Test_AE5_TC09_Verify_Product_Search_Lists_All_Relevant_Products on chrome [thread-31] ---
+2026-08-03 12:31:29 [TestNG-test-Release 1.0 Testing for AE-3] INFO  [qa] [Test_AE5_TC09_Verify_Product_Search_Lists_All_Relevant_Products_chrome_31] test.ae.ProductsTests - Running:Step-1
+2026-08-03 12:31:32 [TestNG-test-Release 1.0 Testing for AE-3] INFO  [qa] [Test_AE5_TC09_Verify_Product_Search_Lists_All_Relevant_Products_chrome_31] test.ae.ProductsTests - Running:Step-2
+2026-08-03 12:31:34 [TestNG-test-Release 1.0 Testing for AE-3] INFO  [qa] [Test_AE5_TC09_Verify_Product_Search_Lists_All_Relevant_Products_chrome_31] pages.ae.HomePage - Navigating to Products
+2026-08-03 12:31:36 [TestNG-test-Release 1.0 Testing for AE-3] INFO  [qa] [Test_AE5_TC09_Verify_Product_Search_Lists_All_Relevant_Products_chrome_31] test.ae.ProductsTests - Running:Step-3
+2026-08-03 12:31:40 [TestNG-test-Release 1.0 Testing for AE-3] INFO  [qa] [Test_AE5_TC09_Verify_Product_Search_Lists_All_Relevant_Products_chrome_31] pages.ae.ProductsPage - The searched product - Green has found 3 matching products.
+2026-08-03 12:31:40 [TestNG-test-Release 1.0 Testing for AE-3] INFO  [qa] [Test_AE5_TC09_Verify_Product_Search_Lists_All_Relevant_Products_chrome_31] pages.ae.ProductsPage - 
+   Search List of Products
+------------------------------
+Fancy Green Top, Green Side Placket Detail T-Shirt, Pure Cotton Neon Green Tshirt
+------------------------------
+
+2026-08-03 12:31:40 [TestNG-test-Release 1.0 Testing for AE-3] INFO  [qa] [Test_AE5_TC09_Verify_Product_Search_Lists_All_Relevant_Products_chrome_31] framework.listeners.TestListener - TEST PASSED: Test_AE5_TC09_Verify_Product_Search_Lists_All_Relevant_Products
+2026-08-03 12:31:40 [TestNG-test-Release 1.0 Testing for AE-3] ERROR [qa] [Test_AE5_TC09_Verify_Product_Search_Lists_All_Relevant_Products_chrome_31] io.qameta.allure.AllureLifecycle - Could not add attachment: no test is running
+2026-08-03 12:31:40 [TestNG-test-Release 1.0 Testing for AE-3] INFO  [qa] [Test_AE5_TC09_Verify_Product_Search_Lists_All_Relevant_Products_chrome_31] framework.listeners.TestListener - Screenshot attached: PASSED Screenshot:
+2026-08-03 12:31:41 [TestNG-test-Release 1.0 Testing for AE-3] INFO  [qa] [Test_AE5_TC09_Verify_Product_Search_Lists_All_Relevant_Products_chrome_31] test.ae.ProductsTests - Trace stopped for: Test_AE5_TC09_Verify_Product_Search_Lists_All_Relevant_Products
+2026-08-03 12:31:42 [TestNG-test-Release 1.0 Testing for AE-3] INFO  [qa] [Test_AE5_TC09_Verify_Product_Search_Lists_All_Relevant_Products_chrome_31] framework.drivers.DriverManager - Browser closed successfully.
+2026-08-03 12:31:42 [TestNG-test-Release 1.0 Testing for AE-3] INFO  [qa] [Test_AE5_TC09_Verify_Product_Search_Lists_All_Relevant_Products_chrome_31] test.ae.ProductsTests - Driver shutdown successful.
+2026-08-03 12:31:42 [TestNG-test-Release 1.0 Testing for AE-3] INFO  [qa] [Test_AE5_TC09_Verify_Product_Search_Lists_All_Relevant_Products_chrome_31] reporting.ReportManager - ✅ Attachment added to Allure: 🎭 Playwright Trace — Test_AE5_TC09_Verify_Product_Search_Lists_All_Relevant_Products
+2026-08-03 12:31:42 [TestNG-test-Release 1.0 Testing for AE-3] INFO  [qa] [Test_AE5_TC09_Verify_Product_Search_Lists_All_Relevant_Products_chrome_31] test.ae.ProductsTests - Trace attached for: Test_AE5_TC09_Verify_Product_Search_Lists_All_Relevant_Products
+2026-08-03 12:31:42 [TestNG-test-Release 1.0 Testing for AE-3] INFO  [qa] [Test_AE5_TC09_Verify_Product_Search_Lists_All_Relevant_Products_chrome_31] test.ae.ProductsTests - trace temp file deleted from disk.
+2026-08-03 12:31:42 [TestNG-test-Release 1.0 Testing for AE-3] INFO  [qa] [Test_AE5_TC09_Verify_Product_Search_Lists_All_Relevant_Products_chrome_31] reporting.ReportManager - ✅ Attachment added to Allure: 🎬 Test Video — Test_AE5_TC09_Verify_Product_Search_Lists_All_Relevant_Products
+2026-08-03 12:31:42 [TestNG-test-Release 1.0 Testing for AE-3] INFO  [qa] [Test_AE5_TC09_Verify_Product_Search_Lists_All_Relevant_Products_chrome_31] test.ae.ProductsTests - Video attached for: Test_AE5_TC09_Verify_Product_Search_Lists_All_Relevant_Products
+2026-08-03 12:31:42 [TestNG-test-Release 1.0 Testing for AE-3] INFO  [qa] [Test_AE5_TC09_Verify_Product_Search_Lists_All_Relevant_Products_chrome_31] test.ae.ProductsTests - video temp file deleted from disk.

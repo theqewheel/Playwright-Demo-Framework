@@ -1,0 +1,12 @@
+
+-------------------------------------------------------------------------
+               INVOICE ADDRESS ON CHECKOUT
+-------------------------------------------------------------------------
+Title Fullname  : Mrs. Berniece Pfeffer
+Company Name    : Reynolds and Sons
+Address Line1   : 206 Torp Bypass
+Address Line2   : Apt. 617
+Address Line3   : Delphiastad Arkansas 425906
+Country         : Australia
+Phone           : 3751673405
+-------------------------------------------------------------------------

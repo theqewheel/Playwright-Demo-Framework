@@ -1,0 +1,12 @@
+
+-------------------------------------------------------------------------
+               DELIVERY ADDRESS ON CHECKOUT
+-------------------------------------------------------------------------
+Title Fullname  : Mr. Tempie Hayes
+Company Name    : Cummings, Reinger and Jones
+Address Line1   : 190 Wilderman Glens
+Address Line2   : Suite 521
+Address Line3   : North Patricia California 002673
+Country         : Israel
+Phone           : 5675171751
+-------------------------------------------------------------------------

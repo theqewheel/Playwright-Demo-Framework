@@ -1,0 +1,12 @@
+
+-------------------------------------------------------------------------
+               DELIVERY ADDRESS ON CHECKOUT
+-------------------------------------------------------------------------
+Title Fullname  : Mr. Antoine Runolfsdottir
+Company Name    : Cronin, Feest and Harvey
+Address Line1   : 5563 Stiedemann Well
+Address Line2   : Apt. 986
+Address Line3   : Tillmanberg Vermont 836911
+Country         : India
+Phone           : 4201220656
+-------------------------------------------------------------------------

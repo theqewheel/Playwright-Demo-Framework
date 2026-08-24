@@ -1,0 +1,23 @@
+2026-08-24 09:49:41 [TestNG-test-Release 1.0 Testing for AE-1] INFO  [qa] [Test_AE10_TC23_Verify_Address_On_Checkout_chrome_20] framework.listeners.TestListener - --- STARTING TEST : PlaceOrderTests#Test_AE10_TC23_Verify_Address_On_Checkout on chrome [thread-20] ---
+2026-08-24 09:49:41 [TestNG-test-Release 1.0 Testing for AE-1] INFO  [qa] [Test_AE10_TC23_Verify_Address_On_Checkout_chrome_20] test.ae.PlaceOrderTests - Running:Step-1
+2026-08-24 09:49:46 [TestNG-test-Release 1.0 Testing for AE-1] INFO  [qa] [Test_AE10_TC23_Verify_Address_On_Checkout_chrome_20] framework.listeners.TestListener - TEST FAILED: Test_AE10_TC23_Verify_Address_On_Checkout
+2026-08-24 09:49:46 [TestNG-test-Release 1.0 Testing for AE-1] ERROR [qa] [Test_AE10_TC23_Verify_Address_On_Checkout_chrome_20] framework.listeners.TestListener - Failure Reason: org.opentest4j.AssertionFailedError: Page title expected to match regex
+Expected: Automation Exercise
+Received: One moment, please...
+
+Call log:
+  - Assert "hasTitle" with timeout 5000ms
+    9 × unexpected value "One moment, please..."
+2026-08-24 09:49:46 [TestNG-test-Release 1.0 Testing for AE-1] ERROR [qa] [Test_AE10_TC23_Verify_Address_On_Checkout_chrome_20] io.qameta.allure.AllureLifecycle - Could not add attachment: no test is running
+2026-08-24 09:49:46 [TestNG-test-Release 1.0 Testing for AE-1] ERROR [qa] [Test_AE10_TC23_Verify_Address_On_Checkout_chrome_20] io.qameta.allure.AllureLifecycle - Could not start step: no test case running
+2026-08-24 09:49:46 [TestNG-test-Release 1.0 Testing for AE-1] ERROR [qa] [Test_AE10_TC23_Verify_Address_On_Checkout_chrome_20] io.qameta.allure.AllureLifecycle - Could not stop step: step with uuid 165dff6b-8ade-4bae-ab4c-18ddd8596190 not found
+2026-08-24 09:49:46 [TestNG-test-Release 1.0 Testing for AE-1] INFO  [qa] [Test_AE10_TC23_Verify_Address_On_Checkout_chrome_20] framework.listeners.TestListener - Screenshot attached: FAILURE Screenshot:
+2026-08-24 09:49:46 [TestNG-test-Release 1.0 Testing for AE-1] INFO  [qa] [Test_AE10_TC23_Verify_Address_On_Checkout_chrome_20] test.ae.PlaceOrderTests - Trace stopped for: Test_AE10_TC23_Verify_Address_On_Checkout
+2026-08-24 09:49:47 [TestNG-test-Release 1.0 Testing for AE-1] INFO  [qa] [Test_AE10_TC23_Verify_Address_On_Checkout_chrome_20] framework.drivers.DriverManager - Browser closed successfully.
+2026-08-24 09:49:47 [TestNG-test-Release 1.0 Testing for AE-1] INFO  [qa] [Test_AE10_TC23_Verify_Address_On_Checkout_chrome_20] test.ae.PlaceOrderTests - Driver shutdown successful.
+2026-08-24 09:49:47 [TestNG-test-Release 1.0 Testing for AE-1] INFO  [qa] [Test_AE10_TC23_Verify_Address_On_Checkout_chrome_20] reporting.ReportManager - ✅ Attachment added to Allure: 🎭 Playwright Trace — Test_AE10_TC23_Verify_Address_On_Checkout
+2026-08-24 09:49:47 [TestNG-test-Release 1.0 Testing for AE-1] INFO  [qa] [Test_AE10_TC23_Verify_Address_On_Checkout_chrome_20] test.ae.PlaceOrderTests - Trace attached for: Test_AE10_TC23_Verify_Address_On_Checkout
+2026-08-24 09:49:47 [TestNG-test-Release 1.0 Testing for AE-1] INFO  [qa] [Test_AE10_TC23_Verify_Address_On_Checkout_chrome_20] test.ae.PlaceOrderTests - trace temp file deleted from disk.
+2026-08-24 09:49:47 [TestNG-test-Release 1.0 Testing for AE-1] INFO  [qa] [Test_AE10_TC23_Verify_Address_On_Checkout_chrome_20] reporting.ReportManager - ✅ Attachment added to Allure: 🎬 Test Video — Test_AE10_TC23_Verify_Address_On_Checkout
+2026-08-24 09:49:47 [TestNG-test-Release 1.0 Testing for AE-1] INFO  [qa] [Test_AE10_TC23_Verify_Address_On_Checkout_chrome_20] test.ae.PlaceOrderTests - Video attached for: Test_AE10_TC23_Verify_Address_On_Checkout
+2026-08-24 09:49:47 [TestNG-test-Release 1.0 Testing for AE-1] INFO  [qa] [Test_AE10_TC23_Verify_Address_On_Checkout_chrome_20] test.ae.PlaceOrderTests - video temp file deleted from disk.

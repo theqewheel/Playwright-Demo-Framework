@@ -1,0 +1,93 @@
+2026-08-24 09:48:42 [TestNG-test-Release 1.0 Testing for AE-3] INFO  [qa] [Test_AE7_TC10_Verify_Subscription_Cart_Page_chrome_22] framework.listeners.TestListener - --- STARTING TEST : SubscriptionTests#Test_AE7_TC10_Verify_Subscription_Cart_Page on chrome [thread-22] ---
+2026-08-24 09:48:42 [TestNG-test-Release 1.0 Testing for AE-3] INFO  [qa] [Test_AE7_TC10_Verify_Subscription_Cart_Page_chrome_22] test.ae.SubscriptionTests - Running:Step-1
+2026-08-24 09:49:13 [TestNG-test-Release 1.0 Testing for AE-3] ERROR [qa] [Test_AE7_TC10_Verify_Subscription_Cart_Page_chrome_22] framework.listeners.TestListener - ========================================
+2026-08-24 09:49:13 [TestNG-test-Release 1.0 Testing for AE-3] ERROR [qa] [Test_AE7_TC10_Verify_Subscription_Cart_Page_chrome_22] framework.listeners.TestListener -          ACTUAL TEST FAILURE            
+2026-08-24 09:49:13 [TestNG-test-Release 1.0 Testing for AE-3] ERROR [qa] [Test_AE7_TC10_Verify_Subscription_Cart_Page_chrome_22] framework.listeners.TestListener - ========================================
+2026-08-24 09:49:13 [TestNG-test-Release 1.0 Testing for AE-3] ERROR [qa] [Test_AE7_TC10_Verify_Subscription_Cart_Page_chrome_22] framework.listeners.TestListener - Test    : Test_AE7_TC10_Verify_Subscription_Cart_Page
+2026-08-24 09:49:13 [TestNG-test-Release 1.0 Testing for AE-3] ERROR [qa] [Test_AE7_TC10_Verify_Subscription_Cart_Page_chrome_22] framework.listeners.TestListener - Cause   : TimeoutError
+2026-08-24 09:49:13 [TestNG-test-Release 1.0 Testing for AE-3] ERROR [qa] [Test_AE7_TC10_Verify_Subscription_Cart_Page_chrome_22] framework.listeners.TestListener - Details : 
+com.microsoft.playwright.TimeoutError: Error {
+  message='Timeout 30000ms exceeded.
+  name='TimeoutError
+  stack='TimeoutError: Timeout 30000ms exceeded.
+    at ProgressController.run (/tmp/playwright-java-7272526717970840119/package/lib/server/progress.js:86:28)
+    at FrameDispatcher._runCommand (/tmp/playwright-java-7272526717970840119/package/lib/server/dispatchers/dispatcher.js:91:31)
+    at DispatcherConnection.dispatch (/tmp/playwright-java-7272526717970840119/package/lib/server/dispatchers/dispatcher.js:325:39)
+}
+Call log:
+-   - waiting for locator("ul[class*='navbar'] a").filter(new Locator.FilterOptions().setHasText("cart"))
+-     6 × waiting for" https://automationexercise.com/" navigation to finish...
+-       - navigated to "https://automationexercise.com/"
+
+	at com.microsoft.playwright.impl.WaitableResult.get(WaitableResult.java:52)
+	at com.microsoft.playwright.impl.ChannelOwner.runUntil(ChannelOwner.java:138)
+	at com.microsoft.playwright.impl.Connection.sendMessage(Connection.java:131)
+	at com.microsoft.playwright.impl.ChannelOwner.sendMessage(ChannelOwner.java:124)
+	at com.microsoft.playwright.impl.FrameImpl.clickImpl(FrameImpl.java:244)
+	at com.microsoft.playwright.impl.LocatorImpl.click(LocatorImpl.java:164)
+	at com.microsoft.playwright.Locator.click(Locator.java:2543)
+	at pages.ae.HomePage.clickMenu(HomePage.java:69)
+	at test.ae.SubscriptionTests.Test_AE7_TC10_Verify_Subscription_Cart_Page(SubscriptionTests.java:49)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
+	at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:697)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
+	at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
+	at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:1005)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
+	at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
+	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at org.testng.internal.thread.graph.TestNGFutureTask.run(TestNGFutureTask.java:22)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+Caused by: com.microsoft.playwright.TimeoutError: Error {
+  message='Timeout 30000ms exceeded.
+  name='TimeoutError
+  stack='TimeoutError: Timeout 30000ms exceeded.
+    at ProgressController.run (/tmp/playwright-java-7272526717970840119/package/lib/server/progress.js:86:28)
+    at FrameDispatcher._runCommand (/tmp/playwright-java-7272526717970840119/package/lib/server/dispatchers/dispatcher.js:91:31)
+    at DispatcherConnection.dispatch (/tmp/playwright-java-7272526717970840119/package/lib/server/dispatchers/dispatcher.js:325:39)
+}
+Call log:
+-   - waiting for locator("ul[class*='navbar'] a").filter(new Locator.FilterOptions().setHasText("cart"))
+-     6 × waiting for" https://automationexercise.com/" navigation to finish...
+-       - navigated to "https://automationexercise.com/"
+
+	at com.microsoft.playwright.impl.Connection.dispatch(Connection.java:257)
+	at com.microsoft.playwright.impl.Connection.processOneMessage(Connection.java:214)
+	at com.microsoft.playwright.impl.ChannelOwner.runUntil(ChannelOwner.java:136)
+	... 25 common frames omitted
+2026-08-24 09:49:13 [TestNG-test-Release 1.0 Testing for AE-3] ERROR [qa] [Test_AE7_TC10_Verify_Subscription_Cart_Page_chrome_22] framework.listeners.TestListener - ==================XXXXX=================
+2026-08-24 09:49:13 [TestNG-test-Release 1.0 Testing for AE-3] INFO  [qa] [Test_AE7_TC10_Verify_Subscription_Cart_Page_chrome_22] framework.listeners.TestListener - TEST FAILED: Test_AE7_TC10_Verify_Subscription_Cart_Page
+2026-08-24 09:49:13 [TestNG-test-Release 1.0 Testing for AE-3] ERROR [qa] [Test_AE7_TC10_Verify_Subscription_Cart_Page_chrome_22] framework.listeners.TestListener - Failure Reason: com.microsoft.playwright.TimeoutError: Error {
+  message='Timeout 30000ms exceeded.
+  name='TimeoutError
+  stack='TimeoutError: Timeout 30000ms exceeded.
+    at ProgressController.run (/tmp/playwright-java-7272526717970840119/package/lib/server/progress.js:86:28)
+    at FrameDispatcher._runCommand (/tmp/playwright-java-7272526717970840119/package/lib/server/dispatchers/dispatcher.js:91:31)
+    at DispatcherConnection.dispatch (/tmp/playwright-java-7272526717970840119/package/lib/server/dispatchers/dispatcher.js:325:39)
+}
+Call log:
+-   - waiting for locator("ul[class*='navbar'] a").filter(new Locator.FilterOptions().setHasText("cart"))
+-     6 × waiting for" https://automationexercise.com/" navigation to finish...
+-       - navigated to "https://automationexercise.com/"
+
+2026-08-24 09:49:13 [TestNG-test-Release 1.0 Testing for AE-3] ERROR [qa] [Test_AE7_TC10_Verify_Subscription_Cart_Page_chrome_22] io.qameta.allure.AllureLifecycle - Could not add attachment: no test is running
+2026-08-24 09:49:13 [TestNG-test-Release 1.0 Testing for AE-3] ERROR [qa] [Test_AE7_TC10_Verify_Subscription_Cart_Page_chrome_22] io.qameta.allure.AllureLifecycle - Could not start step: no test case running
+2026-08-24 09:49:13 [TestNG-test-Release 1.0 Testing for AE-3] ERROR [qa] [Test_AE7_TC10_Verify_Subscription_Cart_Page_chrome_22] io.qameta.allure.AllureLifecycle - Could not stop step: step with uuid 8060a483-a876-4ad9-8d10-827f9bdd8956 not found
+2026-08-24 09:49:13 [TestNG-test-Release 1.0 Testing for AE-3] INFO  [qa] [Test_AE7_TC10_Verify_Subscription_Cart_Page_chrome_22] framework.listeners.TestListener - Screenshot attached: FAILURE Screenshot:
+2026-08-24 09:49:13 [TestNG-test-Release 1.0 Testing for AE-3] INFO  [qa] [Test_AE7_TC10_Verify_Subscription_Cart_Page_chrome_22] test.ae.SubscriptionTests - Trace stopped for: Test_AE7_TC10_Verify_Subscription_Cart_Page
+2026-08-24 09:49:14 [TestNG-test-Release 1.0 Testing for AE-3] INFO  [qa] [Test_AE7_TC10_Verify_Subscription_Cart_Page_chrome_22] framework.drivers.DriverManager - Browser closed successfully.
+2026-08-24 09:49:14 [TestNG-test-Release 1.0 Testing for AE-3] INFO  [qa] [Test_AE7_TC10_Verify_Subscription_Cart_Page_chrome_22] test.ae.SubscriptionTests - Driver shutdown successful.
+2026-08-24 09:49:14 [TestNG-test-Release 1.0 Testing for AE-3] INFO  [qa] [Test_AE7_TC10_Verify_Subscription_Cart_Page_chrome_22] reporting.ReportManager - ✅ Attachment added to Allure: 🎭 Playwright Trace — Test_AE7_TC10_Verify_Subscription_Cart_Page
+2026-08-24 09:49:14 [TestNG-test-Release 1.0 Testing for AE-3] INFO  [qa] [Test_AE7_TC10_Verify_Subscription_Cart_Page_chrome_22] test.ae.SubscriptionTests - Trace attached for: Test_AE7_TC10_Verify_Subscription_Cart_Page
+2026-08-24 09:49:14 [TestNG-test-Release 1.0 Testing for AE-3] INFO  [qa] [Test_AE7_TC10_Verify_Subscription_Cart_Page_chrome_22] test.ae.SubscriptionTests - trace temp file deleted from disk.
+2026-08-24 09:49:14 [TestNG-test-Release 1.0 Testing for AE-3] INFO  [qa] [Test_AE7_TC10_Verify_Subscription_Cart_Page_chrome_22] reporting.ReportManager - ✅ Attachment added to Allure: 🎬 Test Video — Test_AE7_TC10_Verify_Subscription_Cart_Page
+2026-08-24 09:49:14 [TestNG-test-Release 1.0 Testing for AE-3] INFO  [qa] [Test_AE7_TC10_Verify_Subscription_Cart_Page_chrome_22] test.ae.SubscriptionTests - Video attached for: Test_AE7_TC10_Verify_Subscription_Cart_Page
+2026-08-24 09:49:14 [TestNG-test-Release 1.0 Testing for AE-3] INFO  [qa] [Test_AE7_TC10_Verify_Subscription_Cart_Page_chrome_22] test.ae.SubscriptionTests - video temp file deleted from disk.

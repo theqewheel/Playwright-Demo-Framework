@@ -1,0 +1,23 @@
+2026-08-24 09:48:23 [TestNG-test-Release 1.0 Testing for AE-4] INFO  [qa] [Test_AE3_TC06_Verify_Contact_Us_Form_Submission_Guest_User_chrome_23] framework.listeners.TestListener - --- STARTING TEST : ContactUsTests#Test_AE3_TC06_Verify_Contact_Us_Form_Submission_Guest_User on chrome [thread-23] ---
+2026-08-24 09:48:23 [TestNG-test-Release 1.0 Testing for AE-4] INFO  [qa] [Test_AE3_TC06_Verify_Contact_Us_Form_Submission_Guest_User_chrome_23] test.ae.ContactUsTests - Running:Step-1
+2026-08-24 09:48:28 [TestNG-test-Release 1.0 Testing for AE-4] INFO  [qa] [Test_AE3_TC06_Verify_Contact_Us_Form_Submission_Guest_User_chrome_23] framework.listeners.TestListener - TEST FAILED: Test_AE3_TC06_Verify_Contact_Us_Form_Submission_Guest_User
+2026-08-24 09:48:28 [TestNG-test-Release 1.0 Testing for AE-4] ERROR [qa] [Test_AE3_TC06_Verify_Contact_Us_Form_Submission_Guest_User_chrome_23] framework.listeners.TestListener - Failure Reason: org.opentest4j.AssertionFailedError: Page title expected to match regex
+Expected: Automation Exercise
+Received: One moment, please...
+
+Call log:
+  - Assert "hasTitle" with timeout 5000ms
+    9 × unexpected value "One moment, please..."
+2026-08-24 09:48:28 [TestNG-test-Release 1.0 Testing for AE-4] ERROR [qa] [Test_AE3_TC06_Verify_Contact_Us_Form_Submission_Guest_User_chrome_23] io.qameta.allure.AllureLifecycle - Could not add attachment: no test is running
+2026-08-24 09:48:28 [TestNG-test-Release 1.0 Testing for AE-4] ERROR [qa] [Test_AE3_TC06_Verify_Contact_Us_Form_Submission_Guest_User_chrome_23] io.qameta.allure.AllureLifecycle - Could not start step: no test case running
+2026-08-24 09:48:28 [TestNG-test-Release 1.0 Testing for AE-4] ERROR [qa] [Test_AE3_TC06_Verify_Contact_Us_Form_Submission_Guest_User_chrome_23] io.qameta.allure.AllureLifecycle - Could not stop step: step with uuid e05df685-ce65-41b4-842b-288bda456c6d not found
+2026-08-24 09:48:28 [TestNG-test-Release 1.0 Testing for AE-4] INFO  [qa] [Test_AE3_TC06_Verify_Contact_Us_Form_Submission_Guest_User_chrome_23] framework.listeners.TestListener - Screenshot attached: FAILURE Screenshot:
+2026-08-24 09:48:28 [TestNG-test-Release 1.0 Testing for AE-4] INFO  [qa] [Test_AE3_TC06_Verify_Contact_Us_Form_Submission_Guest_User_chrome_23] test.ae.ContactUsTests - Trace stopped for: Test_AE3_TC06_Verify_Contact_Us_Form_Submission_Guest_User
+2026-08-24 09:48:30 [TestNG-test-Release 1.0 Testing for AE-4] INFO  [qa] [Test_AE3_TC06_Verify_Contact_Us_Form_Submission_Guest_User_chrome_23] framework.drivers.DriverManager - Browser closed successfully.
+2026-08-24 09:48:30 [TestNG-test-Release 1.0 Testing for AE-4] INFO  [qa] [Test_AE3_TC06_Verify_Contact_Us_Form_Submission_Guest_User_chrome_23] test.ae.ContactUsTests - Driver shutdown successful.
+2026-08-24 09:48:30 [TestNG-test-Release 1.0 Testing for AE-4] INFO  [qa] [Test_AE3_TC06_Verify_Contact_Us_Form_Submission_Guest_User_chrome_23] reporting.ReportManager - ✅ Attachment added to Allure: 🎭 Playwright Trace — Test_AE3_TC06_Verify_Contact_Us_Form_Submission_Guest_User
+2026-08-24 09:48:30 [TestNG-test-Release 1.0 Testing for AE-4] INFO  [qa] [Test_AE3_TC06_Verify_Contact_Us_Form_Submission_Guest_User_chrome_23] test.ae.ContactUsTests - Trace attached for: Test_AE3_TC06_Verify_Contact_Us_Form_Submission_Guest_User
+2026-08-24 09:48:30 [TestNG-test-Release 1.0 Testing for AE-4] INFO  [qa] [Test_AE3_TC06_Verify_Contact_Us_Form_Submission_Guest_User_chrome_23] test.ae.ContactUsTests - trace temp file deleted from disk.
+2026-08-24 09:48:30 [TestNG-test-Release 1.0 Testing for AE-4] INFO  [qa] [Test_AE3_TC06_Verify_Contact_Us_Form_Submission_Guest_User_chrome_23] reporting.ReportManager - ✅ Attachment added to Allure: 🎬 Test Video — Test_AE3_TC06_Verify_Contact_Us_Form_Submission_Guest_User
+2026-08-24 09:48:30 [TestNG-test-Release 1.0 Testing for AE-4] INFO  [qa] [Test_AE3_TC06_Verify_Contact_Us_Form_Submission_Guest_User_chrome_23] test.ae.ContactUsTests - Video attached for: Test_AE3_TC06_Verify_Contact_Us_Form_Submission_Guest_User
+2026-08-24 09:48:30 [TestNG-test-Release 1.0 Testing for AE-4] INFO  [qa] [Test_AE3_TC06_Verify_Contact_Us_Form_Submission_Guest_User_chrome_23] test.ae.ContactUsTests - video temp file deleted from disk.

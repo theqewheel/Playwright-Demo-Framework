@@ -1,0 +1,12 @@
+
+-------------------------------------------------------------------------
+               INVOICE ADDRESS ON CHECKOUT
+-------------------------------------------------------------------------
+Title Fullname  : Mr. Shanna Heidenreich
+Company Name    : Nienow, Hand and Dare
+Address Line1   : 53112 Elijah Expressway
+Address Line2   : Suite 182
+Address Line3   : Port Wes Arkansas 044926
+Country         : Australia
+Phone           : 7850378612
+-------------------------------------------------------------------------

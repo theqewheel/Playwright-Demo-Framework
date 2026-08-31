@@ -1,0 +1,12 @@
+
+-------------------------------------------------------------------------
+               DELIVERY ADDRESS ON CHECKOUT
+-------------------------------------------------------------------------
+Title Fullname  : Mr. Kevin Kunde
+Company Name    : Blick-Farrell
+Address Line1   : 09268 Kautzer Parks
+Address Line2   : Apt. 114
+Address Line3   : East Renae Maine 003260
+Country         : Canada
+Phone           : 9571617453
+-------------------------------------------------------------------------

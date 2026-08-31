@@ -1,0 +1,67 @@
+2026-08-31 17:01:34 [TestNG-test-Release 1.0 Testing for AE-2] INFO  [qa] [Test_AE10_TC23_Verify_Address_On_Checkout_chrome_30] framework.listeners.TestListener - --- STARTING TEST : PlaceOrderTests#Test_AE10_TC23_Verify_Address_On_Checkout on chrome [thread-30] ---
+2026-08-31 17:01:34 [TestNG-test-Release 1.0 Testing for AE-2] INFO  [qa] [Test_AE10_TC23_Verify_Address_On_Checkout_chrome_30] test.ae.PlaceOrderTests - Running:Step-1
+2026-08-31 17:01:35 [TestNG-test-Release 1.0 Testing for AE-2] INFO  [qa] [Test_AE10_TC23_Verify_Address_On_Checkout_chrome_30] test.ae.PlaceOrderTests - Running:Step-2
+2026-08-31 17:01:46 [TestNG-test-Release 1.0 Testing for AE-2] INFO  [qa] [Test_AE10_TC23_Verify_Address_On_Checkout_chrome_30] pages.ae.SignupDetailPage - Checkbox: 'Newsletter' is set to: true
+2026-08-31 17:01:47 [TestNG-test-Release 1.0 Testing for AE-2] INFO  [qa] [Test_AE10_TC23_Verify_Address_On_Checkout_chrome_30] pages.ae.SignupDetailPage - Checkbox: 'Special Offers' is set to: true
+2026-08-31 17:01:47 [TestNG-test-Release 1.0 Testing for AE-2] ERROR [qa] [Test_AE10_TC23_Verify_Address_On_Checkout_chrome_30] io.qameta.allure.util.NamingUtils - Could not process empty pattern
+2026-08-31 17:01:47 [TestNG-test-Release 1.0 Testing for AE-2] ERROR [qa] [Test_AE10_TC23_Verify_Address_On_Checkout_chrome_30] io.qameta.allure.util.NamingUtils - Could not process empty pattern
+2026-08-31 17:01:55 [TestNG-test-Release 1.0 Testing for AE-2] ERROR [qa] [Test_AE10_TC23_Verify_Address_On_Checkout_chrome_30] io.qameta.allure.util.NamingUtils - Could not find parameter zipcpde
+2026-08-31 17:02:00 [TestNG-test-Release 1.0 Testing for AE-2] INFO  [qa] [Test_AE10_TC23_Verify_Address_On_Checkout_chrome_30] test.ae.PlaceOrderTests - Running:Step-3
+2026-08-31 17:02:02 [TestNG-test-Release 1.0 Testing for AE-2] INFO  [qa] [Test_AE10_TC23_Verify_Address_On_Checkout_chrome_30] pages.ae.HomePage - Navigating to Products
+2026-08-31 17:02:05 [TestNG-test-Release 1.0 Testing for AE-2] INFO  [qa] [Test_AE10_TC23_Verify_Address_On_Checkout_chrome_30] pages.ae.ProductsPage - 
+---------------------------------------------------
+Product 1 Added To Cart
+Name  : Blue Top
+Price : 500
+------------------------xxxx-----------------------
+
+2026-08-31 17:02:08 [TestNG-test-Release 1.0 Testing for AE-2] INFO  [qa] [Test_AE10_TC23_Verify_Address_On_Checkout_chrome_30] pages.ae.ProductsPage - 
+---------------------------------------------------
+Product 2 Added To Cart
+Name  : Men Tshirt
+Price : 400
+------------------------xxxx-----------------------
+
+2026-08-31 17:02:08 [TestNG-test-Release 1.0 Testing for AE-2] INFO  [qa] [Test_AE10_TC23_Verify_Address_On_Checkout_chrome_30] test.ae.PlaceOrderTests - Running:Step-4
+2026-08-31 17:02:10 [TestNG-test-Release 1.0 Testing for AE-2] INFO  [qa] [Test_AE10_TC23_Verify_Address_On_Checkout_chrome_30] pages.ae.HomePage - Navigating to Cart
+2026-08-31 17:02:11 [TestNG-test-Release 1.0 Testing for AE-2] INFO  [qa] [Test_AE10_TC23_Verify_Address_On_Checkout_chrome_30] test.ae.PlaceOrderTests - Running:Step-5
+2026-08-31 17:02:11 [TestNG-test-Release 1.0 Testing for AE-2] INFO  [qa] [Test_AE10_TC23_Verify_Address_On_Checkout_chrome_30] pages.ae.CheckOutPage - 
+-------------------------------------------------------------------------
+               DELIVERY ADDRESS ON CHECKOUT
+-------------------------------------------------------------------------
+Title Fullname  : Mr. Isabell Langosh
+Company Name    : Bergstrom, Sauer and Ebert
+Address Line1   : 06946 Syble Route
+Address Line2   : Suite 648
+Address Line3   : Naderberg Colorado 151391
+Country         : Israel
+Phone           : 6943807188
+-------------------------------------------------------------------------
+
+2026-08-31 17:02:11 [TestNG-test-Release 1.0 Testing for AE-2] INFO  [qa] [Test_AE10_TC23_Verify_Address_On_Checkout_chrome_30] pages.ae.CheckOutPage - 
+-------------------------------------------------------------------------
+               INVOICE ADDRESS ON CHECKOUT
+-------------------------------------------------------------------------
+Title Fullname  : Mr. Isabell Langosh
+Company Name    : Bergstrom, Sauer and Ebert
+Address Line1   : 06946 Syble Route
+Address Line2   : Suite 648
+Address Line3   : Naderberg Colorado 151391
+Country         : Israel
+Phone           : 6943807188
+--------------------------------------------------------------------------
+
+2026-08-31 17:02:11 [TestNG-test-Release 1.0 Testing for AE-2] INFO  [qa] [Test_AE10_TC23_Verify_Address_On_Checkout_chrome_30] test.ae.PlaceOrderTests - Running:Step-7
+2026-08-31 17:02:11 [TestNG-test-Release 1.0 Testing for AE-2] INFO  [qa] [Test_AE10_TC23_Verify_Address_On_Checkout_chrome_30] test.ae.PlaceOrderTests - Running:Step-8 >>>> Cleanup
+2026-08-31 17:02:14 [TestNG-test-Release 1.0 Testing for AE-2] INFO  [qa] [Test_AE10_TC23_Verify_Address_On_Checkout_chrome_30] framework.listeners.TestListener - TEST PASSED: Test_AE10_TC23_Verify_Address_On_Checkout
+2026-08-31 17:02:15 [TestNG-test-Release 1.0 Testing for AE-2] ERROR [qa] [Test_AE10_TC23_Verify_Address_On_Checkout_chrome_30] io.qameta.allure.AllureLifecycle - Could not add attachment: no test is running
+2026-08-31 17:02:15 [TestNG-test-Release 1.0 Testing for AE-2] INFO  [qa] [Test_AE10_TC23_Verify_Address_On_Checkout_chrome_30] framework.listeners.TestListener - Screenshot attached: PASSED Screenshot:
+2026-08-31 17:02:16 [TestNG-test-Release 1.0 Testing for AE-2] INFO  [qa] [Test_AE10_TC23_Verify_Address_On_Checkout_chrome_30] test.ae.PlaceOrderTests - Trace stopped for: Test_AE10_TC23_Verify_Address_On_Checkout
+2026-08-31 17:02:17 [TestNG-test-Release 1.0 Testing for AE-2] INFO  [qa] [Test_AE10_TC23_Verify_Address_On_Checkout_chrome_30] framework.drivers.DriverManager - Browser closed successfully.
+2026-08-31 17:02:17 [TestNG-test-Release 1.0 Testing for AE-2] INFO  [qa] [Test_AE10_TC23_Verify_Address_On_Checkout_chrome_30] test.ae.PlaceOrderTests - Driver shutdown successful.
+2026-08-31 17:02:17 [TestNG-test-Release 1.0 Testing for AE-2] INFO  [qa] [Test_AE10_TC23_Verify_Address_On_Checkout_chrome_30] reporting.ReportManager - ✅ Attachment added to Allure: 🎭 Playwright Trace — Test_AE10_TC23_Verify_Address_On_Checkout
+2026-08-31 17:02:17 [TestNG-test-Release 1.0 Testing for AE-2] INFO  [qa] [Test_AE10_TC23_Verify_Address_On_Checkout_chrome_30] test.ae.PlaceOrderTests - Trace attached for: Test_AE10_TC23_Verify_Address_On_Checkout
+2026-08-31 17:02:17 [TestNG-test-Release 1.0 Testing for AE-2] INFO  [qa] [Test_AE10_TC23_Verify_Address_On_Checkout_chrome_30] test.ae.PlaceOrderTests - trace temp file deleted from disk.
+2026-08-31 17:02:17 [TestNG-test-Release 1.0 Testing for AE-2] INFO  [qa] [Test_AE10_TC23_Verify_Address_On_Checkout_chrome_30] reporting.ReportManager - ✅ Attachment added to Allure: 🎬 Test Video — Test_AE10_TC23_Verify_Address_On_Checkout
+2026-08-31 17:02:17 [TestNG-test-Release 1.0 Testing for AE-2] INFO  [qa] [Test_AE10_TC23_Verify_Address_On_Checkout_chrome_30] test.ae.PlaceOrderTests - Video attached for: Test_AE10_TC23_Verify_Address_On_Checkout
+2026-08-31 17:02:17 [TestNG-test-Release 1.0 Testing for AE-2] INFO  [qa] [Test_AE10_TC23_Verify_Address_On_Checkout_chrome_30] test.ae.PlaceOrderTests - video temp file deleted from disk.

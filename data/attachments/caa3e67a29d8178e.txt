@@ -1,0 +1,12 @@
+
+-------------------------------------------------------------------------
+               INVOICE ADDRESS ON CHECKOUT
+-------------------------------------------------------------------------
+Title Fullname  : Mrs. Aline Mayert
+Company Name    : Herman, Legros and Kovacek
+Address Line1   : 48511 Clemente Vista
+Address Line2   : Suite 459
+Address Line3   : Willyfort Massachusetts 276202
+Country         : New Zealand
+Phone           : 9431065766
+-------------------------------------------------------------------------

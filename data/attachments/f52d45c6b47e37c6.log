@@ -1,0 +1,67 @@
+2026-08-31 16:50:31 [TestNG-test-Release 1.0 Testing for AE-4] INFO  [qa] [Test_AE10_TC23_Verify_Address_On_Checkout_chrome_23] framework.listeners.TestListener - --- STARTING TEST : PlaceOrderTests#Test_AE10_TC23_Verify_Address_On_Checkout on chrome [thread-23] ---
+2026-08-31 16:50:31 [TestNG-test-Release 1.0 Testing for AE-4] INFO  [qa] [Test_AE10_TC23_Verify_Address_On_Checkout_chrome_23] test.ae.PlaceOrderTests - Running:Step-1
+2026-08-31 16:50:32 [TestNG-test-Release 1.0 Testing for AE-4] INFO  [qa] [Test_AE10_TC23_Verify_Address_On_Checkout_chrome_23] test.ae.PlaceOrderTests - Running:Step-2
+2026-08-31 16:50:43 [TestNG-test-Release 1.0 Testing for AE-4] INFO  [qa] [Test_AE10_TC23_Verify_Address_On_Checkout_chrome_23] pages.ae.SignupDetailPage - Checkbox: 'Newsletter' is set to: true
+2026-08-31 16:50:44 [TestNG-test-Release 1.0 Testing for AE-4] INFO  [qa] [Test_AE10_TC23_Verify_Address_On_Checkout_chrome_23] pages.ae.SignupDetailPage - Checkbox: 'Special Offers' is set to: true
+2026-08-31 16:50:44 [TestNG-test-Release 1.0 Testing for AE-4] ERROR [qa] [Test_AE10_TC23_Verify_Address_On_Checkout_chrome_23] io.qameta.allure.util.NamingUtils - Could not process empty pattern
+2026-08-31 16:50:44 [TestNG-test-Release 1.0 Testing for AE-4] ERROR [qa] [Test_AE10_TC23_Verify_Address_On_Checkout_chrome_23] io.qameta.allure.util.NamingUtils - Could not process empty pattern
+2026-08-31 16:50:53 [TestNG-test-Release 1.0 Testing for AE-4] ERROR [qa] [Test_AE10_TC23_Verify_Address_On_Checkout_chrome_23] io.qameta.allure.util.NamingUtils - Could not find parameter zipcpde
+2026-08-31 16:50:58 [TestNG-test-Release 1.0 Testing for AE-4] INFO  [qa] [Test_AE10_TC23_Verify_Address_On_Checkout_chrome_23] test.ae.PlaceOrderTests - Running:Step-3
+2026-08-31 16:50:59 [TestNG-test-Release 1.0 Testing for AE-4] INFO  [qa] [Test_AE10_TC23_Verify_Address_On_Checkout_chrome_23] pages.ae.HomePage - Navigating to Products
+2026-08-31 16:51:03 [TestNG-test-Release 1.0 Testing for AE-4] INFO  [qa] [Test_AE10_TC23_Verify_Address_On_Checkout_chrome_23] pages.ae.ProductsPage - 
+---------------------------------------------------
+Product 1 Added To Cart
+Name  : Blue Top
+Price : 500
+------------------------xxxx-----------------------
+
+2026-08-31 16:51:06 [TestNG-test-Release 1.0 Testing for AE-4] INFO  [qa] [Test_AE10_TC23_Verify_Address_On_Checkout_chrome_23] pages.ae.ProductsPage - 
+---------------------------------------------------
+Product 2 Added To Cart
+Name  : Men Tshirt
+Price : 400
+------------------------xxxx-----------------------
+
+2026-08-31 16:51:06 [TestNG-test-Release 1.0 Testing for AE-4] INFO  [qa] [Test_AE10_TC23_Verify_Address_On_Checkout_chrome_23] test.ae.PlaceOrderTests - Running:Step-4
+2026-08-31 16:51:07 [TestNG-test-Release 1.0 Testing for AE-4] INFO  [qa] [Test_AE10_TC23_Verify_Address_On_Checkout_chrome_23] pages.ae.HomePage - Navigating to Cart
+2026-08-31 16:51:09 [TestNG-test-Release 1.0 Testing for AE-4] INFO  [qa] [Test_AE10_TC23_Verify_Address_On_Checkout_chrome_23] test.ae.PlaceOrderTests - Running:Step-5
+2026-08-31 16:51:09 [TestNG-test-Release 1.0 Testing for AE-4] INFO  [qa] [Test_AE10_TC23_Verify_Address_On_Checkout_chrome_23] pages.ae.CheckOutPage - 
+-------------------------------------------------------------------------
+               DELIVERY ADDRESS ON CHECKOUT
+-------------------------------------------------------------------------
+Title Fullname  : Mr. Aline Dickens
+Company Name    : Schmitt, Yundt and Rosenbaum
+Address Line1   : 5388 Kuhn Forest
+Address Line2   : Apt. 805
+Address Line3   : McCulloughfurt New Hampshire 060742
+Country         : Canada
+Phone           : 7536022773
+-------------------------------------------------------------------------
+
+2026-08-31 16:51:09 [TestNG-test-Release 1.0 Testing for AE-4] INFO  [qa] [Test_AE10_TC23_Verify_Address_On_Checkout_chrome_23] pages.ae.CheckOutPage - 
+-------------------------------------------------------------------------
+               INVOICE ADDRESS ON CHECKOUT
+-------------------------------------------------------------------------
+Title Fullname  : Mr. Aline Dickens
+Company Name    : Schmitt, Yundt and Rosenbaum
+Address Line1   : 5388 Kuhn Forest
+Address Line2   : Apt. 805
+Address Line3   : McCulloughfurt New Hampshire 060742
+Country         : Canada
+Phone           : 7536022773
+--------------------------------------------------------------------------
+
+2026-08-31 16:51:09 [TestNG-test-Release 1.0 Testing for AE-4] INFO  [qa] [Test_AE10_TC23_Verify_Address_On_Checkout_chrome_23] test.ae.PlaceOrderTests - Running:Step-7
+2026-08-31 16:51:09 [TestNG-test-Release 1.0 Testing for AE-4] INFO  [qa] [Test_AE10_TC23_Verify_Address_On_Checkout_chrome_23] test.ae.PlaceOrderTests - Running:Step-8 >>>> Cleanup
+2026-08-31 16:51:11 [TestNG-test-Release 1.0 Testing for AE-4] INFO  [qa] [Test_AE10_TC23_Verify_Address_On_Checkout_chrome_23] framework.listeners.TestListener - TEST PASSED: Test_AE10_TC23_Verify_Address_On_Checkout
+2026-08-31 16:51:12 [TestNG-test-Release 1.0 Testing for AE-4] ERROR [qa] [Test_AE10_TC23_Verify_Address_On_Checkout_chrome_23] io.qameta.allure.AllureLifecycle - Could not add attachment: no test is running
+2026-08-31 16:51:12 [TestNG-test-Release 1.0 Testing for AE-4] INFO  [qa] [Test_AE10_TC23_Verify_Address_On_Checkout_chrome_23] framework.listeners.TestListener - Screenshot attached: PASSED Screenshot:
+2026-08-31 16:51:13 [TestNG-test-Release 1.0 Testing for AE-4] INFO  [qa] [Test_AE10_TC23_Verify_Address_On_Checkout_chrome_23] test.ae.PlaceOrderTests - Trace stopped for: Test_AE10_TC23_Verify_Address_On_Checkout
+2026-08-31 16:51:15 [TestNG-test-Release 1.0 Testing for AE-4] INFO  [qa] [Test_AE10_TC23_Verify_Address_On_Checkout_chrome_23] framework.drivers.DriverManager - Browser closed successfully.
+2026-08-31 16:51:15 [TestNG-test-Release 1.0 Testing for AE-4] INFO  [qa] [Test_AE10_TC23_Verify_Address_On_Checkout_chrome_23] test.ae.PlaceOrderTests - Driver shutdown successful.
+2026-08-31 16:51:15 [TestNG-test-Release 1.0 Testing for AE-4] INFO  [qa] [Test_AE10_TC23_Verify_Address_On_Checkout_chrome_23] reporting.ReportManager - ✅ Attachment added to Allure: 🎭 Playwright Trace — Test_AE10_TC23_Verify_Address_On_Checkout
+2026-08-31 16:51:15 [TestNG-test-Release 1.0 Testing for AE-4] INFO  [qa] [Test_AE10_TC23_Verify_Address_On_Checkout_chrome_23] test.ae.PlaceOrderTests - Trace attached for: Test_AE10_TC23_Verify_Address_On_Checkout
+2026-08-31 16:51:15 [TestNG-test-Release 1.0 Testing for AE-4] INFO  [qa] [Test_AE10_TC23_Verify_Address_On_Checkout_chrome_23] test.ae.PlaceOrderTests - trace temp file deleted from disk.
+2026-08-31 16:51:15 [TestNG-test-Release 1.0 Testing for AE-4] INFO  [qa] [Test_AE10_TC23_Verify_Address_On_Checkout_chrome_23] reporting.ReportManager - ✅ Attachment added to Allure: 🎬 Test Video — Test_AE10_TC23_Verify_Address_On_Checkout
+2026-08-31 16:51:15 [TestNG-test-Release 1.0 Testing for AE-4] INFO  [qa] [Test_AE10_TC23_Verify_Address_On_Checkout_chrome_23] test.ae.PlaceOrderTests - Video attached for: Test_AE10_TC23_Verify_Address_On_Checkout
+2026-08-31 16:51:15 [TestNG-test-Release 1.0 Testing for AE-4] INFO  [qa] [Test_AE10_TC23_Verify_Address_On_Checkout_chrome_23] test.ae.PlaceOrderTests - video temp file deleted from disk.

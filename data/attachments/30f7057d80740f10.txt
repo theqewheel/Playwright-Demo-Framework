@@ -1,0 +1,12 @@
+
+-------------------------------------------------------------------------
+               DELIVERY ADDRESS ON CHECKOUT
+-------------------------------------------------------------------------
+Title Fullname  : Mrs. Colby Kutch
+Company Name    : Terry LLC
+Address Line1   : 90065 Carroll Wall
+Address Line2   : Apt. 137
+Address Line3   : North Tommieside North Carolina 209642
+Country         : United States
+Phone           : 4611840711
+-------------------------------------------------------------------------

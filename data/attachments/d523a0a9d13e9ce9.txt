@@ -1,0 +1,12 @@
+
+-------------------------------------------------------------------------
+               INVOICE ADDRESS ON CHECKOUT
+-------------------------------------------------------------------------
+Title Fullname  : Mrs. Delmer Heller
+Company Name    : Funk, Hansen and Watsica
+Address Line1   : 3032 Peter Bypass
+Address Line2   : Suite 192
+Address Line3   : New Tomas Maine 123875
+Country         : India
+Phone           : 8030570437
+-------------------------------------------------------------------------

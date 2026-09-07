@@ -1,0 +1,12 @@
+
+-------------------------------------------------------------------------
+               DELIVERY ADDRESS ON CHECKOUT
+-------------------------------------------------------------------------
+Title Fullname  : Mr. Denis Fadel
+Company Name    : Crona, Brakus and Gleichner
+Address Line1   : 96332 Schimmel Valley
+Address Line2   : Suite 127
+Address Line3   : Hoegerland Michigan 638641
+Country         : Canada
+Phone           : 5858035006
+-------------------------------------------------------------------------

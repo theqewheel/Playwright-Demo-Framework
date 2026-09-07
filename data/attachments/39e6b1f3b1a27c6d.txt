@@ -1,0 +1,12 @@
+
+-------------------------------------------------------------------------
+               DELIVERY ADDRESS ON CHECKOUT
+-------------------------------------------------------------------------
+Title Fullname  : Mrs. Dimple Bergnaum
+Company Name    : O'Kon LLC
+Address Line1   : 349 Warner Via
+Address Line2   : Suite 378
+Address Line3   : Lake Mickifort Georgia 468325
+Country         : Canada
+Phone           : 7282510766
+-------------------------------------------------------------------------

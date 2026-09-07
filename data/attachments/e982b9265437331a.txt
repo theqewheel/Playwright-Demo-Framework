@@ -1,0 +1,12 @@
+
+-------------------------------------------------------------------------
+               DELIVERY ADDRESS ON CHECKOUT
+-------------------------------------------------------------------------
+Title Fullname  : Mr. Stevie Ledner
+Company Name    : Tillman, Harvey and Zemlak
+Address Line1   : 28122 Tonisha Parks
+Address Line2   : Apt. 541
+Address Line3   : Port Willard Wyoming 501127
+Country         : Canada
+Phone           : 1744963613
+-------------------------------------------------------------------------

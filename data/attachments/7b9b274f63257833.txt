@@ -1,0 +1,12 @@
+
+-------------------------------------------------------------------------
+               INVOICE ADDRESS ON CHECKOUT
+-------------------------------------------------------------------------
+Title Fullname  : Mrs. Euna McDermott
+Company Name    : Gaylord LLC
+Address Line1   : 170 Langworth Manor
+Address Line2   : Suite 897
+Address Line3   : West Andre South Dakota 525658
+Country         : Canada
+Phone           : 0521023266
+-------------------------------------------------------------------------

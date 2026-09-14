@@ -1,0 +1,12 @@
+
+-------------------------------------------------------------------------
+               DELIVERY ADDRESS ON CHECKOUT
+-------------------------------------------------------------------------
+Title Fullname  : Mrs. Kassie Moen
+Company Name    : Gislason Group
+Address Line1   : 15334 Shields Roads
+Address Line2   : Suite 583
+Address Line3   : Timmyshire West Virginia 709290
+Country         : Israel
+Phone           : 0172313495
+-------------------------------------------------------------------------

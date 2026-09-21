@@ -1,0 +1,12 @@
+
+-------------------------------------------------------------------------
+               DELIVERY ADDRESS ON CHECKOUT
+-------------------------------------------------------------------------
+Title Fullname  : Mr. Delmer Rogahn
+Company Name    : Leannon Inc
+Address Line1   : 59960 Rick Mill
+Address Line2   : Suite 420
+Address Line3   : Blickland South Carolina 334323
+Country         : Canada
+Phone           : 6339777687
+-------------------------------------------------------------------------

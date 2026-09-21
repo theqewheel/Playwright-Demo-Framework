@@ -1,0 +1,12 @@
+
+-------------------------------------------------------------------------
+               DELIVERY ADDRESS ON CHECKOUT
+-------------------------------------------------------------------------
+Title Fullname  : Mrs. Harley Koepp
+Company Name    : Boyer LLC
+Address Line1   : 84155 Schneider Hollow
+Address Line2   : Apt. 625
+Address Line3   : West Gaye Alabama 430509
+Country         : Israel
+Phone           : 8027064723
+-------------------------------------------------------------------------

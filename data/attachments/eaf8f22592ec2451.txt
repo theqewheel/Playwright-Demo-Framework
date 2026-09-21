@@ -1,0 +1,12 @@
+
+-------------------------------------------------------------------------
+               INVOICE ADDRESS ON CHECKOUT
+-------------------------------------------------------------------------
+Title Fullname  : Mrs. King Cummings
+Company Name    : Rosenbaum-Rippin
+Address Line1   : 661 Bobbye Spring
+Address Line2   : Apt. 398
+Address Line3   : Wilkinsonside New Hampshire 076326
+Country         : Israel
+Phone           : 3413606760
+-------------------------------------------------------------------------

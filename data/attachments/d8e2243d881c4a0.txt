@@ -1,0 +1,12 @@
+
+-------------------------------------------------------------------------
+               INVOICE ADDRESS ON CHECKOUT
+-------------------------------------------------------------------------
+Title Fullname  : Mrs. Darnell Connelly
+Company Name    : Hills-Batz
+Address Line1   : 80611 Houston Landing
+Address Line2   : Suite 893
+Address Line3   : Port Coreen Texas 109443
+Country         : Singapore
+Phone           : 0184429124
+-------------------------------------------------------------------------

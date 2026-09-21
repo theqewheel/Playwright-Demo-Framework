@@ -1,0 +1,12 @@
+
+-------------------------------------------------------------------------
+               INVOICE ADDRESS ON CHECKOUT
+-------------------------------------------------------------------------
+Title Fullname  : Mrs. Joey Tremblay
+Company Name    : Parker-Green
+Address Line1   : 071 Adelaide Loaf
+Address Line2   : Suite 732
+Address Line3   : Connellyview Texas 589045
+Country         : India
+Phone           : 6769382633
+-------------------------------------------------------------------------

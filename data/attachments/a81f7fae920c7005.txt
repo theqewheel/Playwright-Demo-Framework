@@ -1,0 +1,12 @@
+
+-------------------------------------------------------------------------
+               INVOICE ADDRESS ON CHECKOUT
+-------------------------------------------------------------------------
+Title Fullname  : Mr. Myron Leffler
+Company Name    : Haley, Douglas and Koelpin
+Address Line1   : 87159 McGlynn Light
+Address Line2   : Suite 192
+Address Line3   : Port Johnathantown West Virginia 103613
+Country         : Israel
+Phone           : 7654037300
+-------------------------------------------------------------------------

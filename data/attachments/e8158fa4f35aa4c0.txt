@@ -1,0 +1,12 @@
+
+-------------------------------------------------------------------------
+               INVOICE ADDRESS ON CHECKOUT
+-------------------------------------------------------------------------
+Title Fullname  : Mrs. Lin Farrell
+Company Name    : Littel-Stanton
+Address Line1   : 331 Spencer Landing
+Address Line2   : Apt. 283
+Address Line3   : East Lavernashire California 155482
+Country         : Singapore
+Phone           : 1390685672
+-------------------------------------------------------------------------

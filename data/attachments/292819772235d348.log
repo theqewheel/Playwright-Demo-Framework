@@ -1,0 +1,23 @@
+2026-09-28 17:31:32 [TestNG-test-Release 1.0 Testing for AE-1] INFO  [qa] [Test_AE5_TC18_Verify_Product_Category_Filtering_chrome_29] framework.listeners.TestListener - --- STARTING TEST : ProductsTests#Test_AE5_TC18_Verify_Product_Category_Filtering on chrome [thread-29] ---
+2026-09-28 17:31:32 [TestNG-test-Release 1.0 Testing for AE-1] INFO  [qa] [Test_AE5_TC18_Verify_Product_Category_Filtering_chrome_29] test.ae.ProductsTests - Running:Step-1
+2026-09-28 17:31:37 [TestNG-test-Release 1.0 Testing for AE-1] INFO  [qa] [Test_AE5_TC18_Verify_Product_Category_Filtering_chrome_29] framework.listeners.TestListener - TEST FAILED: Test_AE5_TC18_Verify_Product_Category_Filtering
+2026-09-28 17:31:37 [TestNG-test-Release 1.0 Testing for AE-1] ERROR [qa] [Test_AE5_TC18_Verify_Product_Category_Filtering_chrome_29] framework.listeners.TestListener - Failure Reason: org.opentest4j.AssertionFailedError: Page title expected to match regex
+Expected: Automation Exercise
+Received: One moment, please...
+
+Call log:
+  - Assert "hasTitle" with timeout 5000ms
+    9 × unexpected value "One moment, please..."
+2026-09-28 17:31:37 [TestNG-test-Release 1.0 Testing for AE-1] ERROR [qa] [Test_AE5_TC18_Verify_Product_Category_Filtering_chrome_29] io.qameta.allure.AllureLifecycle - Could not add attachment: no test is running
+2026-09-28 17:31:37 [TestNG-test-Release 1.0 Testing for AE-1] ERROR [qa] [Test_AE5_TC18_Verify_Product_Category_Filtering_chrome_29] io.qameta.allure.AllureLifecycle - Could not start step: no test case running
+2026-09-28 17:31:37 [TestNG-test-Release 1.0 Testing for AE-1] ERROR [qa] [Test_AE5_TC18_Verify_Product_Category_Filtering_chrome_29] io.qameta.allure.AllureLifecycle - Could not stop step: step with uuid 52a55e23-4e7e-4e84-9fae-9a2be56f84c8 not found
+2026-09-28 17:31:37 [TestNG-test-Release 1.0 Testing for AE-1] INFO  [qa] [Test_AE5_TC18_Verify_Product_Category_Filtering_chrome_29] framework.listeners.TestListener - Screenshot attached: FAILURE Screenshot:
+2026-09-28 17:31:37 [TestNG-test-Release 1.0 Testing for AE-1] INFO  [qa] [Test_AE5_TC18_Verify_Product_Category_Filtering_chrome_29] test.ae.ProductsTests - Trace stopped for: Test_AE5_TC18_Verify_Product_Category_Filtering
+2026-09-28 17:31:37 [TestNG-test-Release 1.0 Testing for AE-1] INFO  [qa] [Test_AE5_TC18_Verify_Product_Category_Filtering_chrome_29] framework.drivers.DriverManager - Browser closed successfully.
+2026-09-28 17:31:37 [TestNG-test-Release 1.0 Testing for AE-1] INFO  [qa] [Test_AE5_TC18_Verify_Product_Category_Filtering_chrome_29] test.ae.ProductsTests - Driver shutdown successful.
+2026-09-28 17:31:37 [TestNG-test-Release 1.0 Testing for AE-1] INFO  [qa] [Test_AE5_TC18_Verify_Product_Category_Filtering_chrome_29] reporting.ReportManager - ✅ Attachment added to Allure: 🎭 Playwright Trace — Test_AE5_TC18_Verify_Product_Category_Filtering
+2026-09-28 17:31:37 [TestNG-test-Release 1.0 Testing for AE-1] INFO  [qa] [Test_AE5_TC18_Verify_Product_Category_Filtering_chrome_29] test.ae.ProductsTests - Trace attached for: Test_AE5_TC18_Verify_Product_Category_Filtering
+2026-09-28 17:31:37 [TestNG-test-Release 1.0 Testing for AE-1] INFO  [qa] [Test_AE5_TC18_Verify_Product_Category_Filtering_chrome_29] test.ae.ProductsTests - trace temp file deleted from disk.
+2026-09-28 17:31:37 [TestNG-test-Release 1.0 Testing for AE-1] INFO  [qa] [Test_AE5_TC18_Verify_Product_Category_Filtering_chrome_29] reporting.ReportManager - ✅ Attachment added to Allure: 🎬 Test Video — Test_AE5_TC18_Verify_Product_Category_Filtering
+2026-09-28 17:31:37 [TestNG-test-Release 1.0 Testing for AE-1] INFO  [qa] [Test_AE5_TC18_Verify_Product_Category_Filtering_chrome_29] test.ae.ProductsTests - Video attached for: Test_AE5_TC18_Verify_Product_Category_Filtering
+2026-09-28 17:31:37 [TestNG-test-Release 1.0 Testing for AE-1] INFO  [qa] [Test_AE5_TC18_Verify_Product_Category_Filtering_chrome_29] test.ae.ProductsTests - video temp file deleted from disk.

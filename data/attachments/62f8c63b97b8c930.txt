@@ -1,6 +1,0 @@
-Category             : Women
-Price                : 1000
-Total                : 4000
-SubCategory          : Dress
-Quantity             : 4
-Name                 : Sleeveless Dress

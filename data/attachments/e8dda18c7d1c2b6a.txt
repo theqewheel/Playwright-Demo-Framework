@@ -1,6 +1,0 @@
-Category             : Men
-Price                : 400
-Total                : 400
-SubCategory          : Tshirts
-Quantity             : 1
-Name                 : Men Tshirt

@@ -1,0 +1,23 @@
+2026-09-28 17:31:17 [TestNG-test-Release 1.0 Testing for AE-2] INFO  [qa] [Test_AE2_TC04_Verify_User_Logout_chrome_30] framework.listeners.TestListener - --- STARTING TEST : LoginTests#Test_AE2_TC04_Verify_User_Logout on chrome [thread-30] ---
+2026-09-28 17:31:17 [TestNG-test-Release 1.0 Testing for AE-2] INFO  [qa] [Test_AE2_TC04_Verify_User_Logout_chrome_30] test.ae.LoginTests - Running:Step-1
+2026-09-28 17:31:22 [TestNG-test-Release 1.0 Testing for AE-2] INFO  [qa] [Test_AE2_TC04_Verify_User_Logout_chrome_30] framework.listeners.TestListener - TEST FAILED: Test_AE2_TC04_Verify_User_Logout
+2026-09-28 17:31:22 [TestNG-test-Release 1.0 Testing for AE-2] ERROR [qa] [Test_AE2_TC04_Verify_User_Logout_chrome_30] framework.listeners.TestListener - Failure Reason: org.opentest4j.AssertionFailedError: Page title expected to match regex
+Expected: Automation Exercise
+Received: One moment, please...
+
+Call log:
+  - Assert "hasTitle" with timeout 5000ms
+    9 × unexpected value "One moment, please..."
+2026-09-28 17:31:22 [TestNG-test-Release 1.0 Testing for AE-2] ERROR [qa] [Test_AE2_TC04_Verify_User_Logout_chrome_30] io.qameta.allure.AllureLifecycle - Could not add attachment: no test is running
+2026-09-28 17:31:22 [TestNG-test-Release 1.0 Testing for AE-2] ERROR [qa] [Test_AE2_TC04_Verify_User_Logout_chrome_30] io.qameta.allure.AllureLifecycle - Could not start step: no test case running
+2026-09-28 17:31:22 [TestNG-test-Release 1.0 Testing for AE-2] ERROR [qa] [Test_AE2_TC04_Verify_User_Logout_chrome_30] io.qameta.allure.AllureLifecycle - Could not stop step: step with uuid f8741a6f-f746-4f1c-9b27-07ee63f864aa not found
+2026-09-28 17:31:22 [TestNG-test-Release 1.0 Testing for AE-2] INFO  [qa] [Test_AE2_TC04_Verify_User_Logout_chrome_30] framework.listeners.TestListener - Screenshot attached: FAILURE Screenshot:
+2026-09-28 17:31:22 [TestNG-test-Release 1.0 Testing for AE-2] INFO  [qa] [Test_AE2_TC04_Verify_User_Logout_chrome_30] test.ae.LoginTests - Trace stopped for: Test_AE2_TC04_Verify_User_Logout
+2026-09-28 17:31:22 [TestNG-test-Release 1.0 Testing for AE-2] INFO  [qa] [Test_AE2_TC04_Verify_User_Logout_chrome_30] framework.drivers.DriverManager - Browser closed successfully.
+2026-09-28 17:31:22 [TestNG-test-Release 1.0 Testing for AE-2] INFO  [qa] [Test_AE2_TC04_Verify_User_Logout_chrome_30] test.ae.LoginTests - Driver shutdown successful.
+2026-09-28 17:31:22 [TestNG-test-Release 1.0 Testing for AE-2] INFO  [qa] [Test_AE2_TC04_Verify_User_Logout_chrome_30] reporting.ReportManager - ✅ Attachment added to Allure: 🎭 Playwright Trace — Test_AE2_TC04_Verify_User_Logout
+2026-09-28 17:31:22 [TestNG-test-Release 1.0 Testing for AE-2] INFO  [qa] [Test_AE2_TC04_Verify_User_Logout_chrome_30] test.ae.LoginTests - Trace attached for: Test_AE2_TC04_Verify_User_Logout
+2026-09-28 17:31:22 [TestNG-test-Release 1.0 Testing for AE-2] INFO  [qa] [Test_AE2_TC04_Verify_User_Logout_chrome_30] test.ae.LoginTests - trace temp file deleted from disk.
+2026-09-28 17:31:22 [TestNG-test-Release 1.0 Testing for AE-2] INFO  [qa] [Test_AE2_TC04_Verify_User_Logout_chrome_30] reporting.ReportManager - ✅ Attachment added to Allure: 🎬 Test Video — Test_AE2_TC04_Verify_User_Logout
+2026-09-28 17:31:22 [TestNG-test-Release 1.0 Testing for AE-2] INFO  [qa] [Test_AE2_TC04_Verify_User_Logout_chrome_30] test.ae.LoginTests - Video attached for: Test_AE2_TC04_Verify_User_Logout
+2026-09-28 17:31:22 [TestNG-test-Release 1.0 Testing for AE-2] INFO  [qa] [Test_AE2_TC04_Verify_User_Logout_chrome_30] test.ae.LoginTests - video temp file deleted from disk.

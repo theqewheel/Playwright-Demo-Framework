@@ -1,0 +1,12 @@
+
+-------------------------------------------------------------------------
+               DELIVERY ADDRESS ON CHECKOUT
+-------------------------------------------------------------------------
+Title Fullname  : Mr. Jaime Von
+Company Name    : Kozey, Aufderhar and Reinger
+Address Line1   : 903 Marquardt Extensions
+Address Line2   : Apt. 619
+Address Line3   : New Cedric Louisiana 724730
+Country         : New Zealand
+Phone           : 5202177141
+-------------------------------------------------------------------------

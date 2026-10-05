@@ -1,0 +1,12 @@
+
+-------------------------------------------------------------------------
+               INVOICE ADDRESS ON CHECKOUT
+-------------------------------------------------------------------------
+Title Fullname  : Mr. Helga Treutel
+Company Name    : Funk, Schultz and McLaughlin
+Address Line1   : 9067 Wunsch Glen
+Address Line2   : Suite 922
+Address Line3   : Port Reynaldo Ohio 203459
+Country         : Singapore
+Phone           : 9307503862
+-------------------------------------------------------------------------

@@ -1,0 +1,12 @@
+
+-------------------------------------------------------------------------
+               DELIVERY ADDRESS ON CHECKOUT
+-------------------------------------------------------------------------
+Title Fullname  : Mrs. Elwanda Herman
+Company Name    : Konopelski and Sons
+Address Line1   : 31997 Gerhold Meadows
+Address Line2   : Suite 499
+Address Line3   : Joseshire Montana 460293
+Country         : Israel
+Phone           : 8542551810
+-------------------------------------------------------------------------

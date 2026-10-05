@@ -1,0 +1,12 @@
+
+-------------------------------------------------------------------------
+               DELIVERY ADDRESS ON CHECKOUT
+-------------------------------------------------------------------------
+Title Fullname  : Mr. Willene Feil
+Company Name    : Herman, Zulauf and Howell
+Address Line1   : 8698 Leonie Dale
+Address Line2   : Suite 889
+Address Line3   : Rosarioborough Illinois 783852
+Country         : Canada
+Phone           : 6778184155
+-------------------------------------------------------------------------

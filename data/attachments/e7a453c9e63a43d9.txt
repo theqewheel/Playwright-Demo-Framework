@@ -1,0 +1,24 @@
+
+---------------------------------------------------
+Product 1 Added To Cart
+Name  : Sleeveless Dress
+Price : 1000
+------------------------xxxx-----------------------
+
+---------------------------------------------------
+Product 2 Added To Cart
+Name  : Sleeveless Unicorn Patch Gown - Pink
+Price : 1050
+------------------------xxxx-----------------------
+
+---------------------------------------------------
+Product 3 Added To Cart
+Name  : Winter Top
+Price : 600
+------------------------xxxx-----------------------
+
+---------------------------------------------------
+Product 4 Added To Cart
+Name  : Little Girls Mr. Panda Shirt
+Price : 1200
+------------------------xxxx-----------------------

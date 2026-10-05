@@ -1,0 +1,12 @@
+
+-------------------------------------------------------------------------
+               DELIVERY ADDRESS ON CHECKOUT
+-------------------------------------------------------------------------
+Title Fullname  : Mrs. Vanesa Zulauf
+Company Name    : Becker, Kreiger and White
+Address Line1   : 0577 Bud Forges
+Address Line2   : Suite 000
+Address Line3   : Lake Andre Nevada 780746
+Country         : Canada
+Phone           : 1846567865
+-------------------------------------------------------------------------

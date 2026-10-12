@@ -1,0 +1,12 @@
+
+-------------------------------------------------------------------------
+               DELIVERY ADDRESS ON CHECKOUT
+-------------------------------------------------------------------------
+Title Fullname  : Mr. Jermaine Reynolds
+Company Name    : Schulist, Orn and Muller
+Address Line1   : 2696 Roy Canyon
+Address Line2   : Apt. 240
+Address Line3   : Morissetteview Ohio 732841
+Country         : Australia
+Phone           : 5061440426
+-------------------------------------------------------------------------

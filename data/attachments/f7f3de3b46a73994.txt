@@ -1,0 +1,12 @@
+
+-------------------------------------------------------------------------
+               DELIVERY ADDRESS ON CHECKOUT
+-------------------------------------------------------------------------
+Title Fullname  : Mr. Viviana Stokes
+Company Name    : Johnston-Walter
+Address Line1   : 24408 Kunde Mountains
+Address Line2   : Suite 872
+Address Line3   : Lake Spencer Alabama 214875
+Country         : Australia
+Phone           : 6200332367
+-------------------------------------------------------------------------

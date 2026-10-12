@@ -1,0 +1,12 @@
+
+-------------------------------------------------------------------------
+               DELIVERY ADDRESS ON CHECKOUT
+-------------------------------------------------------------------------
+Title Fullname  : Mrs. Bernita Grady
+Company Name    : Wunsch-Luettgen
+Address Line1   : 87566 Schiller Club
+Address Line2   : Suite 603
+Address Line3   : East Royal Oklahoma 635037
+Country         : Australia
+Phone           : 7547714206
+-------------------------------------------------------------------------

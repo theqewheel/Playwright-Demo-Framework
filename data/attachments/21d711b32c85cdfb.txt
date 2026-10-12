@@ -1,0 +1,12 @@
+
+-------------------------------------------------------------------------
+               DELIVERY ADDRESS ON CHECKOUT
+-------------------------------------------------------------------------
+Title Fullname  : Mrs. Kathe Bernhard
+Company Name    : Glover-Sauer
+Address Line1   : 84028 Collene Course
+Address Line2   : Apt. 601
+Address Line3   : Dickensbury Kansas 988317
+Country         : Israel
+Phone           : 8408852392
+-------------------------------------------------------------------------

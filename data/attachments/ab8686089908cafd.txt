@@ -1,0 +1,12 @@
+
+-------------------------------------------------------------------------
+               DELIVERY ADDRESS ON CHECKOUT
+-------------------------------------------------------------------------
+Title Fullname  : Mrs. Hosea Becker
+Company Name    : Ritchie-Douglas
+Address Line1   : 77142 Jeannie Villages
+Address Line2   : Suite 996
+Address Line3   : Gradytown Oregon 128152
+Country         : Australia
+Phone           : 1057166855
+-------------------------------------------------------------------------

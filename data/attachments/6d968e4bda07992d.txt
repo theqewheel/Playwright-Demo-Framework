@@ -1,0 +1,12 @@
+
+-------------------------------------------------------------------------
+               DELIVERY ADDRESS ON CHECKOUT
+-------------------------------------------------------------------------
+Title Fullname  : Mrs. Gregory Kuhic
+Company Name    : Erdman-Kirlin
+Address Line1   : 85490 Bruce Bridge
+Address Line2   : Apt. 207
+Address Line3   : Toshikoberg Arkansas 245567
+Country         : Canada
+Phone           : 3168131732
+-------------------------------------------------------------------------
